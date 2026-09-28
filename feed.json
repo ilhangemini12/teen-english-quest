@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T16:39:49.104239+00:00",
+  "updated_at": "2026-09-28T16:42:33.055749+00:00",
   "items": [
     {
       "key": "d0f476bdb9dc41",
@@ -59,7 +59,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0pctlbw",
       "published": "2026-09-28T08:14:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pctl9z.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pctl9z.mp3"
     },
     {
       "key": "9b1f64a30e0efe",
@@ -191,7 +191,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0pbvx4y",
       "published": "2026-09-22T09:33:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbvvvr.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbvvvr.mp3"
     },
     {
       "key": "8f1a0e59d26efd",
@@ -215,7 +215,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0pbpc7j",
       "published": "2026-09-21T08:09:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3"
     },
     {
       "key": "5da2954a2a3715",
@@ -275,7 +275,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0p9p685",
       "published": "2026-09-15T08:35:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9p4tv.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9p4tv.mp3"
     },
     {
       "key": "a1a8c0da98041e",
@@ -299,7 +299,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0p9j6qz",
       "published": "2026-09-14T08:43:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9j6n0.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9j6n0.mp3"
     },
     {
       "key": "94110fbfffb0d0",
@@ -323,7 +323,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0p8w5sh",
       "published": "2026-09-10T07:46:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8w5by.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8w5by.mp3"
     },
     {
       "key": "0f34b1acf8b535",
@@ -335,7 +335,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0p8jckw",
       "published": "2026-09-08T09:30:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8j55f.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8j55f.mp3"
     },
     {
       "key": "b753e4e391da4b",
@@ -347,7 +347,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0p8cbdn",
       "published": "2026-09-07T08:30:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8cb9p.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8cb9p.mp3"
     },
     {
       "key": "424fd3b006f8af",
@@ -359,7 +359,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0p79z34",
       "published": "2026-09-01T08:29:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p79x32.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p79x32.mp3"
     },
     {
       "key": "3bbc8ef5d12e6a",
@@ -431,7 +431,7 @@
       "url": "http://www.bbc.co.uk/programmes/p0p1qc9j",
       "published": "2026-07-30T14:14:00+00:00",
       "image": "",
-      "audio_url": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p1q8ns.mp3"
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p1q8ns.mp3"
     },
     {
       "key": "fd7f2b2f9002c4",
