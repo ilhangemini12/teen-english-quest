@@ -280,3 +280,17 @@ grant execute on function public.send_friend_request_by_code(text) to authentica
 grant execute on function public.respond_friend_request(bigint,boolean) to authenticated;
 grant execute on function public.my_friend_requests() to authenticated;
 grant execute on function public.friend_leaderboard() to authenticated;
+
+
+-- Explicitly remove default PUBLIC execute privileges from security-definer RPCs.
+revoke execute on function public.claim_xp(text,text) from public, anon;
+revoke execute on function public.send_friend_request_by_code(text) from public, anon;
+revoke execute on function public.respond_friend_request(bigint,boolean) from public, anon;
+revoke execute on function public.my_friend_requests() from public, anon;
+revoke execute on function public.friend_leaderboard() from public, anon;
+
+grant execute on function public.claim_xp(text,text) to authenticated;
+grant execute on function public.send_friend_request_by_code(text) to authenticated;
+grant execute on function public.respond_friend_request(bigint,boolean) to authenticated;
+grant execute on function public.my_friend_requests() to authenticated;
+grant execute on function public.friend_leaderboard() to authenticated;
