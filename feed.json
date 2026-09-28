@@ -1,6 +1,17 @@
 {
-  "updated_at": "2026-09-28T15:04:55.583658+00:00",
+  "updated_at": "2026-09-28T15:49:27.259371+00:00",
   "items": [
+    {
+      "key": "046611ef9906ee",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Why I’m building libraries inside prisons | Reginald Dwayne Betts",
+      "summary": "At age 16, Reginald Dwayne Betts was sentenced to nine years in prison. He turned to books to help hold onto his sanity — and developed a belief that we find what we look for, even in the toughest places.…",
+      "url": "http://go.ted.com/reginalddwaynebetts",
+      "published": "2026-09-28T15:00:00+00:00",
+      "image": ""
+    },
     {
       "key": "da7422a5fd9a38",
       "source": "Science News Explores",
@@ -9,7 +20,8 @@
       "title": "AI … in space!",
       "summary": "In WALL-E , artificial intelligence runs an entire ship. Real-life AI, though, is too finicky and prone to mistakes to manage that.",
       "url": "https://www.snexplores.org/article/ai-space-exploration",
-      "published": "2026-09-28T10:30:00+00:00"
+      "published": "2026-09-28T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0826_tech-fic.jpg?w=800"
     },
     {
       "key": "d06790dbeedafc",
@@ -19,7 +31,52 @@
       "title": "Scientists Say: Paradox",
       "summary": "When gut instinct leads you astray, paradoxes can point the right way.",
       "url": "https://www.snexplores.org/article/scientists-say-paradox-definition-pronunciation",
-      "published": "2026-09-28T10:30:00+00:00"
+      "published": "2026-09-28T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_SS_paradox_feat.png?w=800"
+    },
+    {
+      "key": "b81b755dc0db73",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Adjectives ending with -ic and -ical",
+      "summary": "'Classic' or 'classical'? Learn about adjectives ending in -ic and -ical. Find Learning English Grammar: ✔️ https://www.bbc.co.uk/learningenglish/english/features/learning-english-grammar FIND BBC LEARNING…",
+      "url": "http://www.bbc.co.uk/programmes/p0pctlbw",
+      "published": "2026-09-28T08:14:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pctl9z.mp3"
+    },
+    {
+      "key": "9b1f64a30e0efe",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "MTV VMAs 2026 Winners: The Complete List of Wins, From Taylor Swift to BTS",
+      "summary": "Did your fave take home a Moon Person?",
+      "url": "https://www.teenvogue.com/story/mtv-vmas-2026-winners-the-complete-list-live-updates",
+      "published": "2026-09-28T03:58:59+00:00",
+      "image": "https://assets.teenvogue.com/photos/673b446c144083da083c2724/master/pass/1419086500"
+    },
+    {
+      "key": "96e4e0ed97b05c",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Taylor Swift ‘Patient Zero’ Music Video: All the Major Easter Eggs",
+      "summary": "The video premiered at the 2026 VMAs.",
+      "url": "https://www.teenvogue.com/story/taylor-swift-patient-zero-music-video-all-the-major-easter-eggs",
+      "published": "2026-09-28T01:54:58+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ab9c8752192b932ffd16fef/master/pass/2297466440"
+    },
+    {
+      "key": "d4c2399a0f021f",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The MTV VMAs 2026 Red Carpet Best Dressed so Far, From Sombr's Low-Waist Pants to Stella Lefty's Updo",
+      "summary": "It's time for the most fun red carpet of all.",
+      "url": "https://www.teenvogue.com/gallery/mtv-vmas-2026-red-carpet-best-dressed",
+      "published": "2026-09-27T22:52:59+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ab99d0314e55f59b8e1d60a/master/pass/2296940569"
     },
     {
       "key": "315e3ed98b9e3f",
@@ -29,7 +86,30 @@
       "title": "How to escape your obsession with productivity | Rebecca McMackin and Catherine Price",
       "summary": "Why are we so obsessed with productivity? Horticulturist Rebecca McMackin (who wants people to let their lawns grow wild) and author Catherine Price (who wrote a book about the power of fun) come together…",
       "url": "http://go.ted.com/rebeccaandcatherine",
-      "published": "2026-09-26T15:00:00+00:00"
+      "published": "2026-09-26T15:00:00+00:00",
+      "image": ""
+    },
+    {
+      "key": "3907ba964598c1",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The Femcels Will Save You From Indie Sleaze Fatigue: 'The Songs Are Just Us Saying Weird Sh*t'",
+      "summary": "The London-based band talks New York and the charm of music with characterization and a bit of angst, too.",
+      "url": "https://www.teenvogue.com/story/the-femcels-interview-2026",
+      "published": "2026-09-25T16:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ab533a2b6d03fa4ab6a06ba/master/pass/TnV_Femcels_-13.jpg"
+    },
+    {
+      "key": "a0668cdd33bfda",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The First Day of School Is Pivotal. 9 High Schoolers Showed Us How They Dressed for It",
+      "summary": "A year-defining back-to-school outfit transcends generations. Here's how students showed up on the first day of school in 2026.",
+      "url": "https://www.teenvogue.com/story/first-day-of-school-fashion-2026",
+      "published": "2026-09-25T12:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ab5930a759fd93ef12262db/master/pass/Header%20(1).jpg"
     },
     {
       "key": "f9fc2ec595c603",
@@ -39,7 +119,8 @@
       "title": "Like an armadillo, a new soft robot rolls up to protect itself",
       "summary": "Like the three-banded armadillo, this device can roll up to shield its innards, such as sensitive electronics and a small payload.",
       "url": "https://www.snexplores.org/article/soft-robot-armadillo-rolls-up",
-      "published": "2026-09-25T10:30:00+00:00"
+      "published": "2026-09-25T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_robo_armadillo_robot_feat.jpg?w=800"
     },
     {
       "key": "c77425bbbfad23",
@@ -49,7 +130,8 @@
       "title": "The Humble History of the Bedpan",
       "summary": "Over the past few centuries, inventors have tweaked the design of the receptacles here and there, but overall, not much has changed about the dependable medical supply",
       "url": "https://www.smithsonianmag.com/innovation/the-humble-history-of-the-bedpan-180989560/",
-      "published": "2026-09-24T19:04:30+00:00"
+      "published": "2026-09-24T19:04:30+00:00",
+      "image": ""
     },
     {
       "key": "92261e3741d4e7",
@@ -59,7 +141,8 @@
       "title": "Seals helped this oceanographer study the Southern Ocean",
       "summary": "Oceanographer Lily Dove uses remote robots to study Antarctica’s perilous oceans.",
       "url": "https://www.snexplores.org/article/oceanographer-seals-ocean-climate",
-      "published": "2026-09-23T10:30:00+00:00"
+      "published": "2026-09-23T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_Lily_Dove_profiled_feat.jpg?w=800"
     },
     {
       "key": "d3f39eeee36a5a",
@@ -69,7 +152,8 @@
       "title": "What makes a good game? | Eric Zimmerman",
       "summary": "What’s the best way to make a project more playful? Game designer Eric Zimmerman has a counterintuitive suggestion: a few good rules. Drawing on his experience making everything from video games and…",
       "url": "https://go.ted.com/ericzimmerman",
-      "published": "2026-09-22T15:00:00+00:00"
+      "published": "2026-09-22T15:00:00+00:00",
+      "image": ""
     },
     {
       "key": "d5b33982858c26",
@@ -79,7 +163,19 @@
       "title": "Let’s learn about trace fossils",
       "summary": "Trace fossils — such as burrows, footprints and vomit — offer snapshots of ancient life.",
       "url": "https://www.snexplores.org/article/lets-learn-about-trace-fossils",
-      "published": "2026-09-22T10:30:00+00:00"
+      "published": "2026-09-22T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_LLA_trace_fossil_feat.png?w=800"
+    },
+    {
+      "key": "bcc9438d47fad2",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Same person, different font",
+      "summary": "Same hair, same style, same ways of waking and talking? They might be the 'same person, different font'. Learn how to use this expression with Becca and Feifei. Get a free transcript for this episode here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0pbvx4y",
+      "published": "2026-09-22T09:33:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbvvvr.mp3"
     },
     {
       "key": "8f1a0e59d26efd",
@@ -89,7 +185,19 @@
       "title": "How to clean up the world's dirtiest industry | Joojin Kim",
       "summary": "Climate strategist Joojin Kim spent years convincing banks across South Korea to stop funding coal, and it worked. Now he's aiming that same playbook at a new target: maritime shipping, a hidden engine of…",
       "url": "http://go.ted.com/joojinkim",
-      "published": "2026-09-21T15:00:00+00:00"
+      "published": "2026-09-21T15:00:00+00:00",
+      "image": ""
+    },
+    {
+      "key": "a5b47db97899c8",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Strong adjectives",
+      "summary": "Terrified', 'fantastic', 'amazing' - learn how to use strong adjectives. Find Learning English Grammar: ✔️ https://www.bbc.co.uk/learningenglish/english/features/learning-english-grammar FIND BBC LEARNING…",
+      "url": "http://www.bbc.co.uk/programmes/p0pbpc7j",
+      "published": "2026-09-21T08:09:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3"
     },
     {
       "key": "5da2954a2a3715",
@@ -99,17 +207,8 @@
       "title": "Perseverance’s View of ‘Turquoise Bay’",
       "summary": "Description NASA’s Perseverance Mars rover used its Mastcam-Z camera to capture this 360-degree panorama of “Turquoise Bay,” a geologic area of interest in the “Margin Unit.” The 818 images used to create…",
       "url": "https://science.nasa.gov/photojournal/perseverances-view-of-turquoise-bay/",
-      "published": "2026-09-21T00:00:00+00:00"
-    },
-    {
-      "key": "d7a96d601ea329",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How to make AI companies pay your energy bill | Ari Matusiak",
-      "summary": "Climate expert Ari Matusiak spends his days working to rewire America's energy system, and he has an idea: instead of tech companies building new power plants for their AI data centers, they should invest…",
-      "url": "http://go.ted.com/arimatusiak",
-      "published": "2026-09-18T15:00:00+00:00"
+      "published": "2026-09-21T00:00:00+00:00",
+      "image": ""
     },
     {
       "key": "410e5f66ce0eca",
@@ -119,7 +218,8 @@
       "title": "Five Ways the World of the Dinosaurs Looked Different From Ours, Beyond the Presence of the 'Terrible Lizards'",
       "summary": "Earth has changed dramatically since the Age of Dinosaurs, from its climate to geography and animal life",
       "url": "https://www.smithsonianmag.com/science-nature/five-ways-the-world-of-the-dinosaurs-looked-different-from-ours-beyond-the-presence-of-the-terrible-lizards-180989521/",
-      "published": "2026-09-18T14:00:00+00:00"
+      "published": "2026-09-18T14:00:00+00:00",
+      "image": ""
     },
     {
       "key": "40e6f8b1621889",
@@ -129,7 +229,8 @@
       "title": "Some Fish in the Great Lakes Might Be More Than 400 Years Old, a Study Suggests, Outliving Around 15 Generations of Humans",
       "summary": "Lake sturgeon may be among the longest-living vertebrates, second only to Greenland sharks, according to recent research. However, scientists note that follow-up work is necessary to clarify the species’…",
       "url": "https://www.smithsonianmag.com/science-nature/some-fish-in-the-great-lakes-might-be-more-than-400-years-old-a-study-suggests-outliving-around-15-generations-of-humans-180989500/",
-      "published": "2026-09-16T13:43:20+00:00"
+      "published": "2026-09-16T13:43:20+00:00",
+      "image": ""
     },
     {
       "key": "13423b857182d1",
@@ -139,7 +240,19 @@
       "title": "Curiosity Postcard Celebrates Rover’s 5,000th Day on Mars",
       "summary": "Description While parked at a sand ridge nicknamed “Chocolatal,” NASA’s Curiosity Mars rover used its black-and-white navigation cameras to capture panoramas at two times of day. The first was taken on Aug.…",
       "url": "https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/",
-      "published": "2026-09-16T00:00:00+00:00"
+      "published": "2026-09-16T00:00:00+00:00",
+      "image": ""
+    },
+    {
+      "key": "90f9d7761706d5",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Hot take",
+      "summary": "Do you want to share a surprising opinion? Learn how to use 'hot take' with Feifei and Becca. Get a free transcript to read while you listen here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0p9p685",
+      "published": "2026-09-15T08:35:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9p4tv.mp3"
     },
     {
       "key": "a1a8c0da98041e",
@@ -149,7 +262,19 @@
       "title": "How AI unleashed (not replaced) my creativity | Kelly A. Boesch",
       "summary": "After working for years in film, fashion and graphic design, visual artist Kelly A. Boesch found a new collaborator to work with: AI. She walks through how she uses the technology to create dreamlike images…",
       "url": "http://go.ted.com/kellyaboesch",
-      "published": "2026-09-14T15:00:00+00:00"
+      "published": "2026-09-14T15:00:00+00:00",
+      "image": ""
+    },
+    {
+      "key": "055bc7380e8e37",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Male and female job words",
+      "summary": "Policeman/policewoman, actor/actress - learn about job titles and gender. FIND BBC LEARNING ENGLISH HERE: Visit our website ✔️ https://www.bbc.co.uk/learningenglish Follow us ✔️…",
+      "url": "http://www.bbc.co.uk/programmes/p0p9j6qz",
+      "published": "2026-09-14T08:43:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9j6n0.mp3"
     },
     {
       "key": "94110fbfffb0d0",
@@ -159,7 +284,52 @@
       "title": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?",
       "summary": "The tool may pick up subtle differences in the speech of people with the mental health condition better than human psychiatrists",
       "url": "https://www.smithsonianmag.com/innovation/could-artificial-intelligence-help-with-early-diagnosis-of-schizophrenia-180989486/",
-      "published": "2026-09-11T13:31:01+00:00"
+      "published": "2026-09-11T13:31:01+00:00",
+      "image": ""
+    },
+    {
+      "key": "0f542aa8c40780",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "Can apps teach you a language?",
+      "summary": "Have you ever used Duolingo, Babbel, Busuu or perhaps another language-learning app? How did you get on? Some people love the convenience of these apps – you can learn on the go, like during your commute to…",
+      "url": "http://www.bbc.co.uk/programmes/p0p8w5sh",
+      "published": "2026-09-10T07:46:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8w5by.mp3"
+    },
+    {
+      "key": "0f34b1acf8b535",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Try it on",
+      "summary": "Sometimes people lie to try and get away with things. They are just trying It on. Learn how to use 'try it on' with Feifei and Phil. As always, get your free transcript for this episode here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0p8jckw",
+      "published": "2026-09-08T09:30:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8j55f.mp3"
+    },
+    {
+      "key": "b753e4e391da4b",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Weather words",
+      "summary": "The British love to talk about weather! Learn some useful vocabulary about it here. TRY THE LISTENING ROOM: ✔️ https://www.bbc.co.uk/learningenglish/english/features/the_listening_room (Hard: Upper…",
+      "url": "http://www.bbc.co.uk/programmes/p0p8cbdn",
+      "published": "2026-09-07T08:30:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8cb9p.mp3"
+    },
+    {
+      "key": "424fd3b006f8af",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Non-starter",
+      "summary": "Some ideas are just never going to work. Those are what we call 'non-starters'. Learn how to use this expression with Feifei and Phil. As always, get your free transcript for this episode here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0p79z34",
+      "published": "2026-09-01T08:29:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p79x32.mp3"
     },
     {
       "key": "3bbc8ef5d12e6a",
@@ -169,7 +339,8 @@
       "title": "‘Rocky’ Is the Story of an Underdog, Created by an Underdog, That Has Spawned Box-Office Champions for Half a Century",
       "summary": "Sylvester Stallone was a struggling actor when he was inspired by a real boxing match to write the film that became a legend. This year, the origin story of the franchise turns 50.",
       "url": "https://www.smithsonianmag.com/arts-culture/rocky-story-underdog-created-underdog-spawned-box-office-champions-half-century-180989274/",
-      "published": "2026-08-31T11:00:00+00:00"
+      "published": "2026-08-31T11:00:00+00:00",
+      "image": ""
     },
     {
       "key": "f83a1391965de6",
@@ -179,7 +350,8 @@
       "title": "Dolly Parton Was One of the Biggest Stars in the History of Country Music. She Wanted to Be Remembered as a Songwriter",
       "summary": "After growing up in poverty, she became famous for her legendary songs, big heart and larger-than-life style. But the iconic musician insisted that \"the songs lead to everything else\"",
       "url": "https://www.smithsonianmag.com/arts-culture/dolly-parton-was-one-of-the-biggest-stars-in-the-history-of-country-music-she-wanted-to-be-remembered-as-a-songwriter-180989405/",
-      "published": "2026-08-26T17:58:35+00:00"
+      "published": "2026-08-26T17:58:35+00:00",
+      "image": ""
     },
     {
       "key": "f1476e449b231d",
@@ -189,7 +361,8 @@
       "title": "Why Gen Z Is Learning to Paint Like 19th-Century Artists",
       "summary": "Paint groups are popping up in parks. Art schools are seeing a surge in applications. The rise of A.I. has people turning to more traditional art forms",
       "url": "https://www.smithsonianmag.com/innovation/why-gen-z-is-learning-to-paint-like-19th-century-artists-180989359/",
-      "published": "2026-08-18T18:14:03+00:00"
+      "published": "2026-08-18T18:14:03+00:00",
+      "image": ""
     },
     {
       "key": "3d60c116c9b333",
@@ -199,7 +372,8 @@
       "title": "This High Schooler Invented a Plant-Based Plastic That Removes Microplastics From the Environment as It Biodegrades",
       "summary": "Eighteen-year-old Arya Satheesh created her award-winning Eco Purge to help address the global problem of plastic pollution",
       "url": "https://www.smithsonianmag.com/innovation/this-high-schooler-invented-a-plant-based-plastic-that-removes-microplastics-from-the-environment-as-it-biodegrades-180989254/",
-      "published": "2026-08-06T11:06:54+00:00"
+      "published": "2026-08-06T11:06:54+00:00",
+      "image": ""
     },
     {
       "key": "988b79a6d7174f",
@@ -209,7 +383,19 @@
       "title": "The History of the Beach Read, From 19th-Century 'Moral Debasement' to BookTok",
       "summary": "The still-popular genre got its start 150 years ago, when publishers profited off the rise of travel in the United States during an otherwise slow publishing season",
       "url": "https://www.smithsonianmag.com/innovation/the-history-of-the-beach-read-from-19th-century-moral-debasement-to-booktok-180989238/",
-      "published": "2026-08-03T14:22:30+00:00"
+      "published": "2026-08-03T14:22:30+00:00",
+      "image": ""
+    },
+    {
+      "key": "e01ee9f540c926",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "The Enhanced Games",
+      "summary": "What would the world of athletics look like if athletes were allowed to take drugs? Pippa and Neil discuss the Enhanced Games. Learn English from authentic BBC programme clips. Get a free worksheet, quiz…",
+      "url": "http://www.bbc.co.uk/programmes/p0p1qc9j",
+      "published": "2026-07-30T14:14:00+00:00",
+      "image": "http://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p1q8ns.mp3"
     },
     {
       "key": "fd7f2b2f9002c4",
@@ -219,7 +405,8 @@
       "title": "How to Pronounce: Studying pauses and connections",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/8005248.html",
-      "published": "2025-04-13T22:05:00+00:00"
+      "published": "2025-04-13T22:05:00+00:00",
+      "image": ""
     },
     {
       "key": "3f383cf9e87072",
@@ -229,7 +416,8 @@
       "title": "Learning English Podcast",
       "summary": "Learning English uses a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
       "url": "https://learningenglish.voanews.com/a/8011955.html",
-      "published": "2025-03-31T00:30:03+00:00"
+      "published": "2025-03-31T00:30:03+00:00",
+      "image": ""
     },
     {
       "key": "41522b46c157f5",
@@ -239,7 +427,8 @@
       "title": "How to Pronounce: Science and Technology: 'Asteroid'",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/7971267.html",
-      "published": "2025-03-23T22:00:00+00:00"
+      "published": "2025-03-23T22:00:00+00:00",
+      "image": ""
     },
     {
       "key": "882eae64913bd9",
@@ -249,7 +438,8 @@
       "title": "Grammar Games at Home: Jeopardy",
       "summary": "With so many people stuck at home, Everyday Grammar will be offering ideas for games that you can play with your family or housemates to practice your English. Today's game is Jeopardy.",
       "url": "https://learningenglish.voanews.com/a/grammar-games-at-home-part-1-jeopardy/5345471.html",
-      "published": "2025-03-20T22:05:17+00:00"
+      "published": "2025-03-20T22:05:17+00:00",
+      "image": ""
     },
     {
       "key": "b5335aece05657",
@@ -259,7 +449,8 @@
       "title": "English in a Minute: Dish It Out but Can't Take It",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/8009981.html",
-      "published": "2025-03-17T22:00:00+00:00"
+      "published": "2025-03-17T22:00:00+00:00",
+      "image": ""
     },
     {
       "key": "59cad9756d80ab",
@@ -269,7 +460,8 @@
       "title": "How to Pronounce: Intonation and Function Words in Science and Technology",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/7971266.html",
-      "published": "2025-03-16T22:00:00+00:00"
+      "published": "2025-03-16T22:00:00+00:00",
+      "image": ""
     },
     {
       "key": "76d6299392a0c3",
@@ -279,7 +471,8 @@
       "title": "Mount Vernon - George Washington’s Virginia Home",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/8011175.html",
-      "published": "2025-03-14T21:17:21+00:00"
+      "published": "2025-03-14T21:17:21+00:00",
+      "image": ""
     },
     {
       "key": "bc25905d4eb725",
@@ -289,7 +482,8 @@
       "title": "The Most Famous Home in America: The White House",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/8007352.html",
-      "published": "2025-03-12T13:46:29+00:00"
+      "published": "2025-03-12T13:46:29+00:00",
+      "image": ""
     },
     {
       "key": "a6d81ce477028d",
@@ -299,7 +493,8 @@
       "title": "Harry Houdini: The Great Escape Artist",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/8006783.html",
-      "published": "2025-03-11T15:47:07+00:00"
+      "published": "2025-03-11T15:47:07+00:00",
+      "image": ""
     },
     {
       "key": "8fabb7bfb65438",
@@ -309,7 +504,8 @@
       "title": "A Priceless Bible Returns to Its Longtime Home in Switzerland",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/8005230.html",
-      "published": "2025-03-10T14:42:19+00:00"
+      "published": "2025-03-10T14:42:19+00:00",
+      "image": ""
     },
     {
       "key": "fff00532427441",
@@ -319,7 +515,8 @@
       "title": "Knitting While Watching Movies Gains Popularity",
       "summary": "In Europe and America, people are enjoying the activity of knitting while watching a movie together. The idea is to relax while doing something useful and fun.",
       "url": "https://learningenglish.voanews.com/a/knitting-while-watching-movies-gains-popularity-/7990808.html",
-      "published": "2025-03-05T21:55:00+00:00"
+      "published": "2025-03-05T21:55:00+00:00",
+      "image": ""
     },
     {
       "key": "f8c4eee9522f2b",
@@ -329,7 +526,8 @@
       "title": "How to Pronounce: Science and Technology: 'Telescope'",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/7971270.html",
-      "published": "2025-03-02T22:00:00+00:00"
+      "published": "2025-03-02T22:00:00+00:00",
+      "image": ""
     },
     {
       "key": "b43e2c03e7bcf2",
@@ -339,7 +537,8 @@
       "title": "How to Pronounce: Possessive Forms in Science and Technology",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/7971269.html",
-      "published": "2025-02-23T22:00:00+00:00"
+      "published": "2025-02-23T22:00:00+00:00",
+      "image": ""
     },
     {
       "key": "03db3e1bc69d41",
@@ -349,7 +548,8 @@
       "title": "The Importance of Being ‘Dialed In’",
       "summary": "English has several expressions that come from older technology. Today, we explore \"dailing in,\" \"tuning in,\" and \"moving the needle.\"",
       "url": "https://learningenglish.voanews.com/a/the-importance-of-being-dialed-in-/7979814.html",
-      "published": "2025-02-22T22:05:00+00:00"
+      "published": "2025-02-22T22:05:00+00:00",
+      "image": ""
     },
     {
       "key": "78fb5090055939",
@@ -359,7 +559,8 @@
       "title": "Don't Miss a Thing With 'Eagle Eyes'",
       "summary": "Some birds, called raptors, are known for their extremely sharp vision. Eagles, hawks, and owls can see their prey from very far away. Learn how we use these birds in our English expressions.",
       "url": "https://learningenglish.voanews.com/a/don-t-miss-a-thing-with-eagle-eyes-/7963085.html",
-      "published": "2025-02-15T22:00:00+00:00"
+      "published": "2025-02-15T22:00:00+00:00",
+      "image": ""
     },
     {
       "key": "2a2f0a9465bad7",
@@ -369,7 +570,8 @@
       "title": "Academic Writing: Common Sentence Patterns, Part Four",
       "summary": "English has many patterns. Learning and mastering these patterns can help you improve your writing and speaking skills. Today's common pattern is the transitive verb pattern. There are several types of…",
       "url": "https://learningenglish.voanews.com/a/everyday-grammar-common-sentence-patterns-part-4/3499292.html",
-      "published": "2025-02-13T22:00:00+00:00"
+      "published": "2025-02-13T22:00:00+00:00",
+      "image": ""
     },
     {
       "key": "e11982b434244a",
@@ -379,7 +581,8 @@
       "title": "Academic Writing: Common Sentence Patterns, Part Three",
       "summary": "What are intransitive verbs and how are they used? Find out in the third part of our series about common sentence patterns in the English language.",
       "url": "https://learningenglish.voanews.com/a/everyday-grammar-common-sentence-patterns-part-3/3488629.html",
-      "published": "2025-02-06T22:05:00+00:00"
+      "published": "2025-02-06T22:05:00+00:00",
+      "image": ""
     },
     {
       "key": "407d485bc3ec73",
@@ -389,7 +592,8 @@
       "title": "Let's Learn English Level 2 Certificate of Achievement",
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/6873336.html",
-      "published": "2022-12-12T22:13:08+00:00"
+      "published": "2022-12-12T22:13:08+00:00",
+      "image": ""
     }
   ]
 }
