@@ -10,6 +10,10 @@ from bs4 import BeautifulSoup
 FEEDS=[
 ("Science News Explores","Science & Tech","https://www.snexplores.org/feed/","🧪",10),
 ("TED Talks Daily","Podcast","https://feeds.feedburner.com/TEDTalks_audio","🎧",9),
+("BBC 6 Minute English","British English","https://podcasts.files.bbci.co.uk/p02pc9tn.rss","🇬🇧",10),
+("BBC Learning English Conversations","British English","https://podcasts.files.bbci.co.uk/p02pc9zn.rss","💬",9),
+("BBC Learning English Vocabulary","British English","https://podcasts.files.bbci.co.uk/p02pc9xz.rss","🧠",9),
+("Teen Vogue","Style & Trends","https://www.teenvogue.com/feed/rss","✨",10),
 ("Smithsonian Science","Science & Tech","https://www.smithsonianmag.com/rss/science-nature/","🔭",8),
 ("Smithsonian Innovation","Science & Tech","https://www.smithsonianmag.com/rss/innovation/","💡",8),
 ("Smithsonian Arts & Culture","Culture","https://www.smithsonianmag.com/rss/arts-culture/","🎨",8),
@@ -43,6 +47,10 @@ TED_PREFER={
 "creative","creativity","language","communication","confidence","design","art","environment","climate",
 "animal","ocean","culture","story","book","curiosity","idea","memory","focus","education","game","fun",
 "productivity","nature","robot","ai ","artificial intelligence","career","friend","habit"
+}
+TEEN_VOGUE_PREFER={
+"fashion","style","beauty","makeup","hair","nail","perfume","music","movie","film","tv ","television",
+"book","gaming","game","celebrity","designer","outfit","trend","shopping","culture"
 }
 YOUTH_BOOST={
 "teen":5,"student":4,"school":4,"game":4,"music":3,"movie":3,"film":3,"book":3,"space":4,"robot":4,
@@ -97,11 +105,21 @@ for src,cat,url,emoji,priority in FEEDS:
             if not title or not link or blocked(combined): continue
             if src=="TED Talks Daily" and not any(k in combined.lower() for k in TED_PREFER): continue
             if src.startswith("Smithsonian") and not any(k in combined.lower() for k in YOUTH_BOOST): continue
+            if src=="Teen Vogue" and not any(k in combined.lower() for k in TEEN_VOGUE_PREFER): continue
             if len(summary)>210: summary=summary[:207].rsplit(" ",1)[0]+"…"
             published=iso(e)
+            image=""
+            try:
+                if e.get("media_thumbnail"): image=e["media_thumbnail"][0].get("url","")
+                elif e.get("media_content"): image=e["media_content"][0].get("url","")
+                else:
+                    raw_html=e.get("summary") or e.get("description") or ""
+                    m=re.search(r'<img[^>]+src=["\']([^"\']+)',raw_html,re.I)
+                    if m:image=html.unescape(m.group(1))
+            except Exception: pass
             raw.append({
                 "key":key(src,title,link),"source":src,"category":cat,"emoji":emoji,
-                "title":title,"summary":summary,"url":link,"published":published,
+                "title":title,"summary":summary,"url":link,"published":published,"image":image,
                 "_score":score_item(src,cat,title,summary,published,priority)
             })
             accepted+=1
@@ -136,12 +154,12 @@ for x in items:
 for x in items:
     if x in out: continue
     if source_counts.get(x["source"],0)>=5: continue
-    category_caps={"Science & Tech":14,"American English":12,"Podcast":8,"Culture":8}
+    category_caps={"Science & Tech":14,"American English":12,"British English":10,"Podcast":8,"Culture":8,"Style & Trends":10}
     if cat_counts.get(x["category"],0)>=category_caps.get(x["category"],10): continue
     out.append(x)
     source_counts[x["source"]]=source_counts.get(x["source"],0)+1
     cat_counts[x["category"]]=cat_counts.get(x["category"],0)+1
-    if len(out)>=42: break
+    if len(out)>=54: break
 
 # Final display order favors freshness while retaining category variety.
 def sort_key(x):
