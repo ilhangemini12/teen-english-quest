@@ -109,17 +109,37 @@ for src,cat,url,emoji,priority in FEEDS:
             if len(summary)>210: summary=summary[:207].rsplit(" ",1)[0]+"…"
             published=iso(e)
             image=""
+            audio_url=""
             try:
                 if e.get("media_thumbnail"): image=e["media_thumbnail"][0].get("url","")
-                elif e.get("media_content"): image=e["media_content"][0].get("url","")
-                else:
+                elif e.get("media_content"):
+                    for media in e["media_content"]:
+                        mtype=(media.get("type") or "").lower()
+                        murl=media.get("url","")
+                        if mtype.startswith("audio/") and murl and not audio_url: audio_url=murl
+                        elif murl and not image and (mtype.startswith("image/") or not mtype): image=murl
+                if not image:
                     raw_html=e.get("summary") or e.get("description") or ""
                     m=re.search(r'<img[^>]+src=["\']([^"\']+)',raw_html,re.I)
                     if m:image=html.unescape(m.group(1))
+                for enc in (e.get("enclosures") or []):
+                    etype=(enc.get("type") or "").lower()
+                    eurl=enc.get("href") or enc.get("url") or ""
+                    if eurl and (etype.startswith("audio/") or re.search(r'\.(mp3|m4a|aac|ogg)(\?|$)',eurl,re.I)):
+                        audio_url=eurl
+                        break
+                if not audio_url:
+                    for ln in (e.get("links") or []):
+                        if ln.get("rel")=="enclosure":
+                            ltype=(ln.get("type") or "").lower()
+                            lurl=ln.get("href","")
+                            if lurl and (ltype.startswith("audio/") or re.search(r'\.(mp3|m4a|aac|ogg)(\?|$)',lurl,re.I)):
+                                audio_url=lurl
+                                break
             except Exception: pass
             raw.append({
                 "key":key(src,title,link),"source":src,"category":cat,"emoji":emoji,
-                "title":title,"summary":summary,"url":link,"published":published,"image":image,
+                "title":title,"summary":summary,"url":link,"published":published,"image":image,"audio_url":audio_url,
                 "_score":score_item(src,cat,title,summary,published,priority)
             })
             accepted+=1
