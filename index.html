@@ -17,7 +17,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="English Quest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(()=>{});
+  });
+}
+</script>
+
+</head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
   <h2>👤 English Quest Account</h2>
   <div class="authstatus" id="authStatus">Secure account system is loading…</div>
@@ -53,15 +61,7 @@
     </div>
     <div id="eqFriendRequests" style="margin-top:12px"></div>
   </div>
-</div></div><script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(()=>{});
-  });
-}
-</script>
-
-</head><body><div class="top"><div class="wrap">
+</div></div><div class="top"><div class="wrap">
 <nav class="brandnav"><b>TEEN <span style="color:var(--green)">ENGLISH QUEST</span></b><button class="profilebtn" onclick="openAccount()">👤 Account</button></nav>
 <div class="apptabs" id="appTabs">
 <button class="on" onclick="showAppTab('Home',this)">🏠 Home</button>
