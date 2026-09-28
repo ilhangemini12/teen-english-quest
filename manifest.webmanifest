@@ -1,11 +1,11 @@
 {
-  "name":"Teen English Quest — American English",
-  "short_name":"English Quest",
+  "name":"BatumHub — English, SAT & Future",
+  "short_name":"BatumHub",
   "start_url":"./",
   "scope":"./",
   "display":"standalone",
-  "background_color":"#08111f",
-  "theme_color":"#08111f",
-  "description":"Gamified American English learning portal with fresh daily content.",
+  "background_color":"#0b1220",
+  "theme_color":"#0b1220",
+  "description":"A social ESL learning hub for English, SAT, media, university and career discovery.",
   "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
