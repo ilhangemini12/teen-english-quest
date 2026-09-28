@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#6ee7b7"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs><rect width="512" height="512" rx="110" fill="#08111f"/><rect x="44" y="44" width="424" height="424" rx="90" fill="#101c2f" stroke="url(#g)" stroke-width="14"/><text x="256" y="302" text-anchor="middle" font-family="Arial,sans-serif" font-size="174" font-weight="800" fill="white">EQ</text><path d="M155 355h202" stroke="url(#g)" stroke-width="18" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#59d7b7"/><stop offset="1" stop-color="#f1ce75"/></linearGradient></defs>
+<rect width="512" height="512" rx="110" fill="#0b1220"/>
+<rect x="44" y="44" width="424" height="424" rx="90" fill="#121c2e" stroke="url(#g)" stroke-width="14"/>
+<text x="256" y="300" text-anchor="middle" font-family="Arial,sans-serif" font-size="160" font-weight="800" fill="white">BH</text>
+<path d="M155 355h202" stroke="url(#g)" stroke-width="18" stroke-linecap="round"/>
+</svg>
