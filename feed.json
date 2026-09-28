@@ -1,1 +1,425 @@
-{"updated_at":null,"items":[]}
+{
+  "updated_at": "2026-09-28T14:53:58.082435+00:00",
+  "items": [
+    {
+      "key": "d06790dbeedafc",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Paradox",
+      "summary": "When gut instinct leads you astray, paradoxes can point the right way.",
+      "url": "https://www.snexplores.org/article/scientists-say-paradox-definition-pronunciation",
+      "published": "2026-09-28T10:30:00+00:00"
+    },
+    {
+      "key": "da7422a5fd9a38",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "AI … in space!",
+      "summary": "In WALL-E , artificial intelligence runs an entire ship. Real-life AI, though, is too finicky and prone to mistakes to manage that.",
+      "url": "https://www.snexplores.org/article/ai-space-exploration",
+      "published": "2026-09-28T10:30:00+00:00"
+    },
+    {
+      "key": "315e3ed98b9e3f",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to escape your obsession with productivity | Rebecca McMackin and Catherine Price",
+      "summary": "Why are we so obsessed with productivity? Horticulturist Rebecca McMackin (who wants people to let their lawns grow wild) and author Catherine Price (who wrote a book about the power of fun) come together to discuss…",
+      "url": "http://go.ted.com/rebeccaandcatherine",
+      "published": "2026-09-26T15:00:00+00:00"
+    },
+    {
+      "key": "f9fc2ec595c603",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Like an armadillo, a new soft robot rolls up to protect itself",
+      "summary": "Like the three-banded armadillo, this device can roll up to shield its innards, such as sensitive electronics and a small payload.",
+      "url": "https://www.snexplores.org/article/soft-robot-armadillo-rolls-up",
+      "published": "2026-09-25T10:30:00+00:00"
+    },
+    {
+      "key": "1b163b4ef8d90b",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Inside the \"play labs\" helping refugee kids heal | Erum Mariam",
+      "summary": "What does healing look like for a refugee child? That's the question educational leader Erum Mariam asked when her team built the humanitarian \"play labs\": small, welcoming spaces where children displaced from their…",
+      "url": "http://go.ted.com/erummariam",
+      "published": "2026-09-24T15:00:00+00:00"
+    },
+    {
+      "key": "6c11d7e1a8b998",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "When we were prey",
+      "summary": "Bite marks on a 2-million-year-old human jaw suggest leopards once hunted people as prey. People likely survived by learning to team up.",
+      "url": "https://www.snexplores.org/article/human-evolution-hunted-prey-predator",
+      "published": "2026-09-24T10:30:00+00:00"
+    },
+    {
+      "key": "b6dda7dfdf48cb",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Why we blew up four dams — and saved a river | Amy Bowers Cordalis",
+      "summary": "For thousands of years, the Klamath River in Northern California was home to one of the continent’s great salmon runs, creating abundance for the native Yurok Tribe … until a series of dams and a century of…",
+      "url": "http://go.ted.com/amybowerscordalis",
+      "published": "2026-09-23T15:00:00+00:00"
+    },
+    {
+      "key": "92261e3741d4e7",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Seals helped this oceanographer study the Southern Ocean",
+      "summary": "Oceanographer Lily Dove uses remote robots to study Antarctica’s perilous oceans.",
+      "url": "https://www.snexplores.org/article/oceanographer-seals-ocean-climate",
+      "published": "2026-09-23T10:30:00+00:00"
+    },
+    {
+      "key": "d3f39eeee36a5a",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "What makes a good game? | Eric Zimmerman",
+      "summary": "What’s the best way to make a project more playful? Game designer Eric Zimmerman has a counterintuitive suggestion: a few good rules. Drawing on his experience making everything from video games and tabletop classics…",
+      "url": "https://go.ted.com/ericzimmerman",
+      "published": "2026-09-22T15:00:00+00:00"
+    },
+    {
+      "key": "d5b33982858c26",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Let’s learn about trace fossils",
+      "summary": "Trace fossils — such as burrows, footprints and vomit — offer snapshots of ancient life.",
+      "url": "https://www.snexplores.org/article/lets-learn-about-trace-fossils",
+      "published": "2026-09-22T10:30:00+00:00"
+    },
+    {
+      "key": "8f1a0e59d26efd",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to clean up the world's dirtiest industry | Joojin Kim",
+      "summary": "Climate strategist Joojin Kim spent years convincing banks across South Korea to stop funding coal, and it worked. Now he's aiming that same playbook at a new target: maritime shipping, a hidden engine of the global…",
+      "url": "http://go.ted.com/joojinkim",
+      "published": "2026-09-21T15:00:00+00:00"
+    },
+    {
+      "key": "5da2954a2a3715",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Perseverance’s View of ‘Turquoise Bay’",
+      "summary": "Description NASA’s Perseverance Mars rover used its Mastcam-Z camera to capture this 360-degree panorama of “Turquoise Bay,” a geologic area of interest in the “Margin Unit.” The 818 images used to create the…",
+      "url": "https://science.nasa.gov/photojournal/perseverances-view-of-turquoise-bay/",
+      "published": "2026-09-21T00:00:00+00:00"
+    },
+    {
+      "key": "9fcaf22dc587f6",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The secret to mastering life's biggest transitions | Bruce Feiler",
+      "summary": "How do you navigate life's growing number of transitions with meaning, purpose and skill? Writer Bruce Feiler offers a powerful way to handle uncertain, painful and confusing times -- or \"lifequakes\", as he calls…",
+      "url": "https://go.ted.com/6a7C",
+      "published": "2026-09-20T06:00:00+00:00"
+    },
+    {
+      "key": "13423b857182d1",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Curiosity Postcard Celebrates Rover’s 5,000th Day on Mars",
+      "summary": "Description While parked at a sand ridge nicknamed “Chocolatal,” NASA’s Curiosity Mars rover used its black-and-white navigation cameras to capture panoramas at two times of day. The first was taken on Aug. 30, 2026,…",
+      "url": "https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/",
+      "published": "2026-09-16T00:00:00+00:00"
+    },
+    {
+      "key": "45d4bf2b10a43d",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Ribbon-Cutting Event for NASA Deep Space Network’s Deep Space Station 23",
+      "summary": "Description Leadership from NASA Headquarters, the Jet Propulsion Laboratory, and the Deep Space Network (DSN) stand in front of the recently completed Deep Space Station 23 antenna at the Deep Space Network’s…",
+      "url": "https://science.nasa.gov/photojournal/ribbon-cutting-event-for-nasa-deep-space-networks-deep-space-station-23/",
+      "published": "2026-08-25T00:00:00+00:00"
+    },
+    {
+      "key": "3c9d43bfec4c56",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA Deep Space Network’s New Goldstone Antenna Goes Online",
+      "summary": "Description Long shadows are cast by the recently completed Deep Space Station 23 at the Deep Space Network’s Goldstone complex near Barstow, California, in August 2026. A 34-meter (114-foot) multifrequency…",
+      "url": "https://science.nasa.gov/photojournal/nasa-deep-space-networks-new-goldstone-antenna-goes-online/",
+      "published": "2026-08-25T00:00:00+00:00"
+    },
+    {
+      "key": "e2d4dfbe7f7d35",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Panorama Showcasing the 34-Meter Antennas of the DSN’s Goldstone Complex",
+      "summary": "Description Five antennas soak in the summer sun at the Deep Space Network’s Goldstone complex near Barstow, California, in August 2026. The recently completed Deep Space Station 23, a 34-meter (114-foot)…",
+      "url": "https://science.nasa.gov/photojournal/panorama-showcasing-the-34-meter-antennas-of-the-dsns-goldstone-complex/",
+      "published": "2026-08-25T00:00:00+00:00"
+    },
+    {
+      "key": "d7bcdba4be8696",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Perseverance Captures Another Phobos Transit",
+      "summary": "Description NASA’s Perseverance Mars rover used its Mastcam-Z camera to capture the silhouette of Phobos, one of the two Martian moons, as it crossed in front of the Sun on Aug. 12, 2026, the 1,948th Martian day, or…",
+      "url": "https://science.nasa.gov/photojournal/perseverance-captures-another-phobos-transit/",
+      "published": "2026-08-24T00:00:00+00:00"
+    },
+    {
+      "key": "9921d20407a1bb",
+      "source": "VOA How to Pronounce",
+      "category": "American English",
+      "emoji": "🗣️",
+      "title": "How to Pronounce: Fun Practice - Exaggeration Activities",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8005242.html",
+      "published": "2025-04-27T22:05:00+00:00"
+    },
+    {
+      "key": "358c2bd636ca82",
+      "source": "VOA How to Pronounce",
+      "category": "American English",
+      "emoji": "🗣️",
+      "title": "How to Pronounce: Self-monitoring and improvement",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8005244.html",
+      "published": "2025-04-20T22:05:00+00:00"
+    },
+    {
+      "key": "fd7f2b2f9002c4",
+      "source": "VOA How to Pronounce",
+      "category": "American English",
+      "emoji": "🗣️",
+      "title": "How to Pronounce: Studying pauses and connections",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8005248.html",
+      "published": "2025-04-13T22:05:00+00:00"
+    },
+    {
+      "key": "a92c188c2879ac",
+      "source": "VOA How to Pronounce",
+      "category": "American English",
+      "emoji": "🗣️",
+      "title": "How to Pronounce: Difficult terms - Artificial General Intelligence",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8005241.html",
+      "published": "2025-04-06T22:05:00+00:00"
+    },
+    {
+      "key": "3f383cf9e87072",
+      "source": "VOA Learning English Podcast",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Learning English Podcast",
+      "summary": "Learning English uses a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
+      "url": "https://learningenglish.voanews.com/a/8011955.html",
+      "published": "2025-03-31T00:30:03+00:00"
+    },
+    {
+      "key": "0565ca92561a17",
+      "source": "VOA How to Pronounce",
+      "category": "American English",
+      "emoji": "🗣️",
+      "title": "How to Pronounce: Stress and listening - Artificial intelligence",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8005249.html",
+      "published": "2025-03-30T22:05:00+00:00"
+    },
+    {
+      "key": "e350d4325dc89b",
+      "source": "VOA Learning English Podcast",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Learning English Podcast",
+      "summary": "Learning English use a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
+      "url": "https://learningenglish.voanews.com/a/8011766.html",
+      "published": "2025-03-30T00:30:03+00:00"
+    },
+    {
+      "key": "fd228a61772d53",
+      "source": "VOA Learning English Podcast",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Learning English Podcast",
+      "summary": "Learning English use a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
+      "url": "https://learningenglish.voanews.com/a/8011291.html",
+      "published": "2025-03-29T00:30:03+00:00"
+    },
+    {
+      "key": "fd51db83fa929e",
+      "source": "VOA Learning English Podcast",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Learning English Podcast",
+      "summary": "Learning English use a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
+      "url": "https://learningenglish.voanews.com/a/8010124.html",
+      "published": "2025-03-28T00:30:03+00:00"
+    },
+    {
+      "key": "b624a166ca3df7",
+      "source": "VOA Learning English Podcast",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Learning English Podcast",
+      "summary": "Learning English use a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
+      "url": "https://learningenglish.voanews.com/a/8008768.html",
+      "published": "2025-03-27T00:30:03+00:00"
+    },
+    {
+      "key": "6120952692e675",
+      "source": "VOA Learning English Podcast",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Learning English Podcast",
+      "summary": "Learning English use a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
+      "url": "https://learningenglish.voanews.com/a/8007423.html",
+      "published": "2025-03-26T00:30:03+00:00"
+    },
+    {
+      "key": "41522b46c157f5",
+      "source": "VOA How to Pronounce",
+      "category": "American English",
+      "emoji": "🗣️",
+      "title": "How to Pronounce: Science and Technology: 'Asteroid'",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/7971267.html",
+      "published": "2025-03-23T22:00:00+00:00"
+    },
+    {
+      "key": "882eae64913bd9",
+      "source": "VOA Everyday Grammar",
+      "category": "American English",
+      "emoji": "✍️",
+      "title": "Grammar Games at Home: Jeopardy",
+      "summary": "With so many people stuck at home, Everyday Grammar will be offering ideas for games that you can play with your family or housemates to practice your English. Today's game is Jeopardy.",
+      "url": "https://learningenglish.voanews.com/a/grammar-games-at-home-part-1-jeopardy/5345471.html",
+      "published": "2025-03-20T22:05:17+00:00"
+    },
+    {
+      "key": "3768d1992cb9a3",
+      "source": "VOA Science & Technology",
+      "category": "Science & Tech",
+      "emoji": "🔬",
+      "title": "Wilbur and Orville Wright: The First Airplane",
+      "summary": "Wilbur and Orville Wright quietly developed a powered flying machine that proved heavier-than-air flight was possible more than 120 years ago.",
+      "url": "https://learningenglish.voanews.com/a/wilbur-and-orville-wright-the-first-airplane/7998765.html",
+      "published": "2025-03-17T22:05:00+00:00"
+    },
+    {
+      "key": "b5335aece05657",
+      "source": "VOA English in a Minute",
+      "category": "American English",
+      "emoji": "⚡",
+      "title": "English in a Minute: Dish It Out but Can't Take It",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8009981.html",
+      "published": "2025-03-17T22:00:00+00:00"
+    },
+    {
+      "key": "9da12ade3aa5f1",
+      "source": "VOA Words & Their Stories",
+      "category": "American English",
+      "emoji": "💬",
+      "title": "'Watching the Grass Grow' Is Not Fun",
+      "summary": "Spring is an exciting time, but watching grass grow in any season is not something people want to be doing. Find out what it means when people say something is “like watching grass grow.”",
+      "url": "https://learningenglish.voanews.com/a/watching-the-grass-grow-is-not-fun/8003108.html",
+      "published": "2025-03-15T22:05:00+00:00"
+    },
+    {
+      "key": "76d6299392a0c3",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "Mount Vernon - George Washington’s Virginia Home",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8011175.html",
+      "published": "2025-03-14T21:17:21+00:00"
+    },
+    {
+      "key": "a12c1773c8bceb",
+      "source": "VOA Science & Technology",
+      "category": "Science & Tech",
+      "emoji": "🔬",
+      "title": "Barbara McClintock, Geneticist and Nobel Prize Winner",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8010810.html",
+      "published": "2025-03-14T16:28:15+00:00"
+    },
+    {
+      "key": "1072c5d88ecec1",
+      "source": "VOA Everyday Grammar",
+      "category": "American English",
+      "emoji": "✍️",
+      "title": "Common Adverbs in Conversation: Amplifiers, Downtoners",
+      "summary": "In this Everyday Grammar program, we examine some of the most important adverbs that you will hear in everyday speech. There is even a special name for them. They are called amplifiers and downtoners.",
+      "url": "https://learningenglish.voanews.com/a/amplifiers-downtoners/3714862.html",
+      "published": "2025-03-13T22:05:15+00:00"
+    },
+    {
+      "key": "d7ad071fb43b15",
+      "source": "VOA Words & Their Stories",
+      "category": "American English",
+      "emoji": "💬",
+      "title": "What Does It Mean 'To Mushroom'?",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8008674.html",
+      "published": "2025-03-13T11:11:48+00:00"
+    },
+    {
+      "key": "bab56cb79ecde1",
+      "source": "VOA Science & Technology",
+      "category": "Science & Tech",
+      "emoji": "🔬",
+      "title": "Methods for Protecting Earth against an Asteroid Strike",
+      "summary": "This image provided by NASA shows the asteroid Dimorphos, captured by NASA’s DART mission just two seconds before the spacecraft struck its surface, on Sept. 26, 2022. (NASA/Johns Hopkins APL via AP)",
+      "url": "https://learningenglish.voanews.com/a/methods-for-protecting-earth-against-an-asteroid-strike/7989189.html",
+      "published": "2025-03-12T22:00:00+00:00"
+    },
+    {
+      "key": "0d0abeff0ae5a7",
+      "source": "VOA News Words",
+      "category": "American English",
+      "emoji": "🗞️",
+      "title": "News Words: Illusion",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8007357.html",
+      "published": "2025-03-12T22:00:00+00:00"
+    },
+    {
+      "key": "a8b82ab25cdd26",
+      "source": "VOA Science & Technology",
+      "category": "Science & Tech",
+      "emoji": "🔬",
+      "title": "Private Moon Missions Include Hits and Misses",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8008422.html",
+      "published": "2025-03-12T19:04:03+00:00"
+    },
+    {
+      "key": "0050eb56ed60b1",
+      "source": "VOA Everyday Grammar",
+      "category": "American English",
+      "emoji": "✍️",
+      "title": "Words Come and Go in English",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8008295.html",
+      "published": "2025-03-12T17:08:14+00:00"
+    }
+  ]
+}
