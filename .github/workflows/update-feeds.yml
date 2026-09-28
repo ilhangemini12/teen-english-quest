@@ -10,6 +10,9 @@ on:
       - ".github/workflows/update-feeds.yml"
 permissions:
   contents: write
+concurrency:
+  group: teen-english-feed
+  cancel-in-progress: true
 jobs:
   refresh:
     runs-on: ubuntu-latest
