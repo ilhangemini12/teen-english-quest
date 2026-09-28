@@ -180,6 +180,14 @@ body[data-density="compact"] .mission{border-radius:13px!important}
 .demoPass.full{border-color:var(--gold)}.demoPass.signed{border-color:var(--accent)}.demoPass.signed b{color:var(--accent)!important}
 .demoGateNote{background:var(--surface2);border:1px solid var(--gold);color:var(--text);border-radius:12px;padding:10px;margin:10px 0}
 @media(max-width:720px){.demoPass{grid-template-columns:1fr auto}.demoMeter{grid-column:1/-1;grid-row:2}.demoPass .btn{grid-column:2;grid-row:1}}
+
+/* ===== BATUMHUB TOP STATUS V4.2 ===== */
+.topStatusBar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:0 0 8px;color:var(--muted);font-size:11px}
+.topStatusBar span{display:inline-flex;align-items:center;gap:4px;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:5px 8px}
+.topStatusBar b{color:var(--text);font-weight:800}
+.topStatusBar .versionTop{border-color:color-mix(in srgb,var(--gold) 65%,var(--line));}
+.topStatusBar .versionTop b{color:var(--gold)!important}
+@media(max-width:640px){.topStatusBar{gap:5px;padding-bottom:6px}.topStatusBar span{padding:4px 7px;font-size:10px}}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#08111f">
@@ -195,7 +203,8 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>\n</head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
   <h2>👤 English Quest Account</h2>
   <div class="authstatus" id="authStatus">Secure account system is loading…</div>
@@ -235,6 +244,12 @@ if ('serviceWorker' in navigator) {
   </div>
 </div></div><div class="top"><div class="wrap">
 <nav class="brandnav"><b class="brandWord">BATUM<span>HUB</span></b><button class="profilebtn" onclick="openTab('Settings')">⚙️</button><button class="profilebtn" id="eqAccountButton" onclick="openAccount()">👤 Account</button></nav>
+<div class="topStatusBar" id="topStatusBar">
+  <span>📅 <b id="bhToday">—</b></span>
+  <span>🌦️ <b id="bhWeather">Batumi —</b></span>
+  <span class="versionTop">⚙️ <b>v4.2</b></span>
+  <span>🕒 <b id="bhUpdated">Updated Sep 28, 2026</b></span>
+</div>
 <div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
       <div>
         <b>🎟️ Demo Pass</b>
@@ -528,6 +543,29 @@ if ('serviceWorker' in navigator) {
   <div class="dictHead"><div><b id="dictWordTitle">word</b><small id="dictPhonetic"></small></div><button onclick="closeDict()">✕</button></div>
   <div id="dictBody"><small>Hold your cursor over an English word for 3 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
+
+const BH_SITE_VERSION='4.2';
+const BH_SITE_UPDATED='2026-09-28T21:01:00+04:00';
+function bhWeatherText(code){
+  const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
+  return map[Number(code)]||'🌦️ Weather';
+}
+function bhRenderDate(){
+  const now=new Date();
+  let d=document.getElementById('bhToday'),u=document.getElementById('bhUpdated');
+  if(d)d.textContent=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tbilisi',day:'2-digit',month:'short',year:'numeric'}).format(now);
+  if(u)u.textContent='Updated '+new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tbilisi',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(BH_SITE_UPDATED));
+}
+async function bhLoadWeather(){
+  let e=document.getElementById('bhWeather');if(!e)return;
+  try{
+    const url='https://api.open-meteo.com/v1/forecast?latitude=41.6168&longitude=41.6367&current=temperature_2m,weather_code&temperature_unit=celsius&timezone=Asia%2FTbilisi';
+    const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('weather');
+    const j=await r.json(),cur=j.current||{},temp=Math.round(Number(cur.temperature_2m));
+    e.textContent='Batumi '+(Number.isFinite(temp)?temp+'°C · ':'')+bhWeatherText(cur.weather_code);
+  }catch(err){e.textContent='Batumi · weather unavailable'}
+}
+bhRenderDate();bhLoadWeather();setInterval(bhLoadWeather,15*60*1000);
 
 const EQ_SUPABASE_URL='https://ylyiptbfqtmqwxirhehm.supabase.co';
 const EQ_SUPABASE_KEY='sb_publishable_H-tabbTCJePhTEEqwuyVBQ_4z02aTmg';
