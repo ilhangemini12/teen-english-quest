@@ -2,7 +2,7 @@ name: Refresh learning feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 5 * * *"
+    - cron: "17 5,17 * * *"
   push:
     branches: [main]
     paths:
