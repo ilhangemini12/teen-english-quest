@@ -188,6 +188,31 @@ body[data-density="compact"] .mission{border-radius:13px!important}
 .topStatusBar .versionTop{border-color:color-mix(in srgb,var(--gold) 65%,var(--line));}
 .topStatusBar .versionTop b{color:var(--gold)!important}
 @media(max-width:640px){.topStatusBar{gap:5px;padding-bottom:6px}.topStatusBar span{padding:4px 7px;font-size:10px}}
+
+/* ===== ELIF AI ===== */
+.elifAiShell{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px;align-items:start}
+.elifAiMain,.elifAiSide{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.elifAiMain{overflow:hidden}
+.elifAiHead{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 14px;background:var(--surface2);border-bottom:1px solid var(--line)}
+.elifAiHead h3{margin:0;font-size:17px}.elifAiHead small{display:block;color:var(--muted)}
+.elifAiBadge{display:inline-flex;gap:6px;align-items:center;border:1px solid color-mix(in srgb,var(--accent) 55%,var(--line));border-radius:999px;padding:5px 8px;font-size:11px;color:var(--muted);white-space:nowrap}
+.elifAiChat{min-height:390px;max-height:62vh;overflow:auto;padding:14px;background:linear-gradient(180deg,color-mix(in srgb,var(--surface2) 55%,transparent),transparent)}
+.elifMsg{display:flex;margin:9px 0}.elifMsg.user{justify-content:flex-end}.elifBubble{max-width:min(78%,720px);padding:10px 12px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.48}
+.elifMsg.assistant .elifBubble{background:var(--surface2);border:1px solid var(--line);border-top-left-radius:5px}
+.elifMsg.user .elifBubble{background:var(--accent);color:var(--accentText);border-top-right-radius:5px}
+.elifAiActions{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 10px}
+.elifAiActions button{border:1px solid var(--line);background:var(--surface2);color:var(--text);border-radius:999px;padding:7px 9px;cursor:pointer;font:inherit;font-size:12px}
+.elifAiComposer{padding:11px 14px 13px;border-top:1px solid var(--line);background:var(--surface)}
+.elifAiComposer textarea{width:100%;min-height:76px;resize:vertical}
+.elifAiComposeBar{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:7px;flex-wrap:wrap}
+.elifAiComposeBar .btn{font-weight:800}.elifAiStatus{font-size:11px;color:var(--muted)}
+.elifAiSide{padding:13px}.elifAiSide h3{margin:0 0 8px}.elifAiSide label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}
+.elifAiSide select{width:100%}.elifAiTip{margin-top:12px;padding:10px;border-radius:12px;background:var(--surface2);border:1px solid var(--line);font-size:12px;color:var(--muted)}
+.elifAiTip b{color:var(--text)}.elifAiQuota{margin-top:10px;font-size:12px;color:var(--muted)}
+.elifAiSetup{padding:10px 12px;margin:10px 14px;border:1px solid var(--gold);border-radius:11px;color:var(--gold);background:color-mix(in srgb,var(--gold) 7%,transparent);display:none}
+@media(max-width:820px){.elifAiShell{grid-template-columns:1fr}.elifAiSide{order:-1}.elifAiChat{min-height:360px;max-height:58vh}.elifBubble{max-width:88%}}
+@media(max-width:520px){.elifAiHead{align-items:flex-start}.elifAiHead .elifAiBadge{white-space:normal}.elifAiChat{padding:10px;min-height:330px}.elifAiActions{padding:0 10px 9px}.elifAiComposer{padding:10px}.elifBubble{max-width:92%}}
+
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#08111f">
@@ -206,7 +231,7 @@ if ('serviceWorker' in navigator) {
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
-  <h2>👤 English Quest Account</h2>
+  <h2>👤 BatumHub Account</h2>
   <div class="authstatus" id="authStatus">Secure account system is loading…</div>
 
   <div id="eqSignedOut">
@@ -222,7 +247,7 @@ if ('serviceWorker' in navigator) {
       <button class="btn" onclick="eqSignUp()">Create account</button>
       <button class="btn" onclick="closeAccount()">Close</button>
     </div>
-    <p><small>There is no public user directory, no direct messaging, and no location sharing. Friend connections use private invite codes.</small></p>
+    <p><small>There is no public user directory or location sharing. Messaging works only between accepted friends, and friend connections use private invite codes.</small></p>
   </div>
 
   <div id="eqSignedIn" style="display:none">
@@ -247,8 +272,8 @@ if ('serviceWorker' in navigator) {
 <div class="topStatusBar" id="topStatusBar">
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
-  <span class="versionTop">⚙️ <b>v4.2</b></span>
-  <span>🕒 <b id="bhUpdated">Updated Sep 28, 2026</b></span>
+  <span class="versionTop">⚙️ <b>v4.3</b></span>
+  <span>🕒 <b id="bhUpdated">Updated Sep 29, 2026</b></span>
 </div>
 <div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
       <div>
@@ -284,6 +309,7 @@ if ('serviceWorker' in navigator) {
 <p class="intro">Start with a goal, not a menu. You can pin or hide any section from Settings.</p>
 <div class="dashshort">
   <div class="shortcut" onclick="openTab('Learn')"><div class="big">📘</div><h3>Learn</h3><p>Grammar, pronunciation, vocabulary, speaking, listening and guided missions.</p></div>
+  <div class="shortcut featureDark" onclick="openTab('ElifAI')"><div class="big">✨</div><h3 class="goldTitle">Elif AI</h3><p>Your private English tutor for conversation, writing, vocabulary and quick explanations.</p></div>
   <div class="shortcut" onclick="openTab('Explore')"><div class="big">✨</div><h3>Explore</h3><p>News, TED, podcasts, comics, science, culture and current-interest English.</p></div>
   <div class="shortcut" onclick="openTab('SAT')"><div class="big">🎓</div><h3>SAT</h3><p>Reading & Writing, vocabulary in context, transitions and official practice.</p></div>
   <div class="shortcut featureDark" onclick="openTab('Future')"><div class="big">🧭</div><h3 class="goldTitle">Future</h3><p>Universities, majors, careers, strengths and application vocabulary.</p></div>
@@ -405,6 +431,54 @@ if ('serviceWorker' in navigator) {
 <a class="sourceCard" href="https://www.nationalgeographic.com/" target="_blank" rel="noopener"><div class="srcico">🦁</div><h3>National Geographic</h3><p>Nature, science, photography, travel and discovery.</p><small>High-interest reading</small></a>
 <a class="sourceCard" href="https://www.discovery.com/" target="_blank" rel="noopener"><div class="srcico">🔭</div><h3>Discovery</h3><p>Shows and factual entertainment for curiosity-led English.</p><small>Explore shows</small></a>
 </div></section>
+<section id="elifAI" class="appHidden">
+<h2>✨ Elif AI</h2>
+<p class="intro">A private English-learning assistant inside BatumHub. Practice conversation, improve writing, learn vocabulary and ask for simpler explanations. AI chat does not award XP.</p>
+<div class="elifAiShell">
+  <div class="elifAiMain">
+    <div class="elifAiHead">
+      <div><h3>English Tutor</h3><small>Chat history stays in this browser session and is not saved to your BatumHub cloud profile.</small></div>
+      <span class="elifAiBadge">⚡ GPT-OSS 120B · Groq</span>
+    </div>
+    <div class="elifAiSetup" id="elifAiSetup"></div>
+    <div class="elifAiChat" id="elifAiChat" aria-live="polite"></div>
+    <div class="elifAiActions" aria-label="Quick learning actions">
+      <button type="button" onclick="elifAiAction('simple')">Explain simply</button>
+      <button type="button" onclick="elifAiAction('correct')">Correct my English</button>
+      <button type="button" onclick="elifAiAction('examples')">Give 3 examples</button>
+      <button type="button" onclick="elifAiAction('quiz')">Quiz me</button>
+      <button type="button" onclick="elifAiAction('turkish')">Translate to Turkish</button>
+    </div>
+    <div class="elifAiComposer">
+      <textarea id="elifAiInput" maxlength="2500" placeholder="Write in English… Ask a question, practice a conversation, or paste a short paragraph to improve." onkeydown="elifAiKey(event)"></textarea>
+      <div class="elifAiComposeBar">
+        <span class="elifAiStatus" id="elifAiStatus">Sign in to use the free AI tutor.</span>
+        <div><button type="button" class="btn" onclick="elifAiNewChat()">New chat</button> <button type="button" class="btn" id="elifAiSend" onclick="elifAiSend()">Send ➜</button></div>
+      </div>
+    </div>
+  </div>
+  <aside class="elifAiSide">
+    <h3>🎯 Learning mode</h3>
+    <label for="elifAiMode">Mode</label>
+    <select id="elifAiMode" onchange="elifAiSaveSettings()">
+      <option value="tutor">Tutor</option>
+      <option value="conversation">Conversation</option>
+      <option value="writing">Writing coach</option>
+      <option value="vocabulary">Vocabulary</option>
+    </select>
+    <label for="elifAiLevel">English level</label>
+    <select id="elifAiLevel" onchange="elifAiSaveSettings()">
+      <option value="auto">Auto</option>
+      <option value="b1">B1</option>
+      <option value="b2">B2</option>
+      <option value="c1">C1</option>
+    </select>
+    <div class="elifAiQuota" id="elifAiQuota">Free allowance: up to 40 AI requests per day.</div>
+    <div class="elifAiTip"><b>Best results</b><br>Try: “Correct this paragraph and explain my 3 biggest mistakes.”<br><br>Or: “Talk with me in B2 English about movies. Correct only important mistakes.”</div>
+    <div class="elifAiTip"><b>Privacy</b><br>This first version keeps the conversation only for the current browser session. Do not share passwords, addresses, phone numbers or other sensitive personal information with AI.</div>
+  </aside>
+</div>
+</section>
 <section id="messages" class="appHidden"><h2>💬 Messages</h2><p class="intro">Private, text-only messaging between accepted friends. No public stranger discovery.</p>
 <div class="msgLayout">
   <div class="inboxList">
@@ -544,8 +618,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for 3 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='4.2';
-const BH_SITE_UPDATED='2026-09-28T21:01:00+04:00';
+const BH_SITE_VERSION='4.3';
+const BH_SITE_UPDATED='2026-09-29T02:18:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -1055,13 +1129,14 @@ function render(){let X=xp(),L=level(X),w=week();xpEl=document.getElementById('x
 }
 function filterM(){let search=document.getElementById('search'),wf=document.getElementById('wf'),cf=document.getElementById('cf');let q=search?search.value.toLowerCase():'',w=wf?wf.value:'',cat=cf?cf.value:'';document.querySelectorAll('.mission').forEach(function(e){let ok=(!q||e.dataset.text.includes(q))&&(!w||e.dataset.week===w)&&(!cat||e.dataset.cat===cat);if(appMissionCats&&appMissionCats.length)ok=ok&&appMissionCats.includes(e.dataset.cat);if(appMissionMode==='video'){let a=e.querySelector('.actions a'),u=a?a.href:'';ok=ok&&(/youtube\.com|ted\.com/.test(u))}e.style.display=ok?'block':'none'})}function saveJ(){s.journal=document.getElementById('journal').value;sv();alert('Saved on this device.')}function hear(){let u=new SpeechSynthesisUtterance(document.getElementById('prompt').textContent);u.lang='en-US';u.rate=.92;speechSynthesis.cancel();speechSynthesis.speak(u)}let R=null,ch=[];async function record(){let b=document.getElementById('rec');if(R&&R.state==='recording'){R.stop();b.textContent='🎙 Start recording';return}try{let st=await navigator.mediaDevices.getUserMedia({audio:true});ch=[];R=new MediaRecorder(st);R.ondataavailable=e=>ch.push(e.data);R.onstop=()=>{let blob=new Blob(ch,{type:'audio/webm'}),url=URL.createObjectURL(blob);document.getElementById('audio').innerHTML='<audio controls style="width:100%" src="'+url+'"></audio>';st.getTracks().forEach(t=>t.stop())};R.start();b.textContent='⏹ Stop recording'}catch(e){alert('Microphone unavailable. Hosting over HTTPS usually fixes this.')}}function renderQuiz(){document.getElementById('quizbox').innerHTML=quiz.map((q,i)=>'<div class="quizq"><b>'+(i+1)+'. '+q.q+'</b>'+q.opts.map((o,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+o+'</label>').join('')+'<small id="why'+i+'"></small></div>').join('')+'<button class="btn" onclick="grade()">Check answers</button><p id="qr"></p>'}function grade(){let z=0;quiz.forEach((q,i)=>{let e=document.querySelector('input[name="q'+i+'"]:checked'),ok=e&&+e.value===q.a;if(ok)z++;document.getElementById('why'+i).textContent=(ok?'✓ ':'→ ')+q.why});document.getElementById('qr').textContent='Score: '+z+' / '+quiz.length}function exportP(){let b=new Blob([JSON.stringify(s,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='teen-english-quest-progress.json';a.click()}async function copyS(){try{await navigator.clipboard.writeText(document.getElementById('summary').textContent);alert('Copied.')}catch(e){}}
 let appMissionCats=null,appMissionMode='all';
-const appSections=['heroHome','quickControls','dashboard','today','fresh','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','wikiHub','sourceNews','messages','settings','learnHub','exploreHub','sportsHub','tedHub','satHub','futureHub'];
+const appSections=['heroHome','quickControls','dashboard','today','fresh','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','wikiHub','sourceNews','elifAI','messages','settings','learnHub','exploreHub','sportsHub','tedHub','satHub','futureHub'];
 function setVisible(ids){appSections.forEach(function(id){let e=document.getElementById(id);if(e)e.classList.toggle('appHidden',!ids.includes(id))})}
 function setTabButton(name){document.querySelectorAll('#appTabs button').forEach(function(b){b.classList.toggle('on',b.textContent.toLowerCase().includes(name.toLowerCase()))})}
 function openTab(name){let b=[...document.querySelectorAll('#appTabs button')].find(x=>x.textContent.toLowerCase().includes(name.toLowerCase()));showAppTab(name,b)}
 const TAB_CATALOG={
   Home:{icon:'🏠',label:'Home'},
   Learn:{icon:'📘',label:'Learn'},
+  ElifAI:{icon:'✨',label:'Elif AI'},
   Explore:{icon:'✨',label:'Explore'},
   SAT:{icon:'🎓',label:'SAT'},
   Future:{icon:'🧭',label:'Future'},
@@ -1083,8 +1158,8 @@ const TAB_CATALOG={
   Messages:{icon:'💬',label:'Messages'}
 };
 const TAB_PRESETS={
-  balanced:['Home','Learn','Explore','SAT','Future','League'],
-  exam:['Home','Learn','SAT','Future','Vocabulary','Speaking'],
+  balanced:['Home','Learn','ElifAI','Explore','SAT','Future','League'],
+  exam:['Home','Learn','ElifAI','SAT','Future','Vocabulary','Speaking'],
   explore:['Home','Explore','MoviesTV','Life','Sports','Gaming','TED','Future'],
   minimal:['Home','Learn','SAT','Future']
 };
@@ -1132,6 +1207,7 @@ function showAppTab(name,btn){
 
   if(name==='Home')setVisible(['heroHome','quickControls','dashboard','today','fresh','badges','progress']);
   if(name==='Learn')setVisible(['learnHub','missions','lab','quiz']);
+  if(name==='ElifAI'){setVisible(['elifAI']);elifAiRender()}
   if(name==='Explore')setVisible(['exploreHub','fresh','hubs']);
   if(name==='Videos'){setVisible(['missions']);appMissionMode='video'}
   if(name==='News'){setVisible(['fresh','sourceNews','hubs']);freshCat='All';freshTopic='For You';freshAge=30;renderFresh()}
@@ -1207,6 +1283,133 @@ async function searchWiki(){
     box.innerHTML=pages.map(function(p){let url='https://en.wikipedia.org/?curid='+p.pageid;return '<article class="resultCard">'+(p.thumbnail?'<img style="aspect-ratio:16/10" src="'+liveEsc(p.thumbnail.source)+'" alt="">':'')+'<h3>'+liveEsc(p.title)+'</h3><p>'+liveEsc((p.extract||'').slice(0,220))+'</p><div class="resultLinks"><a href="'+url+'" target="_blank" rel="noopener">Open Wikipedia ↗</a></div></article>'}).join('');
   }catch(e){box.innerHTML='<div class="freshempty">Wikipedia search is temporarily unavailable.</div>'}
 }
+
+/* ===== ELIF AI ===== */
+const ELIF_AI_STORE='batumhub-elif-ai-session-v1';
+const ELIF_AI_SETTINGS='batumhub-elif-ai-settings-v1';
+let elifAiBusy=false;
+let elifAiMessages=[];
+
+function elifAiLoad(){
+  try{
+    let saved=JSON.parse(sessionStorage.getItem(ELIF_AI_STORE)||'[]');
+    if(Array.isArray(saved))elifAiMessages=saved.filter(m=>m&&(m.role==='user'||m.role==='assistant')&&typeof m.content==='string').slice(-20);
+  }catch(e){elifAiMessages=[]}
+  if(!elifAiMessages.length){
+    elifAiMessages=[{role:'assistant',content:"Hi! I’m Elif AI, your English practice partner. We can chat in English, improve a paragraph, learn vocabulary, or practice for school. What would you like to work on?"}];
+  }
+  try{
+    let s=JSON.parse(localStorage.getItem(ELIF_AI_SETTINGS)||'{}');
+    let mode=document.getElementById('elifAiMode'),level=document.getElementById('elifAiLevel');
+    if(mode&&['tutor','conversation','writing','vocabulary'].includes(s.mode))mode.value=s.mode;
+    if(level&&['auto','b1','b2','c1'].includes(s.level))level.value=s.level;
+  }catch(e){}
+}
+function elifAiSave(){
+  try{sessionStorage.setItem(ELIF_AI_STORE,JSON.stringify(elifAiMessages.slice(-20)))}catch(e){}
+}
+function elifAiSaveSettings(){
+  let mode=document.getElementById('elifAiMode'),level=document.getElementById('elifAiLevel');
+  try{localStorage.setItem(ELIF_AI_SETTINGS,JSON.stringify({mode:mode?mode.value:'tutor',level:level?level.value:'auto'}))}catch(e){}
+}
+function elifAiRender(){
+  let box=document.getElementById('elifAiChat');if(!box)return;
+  if(!elifAiMessages.length)elifAiLoad();
+  box.innerHTML='';
+  elifAiMessages.forEach(m=>{
+    let row=document.createElement('div');row.className='elifMsg '+m.role;
+    let bubble=document.createElement('div');bubble.className='elifBubble';bubble.textContent=m.content;
+    row.appendChild(bubble);box.appendChild(row);
+  });
+  box.scrollTop=box.scrollHeight;
+  let st=document.getElementById('elifAiStatus');
+  if(st&&!elifAiBusy)st.textContent=eqUser?'Ready · Enter sends, Shift+Enter adds a line.':'Sign in to use the free AI tutor.';
+}
+function elifAiSetBusy(on,msg){
+  elifAiBusy=on;
+  let b=document.getElementById('elifAiSend'),st=document.getElementById('elifAiStatus'),inp=document.getElementById('elifAiInput');
+  if(b){b.disabled=on;b.textContent=on?'Thinking…':'Send ➜'}
+  if(inp)inp.disabled=on;
+  if(st&&msg)st.textContent=msg;
+}
+function elifAiShowSetup(msg){
+  let e=document.getElementById('elifAiSetup');if(!e)return;
+  if(msg){e.textContent=msg;e.style.display='block'}else{e.textContent='';e.style.display='none'}
+}
+async function elifAiErrorMessage(error){
+  try{
+    if(error&&error.context&&typeof error.context.json==='function'){
+      let j=await error.context.json();
+      if(j&&j.error)return {message:j.error,code:j.code,quota:j.quota};
+    }
+  }catch(e){}
+  return {message:(error&&error.message)||'Elif AI could not answer right now.'};
+}
+async function elifAiSend(customText){
+  if(elifAiBusy)return;
+  let input=document.getElementById('elifAiInput');
+  let text=typeof customText==='string'?customText.trim():(input?input.value.trim():'');
+  if(!text)return;
+  if(!eqUser){
+    elifAiShowSetup('Sign in with your BatumHub account to use Elif AI safely and keep the free daily allowance private.');
+    openAccount();return;
+  }
+  if(text.length>2500){elifAiShowSetup('Keep each message under 2,500 characters.');return}
+  elifAiShowSetup('');
+  elifAiMessages.push({role:'user',content:text});
+  elifAiMessages=elifAiMessages.slice(-20);
+  if(input&&typeof customText!=='string')input.value='';
+  elifAiSave();elifAiRender();elifAiSetBusy(true,'Elif AI is thinking…');
+  try{
+    let mode=document.getElementById('elifAiMode'),level=document.getElementById('elifAiLevel');
+    const {data,error}=await eqSupa.functions.invoke('elif-ai',{body:{
+      messages:elifAiMessages.slice(-12),
+      mode:mode?mode.value:'tutor',
+      level:level?level.value:'auto'
+    }});
+    if(error){
+      let info=await elifAiErrorMessage(error);
+      if(info.code==='provider_not_configured')elifAiShowSetup('Elif AI is installed, but the free AI provider key still needs to be connected by the site owner.');
+      elifAiMessages.push({role:'assistant',content:info.message});
+      if(info.quota)elifAiUpdateQuota(info.quota);
+    }else if(data&&data.answer){
+      elifAiMessages.push({role:'assistant',content:String(data.answer)});
+      if(data.quota)elifAiUpdateQuota(data.quota);
+    }else{
+      elifAiMessages.push({role:'assistant',content:'I could not generate a response this time. Please try again.'});
+    }
+  }catch(e){
+    elifAiMessages.push({role:'assistant',content:'Elif AI is temporarily unavailable. Please try again in a moment.'});
+  }finally{
+    elifAiMessages=elifAiMessages.slice(-20);elifAiSave();elifAiRender();elifAiSetBusy(false,'Ready · Enter sends, Shift+Enter adds a line.');
+  }
+}
+function elifAiUpdateQuota(q){
+  let e=document.getElementById('elifAiQuota');if(!e||!q)return;
+  let used=Number(q.used),remaining=Number(q.remaining),limit=Number(q.limit);
+  if(Number.isFinite(used)&&Number.isFinite(remaining)&&Number.isFinite(limit))e.textContent='Free today: '+remaining+' of '+limit+' AI requests remaining.';
+}
+function elifAiNewChat(){
+  elifAiMessages=[{role:'assistant',content:"New chat started. What would you like to practice in English?"}];
+  elifAiSave();elifAiShowSetup('');elifAiRender();
+}
+function elifAiAction(type){
+  const prompts={
+    simple:'Please explain your last answer more simply, using clear English and one short example.',
+    correct:'Please correct my most recent English message. Show the improved version first, then explain the 1–3 most useful corrections.',
+    examples:'Please give me 3 short, natural English examples related to what we were just discussing.',
+    quiz:'Quiz me on what we were just discussing. Ask one question at a time and wait for my answer before revealing the answer.',
+    turkish:'Please translate or explain the key point from your last answer in concise Turkish, then give the most important English phrase again.'
+  };
+  elifAiSend(prompts[type]||prompts.simple);
+}
+function elifAiKey(event){
+  if(event.key==='Enter'&&!event.shiftKey){
+    event.preventDefault();elifAiSend();
+  }
+}
+elifAiLoad();
+
 renderSettings();renderAppTabs();
 renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();decorateDictionary(document);loadFresh();eqInit();showAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'));updateLeaguePreview();renderSettings();
 </script>
