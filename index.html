@@ -14,9 +14,9 @@
 :root{--card-radius:18px;--gap:14px;--font-main:system-ui,-apple-system,Segoe UI,Roboto,Arial;--card-pad:14px}
 body{font-family:var(--font-main)}
 body[data-theme="pastel"]{--bg:#f7f3fb;--p:#fffafd;--line:#dccfe7;--text:#352f43;--muted:#766d85;--green:#70c6a7;--blue:#8fbfe8;--gold:#cda85a;background:linear-gradient(180deg,#f7f3fb,#eef6ff)}
-body[data-theme="pastel"] .top{background:#fffafdeF}body[data-theme="pastel"] .btn,body[data-theme="pastel"] nav a,body[data-theme="pastel"] input,body[data-theme="pastel"] select,body[data-theme="pastel"] textarea{color:#352f43;background:#f7f1fa}
+
 body[data-theme="light"]{--bg:#f5f7fb;--p:#ffffff;--line:#d8e0eb;--text:#182235;--muted:#66758a;--green:#2ca97d;--blue:#3b82c4;--gold:#9a6f18;background:#f5f7fb}
-body[data-theme="light"] .top{background:#ffffffef}body[data-theme="light"] .btn,body[data-theme="light"] nav a,body[data-theme="light"] input,body[data-theme="light"] select,body[data-theme="light"] textarea{color:#182235;background:#f7f9fc}
+
 body[data-font="rounded"]{--font-main:"Trebuchet MS","Arial Rounded MT Bold",system-ui,sans-serif}
 body[data-font="serif"]{--font-main:Georgia,"Times New Roman",serif}
 body[data-density="mini"]{--card-radius:12px;--gap:7px;--card-pad:8px;font-size:13px}
@@ -42,6 +42,96 @@ body[data-nav="text"] .apptabs button .tabico{display:none}
 .tabToggle button{border:1px solid var(--line);border-radius:999px;padding:6px 9px;background:#13243d;color:var(--text);cursor:pointer}
 .tabToggle.pinned{border-color:#4d7b89}.tabToggle.pinned button{background:#23575d}
 .miniPath{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.miniPath span{background:#13233a;border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px}
+
+/* ===== V4 CLEAN UI: one accent, strong contrast, compact mobile ===== */
+:root{
+  --bg:#0b1220;--p:#121c2e;--surface:#121c2e;--surface2:#17243a;--surface3:#1b2a42;
+  --line:#2b3b55;--text:#f4f7fb;--muted:#aebbd0;--accent:#59d7b7;--accentText:#06231d;
+  --gold:#f1ce75;--danger:#ef6f79;--shadow:0 8px 24px #00000024;
+}
+body{background:var(--bg)!important;color:var(--text)!important}
+body[data-theme="dark"]{--bg:#0b1220;--p:#121c2e;--surface:#121c2e;--surface2:#17243a;--surface3:#1b2a42;--line:#2b3b55;--text:#f4f7fb;--muted:#aebbd0;--accent:#59d7b7;--accentText:#06231d;--gold:#f1ce75;background:#0b1220!important}
+body[data-theme="light"]{--bg:#f4f7fb;--p:#ffffff;--surface:#ffffff;--surface2:#eef3f8;--surface3:#e6edf5;--line:#cbd6e3;--text:#152033;--muted:#5b6b82;--accent:#0f9d8a;--accentText:#ffffff;--gold:#8c691f;background:#f4f7fb!important}
+body[data-theme="pastel"]{--bg:#f7f5fb;--p:#fffefe;--surface:#fffefe;--surface2:#f1edf7;--surface3:#e9e3f2;--line:#d8cfe5;--text:#2c2640;--muted:#6e6682;--accent:#4fae9b;--accentText:#ffffff;--gold:#9b762d;background:#f7f5fb!important}
+.top{background:color-mix(in srgb,var(--bg) 94%,transparent)!important;border-color:var(--line)!important}
+.brandnav{padding:8px 0!important}
+.brandnav b{font-size:15px;letter-spacing:.015em}
+.profilebtn,.quickMore,.btn{background:var(--surface2)!important;color:var(--text)!important;border:1px solid var(--line)!important;box-shadow:none!important}
+.profilebtn:hover,.quickMore:hover,.btn:hover{border-color:var(--accent)!important}
+.apptabs{padding:0 0 8px!important;gap:6px!important}
+.apptabs button{background:var(--surface2)!important;color:var(--muted)!important;border:1px solid var(--line)!important;border-radius:10px!important;padding:7px 10px!important;font-size:13px!important}
+.apptabs button.on{background:var(--accent)!important;color:var(--accentText)!important;border-color:var(--accent)!important;box-shadow:none!important}
+.hero{padding:18px 0 8px!important;gap:12px!important}
+.hero h1{font-size:clamp(29px,4.6vw,47px)!important}
+.lead{color:var(--muted)!important;font-size:15px!important}
+.pill,.livepill{background:var(--surface2)!important;color:var(--text)!important;border-color:var(--line)!important}
+.livepill i{background:var(--accent)!important}
+.dash,.panel,.daily,.boss,.settingCard,.searchPanel,.inboxList,.chatPane,.leaguecard,.week,.stat,.shortcut,.freshcard,.sourceCard,.resultCard,.comic,.wordspot{
+  background:var(--surface)!important;color:var(--text)!important;border-color:var(--line)!important;box-shadow:none!important
+}
+.stat{background:var(--surface2)!important}
+.stat span,.intro,small,.freshmeta,.sourceCard p,.shortcut p,.resultCard p,.week p,.body p{color:var(--muted)!important}
+.bar{background:var(--surface3)!important}.bar div{background:var(--accent)!important}
+h1,h2,h3,b,strong{color:var(--text)}
+section{padding:11px 0!important}
+h2{font-size:22px!important}
+.dashshort{gap:8px!important}
+.shortcut{min-height:112px!important;padding:12px!important;border-radius:14px!important}
+.shortcut .big{font-size:24px!important}
+.shortcut:hover{transform:translateY(-1px)!important;border-color:var(--accent)!important}
+.sourceGrid{gap:9px!important}.sourceCard{border-radius:14px!important;padding:11px!important}.sourceCard .srcico{font-size:25px!important}
+.choiceRow{gap:6px!important}
+.choiceRow button,.interestBtn,.datefilters button,.topicfilters button,.freshfilters button,.tabToggle button{
+  background:var(--surface2)!important;color:var(--text)!important;border:1px solid var(--line)!important;box-shadow:none!important
+}
+.choiceRow button.on,.interestBtn.on,.datefilters button.on,.topicfilters button.on,.freshfilters button.on,.tabToggle.pinned button{
+  background:var(--accent)!important;color:var(--accentText)!important;border-color:var(--accent)!important
+}
+.tabToggle{background:var(--surface)!important;border-color:var(--line)!important}
+.tabToggle.pinned{border-color:var(--accent)!important}
+input,select,textarea{background:var(--surface2)!important;color:var(--text)!important;border-color:var(--line)!important}
+input::placeholder,textarea::placeholder{color:var(--muted)!important}
+.discoveryBanner,.audiohint,.privacybox{background:var(--surface2)!important;border-color:var(--line)!important;color:var(--text)!important}
+.discoveryBanner p{color:var(--muted)!important}
+.resultLinks a,.actions a,.actions button{background:var(--surface2)!important;color:var(--text)!important;border-color:var(--line)!important}
+.actions a,.actions button.complete{background:var(--accent)!important;color:var(--accentText)!important;border-color:var(--accent)!important}
+.vocab span,.wordchip,.safetyPill,.leaguepills span{background:var(--surface2)!important;color:var(--text)!important;border-color:var(--line)!important}
+.task{background:var(--surface2)!important;border-left-color:var(--accent)!important}
+.badge{background:var(--surface2)!important;border-color:var(--line)!important;color:var(--muted)!important}.badge.on{opacity:1!important;color:var(--text)!important;border-color:var(--accent)!important}
+.quickControls{background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:14px!important;padding:10px 12px!important;margin:5px 0 7px}
+.quickHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.quickHead>div{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.quickHead small{font-size:11px}
+.quickMore{border-radius:9px;padding:6px 9px;cursor:pointer;font-size:12px}
+.quickRows{display:grid;grid-template-columns:auto auto 1fr;gap:10px;align-items:center}
+.quickGroup{display:flex;align-items:center;gap:7px;min-width:0}.quickGroup>span{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:800;white-space:nowrap}
+.quickGroup>div{display:flex;gap:5px;flex-wrap:wrap}
+.quickGroup button{background:var(--surface2);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px;cursor:pointer}
+.quickGroup button.on{background:var(--accent);color:var(--accentText);border-color:var(--accent)}
+body[data-density="compact"]{font-size:14px!important}
+body[data-density="compact"] .wrap{max-width:1180px}
+body[data-density="compact"] .body,body[data-density="compact"] .freshcard,body[data-density="compact"] .sourceCard{padding:10px!important}
+body[data-density="compact"] section{padding:9px 0!important}
+body[data-density="compact"] .grid{gap:10px!important}
+body[data-density="compact"] .mission{border-radius:13px!important}
+@media(max-width:760px){
+  .wrap{padding:0 12px!important}
+  .brandnav{gap:6px!important}.profilebtn{padding:7px 9px!important}
+  .apptabs{gap:5px!important}.apptabs button{padding:7px 9px!important;font-size:12px!important}
+  .hero{padding-top:12px!important}.hero .dash{padding:11px!important}
+  .quickControls{padding:9px!important}.quickHead small{display:none}.quickRows{grid-template-columns:1fr!important;gap:7px!important}
+  .quickGroup{justify-content:space-between}.quickGroup>div{justify-content:flex-end}
+  .dashshort{grid-template-columns:1fr 1fr!important}
+  .shortcut{min-height:96px!important;padding:10px!important}.shortcut p{font-size:11px!important}
+  .stats{gap:6px!important}.stat{padding:8px!important}.stat strong{font-size:21px!important}
+  .settingsGrid{grid-template-columns:1fr 1fr!important;gap:8px!important}.settingCard{padding:10px!important}
+  .interestGrid{gap:5px!important}.interestBtn{padding:7px 9px!important;font-size:12px!important}
+}
+@media(max-width:480px){
+  .dashshort{grid-template-columns:1fr 1fr!important}
+  .quickGroup>span{min-width:42px}
+  .quickGroup button{padding:5px 8px!important;font-size:11px!important}
+  .settingsGrid{grid-template-columns:1fr!important}
+  .hero h1{font-size:30px!important}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#08111f">
@@ -97,7 +187,29 @@ if ('serviceWorker' in navigator) {
   </div>
 </div></div><div class="top"><div class="wrap">
 <nav class="brandnav"><b>TEEN <span style="color:var(--green)">ENGLISH QUEST</span></b><button class="profilebtn" onclick="openTab('Settings')">⚙️</button><button class="profilebtn" id="eqAccountButton" onclick="openAccount()">👤 Account</button></nav>
-<div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 ESL · American-English core · Global listening · Age 14+</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="dashboard">
+<div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 ESL · American-English core · Global listening · Age 14+</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="quickControls" class="quickControls">
+  <div class="quickHead">
+    <div><b>🎛 Quick Customize</b><small>Make the page comfortable in one tap.</small></div>
+    <button class="quickMore" onclick="openTab('Settings')">More settings ⚙️</button>
+  </div>
+  <div class="quickRows">
+    <div class="quickGroup"><span>Theme</span><div id="quickTheme">
+      <button onclick="setTheme('dark',this)">Dark</button>
+      <button onclick="setTheme('light',this)">Light</button>
+      <button onclick="setTheme('pastel',this)">Pastel</button>
+    </div></div>
+    <div class="quickGroup"><span>View</span><div id="quickDensity">
+      <button onclick="setDensity('compact',this)">Compact</button>
+      <button onclick="setDensity('comfortable',this)">Comfortable</button>
+    </div></div>
+    <div class="quickGroup"><span>Tabs</span><div id="quickPreset">
+      <button onclick="applyTabPreset('balanced')">Balanced</button>
+      <button onclick="applyTabPreset('exam')">SAT</button>
+      <button onclick="applyTabPreset('explore')">Explore</button>
+      <button onclick="applyTabPreset('minimal')">Minimal</button>
+    </div></div>
+  </div>
+</section><section id="dashboard">
 <h2>🌟 Your English Dashboard</h2>
 <p class="intro">Start with a goal, not a menu. You can pin or hide any section from Settings.</p>
 <div class="dashshort">
@@ -475,12 +587,21 @@ async function eqLoadCloudPrefs(){
   if(!eqUser)return;
   const {data}=await eqSupa.from('user_preferences').select('*').eq('user_id',eqUser.id).single();
   if(!data)return;
-  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);renderSettings();renderAppTabs();
+  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);if(!localStorage.getItem('teq-ui-v4-clean')){
+  localStorage.setItem('teq-theme','dark');
+  localStorage.setItem('teq-density','compact');
+  localStorage.setItem('teq-font','system');
+  localStorage.setItem('teq-nav','both');
+  localStorage.setItem('teq-pinned-tabs',JSON.stringify(TAB_PRESETS.balanced));
+  localStorage.setItem('teq-home-focus','balanced');
+  localStorage.setItem('teq-ui-v4-clean','1');
+}
+renderSettings();renderAppTabs();
 }
 async function eqSaveCloudPrefs(){
   if(!eqUser||!eqSupa)return;
   let interests=JSON.parse(localStorage.getItem('teq-interests')||'[]');
-  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','comfortable'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',updated_at:new Date().toISOString()});
+  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','compact'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',updated_at:new Date().toISOString()});
 }
 async function eqRefreshLeague(){
   let list=document.getElementById('rankList');if(!list)return;
@@ -596,7 +717,7 @@ function renderFresh(){
 async function loadFresh(){try{let r=await fetch('feed.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('feed');let data=await r.json();freshItems=Array.isArray(data.items)?data.items:[];syncFreshPrefs();let u=document.getElementById('freshUpdated');if(u)u.textContent=data.updated_at?'Refreshed '+new Date(data.updated_at).toLocaleString():'Daily feed';renderFresh()}catch(e){let u=document.getElementById('freshUpdated');if(u)u.textContent='Daily feed';let g=document.getElementById('freshGrid');if(g)g.innerHTML='<div class="freshempty">Fresh feed is warming up. The 38-mission course is ready meanwhile.</div>'}}
 function render(){let X=xp(),L=level(X),w=week();xpEl=document.getElementById('xp');xpEl.textContent=X;document.getElementById('level').textContent=L.l;document.getElementById('streak').textContent=streak();document.getElementById('donec').textContent=s.done.length+'/'+missions.length;document.getElementById('levelbar').style.width=L.p+'%';document.getElementById('leveltxt').textContent='Level '+L.l+' · '+(L.b-X)+' XP to next';let wm=missions.filter(m=>m.week===w),wd=wm.filter(m=>s.done.includes(m.id)).length;document.getElementById('weekbar').style.width=(100*wd/(wm.length||1))+'%';document.getElementById('weektxt').textContent='Week '+w+' · '+wd+'/'+wm.length+' missions';document.querySelectorAll('.mission').forEach(e=>{let id=+e.dataset.id,d=s.done.includes(id);e.classList.toggle('done',d);let b=e.querySelector('button');b.classList.toggle('complete',d);b.textContent=d?'✓ Completed':'✓ Complete'});document.getElementById('daily').innerHTML='<h3>Today’s 3</h3>'+sugg().map((m,i)=>'<div class="qitem"><b>'+(i+1)+'. '+m.icon+' '+m.title+'</b><br><small>'+m.cat+' · +'+m.xp+' XP</small></div>').join('');let B=bosses.find(b=>b.week===w);document.getElementById('boss').innerHTML='<small>WEEK '+B.week+' BOSS · +'+B.xp+' XP</small><h3>👑 '+B.title+'</h3><p>'+B.prompt+'</p><button class="btn" onclick="boss('+B.week+')">'+(s.boss.includes(B.week)?'✓ Boss complete':'Complete Boss')+'</button>';document.getElementById('prompt').textContent=B.prompt;document.getElementById('journal').value=s.journal||'';document.getElementById('b1').classList.toggle('on',s.done.length>=1);document.getElementById('b100').classList.toggle('on',X>=100);document.getElementById('b7').classList.toggle('on',s.done.length>=7);document.getElementById('bsound').classList.toggle('on',s.done.filter(id=>missions.find(m=>m.id===id)?.cat==='Pronunciation').length>=4);document.getElementById('b500').classList.toggle('on',X>=500);document.getElementById('bhalf').classList.toggle('on',s.done.length>=19);let bf=document.getElementById('bfresh');if(bf)bf.classList.toggle('on',(s.freshDone||[]).length>=5);document.getElementById('summary').textContent='Week '+w+' · '+s.done.length+'/'+missions.length+' missions · '+(s.freshDone||[]).length+' fresh explores · '+X+' XP · Level '+L.l+' · '+streak()+'-day streak.'}function filterM(){let search=document.getElementById('search'),wf=document.getElementById('wf'),cf=document.getElementById('cf');let q=search?search.value.toLowerCase():'',w=wf?wf.value:'',cat=cf?cf.value:'';document.querySelectorAll('.mission').forEach(function(e){let ok=(!q||e.dataset.text.includes(q))&&(!w||e.dataset.week===w)&&(!cat||e.dataset.cat===cat);if(appMissionCats&&appMissionCats.length)ok=ok&&appMissionCats.includes(e.dataset.cat);if(appMissionMode==='video'){let a=e.querySelector('.actions a'),u=a?a.href:'';ok=ok&&(/youtube\.com|ted\.com/.test(u))}e.style.display=ok?'block':'none'})}function saveJ(){s.journal=document.getElementById('journal').value;sv();alert('Saved on this device.')}function hear(){let u=new SpeechSynthesisUtterance(document.getElementById('prompt').textContent);u.lang='en-US';u.rate=.92;speechSynthesis.cancel();speechSynthesis.speak(u)}let R=null,ch=[];async function record(){let b=document.getElementById('rec');if(R&&R.state==='recording'){R.stop();b.textContent='🎙 Start recording';return}try{let st=await navigator.mediaDevices.getUserMedia({audio:true});ch=[];R=new MediaRecorder(st);R.ondataavailable=e=>ch.push(e.data);R.onstop=()=>{let blob=new Blob(ch,{type:'audio/webm'}),url=URL.createObjectURL(blob);document.getElementById('audio').innerHTML='<audio controls style="width:100%" src="'+url+'"></audio>';st.getTracks().forEach(t=>t.stop())};R.start();b.textContent='⏹ Stop recording'}catch(e){alert('Microphone unavailable. Hosting over HTTPS usually fixes this.')}}function renderQuiz(){document.getElementById('quizbox').innerHTML=quiz.map((q,i)=>'<div class="quizq"><b>'+(i+1)+'. '+q.q+'</b>'+q.opts.map((o,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+o+'</label>').join('')+'<small id="why'+i+'"></small></div>').join('')+'<button class="btn" onclick="grade()">Check answers</button><p id="qr"></p>'}function grade(){let z=0;quiz.forEach((q,i)=>{let e=document.querySelector('input[name="q'+i+'"]:checked'),ok=e&&+e.value===q.a;if(ok)z++;document.getElementById('why'+i).textContent=(ok?'✓ ':'→ ')+q.why});document.getElementById('qr').textContent='Score: '+z+' / '+quiz.length}function exportP(){let b=new Blob([JSON.stringify(s,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='teen-english-quest-progress.json';a.click()}async function copyS(){try{await navigator.clipboard.writeText(document.getElementById('summary').textContent);alert('Copied.')}catch(e){}}
 let appMissionCats=null,appMissionMode='all';
-const appSections=['heroHome','dashboard','today','fresh','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','wikiHub','sourceNews','messages','settings','learnHub','exploreHub','sportsHub','tedHub','satHub','futureHub'];
+const appSections=['heroHome','quickControls','dashboard','today','fresh','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','wikiHub','sourceNews','messages','settings','learnHub','exploreHub','sportsHub','tedHub','satHub','futureHub'];
 function setVisible(ids){appSections.forEach(function(id){let e=document.getElementById(id);if(e)e.classList.toggle('appHidden',!ids.includes(id))})}
 function setTabButton(name){document.querySelectorAll('#appTabs button').forEach(function(b){b.classList.toggle('on',b.textContent.toLowerCase().includes(name.toLowerCase()))})}
 function openTab(name){let b=[...document.querySelectorAll('#appTabs button')].find(x=>x.textContent.toLowerCase().includes(name.toLowerCase()));showAppTab(name,b)}
@@ -624,7 +745,7 @@ const TAB_CATALOG={
   Messages:{icon:'💬',label:'Messages'}
 };
 const TAB_PRESETS={
-  balanced:['Home','Learn','Explore','SAT','Future','League','Messages'],
+  balanced:['Home','Learn','Explore','SAT','Future','League'],
   exam:['Home','Learn','SAT','Future','Vocabulary','Speaking'],
   explore:['Home','Explore','MoviesTV','Life','Sports','Gaming','TED','Future'],
   minimal:['Home','Learn','SAT','Future']
@@ -656,7 +777,7 @@ function togglePinnedTab(k){
   let p=getPinnedTabs(),on=p.includes(k);
   if(on)p=p.filter(x=>x!==k);
   else{if(p.length>=8)return alert('Keep the top bar simple: maximum 8 pinned tabs. Remove one first.');p.push(k)}
-  savePinnedTabs(p);
+  savePinnedTabs(p);renderQuickControls();
 }
 function applyTabPreset(name){
   let p=TAB_PRESETS[name]||TAB_PRESETS.balanced;
@@ -671,7 +792,7 @@ function showAppTab(name,btn){
   if(btn){document.querySelectorAll('#appTabs button').forEach(b=>b.classList.remove('on'));btn.classList.add('on')} else setTabButton(name);
   appMissionCats=null;appMissionMode='all';
 
-  if(name==='Home')setVisible(['heroHome','dashboard','today','fresh','badges','progress']);
+  if(name==='Home')setVisible(['heroHome','quickControls','dashboard','today','fresh','badges','progress']);
   if(name==='Learn')setVisible(['learnHub','missions','lab','quiz']);
   if(name==='Explore')setVisible(['exploreHub','fresh','hubs']);
   if(name==='Videos'){setVisible(['missions']);appMissionMode='video'}
@@ -704,14 +825,33 @@ window.eqGetLocalState=()=>JSON.parse(JSON.stringify(s));window.eqGetLocalXP=()=
 
 const INTERESTS=['🎬 Movies & TV','🎮 Gaming','🏅 Sports','✨ Life & Style','💄 Beauty','👗 Fashion','🎵 Music','📚 Books','💡 TED & Stories','🔬 Science','🚀 Space','🐾 Animals','🎨 Art & Design','🧠 Study Hacks','🎓 SAT','🏫 Universities','💼 Careers','🌍 Travel'];
 function pref(k,d){return localStorage.getItem('teq-'+k)||d}
-function setTheme(v){document.body.dataset.theme=v;localStorage.setItem('teq-theme',v);renderSettings();eqSaveCloudPrefs()}
+function setTheme(v){document.body.dataset.theme=v;localStorage.setItem('teq-theme',v);renderSettings();renderQuickControls();eqSaveCloudPrefs()}
 function setFont(v){document.body.dataset.font=v;localStorage.setItem('teq-font',v);renderSettings();eqSaveCloudPrefs()}
-function setDensity(v){document.body.dataset.density=v;localStorage.setItem('teq-density',v);renderSettings();eqSaveCloudPrefs()}
+function setDensity(v){document.body.dataset.density=v;localStorage.setItem('teq-density',v);renderSettings();renderQuickControls();eqSaveCloudPrefs()}
 function setNavMode(v){document.body.dataset.nav=v;localStorage.setItem('teq-nav',v);renderSettings();eqSaveCloudPrefs()}
 function renderSettings(){
-  document.body.dataset.theme=pref('theme','dark');document.body.dataset.font=pref('font','system');document.body.dataset.density=pref('density','comfortable');document.body.dataset.nav=pref('nav','both');
-  [['themeChoices','theme'],['fontChoices','font'],['densityChoices','density'],['navChoices','nav']].forEach(function(pair){let box=document.getElementById(pair[0]);if(!box)return;let val=pref(pair[1],pair[1]==='theme'?'dark':pair[1]==='font'?'system':pair[1]==='density'?'comfortable':'both');box.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().includes(val==='system'?'clean':val==='comfortable'?'comfortable':val==='both'?'icon + text':val)))});
-  let g=document.getElementById('interestGrid');if(g){let selected=JSON.parse(localStorage.getItem('teq-interests')||'[]');g.innerHTML=INTERESTS.map(x=>'<button class="interestBtn '+(selected.includes(x)?'on':'')+'" onclick="toggleInterest(this)">'+x+'</button>').join('')} renderTabManager();renderAppTabs();
+  document.body.dataset.theme=pref('theme','dark');document.body.dataset.font=pref('font','system');document.body.dataset.density=pref('density','compact');document.body.dataset.nav=pref('nav','both');
+  [['themeChoices','theme'],['fontChoices','font'],['densityChoices','density'],['navChoices','nav']].forEach(function(pair){let box=document.getElementById(pair[0]);if(!box)return;let val=pref(pair[1],pair[1]==='theme'?'dark':pair[1]==='font'?'system':pair[1]==='density'?'compact':'both');box.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().includes(val==='system'?'clean':val==='comfortable'?'comfortable':val==='both'?'icon + text':val)))});
+  let g=document.getElementById('interestGrid');if(g){let selected=JSON.parse(localStorage.getItem('teq-interests')||'[]');g.innerHTML=INTERESTS.map(x=>'<button class="interestBtn '+(selected.includes(x)?'on':'')+'" onclick="toggleInterest(this)">'+x+'</button>').join('')} renderTabManager();renderAppTabs();renderQuickControls();
+}
+function renderQuickControls(){
+  const map=[
+    ['quickTheme',pref('theme','dark')],
+    ['quickDensity',pref('density','compact')],
+    ['quickPreset',localStorage.getItem('teq-home-focus')||'balanced']
+  ];
+  map.forEach(([id,val])=>{
+    const box=document.getElementById(id);if(!box)return;
+    box.querySelectorAll('button').forEach(btn=>{
+      let t=btn.textContent.trim().toLowerCase();
+      let match=t===String(val).toLowerCase() ||
+        (val==='exam'&&t==='sat') ||
+        (val==='balanced'&&t==='balanced') ||
+        (val==='explore'&&t==='explore') ||
+        (val==='minimal'&&t==='minimal');
+      btn.classList.toggle('on',match);
+    });
+  });
 }
 function toggleInterest(btn){let selected=JSON.parse(localStorage.getItem('teq-interests')||'[]'),v=btn.textContent.trim();selected=selected.includes(v)?selected.filter(x=>x!==v):[...selected,v];localStorage.setItem('teq-interests',JSON.stringify(selected));renderSettings();eqSaveCloudPrefs()}
 function stripTags(s){let d=document.createElement('div');d.innerHTML=s||'';return d.textContent||''}
