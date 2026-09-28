@@ -1,4 +1,4 @@
-const C='teq-live-v3';
+const C='batumhub-live-v1';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install',event=>{
