@@ -8,26 +8,64 @@ on:
     paths:
       - "scripts/update_feeds.py"
       - ".github/workflows/update-feeds.yml"
+
 permissions:
   contents: write
+
 concurrency:
   group: teen-english-feed
   cancel-in-progress: true
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - run: pip install feedparser beautifulsoup4
-      - run: python scripts/update_feeds.py
-      - name: Commit feed if changed
+
+      - name: Build fresh feed
+        run: python scripts/update_feeds.py
+
+      - name: Commit feed safely
+        shell: bash
         run: |
-          if git diff --quiet feed.json; then exit 0; fi
+          set -euo pipefail
+
+          cp feed.json /tmp/feed.json
           git config user.name "Teen English Quest Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add feed.json
-          git commit -m "chore: refresh learning feed [skip ci]"
-          git push
+
+          for attempt in 1 2 3; do
+            echo "Push attempt $attempt"
+
+            # Always rebuild the commit on top of the newest main branch.
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/feed.json feed.json
+
+            if git diff --quiet feed.json; then
+              echo "Feed is already current."
+              exit 0
+            fi
+
+            git add feed.json
+            git commit -m "chore: refresh learning feed [skip ci]"
+
+            if git push origin HEAD:main; then
+              echo "Feed refresh pushed successfully."
+              exit 0
+            fi
+
+            echo "Remote changed while publishing; retrying on latest main..."
+            sleep $((attempt * 2))
+          done
+
+          echo "Could not publish feed after 3 attempts."
+          exit 1
