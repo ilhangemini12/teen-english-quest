@@ -1,0 +1,30 @@
+name: Refresh learning feed
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_feeds.py"
+      - ".github/workflows/update-feeds.yml"
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install feedparser beautifulsoup4
+      - run: python scripts/update_feeds.py
+      - name: Commit feed if changed
+        run: |
+          if git diff --quiet feed.json; then exit 0; fi
+          git config user.name "Teen English Quest Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add feed.json
+          git commit -m "chore: refresh learning feed [skip ci]"
+          git push
