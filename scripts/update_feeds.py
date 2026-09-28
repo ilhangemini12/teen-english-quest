@@ -137,6 +137,7 @@ for src,cat,url,emoji,priority in FEEDS:
                                 audio_url=lurl
                                 break
             except Exception: pass
+            if audio_url.startswith("http://"): audio_url="https://"+audio_url[len("http://"):]
             raw.append({
                 "key":key(src,title,link),"source":src,"category":cat,"emoji":emoji,
                 "title":title,"summary":summary,"url":link,"published":published,"image":image,"audio_url":audio_url,
