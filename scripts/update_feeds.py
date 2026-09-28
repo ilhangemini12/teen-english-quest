@@ -96,6 +96,7 @@ for src,cat,url,emoji,priority in FEEDS:
             combined=title+" "+summary
             if not title or not link or blocked(combined): continue
             if src=="TED Talks Daily" and not any(k in combined.lower() for k in TED_PREFER): continue
+            if src.startswith("Smithsonian") and not any(k in combined.lower() for k in YOUTH_BOOST): continue
             if len(summary)>210: summary=summary[:207].rsplit(" ",1)[0]+"…"
             published=iso(e)
             raw.append({
@@ -135,7 +136,8 @@ for x in items:
 for x in items:
     if x in out: continue
     if source_counts.get(x["source"],0)>=5: continue
-    if cat_counts.get(x["category"],0)>=18: continue
+    category_caps={"Science & Tech":14,"American English":12,"Podcast":8,"Culture":8}
+    if cat_counts.get(x["category"],0)>=category_caps.get(x["category"],10): continue
     out.append(x)
     source_counts[x["source"]]=source_counts.get(x["source"],0)+1
     cat_counts[x["category"]]=cat_counts.get(x["category"],0)+1
