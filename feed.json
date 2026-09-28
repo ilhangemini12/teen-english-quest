@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T14:57:24.362360+00:00",
+  "updated_at": "2026-09-28T14:59:05.161418+00:00",
   "items": [
     {
       "key": "da7422a5fd9a38",
@@ -82,16 +82,6 @@
       "published": "2026-09-22T10:30:00+00:00"
     },
     {
-      "key": "88eafeb0379577",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Archaeologists Are Reconstructing the 'Invisible' Technologies of the Stone Age, From Rope to Thread and Twine",
-      "summary": "Largely missing from the archaeological record, fiber innovations played a huge role in the lives of early humans. Researchers are weaving together new insights from the traces they left behind",
-      "url": "https://www.smithsonianmag.com/science-nature/archaeologists-are-reconstructing-the-invisible-technologies-of-the-stone-age-from-rope-to-thread-and-twine-180989534/",
-      "published": "2026-09-21T18:24:00+00:00"
-    },
-    {
       "key": "8f1a0e59d26efd",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -172,16 +162,6 @@
       "published": "2026-09-11T13:31:01+00:00"
     },
     {
-      "key": "f06231dad32922",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Spain’s White-Headed Ducks Have a Signature Color Right in the Name. And That Isn’t Even Their Most Remarkable Hue",
-      "summary": "The first thing you’re likely to notice is the blue bill. But beyond appearances, the duck has an exciting story to tell about conservation and recovery",
-      "url": "https://www.smithsonianmag.com/science-nature/spain-white-headed-ducks-signature-color-right-name-that-isnt-even-most-remarkable-hue-180989289/",
-      "published": "2026-09-02T13:00:00+00:00"
-    },
-    {
       "key": "3bbc8ef5d12e6a",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -200,16 +180,6 @@
       "summary": "After growing up in poverty, she became famous for her legendary songs, big heart and larger-than-life style. But the iconic musician insisted that \"the songs lead to everything else\"",
       "url": "https://www.smithsonianmag.com/arts-culture/dolly-parton-was-one-of-the-biggest-stars-in-the-history-of-country-music-she-wanted-to-be-remembered-as-a-songwriter-180989405/",
       "published": "2026-08-26T17:58:35+00:00"
-    },
-    {
-      "key": "d7bcdba4be8696",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Perseverance Captures Another Phobos Transit",
-      "summary": "Description NASA’s Perseverance Mars rover used its Mastcam-Z camera to capture the silhouette of Phobos, one of the two Martian moons, as it crossed in front of the Sun on Aug. 12, 2026, the 1,948th…",
-      "url": "https://science.nasa.gov/photojournal/perseverance-captures-another-phobos-transit/",
-      "published": "2026-08-24T00:00:00+00:00"
     },
     {
       "key": "f1476e449b231d",
@@ -232,16 +202,6 @@
       "published": "2026-08-06T11:06:54+00:00"
     },
     {
-      "key": "c5c50220c5d5bb",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s SkyFall Helicopters at Work (Artist’s Concept)",
-      "summary": "Description This artist’s concept depicts NASA’s three SkyFall Mars helicopters collecting data while flying over the surface of the Red Planet. The green frequency waves emanating from the helicopters’…",
-      "url": "https://science.nasa.gov/photojournal/nasas-skyfall-helicopters-at-work-artists-concept/",
-      "published": "2026-08-06T00:00:00+00:00"
-    },
-    {
       "key": "988b79a6d7174f",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -260,6 +220,16 @@
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/8005248.html",
       "published": "2025-04-13T22:05:00+00:00"
+    },
+    {
+      "key": "3f383cf9e87072",
+      "source": "VOA Learning English Podcast",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Learning English Podcast",
+      "summary": "Learning English uses a limited vocabulary and are read at a slower pace than VOA's other English broadcasts. Previously known as Special English.",
+      "url": "https://learningenglish.voanews.com/a/8011955.html",
+      "published": "2025-03-31T00:30:03+00:00"
     },
     {
       "key": "41522b46c157f5",
@@ -302,44 +272,54 @@
       "published": "2025-03-16T22:00:00+00:00"
     },
     {
-      "key": "1072c5d88ecec1",
-      "source": "VOA Everyday Grammar",
-      "category": "American English",
-      "emoji": "✍️",
-      "title": "Common Adverbs in Conversation: Amplifiers, Downtoners",
-      "summary": "In this Everyday Grammar program, we examine some of the most important adverbs that you will hear in everyday speech. There is even a special name for them. They are called amplifiers and downtoners.",
-      "url": "https://learningenglish.voanews.com/a/amplifiers-downtoners/3714862.html",
-      "published": "2025-03-13T22:05:15+00:00"
-    },
-    {
-      "key": "788700ce97afd9",
-      "source": "VOA English in a Minute",
-      "category": "American English",
-      "emoji": "⚡",
-      "title": "English in a Minute: Pie in the Sky",
+      "key": "76d6299392a0c3",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "Mount Vernon - George Washington’s Virginia Home",
       "summary": "",
-      "url": "https://learningenglish.voanews.com/a/8002401.html",
-      "published": "2025-03-10T22:00:00+00:00"
+      "url": "https://learningenglish.voanews.com/a/8011175.html",
+      "published": "2025-03-14T21:17:21+00:00"
     },
     {
-      "key": "57f0d08565d794",
-      "source": "VOA Everyday Grammar",
-      "category": "American English",
-      "emoji": "✍️",
-      "title": "Adverb and Adjective Choices in Conversation",
-      "summary": "In today's Everyday Grammar, we will study how conversational grammar differs from written and formal grammatical structures. Americans often use adjective forms in place of adverbs. Americans also may use…",
-      "url": "https://learningenglish.voanews.com/a/adverbs-and-adjectives/3702382.html",
-      "published": "2025-03-06T22:05:22+00:00"
-    },
-    {
-      "key": "3a5a258aeecc46",
-      "source": "VOA English in a Minute",
-      "category": "American English",
-      "emoji": "⚡",
-      "title": "English in a Minute: On the Ball",
+      "key": "bc25905d4eb725",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "The Most Famous Home in America: The White House",
       "summary": "",
-      "url": "https://learningenglish.voanews.com/a/7990719.html",
-      "published": "2025-03-03T22:00:00+00:00"
+      "url": "https://learningenglish.voanews.com/a/8007352.html",
+      "published": "2025-03-12T13:46:29+00:00"
+    },
+    {
+      "key": "a6d81ce477028d",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "Harry Houdini: The Great Escape Artist",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8006783.html",
+      "published": "2025-03-11T15:47:07+00:00"
+    },
+    {
+      "key": "8fabb7bfb65438",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "A Priceless Bible Returns to Its Longtime Home in Switzerland",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8005230.html",
+      "published": "2025-03-10T14:42:19+00:00"
+    },
+    {
+      "key": "fff00532427441",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "Knitting While Watching Movies Gains Popularity",
+      "summary": "In Europe and America, people are enjoying the activity of knitting while watching a movie together. The idea is to relax while doing something useful and fun.",
+      "url": "https://learningenglish.voanews.com/a/knitting-while-watching-movies-gains-popularity-/7990808.html",
+      "published": "2025-03-05T21:55:00+00:00"
     },
     {
       "key": "f8c4eee9522f2b",
@@ -350,16 +330,6 @@
       "summary": "",
       "url": "https://learningenglish.voanews.com/a/7971270.html",
       "published": "2025-03-02T22:00:00+00:00"
-    },
-    {
-      "key": "1c405b6a964505",
-      "source": "VOA English in a Minute",
-      "category": "American English",
-      "emoji": "⚡",
-      "title": "English in a Minute: Hold Your Horses",
-      "summary": "",
-      "url": "https://learningenglish.voanews.com/a/7983330.html",
-      "published": "2025-02-24T22:00:00+00:00"
     },
     {
       "key": "b43e2c03e7bcf2",
