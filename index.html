@@ -2350,6 +2350,311 @@ function renderLanguageHub(mode='all'){
   let captures=((s.languageCaptures||{})[lang]||[]).slice(-8).reverse();
   if(cap)cap.innerHTML=captures.length?'<div class="captureHead"><b>📌 Saved from BatumHub Chrome</b><small>Quick captures for later study</small></div><div class="captureChips">'+captures.map(x=>'<span>'+liveEsc(x.text)+'</span>').join('')+'</div>':'';
 }
+
+/* ===== BATUMHUB V5.0 FULL LANGUAGE LOCALIZATION + NATIVE CURRICULUM ===== */
+const UI_LOCALES={
+  en:{locale:'en-GB',home:'Home',learn:'Learn',messages:'Messages',personalize:'Personalize',account:'Account',updated:'Updated',weather:'Weather unavailable',install:'BatumHub',explore:'Explore',vocabulary:'Vocabulary',speaking:'Speaking',games:'Games',grammar:'Grammar',pronunciation:'Pronunciation',clips:'Clips',news:'News',podcasts:'Podcasts',league:'League',future:'Future',remove:'Remove',pin:'Pin',pinHelp:'Home, Learn, Messages and Personalize stay fixed above. You can pin up to 12 additional sections here.',pinLimit:'You can pin up to 12 additional sections.',heroTitle:'Learn English by doing things, not collecting lessons.',heroLead:'Build real English through focused practice, media, speaking, vocabulary and review. Your level and interests shape what comes next.',live:'Fresh content daily',xp:'Total XP',level:'Level',streak:'Day streak 🔥',missions:'Missions',demoTitle:'🎟️ Free demo · 5 learning actions',demoTry:'Try BatumHub before creating an account.',demoCreate:'Create free account',next:'YOUR NEXT STEP',continue:'Continue learning',loading:'Loading your next useful step…',start:'Start',review:'Review words',check:'Check level',quick:'🎛 Quick setup',quickText:'Your level and layout in two taps — detailed controls stay out of the way.',profileSettings:'Learning profile & settings →',myHub:'🧩 My Hub',myHubText:'Small, useful widgets — choose only what helps you learn.',wordDay:'Word of the Day',loadingWord:'Loading…',friends:'Friends',noFriends:'No accepted friends yet.',signFriends:'Sign in to see accepted friends.',clipSprint:'Clip Sprint',clipDesc:'Watch one short clip, catch one phrase, then say your own sentence.',startClip:'Start a clip',wordGame:'Daily Word Game',wordGameDesc:'One short vocabulary game per day.',play:'Play',myLevel:'My level',grade:'Grade',auto:'Auto',manual:'Manual level',profile:'Learning profile',course:'Native course',courseIntro:'Short BatumHub lessons with a clear goal, model, practice and tracked completion.',completed:'completed',open:'Open',done:'Complete lesson',lesson:'Lesson',model:'Model',practice:'Practice',sources:'Trusted sources',startHere:'Start here',openOriginal:'open original ↗',saved:'Saved for later study',settingsTitle:'Personalize your learning',settingsIntro:'Grade controls age-appropriate topics; language level controls difficulty.',schoolGrade:'School grade',languageLevel:'Language level',device:'Layout by device',deviceIntro:'Keep a different layout for desktop, tablet and mobile.',preset:'Space preset',messagesIntro:'Private, text-only messaging between accepted friends.',friendsTitle:'Friends',safeChat:'Safe chat',selectFriend:'Select a friend to start a conversation.',writeMessage:'Write a message…',send:'Send',block:'Block',report:'Report',signIn:'Sign in to see your friends.',noAccepted:'No accepted friends yet.',privateChat:'Private friend chat · text only',coreCourse:'Curriculum',progress:'Progress'},
+  es:{locale:'es-ES',home:'Inicio',learn:'Aprender',messages:'Mensajes',personalize:'Personalizar',account:'Cuenta',updated:'Actualizado',weather:'Tiempo no disponible',install:'BatumHub',explore:'Explorar',vocabulary:'Vocabulario',speaking:'Hablar',games:'Juegos',grammar:'Gramática',pronunciation:'Pronunciación',clips:'Vídeos',news:'Noticias',podcasts:'Pódcasts',league:'Liga',future:'Futuro',remove:'Quitar',pin:'Fijar',pinHelp:'Inicio, Aprender, Mensajes y Personalizar permanecen fijos arriba. Puedes fijar hasta 12 secciones adicionales.',pinLimit:'Puedes fijar hasta 12 secciones adicionales.',heroTitle:'Aprende español usándolo de verdad.',heroLead:'Avanza con práctica breve, gramática, pronunciación, vocabulario, audio y repaso. Tu nivel y tus intereses deciden el siguiente paso.',live:'Contenido nuevo cada día',xp:'XP total',level:'Nivel',streak:'Racha diaria 🔥',missions:'Misiones',demoTitle:'🎟️ Prueba gratuita · 5 actividades',demoTry:'Prueba BatumHub antes de crear una cuenta.',demoCreate:'Crear cuenta gratis',next:'TU SIGUIENTE PASO',continue:'Continuar aprendiendo',loading:'Preparando tu siguiente paso útil…',start:'Empezar',review:'Repasar palabras',check:'Comprobar nivel',quick:'🎛 Ajuste rápido',quickText:'Nivel y diseño en dos toques; las opciones avanzadas quedan aparte.',profileSettings:'Perfil de aprendizaje y ajustes →',myHub:'🧩 Mi espacio',myHubText:'Pequeños widgets útiles: deja solo los que te ayuden.',wordDay:'Palabra del día',loadingWord:'Cargando…',friends:'Amigos',noFriends:'Todavía no tienes amigos aceptados.',signFriends:'Inicia sesión para ver a tus amigos.',clipSprint:'Vídeo rápido',clipDesc:'Mira un vídeo corto, capta una expresión y úsala en una frase propia.',startClip:'Ver un vídeo',wordGame:'Juego de palabras',wordGameDesc:'Un juego corto de vocabulario al día.',play:'Jugar',myLevel:'Mi nivel',grade:'Curso escolar',auto:'Automático',manual:'Nivel manual',profile:'Perfil de aprendizaje',course:'Curso nativo',courseIntro:'Lecciones breves de BatumHub con objetivo, modelo, práctica y progreso guardado.',completed:'completado',open:'Abrir',done:'Completar lección',lesson:'Lección',model:'Modelo',practice:'Práctica',sources:'Fuentes fiables',startHere:'Empieza aquí',openOriginal:'abrir fuente ↗',saved:'Guardado para estudiar después',settingsTitle:'Personaliza tu aprendizaje',settingsIntro:'El curso escolar controla la edad del contenido; el nivel controla la dificultad del idioma.',schoolGrade:'Curso escolar',languageLevel:'Nivel de español',device:'Diseño según dispositivo',deviceIntro:'Guarda un diseño distinto para ordenador, tableta y móvil.',preset:'Estilo del espacio',messagesIntro:'Mensajería privada y solo de texto entre amigos aceptados.',friendsTitle:'Amigos',safeChat:'Chat seguro',selectFriend:'Selecciona un amigo para empezar una conversación.',writeMessage:'Escribe un mensaje…',send:'Enviar',block:'Bloquear',report:'Reportar',signIn:'Inicia sesión para ver a tus amigos.',noAccepted:'Todavía no tienes amigos aceptados.',privateChat:'Chat privado entre amigos · solo texto',coreCourse:'Programa',progress:'Progreso'},
+  de:{locale:'de-DE',home:'Start',learn:'Lernen',messages:'Nachrichten',personalize:'Anpassen',account:'Konto',updated:'Aktualisiert',weather:'Wetter nicht verfügbar',install:'BatumHub',explore:'Entdecken',vocabulary:'Wortschatz',speaking:'Sprechen',games:'Spiele',grammar:'Grammatik',pronunciation:'Aussprache',clips:'Videos',news:'Nachrichten',podcasts:'Podcasts',league:'Liga',future:'Zukunft',remove:'Entfernen',pin:'Anheften',pinHelp:'Start, Lernen, Nachrichten und Anpassen bleiben oben fest. Du kannst bis zu 12 weitere Bereiche anheften.',pinLimit:'Du kannst bis zu 12 weitere Bereiche anheften.',heroTitle:'Lerne Deutsch, indem du es wirklich benutzt.',heroLead:'Arbeite mit kurzen Übungen, Grammatik, Aussprache, Wortschatz, Hörtraining und Wiederholung. Niveau und Interessen bestimmen den nächsten Schritt.',live:'Täglich neue Inhalte',xp:'XP gesamt',level:'Niveau',streak:'Tages-Serie 🔥',missions:'Aufgaben',demoTitle:'🎟️ Kostenlose Probe · 5 Lernaktionen',demoTry:'Teste BatumHub, bevor du ein Konto erstellst.',demoCreate:'Kostenloses Konto',next:'DEIN NÄCHSTER SCHRITT',continue:'Weiterlernen',loading:'Der nächste sinnvolle Schritt wird vorbereitet…',start:'Starten',review:'Wörter wiederholen',check:'Niveau prüfen',quick:'🎛 Schnelleinstellung',quickText:'Niveau und Layout mit zwei Klicks; Details bleiben im Hintergrund.',profileSettings:'Lernprofil und Einstellungen →',myHub:'🧩 Mein Bereich',myHubText:'Kleine, nützliche Widgets – nur das behalten, was beim Lernen hilft.',wordDay:'Wort des Tages',loadingWord:'Wird geladen…',friends:'Freunde',noFriends:'Noch keine bestätigten Freunde.',signFriends:'Melde dich an, um Freunde zu sehen.',clipSprint:'Kurzvideo',clipDesc:'Sieh ein kurzes Video, merke dir eine Wendung und bilde einen eigenen Satz.',startClip:'Video starten',wordGame:'Wortspiel des Tages',wordGameDesc:'Ein kurzes Wortschatzspiel pro Tag.',play:'Spielen',myLevel:'Mein Niveau',grade:'Klassenstufe',auto:'Automatisch',manual:'Manuelles Niveau',profile:'Lernprofil',course:'Eigener Kurs',courseIntro:'Kurze BatumHub-Lektionen mit Ziel, Modell, Übung und gespeichertem Fortschritt.',completed:'abgeschlossen',open:'Öffnen',done:'Lektion abschließen',lesson:'Lektion',model:'Beispiel',practice:'Übung',sources:'Verlässliche Quellen',startHere:'Hier starten',openOriginal:'Original öffnen ↗',saved:'Für später gespeichert',settingsTitle:'Lernen anpassen',settingsIntro:'Die Klassenstufe steuert altersgerechte Inhalte; das Sprachniveau steuert die Schwierigkeit.',schoolGrade:'Klassenstufe',languageLevel:'Deutschniveau',device:'Layout nach Gerät',deviceIntro:'Speichere ein eigenes Layout für Desktop, Tablet und Mobilgerät.',preset:'Bereichsstil',messagesIntro:'Private Textnachrichten nur zwischen bestätigten Freunden.',friendsTitle:'Freunde',safeChat:'Sicherer Chat',selectFriend:'Wähle einen Freund aus, um eine Unterhaltung zu beginnen.',writeMessage:'Nachricht schreiben…',send:'Senden',block:'Blockieren',report:'Melden',signIn:'Melde dich an, um Freunde zu sehen.',noAccepted:'Noch keine bestätigten Freunde.',privateChat:'Privater Freundes-Chat · nur Text',coreCourse:'Lehrplan',progress:'Fortschritt'},
+  ru:{locale:'ru-RU',home:'Главная',learn:'Учиться',messages:'Сообщения',personalize:'Настройки',account:'Аккаунт',updated:'Обновлено',weather:'Погода недоступна',install:'BatumHub',explore:'Исследовать',vocabulary:'Слова',speaking:'Говорение',games:'Игры',grammar:'Грамматика',pronunciation:'Произношение',clips:'Видео',news:'Новости',podcasts:'Подкасты',league:'Лига',future:'Будущее',remove:'Убрать',pin:'Закрепить',pinHelp:'Главная, Учиться, Сообщения и Настройки всегда закреплены сверху. Можно добавить до 12 дополнительных разделов.',pinLimit:'Можно закрепить до 12 дополнительных разделов.',heroTitle:'Учи русский, используя его на практике.',heroLead:'Короткие занятия, грамматика, произношение, словарь, аудирование и повторение. Уровень и интересы определяют следующий шаг.',live:'Новые материалы каждый день',xp:'Всего XP',level:'Уровень',streak:'Дней подряд 🔥',missions:'Задания',demoTitle:'🎟️ Бесплатная проба · 5 занятий',demoTry:'Попробуй BatumHub до создания аккаунта.',demoCreate:'Создать аккаунт',next:'СЛЕДУЮЩИЙ ШАГ',continue:'Продолжить обучение',loading:'Готовим следующий полезный шаг…',start:'Начать',review:'Повторить слова',check:'Проверить уровень',quick:'🎛 Быстрая настройка',quickText:'Уровень и вид в два нажатия; подробные настройки остаются отдельно.',profileSettings:'Профиль обучения и настройки →',myHub:'🧩 Моё пространство',myHubText:'Небольшие полезные виджеты — оставь только нужные.',wordDay:'Слово дня',loadingWord:'Загрузка…',friends:'Друзья',noFriends:'Пока нет подтверждённых друзей.',signFriends:'Войди, чтобы увидеть друзей.',clipSprint:'Короткое видео',clipDesc:'Посмотри короткое видео, запомни выражение и составь свой пример.',startClip:'Открыть видео',wordGame:'Игра со словами',wordGameDesc:'Одна короткая словарная игра в день.',play:'Играть',myLevel:'Мой уровень',grade:'Класс',auto:'Авто',manual:'Ручной уровень',profile:'Профиль обучения',course:'Собственный курс',courseIntro:'Короткие уроки BatumHub: цель, пример, практика и сохранённый прогресс.',completed:'завершено',open:'Открыть',done:'Завершить урок',lesson:'Урок',model:'Пример',practice:'Практика',sources:'Надёжные источники',startHere:'Начать здесь',openOriginal:'открыть источник ↗',saved:'Сохранено для повторения',settingsTitle:'Настрой обучение',settingsIntro:'Класс определяет возраст материалов, а уровень — сложность языка.',schoolGrade:'Класс',languageLevel:'Уровень русского',device:'Вид для устройства',deviceIntro:'Сохраняй отдельный вид для компьютера, планшета и телефона.',preset:'Стиль пространства',messagesIntro:'Личные текстовые сообщения только между подтверждёнными друзьями.',friendsTitle:'Друзья',safeChat:'Безопасный чат',selectFriend:'Выбери друга, чтобы начать переписку.',writeMessage:'Написать сообщение…',send:'Отправить',block:'Заблокировать',report:'Пожаловаться',signIn:'Войди, чтобы увидеть друзей.',noAccepted:'Пока нет подтверждённых друзей.',privateChat:'Личный чат друзей · только текст',coreCourse:'Учебный план',progress:'Прогресс'}
+};
+function localeUI(){return UI_LOCALES[currentLearningLanguage()]||UI_LOCALES.en}
+const TAB_TRANSLATIONS={
+ es:{ElifAI:'Elif IA',Explore:'Explorar',SAT:'SAT',Future:'Futuro',MoviesTV:'Cine y TV',Life:'Vida y estilo',Sports:'Deportes',Gaming:'Videojuegos',Games:'Juegos',Clips:'Vídeos',TED:'TED e historias',News:'Noticias',Podcasts:'Pódcasts',Grammar:'Gramática',Pronunciation:'Pronunciación',Vocabulary:'Vocabulario',Speaking:'Hablar',Videos:'Vídeos',Comics:'Cómics',Wiki:'Wiki',League:'Liga'},
+ de:{ElifAI:'Elif KI',Explore:'Entdecken',SAT:'SAT',Future:'Zukunft',MoviesTV:'Film & TV',Life:'Alltag & Stil',Sports:'Sport',Gaming:'Gaming',Games:'Spiele',Clips:'Videos',TED:'TED & Geschichten',News:'Nachrichten',Podcasts:'Podcasts',Grammar:'Grammatik',Pronunciation:'Aussprache',Vocabulary:'Wortschatz',Speaking:'Sprechen',Videos:'Videos',Comics:'Comics',Wiki:'Wiki',League:'Liga'},
+ ru:{ElifAI:'Elif ИИ',Explore:'Исследовать',SAT:'SAT',Future:'Будущее',MoviesTV:'Кино и ТВ',Life:'Жизнь и стиль',Sports:'Спорт',Gaming:'Игры',Games:'Игры',Clips:'Видео',TED:'TED и истории',News:'Новости',Podcasts:'Подкасты',Grammar:'Грамматика',Pronunciation:'Произношение',Vocabulary:'Слова',Speaking:'Говорение',Videos:'Видео',Comics:'Комиксы',Wiki:'Wiki',League:'Лига'}
+};
+function localizedTabMeta(k){
+  let base=tabMetaForLearner(k),lang=currentLearningLanguage(),ui=localeUI();
+  if(k==='Home')return {icon:base.icon,label:ui.home};
+  if(k==='Learn')return {icon:base.icon,label:ui.learn};
+  if(k==='Messages')return {icon:base.icon,label:ui.messages};
+  if(k==='Personalize'||k==='Settings')return {icon:base.icon,label:ui.personalize};
+  return {icon:base.icon,label:(TAB_TRANSLATIONS[lang]&&TAB_TRANSLATIONS[lang][k])||base.label};
+}
+
+/* Same-language daily words and definitions */
+const MULTI_DAILY={
+ es:{
+  A1:[['amable','Que trata a otras personas con respeto y cariño.','Mi nueva compañera es muy amable.'],['temprano','Antes de la hora habitual o prevista.','Hoy llegué temprano a clase.'],['elegir','Escoger una opción entre varias.','Puedes elegir un libro para leer.'],['compartir','Dar una parte de algo a otra persona o usar algo juntos.','Vamos a compartir nuestras ideas.'],['listo','Preparado para hacer algo.','Estoy listo para empezar.']],
+  A2:[['descubrir','Encontrar o conocer algo por primera vez.','Quiero descubrir lugares nuevos.'],['mejorar','Hacer que algo sea mejor o volverse mejor.','Practicar cada día ayuda a mejorar.'],['recordar','Mantener o traer algo a la memoria.','Intento recordar las palabras nuevas.'],['viaje','Desplazamiento de un lugar a otro.','El viaje en tren fue tranquilo.'],['cuidadoso','Que presta atención para evitar errores o problemas.','Sé cuidadoso con los detalles.']],
+  B1:[['enfoque','Manera de abordar un tema o problema.','Probamos un enfoque diferente.'],['confianza','Seguridad en una persona, idea o capacidad.','Hablar más me da confianza.'],['evidencia','Información que apoya una idea o conclusión.','El texto ofrece evidencia clara.'],['reto','Situación difícil que exige esfuerzo o habilidad.','La presentación fue un buen reto.'],['fiable','Que merece confianza porque suele funcionar bien.','Busca una fuente fiable.']],
+  B2:[['perspectiva','Forma particular de entender o considerar algo.','El artículo muestra otra perspectiva.'],['matiz','Diferencia pequeña pero importante de significado.','Esa palabra añade un matiz de duda.'],['preciso','Exacto, claro y sin ambigüedad innecesaria.','Necesitamos un término más preciso.'],['evaluar','Analizar algo para juzgar su calidad o valor.','Debemos evaluar las pruebas.'],['coherente','Claro, lógico y bien conectado.','Su argumento es coherente.']],
+  C1:[['ambigüedad','Cualidad de algo que admite más de una interpretación.','La ambigüedad del mensaje fue intencionada.'],['inferencia','Conclusión obtenida a partir de indicios o datos.','La inferencia se apoya en varias pistas.'],['plausible','Que parece razonable o creíble.','Es una explicación plausible.'],['riguroso','Muy preciso, cuidadoso y exigente.','El análisis fue riguroso.'],['sustentar','Apoyar una idea con razones o pruebas.','Los datos ayudan a sustentar la conclusión.']]
+ },
+ de:{
+  A1:[['freundlich','Nett und hilfsbereit gegenüber anderen Menschen.','Die neue Schülerin ist sehr freundlich.'],['früh','Vor der üblichen oder erwarteten Zeit.','Ich bin heute früh in der Schule.'],['wählen','Sich für eine Möglichkeit entscheiden.','Du kannst ein Buch wählen.'],['teilen','Etwas gemeinsam benutzen oder einen Teil abgeben.','Wir teilen unsere Ideen.'],['bereit','Auf etwas vorbereitet.','Ich bin bereit für die Aufgabe.']],
+  A2:[['entdecken','Etwas zum ersten Mal finden oder kennenlernen.','Ich möchte neue Orte entdecken.'],['verbessern','Etwas besser machen oder besser werden.','Tägliche Übung kann die Aussprache verbessern.'],['erinnern','Etwas im Gedächtnis behalten oder wieder ins Gedächtnis holen.','Ich möchte mich an das neue Wort erinnern.'],['Reise','Fahrt oder Weg von einem Ort zu einem anderen.','Die Reise mit dem Zug war ruhig.'],['sorgfältig','Mit viel Aufmerksamkeit und ohne unnötige Fehler.','Arbeite sorgfältig mit den Beispielen.']],
+  B1:[['Ansatz','Eine bestimmte Art, ein Problem oder eine Aufgabe anzugehen.','Wir versuchen einen anderen Ansatz.'],['Zuversicht','Das Gefühl, dass etwas gelingen kann.','Mehr Übung gibt mir Zuversicht.'],['Beleg','Information, die eine Aussage unterstützt.','Der Text liefert einen guten Beleg.'],['Herausforderung','Eine schwierige Aufgabe, die Können verlangt.','Das Gespräch war eine gute Herausforderung.'],['zuverlässig','Vertrauenswürdig und beständig.','Nutze eine zuverlässige Quelle.']],
+  B2:[['Perspektive','Eine bestimmte Sichtweise auf ein Thema.','Der Artikel zeigt eine andere Perspektive.'],['Nuance','Ein kleiner, aber wichtiger Bedeutungsunterschied.','Dieses Wort verändert die Nuance.'],['präzise','Genau, klar und treffend.','Formuliere die Aussage präzise.'],['bewerten','Etwas nach bestimmten Kriterien beurteilen.','Wir müssen die Belege bewerten.'],['schlüssig','Logisch verbunden und überzeugend.','Die Argumentation ist schlüssig.']],
+  C1:[['Mehrdeutigkeit','Eigenschaft einer Formulierung mit mehreren möglichen Bedeutungen.','Die Mehrdeutigkeit ist bewusst eingesetzt.'],['Schlussfolgerung','Ergebnis, das aus Informationen oder Belegen abgeleitet wird.','Die Schlussfolgerung passt zu den Daten.'],['plausibel','Nachvollziehbar und wahrscheinlich richtig.','Das ist eine plausible Erklärung.'],['gründlich','Sehr sorgfältig und vollständig.','Die Analyse ist gründlich.'],['untermauern','Eine Aussage mit Belegen stärker machen.','Die Zahlen untermauern das Argument.']]
+ },
+ ru:{
+  A1:[['добрый','Относящийся к людям с заботой и уважением.','Моя новая одноклассница очень добрая.'],['рано','До обычного или ожидаемого времени.','Сегодня я пришёл рано.'],['выбирать','Решать, какой вариант нужен из нескольких.','Можно выбирать одну книгу.'],['делиться','Давать другому часть чего-либо или пользоваться вместе.','Мы делимся своими идеями.'],['готовый','Подготовленный к действию или событию.','Я готов к уроку.']],
+  A2:[['открывать','Узнавать или находить что-то новое для себя.','Мне нравится открывать новые места.'],['улучшать','Делать что-то лучше.','Практика помогает улучшать произношение.'],['помнить','Сохранять информацию в памяти.','Я стараюсь помнить новые слова.'],['путешествие','Поездка или путь из одного места в другое.','Путешествие на поезде было спокойным.'],['внимательный','Тот, кто замечает детали и старается не ошибаться.','Будь внимательным к окончаниям.']],
+  B1:[['подход','Способ работать с задачей или проблемой.','Попробуем другой подход.'],['уверенность','Ощущение, что ты способен справиться с задачей.','Практика даёт уверенность.'],['доказательство','Факт или информация, подтверждающие идею.','В тексте есть хорошее доказательство.'],['задача','То, что требует усилий и решения.','Этот разговор был непростой задачей.'],['надёжный','Такой, которому можно доверять.','Выбирай надёжный источник.']],
+  B2:[['точка зрения','Определённый способ понимать тему или ситуацию.','Статья показывает другую точку зрения.'],['оттенок','Небольшое, но важное различие в значении.','Это слово добавляет оттенок сомнения.'],['точный','Ясный, конкретный и соответствующий фактам.','Нужна более точная формулировка.'],['оценивать','Анализировать качество или значение чего-либо.','Нужно оценивать доказательства.'],['связный','Логичный и хорошо организованный.','Его аргумент получился связным.']],
+  C1:[['неоднозначность','Возможность понимать выражение несколькими способами.','Неоднозначность формулировки была намеренной.'],['вывод','Заключение, сделанное на основе фактов или наблюдений.','Этот вывод подтверждается данными.'],['правдоподобный','Выглядящий разумным и вероятным.','Это правдоподобное объяснение.'],['тщательный','Выполненный внимательно и подробно.','Анализ был тщательным.'],['обосновывать','Подкреплять идею причинами или доказательствами.','Нужно обосновывать вывод примерами.']]
+ }
+};
+function localizedDailyEntry(){
+  let lang=currentLearningLanguage(),level=currentLanguageLevel(),arr=(MULTI_DAILY[lang]&&MULTI_DAILY[lang][level])||null;
+  if(!arr)return null;let d=new Date(todayKey()+'T12:00:00Z'),n=Math.floor(d.getTime()/86400000);return arr[Math.abs(n)%arr.length];
+}
+
+/* Localized trusted sources */
+const LOCALIZED_RESOURCES={
+ es:[
+  {icon:'🏛️',name:'Instituto Cervantes · AVE',url:'https://cvc.cervantes.es/ensenanza/actividades_ave/',desc:'Actividades oficiales organizadas por niveles para practicar comprensión, gramática y uso real del español.',tags:'niveles · gramática · práctica'},
+  {icon:'📚',name:'SpanishDictionary.com',url:'https://www.spanishdict.com/learn',desc:'Lecciones paso a paso de gramática, vocabulario, escucha y pronunciación.',tags:'curso · gramática · vocabulario'},
+  {icon:'🎥',name:'Easy Spanish',url:'https://www.easy-spanish.org/',desc:'Vídeos con hablantes reales, español más lento y pódcast para entrenar el oído.',tags:'vídeo · pódcast · subtítulos'},
+  {icon:'🎮',name:'Cervantes Rayuela',url:'https://cvc.cervantes.es/ensenanza/pasatiempos/default.php',desc:'Actividades interactivas y juegos lingüísticos organizados por nivel.',tags:'juegos · práctica · niveles'}
+ ],
+ de:[
+  {icon:'🏛️',name:'Goethe · Deutsch für dich',url:'https://www.goethe.de/prj/dfd/de/home.cfm',desc:'Kostenlose Übungen für Grammatik, Wortschatz, Lesen und Hören auf mehreren Niveaustufen.',tags:'Grammatik · Wortschatz · Hören'},
+  {icon:'🗣️',name:'Goethe · Aussprache',url:'https://www.goethe.de/de/spr/ueb/ele.html',desc:'Strukturierte Übungen für Anfänger und gezieltes Aussprachetraining.',tags:'Aussprache · Alltag · Übungen'},
+  {icon:'🎬',name:'DW · Nicos Weg',url:'https://learngerman.dw.com/de/nicos-weg/c-36519718',desc:'Videokurs mit Hörtraining, Grammatik, Wortschatz und interaktiven Aufgaben.',tags:'Video · Hören · Grammatik'}
+ ],
+ ru:[
+  {icon:'🏛️',name:'Институт Пушкина',url:'https://pushkininstitute.ru/pages/multimedresources',desc:'Мультимедийные материалы по уровням: аудио, видео, грамматика и интерактивные задания.',tags:'уровни · аудио · видео'},
+  {icon:'🔤',name:'Russian For Everyone',url:'https://www.russianforeveryone.com/',desc:'Алфавит, фонетика, грамматика, словарь и аудирование для начинающих и продолжающих.',tags:'алфавит · фонетика · грамматика'},
+  {icon:'📖',name:'Институт Пушкина · обучение',url:'https://pushkininstitute.ru/',desc:'Учебные программы и материалы по русскому языку и культуре.',tags:'курсы · язык · культура'}
+ ]
+};
+const LOCALIZED_LANES={
+ es:[['🔤','Sonidos y ortografía','Vocales claras, acento, ñ, r/rr y relación entre sonido y escritura.'],['✍️','Gramática','Género, artículos, ser/estar, tiempos verbales y orden de la frase.'],['🗣️','Pronunciación','Ritmo, vocales, r/rr y práctica con habla real.'],['🧠','Vocabulario','Palabras frecuentes, expresiones útiles y repaso espaciado.'],['🎧','Escuchar y ver','Vídeos, pódcasts y actividades graduadas.']],
+ de:[['🔤','Laute und Rechtschreibung','Umlaute, ß, ch, r, Vokallänge und typische Lautmuster.'],['✍️','Grammatik','Fälle, Artikel, Wortstellung, Verben und Adjektivendungen.'],['🗣️','Aussprache','Vokallänge, ich/ach-Laute, Betonung und flüssiges Sprechen.'],['🧠','Wortschatz','Häufige Wörter, Wortfamilien, Komposita und Wiederholung.'],['🎧','Hören und sehen','Goethe- und DW-Inhalte passend zum Niveau.']],
+ ru:[['🔤','Кириллица и звуки','Буквы, ударение, твёрдые и мягкие согласные, связь звука и письма.'],['✍️','Грамматика','Падежи, род, вид глагола, глаголы движения и порядок слов.'],['🗣️','Произношение','Ударение, редукция гласных, мягкость согласных и повторение за диктором.'],['🧠','Словарь','Частотные слова, полезные выражения и интервальное повторение.'],['🎧','Слушать и смотреть','Аудио, видео и интерактивные материалы по уровню.']]
+};
+
+/* 25 native units per language (5 per CEFR level) */
+const LANG_CURRICULUM={
+ es:{
+  A1:[['Saludos y presentaciones','Saludar, decir tu nombre y hacer una pregunta sencilla.','Hola, me llamo Ana. ¿Cómo te llamas?','Preséntate en dos frases y pregunta el nombre de otra persona.'],['Género y artículos','Usar el/la/un/una con sustantivos frecuentes.','una casa · el libro · la escuela','Escribe cinco objetos con su artículo.'],['Ser, tener y llamarse','Construir frases básicas sobre identidad, edad y posesión.','Soy estudiante. Tengo catorce años. Me llamo Leo.','Escribe tres frases sobre ti.'],['Presente regular','Hablar de hábitos con verbos frecuentes.','Estudio, hablas, vivimos.','Cuenta tres cosas que haces cada día.'],['Sonidos clave','Distinguir vocales, ñ y r/rr en palabras frecuentes.','pero / perro · año · casa','Lee en voz alta cinco palabras y marca el sonido difícil.']],
+  A2:[['Pasado reciente','Contar acciones terminadas con un pasado básico.','Ayer estudié y después cené con mi familia.','Escribe tres cosas que hiciste ayer.'],['Ser y estar','Elegir entre identidad/característica y estado/ubicación.','Es simpático. Está cansado. Está en casa.','Crea cuatro ejemplos mezclando ser y estar.'],['Pronombres de objeto','Evitar repetir nombres con lo/la/le/me/te.','Veo la película → La veo.','Transforma tres frases usando pronombres.'],['Por y para','Expresar causa, medio, destino y objetivo.','Estudio para aprender. Viajamos por tren.','Escribe un ejemplo con por y otro con para.'],['Escucha cotidiana','Captar hora, lugar, intención y palabras clave.','¿Quedamos a las seis en la plaza?','Escucha un recurso y anota cuatro datos concretos.']],
+  B1:[['Indefinido e imperfecto','Combinar acciones y contexto en narraciones.','Llovía cuando salí de casa.','Cuenta una anécdota con fondo y acción principal.'],['Subjuntivo básico','Usar deseo, recomendación y valoración.','Quiero que vengas. Es importante que estudies.','Escribe tres frases que activen subjuntivo.'],['Conectores','Organizar ideas con aunque, sin embargo, por eso y además.','Quería salir; sin embargo, empezó a llover.','Une cuatro ideas con conectores distintos.'],['Relativos','Conectar información con que, quien y donde.','La ciudad donde vivo está junto al mar.','Combina tres pares de frases.'],['Hablar con fluidez','Mantener un minuto con opinión, razón y ejemplo.','Creo que… porque… Por ejemplo…','Habla un minuto sobre un tema que te interese.']],
+  B2:[['Subjuntivo y matiz','Expresar duda, emoción, finalidad y concesión.','Aunque sea difícil, vale la pena intentarlo.','Crea cuatro frases con distintos disparadores.'],['Condicionales','Hablar de hipótesis reales e irreales.','Si tuviera más tiempo, viajaría más.','Escribe dos condiciones probables y dos hipotéticas.'],['Pasiva y se','Variar el foco de la información.','Se publicaron los resultados ayer.','Reformula tres frases con se o voz pasiva.'],['Registro y precisión','Elegir expresiones según situación formal o informal.','solicitar / pedir · adquirir / comprar','Reescribe un mensaje informal en registro formal.'],['Escucha con variedades','Comprender idea, actitud y detalles en distintos acentos.','Identifica qué piensa el hablante y qué evidencia usa.','Resume un audio en cuatro frases.']],
+  C1:[['Argumentación matizada','Defender una postura con concesiones y límites.','Si bien la medida es útil, sus efectos dependen del contexto.','Escribe una tesis, una concesión y una respuesta.'],['Cohesión avanzada','Usar conectores sin sonar mecánico.','Ahora bien, dicho esto, de ahí que…','Revisa un párrafo y mejora sus transiciones.'],['Precisión léxica','Elegir palabras por registro, colocación y matiz.','plantear una cuestión · suscitar dudas','Sustituye cinco expresiones vagas por otras más precisas.'],['Inferencia y tono','Detectar intención implícita, ironía o cautela.','No parece precisamente una solución definitiva.','Explica qué insinúa una frase sin decirlo directamente.'],['Síntesis','Integrar dos fuentes sin copiarlas ni enumerarlas.','Ambas fuentes coinciden en…, pero difieren en…','Resume dos textos en un párrafo conectado.']]
+ },
+ de:{
+  A1:[['Begrüßen und vorstellen','Begrüßungen, Name und einfache Fragen sicher benutzen.','Hallo, ich heiße Mia. Wie heißt du?','Stell dich in zwei Sätzen vor und stelle eine Frage.'],['Artikel und Nomen','der/die/das und ein/eine mit häufigen Nomen verbinden.','der Tisch · die Schule · das Buch','Schreibe fünf Nomen mit Artikel.'],['sein und haben','Einfache Aussagen über Person, Alter und Besitz bilden.','Ich bin Schüler. Ich habe ein Fahrrad.','Schreibe drei Sätze über dich.'],['Präsens','Über Alltag und Gewohnheiten sprechen.','Ich lerne. Du spielst. Wir wohnen hier.','Beschreibe drei Dinge aus deinem Alltag.'],['Umlaute und ch','ä/ö/ü sowie ich-/ach-Laut bewusst sprechen.','schön · fünf · ich · Buch','Lies fünf Wörter laut und achte auf den Ziellaut.']],
+  A2:[['Perfekt im Alltag','Vergangene Ereignisse mit haben/sein erzählen.','Ich habe gelernt. Wir sind gefahren.','Schreibe drei Dinge von gestern.'],['Akkusativ und Dativ','Objekte und Empfänger mit passenden Artikeln markieren.','Ich gebe dem Freund das Buch.','Bilde vier Sätze mit zwei Ergänzungen.'],['Trennbare Verben','Verbteile im Satz richtig platzieren.','Ich stehe um sieben Uhr auf.','Schreibe drei Sätze mit trennbaren Verben.'],['Weil und dass','Nebensätze mit Verb am Ende bilden.','Ich lerne, weil ich die Prüfung habe.','Verbinde vier kurze Sätze.'],['Alltag hören','Zeit, Ort, Absicht und Schlüsselwörter verstehen.','Treffen wir uns um sechs am Bahnhof?','Höre einen kurzen Beitrag und notiere vier Fakten.']],
+  B1:[['Präteritum und Perfekt','Vergangenheit passend zu Textsorte und Verb wählen.','Früher wohnte ich in Berlin; gestern bin ich zurückgefahren.','Erzähle eine kurze Geschichte.'],['Relativsätze','Informationen mit der/die/das verbinden.','Das ist das Buch, das ich gesucht habe.','Verbinde drei Satzpaare.'],['Konjunktiv II','Wünsche, Höflichkeit und Hypothesen ausdrücken.','Ich würde gern mehr reisen.','Formuliere drei Wünsche und zwei höfliche Bitten.'],['Konnektoren','Argumente mit obwohl, deshalb, trotzdem und außerdem ordnen.','Es regnete; trotzdem gingen wir raus.','Verbinde fünf Ideen sinnvoll.'],['Eine Minute sprechen','Meinung, Grund und Beispiel klar strukturieren.','Ich denke…, weil… Zum Beispiel…','Sprich eine Minute über ein vertrautes Thema.']],
+  B2:[['Passiv','Vorgänge und Ergebnisse in den Vordergrund stellen.','Die Ergebnisse wurden gestern veröffentlicht.','Formuliere drei Aktivsätze ins Passiv um.'],['Nominalstil und Verben','Zwischen präzisem Verb- und Nominalstil wechseln.','Wir prüfen die Daten / die Prüfung der Daten','Überarbeite vier Sätze für einen formelleren Text.'],['Erweiterte Nebensätze','während, sofern, indem und obwohl flexibel einsetzen.','Indem wir vergleichen, erkennen wir Unterschiede.','Schreibe vier komplexe Sätze.'],['Register und Kollokationen','Typische Wortverbindungen und passende Stilebene wählen.','eine Entscheidung treffen · Kritik üben','Sammle fünf Kollokationen aus einem Text.'],['Hörverstehen mit Haltung','Neben Fakten auch Haltung und Sicherheit erkennen.','Ist der Sprecher sicher, skeptisch oder vorsichtig?','Fasse Aussage und Haltung in vier Sätzen zusammen.']],
+  C1:[['Argumentation differenzieren','Positionen mit Einschränkungen und Gegenargumenten darstellen.','Zwar ist der Ansatz sinnvoll, dennoch bleiben offene Fragen.','Formuliere These, Einwand und Antwort.'],['Informationsstruktur','Thema, Fokus und Satzbau gezielt steuern.','Entscheidend ist nicht die Menge, sondern die Qualität.','Schreibe einen Absatz mit klarer Gewichtung um.'],['Präziser Wortschatz','Register, Kollokation und Bedeutungsnuancen bewusst wählen.','eine Annahme widerlegen · Zweifel ausräumen','Ersetze fünf allgemeine Wörter durch präzisere.'],['Implizite Bedeutung','Andeutungen, Ironie und vorsichtige Formulierungen erkennen.','Das dürfte kaum die endgültige Lösung sein.','Erkläre, was indirekt ausgesagt wird.'],['Synthese','Mehrere Quellen zu einer eigenen, verbundenen Darstellung zusammenführen.','Beide Quellen betonen…, unterscheiden sich aber bei…','Verbinde zwei Quellen in einem kohärenten Absatz.']]
+ },
+ ru:{
+  A1:[['Знакомство','Приветствовать, называть себя и задавать простой вопрос.','Здравствуйте! Меня зовут Аня. Как тебя зовут?','Представься двумя фразами и задай вопрос.'],['Кириллица','Уверенно связывать основные буквы и звуки.','мама · дом · книга · школа','Прочитай вслух пять коротких слов.'],['Род и это','Называть предметы и людей, различать базовый род.','Это книга. Это мой брат.','Напиши пять примеров с это.'],['Настоящее время','Говорить о повседневных действиях.','Я учусь. Ты читаешь. Мы живём здесь.','Расскажи о трёх действиях каждый день.'],['Ударение','Замечать ударный слог и произносить гласные яснее.','вода́ · рабо́та · хорошо́','Отметь ударение в пяти новых словах.']],
+  A2:[['Прошедшее время','Рассказывать о завершённых событиях.','Вчера я учился, а вечером смотрел фильм.','Напиши три предложения о вчерашнем дне.'],['Винительный падеж','Говорить о прямом объекте и направлении.','Я читаю книгу. Я иду в школу.','Составь четыре примера.'],['Дательный падеж','Обозначать адресата, возраст и состояние.','Мне пятнадцать лет. Я пишу другу.','Составь четыре предложения.'],['Вид: начало','Различать процесс и результат в частых парах.','читать / прочитать · делать / сделать','Подбери вид к четырём ситуациям.'],['Бытовое аудирование','Понимать время, место, просьбу и ключевые слова.','Встретимся в шесть у метро?','Послушай короткий фрагмент и запиши четыре факта.']],
+  B1:[['Совершенный и несовершенный вид','Выбирать вид по процессу, повторяемости и результату.','Я читал книгу два часа и наконец прочитал её.','Опиши три ситуации с обеими формами.'],['Глаголы движения','Различать идти/ходить, ехать/ездить и приставки.','Я иду домой. Я часто хожу пешком.','Составь маршрут из пяти фраз.'],['Условные конструкции','Говорить о гипотезах с если бы.','Если бы было время, я бы поехал к морю.','Напиши три гипотетические фразы.'],['Связки текста','Использовать однако, поэтому, кроме того, хотя.','Было поздно; однако мы продолжили работу.','Свяжи пять идей разными словами.'],['Минута говорения','Строить ответ: мнение, причина, пример.','Я считаю…, потому что… Например…','Говори одну минуту на знакомую тему.']],
+  B2:[['Причастия и конструкции','Сжимать информацию и варьировать стиль.','Студенты, участвующие в проекте…','Преобразуй три пары предложений.'],['Пассивные модели','Менять фокус между действием и результатом.','Результаты были опубликованы вчера.','Переформулируй три активные конструкции.'],['Регистр','Выбирать нейтральный, разговорный или формальный вариант.','сообщить / сказать · приобрести / купить','Перепиши короткое сообщение формально.'],['Аргументация','Строить позицию с уступкой и контраргументом.','С одной стороны…, однако…','Напиши тезис, аргумент и возражение.'],['Аудирование с оттенками','Понимать не только факты, но и отношение говорящего.','Говорящий уверен, сомневается или иронизирует?','Сделай краткое резюме позиции.']],
+  C1:[['Точная аргументация','Формулировать позицию с ограничениями и оговорками.','Несмотря на очевидные преимущества, вывод зависит от контекста.','Напиши тезис, оговорку и ответ на возражение.'],['Связность высокого уровня','Управлять темой, переходами и логикой абзаца.','Иными словами…, вместе с тем…, отсюда следует…','Перепиши абзац с более естественными переходами.'],['Лексическая точность','Выбирать слова по сочетаемости, стилю и оттенку.','выдвинуть гипотезу · привести довод','Замени пять общих слов более точными.'],['Подтекст и тон','Распознавать иронию, осторожность и скрытую позицию.','Едва ли это можно назвать окончательным решением.','Объясни, что подразумевает автор.'],['Синтез источников','Объединять несколько источников в собственный связный вывод.','Оба источника сходятся в…, но расходятся в…','Объедини два текста в один абзац.']]
+ }
+};
+let activeLanguageLesson=null;
+function ensureLanguageProgress(){if(!s.languageProgress)s.languageProgress={};return s.languageProgress}
+function languageUnits(lang=currentLearningLanguage(),level=currentLanguageLevel()){return (LANG_CURRICULUM[lang]&&LANG_CURRICULUM[lang][level])||[]}
+function openLanguageLesson(index){
+  let lang=currentLearningLanguage(),level=currentLanguageLevel(),units=languageUnits(lang,level),unit=units[index];if(!unit)return;
+  activeLanguageLesson={lang,level,index,unit};setVisible(['languageLesson']);renderLanguageLesson();window.scrollTo({top:0,behavior:'auto'});
+}
+function renderLanguageLesson(){
+  let a=activeLanguageLesson;if(!a)return;let ui=localeUI(),info=LEARNING_LANGUAGES[a.lang],u=a.unit;
+  document.getElementById('langLessonCrumb').textContent=info.native+' · '+a.level+' · '+ui.lesson+' '+(a.index+1);
+  document.getElementById('langLessonClose').title=ui.remove;
+  document.getElementById('langLessonLevel').textContent=a.level+' · '+ui.lesson+' '+(a.index+1);
+  document.getElementById('langLessonTitle').textContent=u[0];
+  document.getElementById('langLessonGoal').textContent=u[1];
+  document.getElementById('langLessonModel').innerHTML='<span class="eyebrow">'+ui.model+'</span><div class="lessonModelText">'+liveEsc(u[2])+'</div>';
+  document.getElementById('langLessonPractice').innerHTML='<span class="eyebrow">'+ui.practice+'</span><p>'+liveEsc(u[3])+'</p>';
+  document.getElementById('langLessonDone').textContent='✓ '+ui.done;
+}
+function closeLanguageLesson(){activeLanguageLesson=null;showAppTab('Learn',null)}
+function completeLanguageLesson(){
+  let a=activeLanguageLesson;if(!a)return;let p=ensureLanguageProgress(),key=a.lang+':'+a.level+':'+a.index;
+  p[key]={completed:true,completedAt:new Date().toISOString()};touch();sv();if(window.bhNativeHaptic)window.bhNativeHaptic('success');renderLanguageLesson();setTimeout(()=>closeLanguageLesson(),450);
+}
+
+/* Localized settings / messages */
+function renderLocalizedSettings(){
+  let ui=localeUI(),lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel();
+  document.getElementById('locSettingsEyebrow').textContent=info.flag+' '+info.native;
+  document.getElementById('locSettingsTitle').textContent='🎓 '+ui.settingsTitle;
+  document.getElementById('locSettingsIntro').textContent=ui.settingsIntro;
+  document.getElementById('locGradeLabel').textContent=ui.schoolGrade;
+  document.getElementById('locGradeSelect').value=String(currentGrade());
+  document.getElementById('locLevelLabel').textContent=ui.languageLevel;
+  document.getElementById('locLevelChips').innerHTML=['A1','A2','B1','B2','C1'].map(v=>'<button class="'+(v===level?'on':'')+'" onclick="setTargetLanguageLevel(\\''+v+'\\')">'+v+'</button>').join('');
+  document.getElementById('locDeviceTitle').textContent='🖥️ 📱 '+ui.device;
+  document.getElementById('locDeviceIntro').textContent=ui.deviceIntro;
+  let devNames=lang==='es'?{auto:'Automático',desktop:'Ordenador',tablet:'Tableta',mobile:'Móvil'}:lang==='de'?{auto:'Automatisch',desktop:'Desktop',tablet:'Tablet',mobile:'Mobil'}:{auto:'Авто',desktop:'Компьютер',tablet:'Планшет',mobile:'Телефон'};
+  document.querySelectorAll('#locDeviceChips button').forEach(b=>{let k=b.dataset.device;b.textContent=(k==='auto'?'✨ ':k==='desktop'?'🖥️ ':k==='tablet'?'▣ ':'📱 ')+(devNames[k]||k);b.classList.toggle('on',selectedDevicePreview()===k)});
+  document.getElementById('locPresetTitle').textContent='✨ '+ui.preset;
+  const presetNames=lang==='es'?{original:'Original',minimal:'Mínimo',focus:'Enfoque',extended:'Ampliado',sat:'SAT'}:lang==='de'?{original:'Original',minimal:'Minimal',focus:'Fokus',extended:'Erweitert',sat:'SAT'}:{original:'Обычный',minimal:'Минимум',focus:'Фокус',extended:'Расширенный',sat:'SAT'};
+  document.getElementById('locPresetGrid').innerHTML=Object.keys(SPACE_PRESETS).map(k=>'<button class="spacePreset '+(currentSpacePreset()===k?'on':'')+'" onclick="applySpacePreset(\\''+k+'\\')"><span class="presetDot"></span><b>'+presetNames[k]+'</b></button>').join('');
+}
+function renderMessagesLocale(){
+  let ui=localeUI(),sec=document.getElementById('messages');if(!sec)return;
+  let h=sec.querySelector('h2');if(h)h.textContent='💬 '+ui.messages;
+  let intro=sec.querySelector(':scope > p.intro');if(intro)intro.textContent=ui.messagesIntro;
+  let fh=sec.querySelector('.inboxList h3');if(fh)fh.textContent=ui.friendsTitle;
+  let ch=sec.querySelector('#eqChatHeader h3');if(ch&&!eqSelectedFriend)ch.textContent=ui.safeChat;
+  let inp=document.getElementById('eqMessageInput');if(inp)inp.placeholder=ui.writeMessage;
+  let actions=sec.querySelectorAll('#eqComposer .authactions button');if(actions[0])actions[0].textContent=ui.send;if(actions[1])actions[1].textContent=ui.block;if(actions[2])actions[2].textContent=ui.report;
+}
+async function localizedEqRenderInbox(){
+  let box=document.getElementById('eqInboxList'),ui=localeUI();if(!box)return;
+  if(!eqUser){box.className='emptyThread';box.innerHTML=ui.signIn;return}
+  let friends=eqFriends.filter(f=>f.status==='accepted');
+  if(!friends.length){box.className='emptyThread';box.innerHTML=ui.noAccepted;return}
+  box.className='';box.innerHTML=friends.map(f=>{let o=eqOnlineFor(f.friend_id);return '<button class="btn" style="display:block;width:100%;text-align:left;margin:6px 0" onclick="eqOpenChat(\\''+f.friend_id+'\\',\\''+liveEsc(f.nickname).replace(/&#39;/g,"\\\\'")+'\\')"><span class="onlineDot '+(o&&o.online?'on':'')+'"></span>'+eqAvatarEmoji(o&&o.avatar_key)+' '+liveEsc(f.nickname)+'</button>'}).join('');
+}
+eqRenderInbox=localizedEqRenderInbox;
+
+/* Fully localized top/home surfaces */
+function applyGlobalLocale(){
+  let ui=localeUI(),lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang];
+  document.documentElement.lang=lang;
+  let acc=document.getElementById('eqAccountButton');if(acc)acc.textContent='👤 '+(eqProfile?eqProfile.nickname:ui.account);
+  let install=document.getElementById('bhInstallButton');if(install)install.textContent='📲 '+ui.install;
+  renderCoreNav();renderAppTabs();bhRenderDate();bhLoadWeather();
+  let live=document.querySelector('#heroHome .livepill');if(live)live.innerHTML='<i></i> '+ui.live;
+  let title=document.querySelector('#heroHome h1'),lead=document.querySelector('#heroHome .lead');
+  if(title)title.textContent=ui.heroTitle;if(lead)lead.textContent=ui.heroLead;
+  let stats=document.querySelectorAll('#heroHome .stat span');[ui.xp,ui.level,ui.streak,ui.missions].forEach((v,i)=>{if(stats[i])stats[i].textContent=v});
+  let dtitle=document.querySelector('#demoPass b');if(dtitle)dtitle.textContent=ui.demoTitle;
+  let dbtn=document.getElementById('demoPassButton');if(dbtn&&!eqUser)dbtn.textContent=ui.demoCreate;
+  let eye=document.querySelector('#learningLaunch .eyebrow');if(eye)eye.textContent=ui.next;
+  let qh=document.querySelector('#quickControls .quickHead b'),qs=document.querySelector('#quickControls .quickHead small'),qm=document.querySelector('#quickControls .quickMore');
+  if(qh)qh.textContent=ui.quick;if(qs)qs.textContent=ui.quickText;if(qm)qm.textContent=ui.profileSettings;
+  let wh=document.querySelector('#personalWidgets .widgetBar h2'),wp=document.querySelector('#personalWidgets .widgetBar p'),wb=document.querySelector('#personalWidgets .widgetBar > button');
+  if(wh)wh.textContent=ui.myHub;if(wp)wp.textContent=ui.myHubText;if(wb)wb.textContent=ui.personalize;
+  renderWidgets();renderLearningLaunch();renderMessagesLocale();
+}
+function bhWeatherText(code){
+  const lang=currentLearningLanguage();
+  const words={
+    en:{0:'Clear',1:'Mostly clear',2:'Partly cloudy',3:'Cloudy',45:'Fog',48:'Fog',51:'Drizzle',53:'Drizzle',55:'Drizzle',61:'Rain',63:'Rain',65:'Heavy rain',71:'Snow',73:'Snow',75:'Heavy snow',80:'Showers',81:'Showers',82:'Heavy showers',95:'Thunderstorm',96:'Thunderstorm',99:'Thunderstorm'},
+    es:{0:'Despejado',1:'Casi despejado',2:'Parcialmente nublado',3:'Nublado',45:'Niebla',48:'Niebla',51:'Llovizna',53:'Llovizna',55:'Llovizna',61:'Lluvia',63:'Lluvia',65:'Lluvia intensa',71:'Nieve',73:'Nieve',75:'Nieve intensa',80:'Chubascos',81:'Chubascos',82:'Chubascos fuertes',95:'Tormenta',96:'Tormenta',99:'Tormenta'},
+    de:{0:'Klar',1:'Meist klar',2:'Teilweise bewölkt',3:'Bewölkt',45:'Nebel',48:'Nebel',51:'Nieselregen',53:'Nieselregen',55:'Nieselregen',61:'Regen',63:'Regen',65:'Starker Regen',71:'Schnee',73:'Schnee',75:'Starker Schnee',80:'Schauer',81:'Schauer',82:'Starke Schauer',95:'Gewitter',96:'Gewitter',99:'Gewitter'},
+    ru:{0:'Ясно',1:'Почти ясно',2:'Переменная облачность',3:'Облачно',45:'Туман',48:'Туман',51:'Морось',53:'Морось',55:'Морось',61:'Дождь',63:'Дождь',65:'Сильный дождь',71:'Снег',73:'Снег',75:'Сильный снег',80:'Ливни',81:'Ливни',82:'Сильные ливни',95:'Гроза',96:'Гроза',99:'Гроза'}
+  };
+  return (words[lang]&&words[lang][Number(code)])||localeUI().weather;
+}
+function bhRenderDate(){
+  const ui=localeUI(),now=new Date(),loc=ui.locale;
+  let d=document.getElementById('bhToday'),u=document.getElementById('bhUpdated'),v=document.getElementById('bhVersion');
+  if(d)d.textContent=new Intl.DateTimeFormat(loc,{timeZone:'Asia/Tbilisi',day:'2-digit',month:'short',year:'numeric'}).format(now);
+  if(u)u.textContent=ui.updated+' '+new Intl.DateTimeFormat(loc,{timeZone:'Asia/Tbilisi',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(BH_SITE_UPDATED));
+  if(v)v.textContent='v'+BH_SITE_VERSION;
+}
+async function bhLoadWeather(){
+  let e=document.getElementById('bhWeather');if(!e)return;
+  try{const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=41.6168&longitude=41.6367&current=temperature_2m,weather_code&temperature_unit=celsius&timezone=Asia%2FTbilisi',{cache:'no-store'});if(!r.ok)throw new Error('weather');const j=await r.json(),cur=j.current||{},temp=Math.round(Number(cur.temperature_2m));e.textContent='Batumi '+(Number.isFinite(temp)?temp+'°C · ':'')+bhWeatherText(cur.weather_code)}
+  catch(err){e.textContent='Batumi · '+localeUI().weather}
+}
+
+/* Override widget rendering so switching flags changes the whole widget language instantly */
+async function fillWordWidget(){
+  let lang=currentLearningLanguage(),title=document.getElementById('widgetWordTitle'),body=document.getElementById('widgetWordBody');if(!body)return;
+  if(lang!=='en'){
+    let e=localizedDailyEntry();if(!e)return;if(title)title.textContent=e[0];body.innerHTML='<p><b>'+liveEsc(e[1])+'</b></p><p>“'+liveEsc(e[2])+'”</p>';return;
+  }
+  let word=dailyWord();if(title)title.textContent=word;
+  const local=localDictionaryEntry(word);
+  if(local){const x=local.senses[0];body.innerHTML='<p><b>'+liveEsc(x.definition)+'</b></p><p>“'+liveEsc(x.example)+'”</p>'+dictionaryLinksHtml(word);setTimeout(()=>decorateDictionary(body),0);return}
+  body.textContent='Loading a simple English definition…';
+  try{const data=await lookupDictionary(word),x=data.senses&&data.senses[0];body.innerHTML='<p><b>'+liveEsc(x?.definition||'Learn this word in context today.')+'</b></p>'+(x?.example?'<p>“'+liveEsc(x.example)+'”</p>':'')+dictionaryLinksHtml(word)}
+  catch(e){body.innerHTML='<p><b>'+liveEsc(word)+'</b></p>'}
+}
+function renderWidgets(){
+  let grid=document.getElementById('widgetGrid');if(!grid)return;let ui=localeUI(),lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],g=currentGrade(),w=getWidgets(),level=currentLanguageLevel();
+  grid.innerHTML=w.map(k=>{
+    if(k==='word')return '<article class="hubWidget"><div class="widgetBig">📖</div><h3>'+ui.wordDay+' · <span id="widgetWordTitle">…</span></h3><div id="widgetWordBody"><p>'+ui.loadingWord+'</p></div></article>';
+    if(k==='friends'){let accepted=(eqFriends||[]).filter(x=>x.status==='accepted'),rows=accepted.slice(0,4).map(f=>'<div class="friendMini"><span class="onlineDot '+(eqOnlineFor(f.friend_id)?.online?'on':'')+'"></span><span>'+eqAvatarEmoji(eqOnlineFor(f.friend_id)?.avatar_key)+' '+liveEsc(f.nickname)+'</span></div>').join('');return '<article class="hubWidget"><div class="widgetBig">🟢</div><h3>'+ui.friends+'</h3>'+(eqUser?(rows||'<p>'+ui.noFriends+'</p>'):'<p>'+ui.signFriends+'</p>')+'<div class="widgetControls"><button onclick="openTab(\\'Messages\\')">'+ui.messages+'</button></div></article>'}
+    if(k==='clip')return '<article class="hubWidget"><div class="widgetBig">🎬</div><h3>'+ui.clipSprint+'</h3><p>'+ui.clipDesc+'</p><div class="widgetControls"><button onclick="openTab(\\''+(lang==='en'?'Clips':'Explore')+'\\')">'+ui.startClip+'</button></div></article>';
+    if(k==='game')return '<article class="hubWidget"><div class="widgetBig">🧩</div><h3>'+ui.wordGame+'</h3><p>'+ui.wordGameDesc+'</p><div class="widgetControls"><button onclick="openTab(\\'Games\\')">'+ui.play+'</button></div></article>';
+    return '<article class="hubWidget"><div class="widgetBig">🎓</div><h3>'+ui.grade+' '+g+' · '+info.native+' '+level+'</h3><span class="gradePill">'+ui.myLevel+'</span><p>'+ui.settingsIntro+'</p><div class="widgetControls"><button onclick="openTab(\\'Settings\\')">'+ui.profile+'</button></div></article>'
+  }).join('');
+  if(w.includes('word'))fillWordWidget();
+  if(lang==='en')setTimeout(()=>decorateDictionary(grid),0);
+}
+
+/* Native curriculum renderer replaces beta-only lane view */
+function renderLanguageHub(mode='all'){
+  let lang=currentLearningLanguage();if(lang==='en')return;
+  let ui=localeUI(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),units=languageUnits(lang,level),progress=ensureLanguageProgress(),done=units.filter((_,i)=>progress[lang+':'+level+':'+i]?.completed).length;
+  let title=document.getElementById('languageHubTitle'),intro=document.getElementById('languageHubIntro'),profile=document.getElementById('languageHubProfile'),grid=document.getElementById('languageLaneGrid'),res=document.getElementById('languageResourceGrid'),cap=document.getElementById('languageCaptureShelf'),cg=document.getElementById('languageCourseGrid');
+  if(title)title.textContent=info.flag+' '+info.native+' · '+level;
+  if(intro)intro.textContent=ui.courseIntro;
+  if(profile)profile.textContent=info.native+' '+level;
+  document.getElementById('languageCourseEyebrow').textContent=ui.coreCourse;
+  document.getElementById('languageCourseTitle').textContent=ui.course+' · '+level;
+  document.getElementById('languageCourseIntro').textContent=ui.courseIntro;
+  document.getElementById('languageCourseProgress').textContent=done+' / '+units.length+' · '+ui.completed;
+  if(cg)cg.innerHTML=units.map((u,i)=>'<button class="languageUnit '+(progress[lang+':'+level+':'+i]?.completed?'done':'')+'" onclick="openLanguageLesson('+i+')"><span class="unitNum">'+(progress[lang+':'+level+':'+i]?.completed?'✓':i+1)+'</span><div><small>'+level+' · '+ui.lesson+' '+(i+1)+'</small><h3>'+liveEsc(u[0])+'</h3><p>'+liveEsc(u[1])+'</p></div><b>→</b></button>').join('');
+  let lanes=LOCALIZED_LANES[lang]||[],shown=mode==='all'?lanes:lanes.filter((_,i)=>mode==='grammar'?i===1:mode==='pronunciation'||mode==='speaking'?i===2:mode==='vocabulary'?i===3:mode==='sources'?i===4:true);if(!shown.length)shown=lanes;
+  if(grid)grid.innerHTML=shown.map(x=>'<article class="languageLane"><div class="languageLaneIcon">'+x[0]+'</div><h3>'+liveEsc(x[1])+'</h3><p>'+liveEsc(x[2])+'</p><small>'+info.native+' · '+level+'</small></article>').join('');
+  let sourceTitle=document.querySelector('#languageHub .languageSourcesTitle');if(sourceTitle)sourceTitle.textContent='🔗 '+ui.sources;
+  let resources=LOCALIZED_RESOURCES[lang]||[];
+  if(res)res.innerHTML=resources.map((x,i)=>'<a class="trustedResource '+(i===0?'recommended':'')+'" href="'+x.url+'" target="_blank" rel="noopener"><div class="resourceIcon">'+x.icon+'</div><div><div class="resourceTop"><h3>'+liveEsc(x.name)+'</h3>'+(i===0?'<span>'+ui.startHere+'</span>':'')+'</div><p>'+liveEsc(x.desc)+'</p><small>'+liveEsc(x.tags)+' · '+ui.openOriginal+'</small></div></a>').join('');
+  let captures=((s.languageCaptures||{})[lang]||[]).slice(-8).reverse();
+  if(cap)cap.innerHTML=captures.length?'<div class="captureHead"><b>📌 '+ui.saved+'</b></div><div class="captureChips">'+captures.map(x=>'<span>'+liveEsc(x.text)+'</span>').join('')+'</div>':'';
+}
+
+/* Language switcher becomes the global mode switch */
+function renderLanguageSwitcher(){
+  let lang=currentLearningLanguage(),levels=document.getElementById('languageLevelChips');
+  document.querySelectorAll('#languageFlags button').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
+  if(levels){
+    let opts=lang==='en'?['auto','A1','A2','B1','B2','C1']:['A1','A2','B1','B2','C1'],cur=lang==='en'?storedEnglishLevel():currentLanguageLevel();
+    levels.innerHTML=opts.map(v=>'<button class="'+(v===cur?'on':'')+'" onclick="setTargetLanguageLevel(\\''+v+'\\')">'+(v==='auto'?localeUI().auto:v)+'</button>').join('');
+  }
+  let bar=document.getElementById('languageBar');if(bar)bar.dataset.language=lang;
+  applyGlobalLocale();
+}
+async function setLearningLanguage(code){
+  if(!LEARNING_LANGUAGES[code])return;
+  localStorage.setItem('teq-active-language',code);
+  renderLanguageSwitcher();renderAppTabs();renderLearningLaunch();applyLanguageExperience();
+  let home=document.querySelector('#coreNav button[data-core="Home"]');navigateAppTab('Home',home,'replace');await eqSaveCloudPrefs();
+}
+async function setTargetLanguageLevel(level){
+  let lang=currentLearningLanguage();
+  if(lang==='en'){await eqSetEnglishLevel(level);renderLanguageSwitcher();return}
+  if(!['A1','A2','B1','B2','C1'].includes(level))return;
+  let m=getLanguageLevels();m[lang]=level;localStorage.setItem('teq-language-levels',JSON.stringify(m));renderLanguageSwitcher();renderLanguageHub();renderLearningLaunch();renderLocalizedSettings();await eqSaveCloudPrefs();
+}
+function applyLanguageExperience(){applyGlobalLocale();let lang=currentLearningLanguage(),top=document.getElementById('bhLearningProfile');if(top)top.innerHTML='🎓 <b>G'+currentGrade()+' · '+LEARNING_LANGUAGES[lang].flag+' '+currentLanguageLevel()+'</b>'}
+
+/* Localized demo / launch */
+function renderDemoPass(){
+  let box=document.getElementById('demoPass'),text=document.getElementById('demoPassText'),fill=document.getElementById('demoMeterFill'),btn=document.getElementById('demoPassButton'),ui=localeUI();if(!box||!text||!fill||!btn)return;
+  if(eqUser){box.style.display='none';return}box.style.display='';
+  let n=demoCount(),left=Math.max(0,DEMO_LIMIT-n);fill.style.width=Math.min(100,(n/DEMO_LIMIT)*100)+'%';
+  let title=box.querySelector('b');if(title)title.textContent=ui.demoTitle;text.textContent=left>0?ui.demoTry:ui.demoTry;btn.textContent=ui.demoCreate;
+}
+function renderLearningLaunch(){
+  let title=document.getElementById('launchTitle');if(!title)return;
+  let ui=localeUI(),lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),grade=currentGrade(),due=lang==='en'?dueWords().length:0,saved=lang==='en'?savedWordCount():((s.languageCaptures||{})[lang]||[]).length;
+  document.getElementById('launchProfile').textContent=ui.grade+' '+grade+' · '+info.native+' '+level;
+  document.getElementById('launchWords').textContent=saved+' · '+ui.vocabulary;
+  document.getElementById('launchDue').textContent=lang==='en'?due+' due':level;
+  let primary=document.getElementById('launchPrimary'),review=document.getElementById('launchReview'),txt=document.getElementById('launchText');
+  if(lang!=='en'){title.textContent=info.flag+' '+ui.continue;txt.textContent=ui.courseIntro;primary.textContent=ui.start+' →';review.textContent=ui.vocabulary;return}
+  if(due>0){title.textContent='Review '+due+' word'+(due===1?'':'s')+' first';txt.textContent='A short review now is the highest-value next step for long-term memory.';primary.textContent='Start word review';review.textContent='Open vocabulary'}
+  else{title.textContent=ui.continue;txt.textContent=ui.heroLead;primary.textContent=ui.start;review.textContent=ui.review}
+}
+
+/* Route Settings and Messages without exposing English UI in non-English modes */
+const _showAppTabV49=showAppTab;
+showAppTab=function(name,btn){
+  let lang=currentLearningLanguage();
+  localStorage.setItem('teq-active-tab',name);
+  if(lang!=='en'&&(name==='Settings'||name==='Personalize')){setVisible(['localizedSettings']);renderLocalizedSettings();renderCoreNav();window.scrollTo({top:0,behavior:'auto'});return}
+  if(lang!=='en'&&name==='Messages'){setVisible(['messages']);renderMessagesLocale();eqLoadFriends();renderCoreNav();window.scrollTo({top:0,behavior:'auto'});return}
+  _showAppTabV49(name,btn);applyGlobalLocale();renderCoreNav();
+};
 const PLACEMENT_QS=[
   {band:'A1',q:'She ___ my sister.',opts:['am','is','are','be'],a:1},
   {band:'A1',q:'I have two ___.',opts:['book','books','bookes','booking'],a:1},
