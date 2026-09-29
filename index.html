@@ -256,7 +256,7 @@ body[data-density="compact"] .mission{border-radius:13px!important}
 .advancedSettings{margin-top:14px;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:0 14px}.advancedSettings>summary{cursor:pointer;padding:13px 0;font-weight:900}.compactSettings{margin-top:8px}.slimGroup{max-width:100%;}.slimGroup .presenceSelect{max-width:540px}
 .placementCard{max-width:900px;max-height:90vh;overflow:auto}.placementQ{padding:11px 0;border-bottom:1px solid var(--line)}.placementQ>div{display:flex;align-items:center;gap:8px;margin-bottom:7px}.placementQ label{display:inline-flex;gap:5px;align-items:center;margin:4px 8px 4px 0;padding:6px 8px;border:1px solid var(--line);border-radius:9px;background:var(--surface2);cursor:pointer}.levelBadge{font-size:10px;font-weight:900;background:var(--accent);color:var(--accentText);border-radius:999px;padding:3px 6px}.placementResult{margin:12px 0;padding:12px;border-radius:12px;background:var(--surface2);border:1px solid var(--line)}.placementResult:empty{display:none}.placementLevel{font-size:18px}.placementLevel strong{font-size:28px;color:var(--accent)}.placementBands{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.placementBands span{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:4px 7px}
 .resourceLabHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.trustedResourceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.trustedResource{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:start;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:12px}.trustedResource.recommended{border-color:color-mix(in srgb,var(--accent) 48%,var(--line))}.resourceIcon{font-size:28px;line-height:1}.resourceTop{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.resourceTop h3{margin:0}.resourceTop span{font-size:10px;background:var(--accent);color:var(--accentText);border-radius:999px;padding:3px 6px;white-space:nowrap}.trustedResource p{margin:5px 0;color:var(--muted);line-height:1.45}.trustedResource small{color:var(--accent)}
-.youglishLab{display:grid;grid-template-columns:minmax(280px,.85fr) minmax(360px,1.15fr);gap:14px;margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:14px}.youglishCopy h3{margin:4px 0}.youglishCopy p{color:var(--muted)}.youglishCopy small{color:var(--muted)}.youglishCopy small a{color:var(--accent)}.youglishWidgetHost{min-height:240px;border:1px dashed var(--line);border-radius:12px;background:var(--surface2);overflow:hidden;display:grid;place-items:center}.widgetPlaceholder,.widgetLoading{padding:18px;text-align:center;color:var(--muted)}
+.youglishLab{display:grid;grid-template-columns:minmax(280px,.85fr) minmax(360px,1.15fr);gap:14px;margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:14px}.youglishCopy h3{margin:4px 0}.youglishCopy p{color:var(--muted)}.youglishCopy small{color:var(--muted)}.youglishCopy small a{color:var(--accent)}.youglishWidgetHost{min-height:240px;border:1px dashed var(--line);border-radius:12px;background:var(--surface2);overflow:hidden;display:block}.widgetPlaceholder,.widgetLoading{padding:18px;text-align:center;color:var(--muted)}.youglishFrameWrap{width:100%;background:#fff}.youglishIsolatedFrame{display:block;width:100%;height:420px;border:0;background:#fff}.youglishFallback{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:9px 11px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);background:var(--surface)}.youglishFallback a{color:var(--accent);font-weight:800;text-decoration:none}
 .embedEngines{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 12px}.embedEngines>summary{padding:12px 0;cursor:pointer;font-weight:900}.engineGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.engineGrid a{display:block;text-decoration:none;color:var(--text);border:1px solid var(--line);background:var(--surface2);border-radius:12px;padding:10px}.engineGrid b,.engineGrid small{display:block}.engineGrid small{color:var(--muted);margin-top:4px;line-height:1.4}
 @media(max-width:900px){.spacePresetGrid{grid-template-columns:repeat(3,1fr)}.trustedResourceGrid{grid-template-columns:1fr}.youglishLab{grid-template-columns:1fr}.learningProfileGrid{grid-template-columns:1fr}}
 @media(max-width:600px){.profileStatusPill{padding:4px 7px;font-size:10px}.spacePresetGrid{grid-template-columns:1fr 1fr}.profileCardHead{display:block}.levelTestPrimary{margin-top:10px}.engineGrid{grid-template-columns:1fr}.quickSimpleRow{align-items:flex-start}.presetChips{width:100%}}
@@ -309,7 +309,7 @@ if ('serviceWorker' in navigator) {
         <option value="5">Grade 5</option><option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8">Grade 8</option>
         <option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option>
       </select>
-      <small id="eqSignupGradeHint">Content and English level adapt to the learner's grade.</small>
+      <small id="eqSignupGradeHint">Grade keeps topics age-appropriate. English level can be set separately after sign-in.</small>
       <label>Email</label>
       <input id="eqSignupEmail" type="email" autocomplete="email" placeholder="you@example.com">
       <label>Create password</label>
@@ -676,7 +676,8 @@ if ('serviceWorker' in navigator) {
   <div class="officialLevelLinks">
     <span>Want a second opinion?</span>
     <a href="https://learnenglish.britishcouncil.org/english-levels/online-english-level-test" target="_blank" rel="noopener">British Council level test ↗</a>
-    <a href="https://www.cambridgeenglish.org/test-your-english/for-schools/" target="_blank" rel="noopener">Cambridge for Schools ↗</a>
+    <a href="https://www.cambridgeenglish.org/test-your-english/young-learners/" target="_blank" rel="noopener">Cambridge Young Learners ↗</a>
+    <a href="https://www.cambridgeenglish.org/test-your-english/for-schools/" target="_blank" rel="noopener">Cambridge 11+ ↗</a>
   </div>
 </div>
 
@@ -1836,29 +1837,36 @@ function renderResourceLab(){
   box.innerHTML=list.map((x,i)=>'<a class="trustedResource '+(i<3?'recommended':'')+'" href="'+x.url+'" target="_blank" rel="noopener"><div class="resourceIcon">'+x.icon+'</div><div><div class="resourceTop"><h3>'+liveEsc(x.name)+'</h3>'+(i<3?'<span>For you</span>':'')+'</div><p>'+liveEsc(x.desc)+'</p><small>'+liveEsc(x.tags)+' · open original ↗</small></div></a>').join('');
   setTimeout(()=>decorateDictionary(box),0);
 }
-let ygWidget=null,ygPendingQuery='',ygLoading=false;
+function youglishDirectUrl(q){
+  return 'https://youglish.com/pronounce/'+encodeURIComponent(String(q||'').trim().replace(/\s+/g,'_'))+'/english/us';
+}
+function youglishFrameDocument(q){
+  const query=JSON.stringify(String(q||'').trim());
+  return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
+    '<style>html,body{margin:0;padding:0;background:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif}#yg{min-height:330px}.msg{padding:18px;color:#52606d;font-size:14px}.powered{padding:8px 12px;font-size:11px;color:#667085;border-top:1px solid #e6e8ec}.powered a{color:#337ab7}</style></head><body>'+
+    '<div id="yg"><div class="msg">Loading YouGlish…</div></div><div class="powered">Powered by <a href="https://youglish.com/" target="_blank" rel="noopener">YouGlish.com</a></div>'+
+    '<script>var BH_YG_QUERY='+query+';function onYouglishAPIReady(){try{var w=new YG.Widget("yg",{autoStart:0,components:733,restrictionMode:1,videoQuality:"default"});w.fetch(BH_YG_QUERY,"english","us")}catch(e){document.getElementById("yg").innerHTML="<div class=msg>Embedded player unavailable. Use the direct link below BatumHub.</div>"}}<\/script>'+
+    '<script async src="https://youglish.com/public/emb/widget.js" charset="utf-8"><\/script></body></html>';
+}
 function loadYouGlish(raw){
   let input=document.getElementById('youglishQuery'),q=(typeof raw==='string'?raw:(input&&input.value)||dailyWord()).trim().slice(0,80);
   if(!q)return;
-  if(input)input.value=q;ygPendingQuery=q;
+  if(input)input.value=q;
   let host=document.getElementById('youglishWidgetHost');if(!host)return;
-  host.innerHTML='<div id="youglishWidget"></div><div class="widgetLoading">Loading pronunciation examples for <b>'+liveEsc(q)+'</b>…</div>';
-  if(window.YG&&window.YG.Widget){initYouGlishWidget();return}
-  if(ygLoading)return;ygLoading=true;
-  let tag=document.createElement('script');tag.src='https://youglish.com/public/emb/widget.js';tag.async=true;tag.charset='utf-8';
-  tag.onerror=()=>{ygLoading=false;host.innerHTML='<div class="widgetPlaceholder">YouGlish could not load right now. <a href="https://youglish.com/pronounce/'+encodeURIComponent(q)+'/english/us" target="_blank" rel="noopener">Open the pronunciation page ↗</a></div>'};
-  document.head.appendChild(tag);
-}
-window.onYouglishAPIReady=function(){ygLoading=false;initYouGlishWidget()};
-function initYouGlishWidget(){
-  let host=document.getElementById('youglishWidgetHost'),target=document.getElementById('youglishWidget');if(!host||!target||!window.YG||!YG.Widget)return;
-  try{
-    ygWidget=new YG.Widget('youglishWidget',{autoStart:0,components:733,restrictionMode:1,videoQuality:'default'});
-    let loading=host.querySelector('.widgetLoading');if(loading)loading.remove();
-    ygWidget.fetch(ygPendingQuery||dailyWord(),'english','us');
-  }catch(e){
-    host.innerHTML='<div class="widgetPlaceholder">The embedded player is unavailable. <a href="https://youglish.com/pronounce/'+encodeURIComponent(ygPendingQuery||dailyWord())+'/english/us" target="_blank" rel="noopener">Open YouGlish ↗</a></div>';
-  }
+  const direct=youglishDirectUrl(q);
+  host.innerHTML='';
+  const wrap=document.createElement('div');wrap.className='youglishFrameWrap';
+  const frame=document.createElement('iframe');
+  frame.className='youglishIsolatedFrame';
+  frame.title='YouGlish pronunciation examples for '+q;
+  frame.setAttribute('sandbox','allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation');
+  frame.setAttribute('allow','autoplay; encrypted-media; picture-in-picture; fullscreen');
+  frame.referrerPolicy='strict-origin-when-cross-origin';
+  frame.srcdoc=youglishFrameDocument(q);
+  wrap.appendChild(frame);
+  const foot=document.createElement('div');foot.className='youglishFallback';
+  foot.innerHTML='<span>The player is isolated so third-party verification can never block BatumHub.</span><a href="'+liveEsc(direct)+'" target="_blank" rel="noopener">Open '+liveEsc(q)+' on YouGlish ↗</a>';
+  host.appendChild(wrap);host.appendChild(foot);
 }
 const INTERESTS=['🎬 Movies & TV','🎮 Gaming','🏅 Sports','✨ Life & Style','💄 Beauty','👗 Fashion','🎵 Music','📚 Books','💡 TED & Stories','🔬 Science','🚀 Space','🐾 Animals','🎨 Art & Design','🧠 Study Hacks','🎓 SAT','🏫 Universities','💼 Careers','🌍 Travel'];
 function pref(k,d){return localStorage.getItem('teq-'+k)||d}
