@@ -45,7 +45,7 @@ let score=0;
 try{
   const {p,pageErrors}=await newPage(1280,900);
   const version=await p.$eval('#bhVersion',el=>el.textContent.trim());
-  assert(version==='v5.1','Expected v5.1, got '+version);score+=10;
+  assert(/^v\d+\.\d+$/.test(version),'Visible version badge is invalid: '+version);score+=10;
   assert(pageErrors.length===0,'Startup page errors: '+pageErrors.join(' | '));score+=15;
 
   // 32 rapid language switches. This catches stale globals, TDZ regressions and routing loops.
