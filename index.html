@@ -319,6 +319,62 @@ html.native-app .installAppBtn{display:none!important}html.native-app .top{paddi
 .cardSizer{position:absolute;z-index:5;right:9px;top:9px;display:flex;gap:5px}.cardSizer button{width:29px;height:29px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface2) 90%,transparent);color:var(--text);font-weight:1000;cursor:pointer;padding:0}.mission,.freshcard{position:relative}.mission.cardCompact .thumb{display:none}.mission.cardCompact .body p,.mission.cardCompact .task,.mission.cardCompact .vocab{display:none}.mission.cardCompact .body{padding-top:42px}.freshcard.cardCompact .freshmedia,.freshcard.cardCompact p{display:none}.freshcard.cardCompact{min-height:150px;padding-top:46px}.mission.cardExpanded,.freshcard.cardExpanded{grid-column:span 2}.mission.cardExpanded .body,.freshcard.cardExpanded{font-size:1.04em}.mission.cardExpanded .body p,.freshcard.cardExpanded p{font-size:1em}
 .languageLessonActions{gap:8px;flex-wrap:wrap}.languageLessonActions #langLessonListen{font-weight:900}
 @media(max-width:760px){.mission.cardExpanded,.freshcard.cardExpanded{grid-column:1/-1}.mediaCaptionPanel{max-height:52vh;padding:12px}.karaokeText{font-size:clamp(23px,7vw,34px)}.mediaDock:fullscreen.audioOnly .mediaCaptionPanel{min-height:56vh}}
+
+/* ===== V5.2 MOBILE INFORMATION ARCHITECTURE ===== */
+.mobileCompactTop,.mobileMenu{display:none}
+@media(max-width:720px){
+  :root{--mobile-bar-h:58px}
+  .top{position:sticky;top:0;z-index:40;min-height:var(--mobile-bar-h);backdrop-filter:blur(14px)}
+  .top>.wrap{padding:0 10px}
+  .top .languageBarTop,.top .brandnav,.top .coreNav,.top .topStatusBar,.top .secondaryTabs{display:none!important}
+  .mobileCompactTop{height:var(--mobile-bar-h);display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:7px;align-items:center}
+  .mobileBrand,.mobileIconBtn,.mobileModePill{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-weight:900;cursor:pointer}
+  .mobileBrand{width:41px;height:41px;border-radius:13px;background:var(--accent);color:var(--accentText);font-size:14px}
+  .mobileIconBtn{width:41px;height:41px;border-radius:13px;font-size:17px}
+  .mobileModePill{height:41px;border-radius:13px;padding:0 11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+  .mobileMenu.open{display:block;position:fixed;inset:0;z-index:210}
+  .mobileMenuBackdrop{position:absolute;inset:0;border:0;background:#0008;backdrop-filter:blur(3px)}
+  .mobileMenuSheet{position:absolute;left:8px;right:8px;top:calc(env(safe-area-inset-top) + 62px);max-height:calc(100dvh - 78px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:0 24px 70px #000a}
+  .mobileMenuHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.mobileMenuHead b{font-size:18px}.mobileMenuHead button{border:1px solid var(--line);background:var(--surface2);color:var(--text);width:36px;height:36px;border-radius:11px}
+  .mobileField{display:grid;gap:6px;margin:10px 0}.mobileField>span{font-size:11px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.mobileField select{width:100%;min-height:44px}
+  .mobileQuickNav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.mobileQuickNav button,.mobileMenuActions button{border:1px solid var(--line);background:var(--surface2);color:var(--text);border-radius:12px;padding:11px;font:inherit;font-weight:850;text-align:left}
+  .mobileQuickNav button.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 15%,var(--surface2))}
+  .mobileStatus{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0;color:var(--muted);font-size:11px}.mobileStatus span{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:5px 8px}
+  .mobileMenuActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  body.mobileMenuOpen{overflow:hidden}
+  .wrap{padding-left:12px;padding-right:12px}
+  .hero{padding-top:16px}
+  .hero h1{font-size:clamp(31px,10vw,44px)}
+  .hero .pill,.hero .livepill{font-size:11px}
+  .dash{padding:12px}.stats{gap:7px}.stat{padding:9px}.stat strong{font-size:22px}
+}
+/* Audio should behave like a mini-player on phones, not occupy half the viewport while scrolling. */
+@media(max-width:720px){
+  .mediaDock.audioOnly,.mediaDock.audioOnly.expanded{top:auto!important;bottom:8px!important;left:8px!important;right:8px!important;width:auto!important;transform:none!important;border-radius:16px!important;max-height:calc(100dvh - 76px);overflow:hidden}
+  .mediaDock.audioOnly:not(.captionsOn) .mediaCaptionPanel{display:none!important}
+  .mediaDock.audioOnly .mediaStage{min-height:54px}
+  .mediaDock.audioOnly .mediaBar{min-height:48px}
+  .mediaDock.audioOnly.captionsOn:not(:fullscreen):not(.fullscreenFallback){max-height:min(55dvh,470px)}
+  .mediaDock.audioOnly.captionsOn:not(:fullscreen):not(.fullscreenFallback) .mediaCaptionPanel{max-height:min(34dvh,300px);overflow:auto}
+  .mediaDock.audioOnly.minimized .mediaStage,.mediaDock.audioOnly.minimized .mediaCaptionPanel{display:none!important}
+  .mediaDock.audioOnly.minimized{max-height:58px}
+  .audioTransport{grid-template-columns:auto auto minmax(72px,1fr) auto;padding:7px 8px}.audioTransport>button{width:34px;height:34px}.audioVolume{display:none}
+  #mediaAudioTime{font-size:10px}
+  .mediaTools{gap:3px}.mediaTools button,.mediaOriginal{padding:5px 6px!important;min-width:31px}
+}
+/* Source reader is a deliberate sheet, not a permanently sticky half-screen. */
+@media(max-width:720px){
+  .mediaDock.sourceMode{left:8px!important;right:8px!important;top:auto!important;bottom:8px!important;width:auto!important;max-height:82dvh;transform:none!important;border-radius:18px!important}
+  .mediaDock.sourceMode .mediaStage{aspect-ratio:auto;display:block;overflow:auto;max-height:calc(82dvh - 58px)}
+}
+/* Compact mobile card controls */
+@media(max-width:720px){
+  .freshcard,.mission{border-radius:15px}
+  .freshcard .freshmedia{max-height:190px;object-fit:cover}
+  .freshcard .targetPreview{display:none}
+  .freshcard p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .freshcard .freshactions.simple{display:flex;gap:7px;flex-wrap:wrap}.freshcard .freshactions.simple button{flex:1 1 auto}
+}
 </style>
 <link rel="icon" type="image/svg+xml" href="./icon.svg?v=435">
 <link rel="shortcut icon" href="./icon.svg?v=435">
@@ -426,7 +482,25 @@ if ('serviceWorker' in navigator) {
     </div>
     <div id="eqFriendRequests" style="margin-top:12px"></div>
   </div>
-</div></div><div class="top"><div class="wrap">
+</div></div><div class="top"><div class="wrap"><div class="mobileCompactTop" id="mobileCompactTop">
+  <button class="mobileBrand" onclick="mobileNavigate('Home')" aria-label="BatumHub home">BH</button>
+  <button class="mobileModePill" id="mobileModePill" onclick="toggleMobileMenu(true)">🇬🇧 English · B2 ▾</button>
+  <button class="mobileIconBtn" onclick="mobileNavigate('Messages')" aria-label="Messages">💬</button>
+  <button class="mobileIconBtn" onclick="toggleMobileMenu(true)" aria-label="Menu">☰</button>
+</div>
+<div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+  <button class="mobileMenuBackdrop" onclick="toggleMobileMenu(false)" aria-label="Close menu"></button>
+  <div class="mobileMenuSheet">
+    <div class="mobileMenuHead"><b id="mobileMenuTitle">BatumHub</b><button onclick="toggleMobileMenu(false)">✕</button></div>
+    <label class="mobileField"><span id="mobileLanguageLabel">Language</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
+    <label class="mobileField"><span id="mobileLevelLabel">Level</span><select id="mobileLevelSelect" onchange="mobileSetLevel(this.value)"></select></label>
+    <div class="mobileQuickNav" id="mobileQuickNav"></div>
+    <label class="mobileField"><span id="mobileSectionLabel">More sections</span><select id="mobileSectionSelect" onchange="mobileOpenSection(this.value)"></select></label>
+    <div class="mobileStatus" id="mobileStatus"></div>
+    <div class="mobileMenuActions"><button onclick="bhInstallApp()">📲 BatumHub</button><button onclick="openAccount();toggleMobileMenu(false)">👤 <span id="mobileAccountText">Account</span></button></div>
+  </div>
+</div>
+
 <div class="languageBar languageBarTop" id="languageBar">
   <div class="languageFlags" id="languageFlags">
     <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
@@ -447,7 +521,7 @@ if ('serviceWorker' in navigator) {
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
   <button class="profileStatusPill" id="bhLearningProfile" onclick="openTab('Settings')" title="Learning profile">🎓 <b>Learning profile</b></button>
-  <span class="versionTop">⚙️ <b id="bhVersion">v5.1</b></span>
+  <span class="versionTop">⚙️ <b id="bhVersion">v5.2</b></span>
   <span>🕒 <b id="bhUpdated">—</b></span>
 </div>
 <div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
@@ -1006,8 +1080,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='5.1';
-const BH_SITE_UPDATED='2026-09-29T22:15:00+04:00';
+const BH_SITE_VERSION='5.2';
+const BH_SITE_UPDATED='2026-09-30T01:28:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -1897,7 +1971,7 @@ function setMedia(title,meta,html,audioOnly,originalUrl,sourceMode,item){
   document.getElementById('mediaTitle').textContent=title||'BatumHub Player';document.getElementById('mediaMeta').textContent=meta||'';
   stage.innerHTML=html;dock.classList.add('open');dock.classList.remove('minimized','ttsMode','fullscreenFallback');dock.classList.toggle('audioOnly',!!audioOnly);dock.classList.toggle('sourceMode',!!sourceMode);
   if(orig){if(originalUrl){orig.href=originalUrl;orig.style.display=''}else{orig.removeAttribute('href');orig.style.display='none'}}
-  if(audioOnly){mediaCaptionEnabled=true;renderMediaCaptionPanel(item||{})}else{dock.classList.remove('captionsOn');if(cc)cc.style.display='none';if(panel)panel.innerHTML=''}
+  if(audioOnly){mediaCaptionEnabled=window.innerWidth>720;renderMediaCaptionPanel(item||{});dock.classList.toggle('captionsOn',mediaCaptionEnabled)}else{dock.classList.remove('captionsOn');if(cc)cc.style.display='none';if(panel)panel.innerHTML=''}
   updateMediaTopOffset();if(!audioOnly&&window.innerWidth>=900)dock.classList.add('expanded');else dock.classList.remove('expanded');
   if(audioOnly)setTimeout(bindPersistentAudio,0);
 }
@@ -2727,7 +2801,7 @@ function applyGlobalLocale(){
   let presetNames=lang==='es'?['Original','Mínimo','Enfoque','Ampliado','SAT']:lang==='de'?['Original','Minimal','Fokus','Erweitert','SAT']:lang==='ru'?['Обычный','Минимум','Фокус','Расширенный','SAT']:['Original','Minimal','Focus','Extended','SAT'];document.querySelectorAll('#quickSpacePresets button').forEach((b,i)=>{if(presetNames[i])b.textContent=presetNames[i]});
   let hubEye=document.querySelector('#languageHub .languageHubHead .eyebrow');if(hubEye)hubEye.textContent=lang==='es'?'IDIOMAS BATUMHUB':lang==='de'?'BATUMHUB SPRACHEN':lang==='ru'?'ЯЗЫКИ BATUMHUB':'BATUMHUB LANGUAGES';
   let footer=document.querySelector('footer p');if(footer)footer.textContent=lang==='es'?'BatumHub enlaza las fuentes originales y guarda el progreso cuando inicias sesión. El objetivo es practicar, recordar y avanzar sin copiar contenidos completos de terceros.':lang==='de'?'BatumHub verlinkt Originalquellen und synchronisiert deinen Fortschritt nach der Anmeldung. Ziel sind aktives Üben, Wiederholen und nachhaltiger Lernfortschritt.':lang==='ru'?'BatumHub ведёт к оригинальным источникам и синхронизирует прогресс после входа. Главная цель — практика, повторение и устойчивое запоминание.':'This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in.';
-  renderWidgets();renderLearningLaunch();renderMessagesLocale();
+  renderWidgets();renderLearningLaunch();renderMessagesLocale();renderMobileChrome();
 }
 function bhWeatherText(code){
   let lang='en';try{lang=currentLearningLanguage()}catch(e){}
@@ -2869,6 +2943,45 @@ showAppTab=function(name,btn){
   }
   _showAppTabV49(name,btn);applyGlobalLocale();renderCoreNav();
 };
+
+/* ===== V5.2 MOBILE COMPACT NAV ===== */
+function mobileLabels(){
+  let l=currentLearningLanguage();
+  if(l==='es')return {language:'Idioma',level:'Nivel',sections:'Más secciones',account:'Cuenta'};
+  if(l==='de')return {language:'Sprache',level:'Niveau',sections:'Weitere Bereiche',account:'Konto'};
+  if(l==='ru')return {language:'Язык',level:'Уровень',sections:'Другие разделы',account:'Аккаунт'};
+  return {language:'Language',level:'Level',sections:'More sections',account:'Account'};
+}
+function renderMobileChrome(){
+  let pill=document.getElementById('mobileModePill');if(!pill)return;
+  let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),labels=mobileLabels();
+  pill.textContent=info.flag+' '+info.native+' · '+level+' ▾';
+  let ls=document.getElementById('mobileLanguageSelect');if(ls)ls.value=lang;
+  let levelBox=document.getElementById('mobileLevelSelect');if(levelBox){
+    let opts=lang==='en'?['auto','A1','A2','B1','B2','C1']:['A1','A2','B1','B2','C1'];
+    levelBox.innerHTML=opts.map(v=>'<option value="'+v+'">'+(v==='auto'?localeUI().auto:v)+'</option>').join('');
+    levelBox.value=lang==='en'?storedEnglishLevel():level;
+  }
+  let l1=document.getElementById('mobileLanguageLabel'),l2=document.getElementById('mobileLevelLabel'),l3=document.getElementById('mobileSectionLabel'),acct=document.getElementById('mobileAccountText');
+  if(l1)l1.textContent=labels.language;if(l2)l2.textContent=labels.level;if(l3)l3.textContent=labels.sections;if(acct)acct.textContent=labels.account;
+  let ui=localeUI(),active=localStorage.getItem('teq-active-tab')||'Home',quick=document.getElementById('mobileQuickNav');
+  if(quick)quick.innerHTML=[['Home','🏠',ui.home],['Learn','📘',ui.learn],['Messages','💬',ui.messages],['Settings','🎛️',ui.personalize]].map(r=>'<button class="'+(active===r[0]?'on':'')+'" onclick="mobileNavigate(\''+r[0]+'\')">'+r[1]+' '+r[2]+'</button>').join('');
+  let sec=document.getElementById('mobileSectionSelect');if(sec){
+    let pinned=getPinnedTabs();sec.innerHTML='<option value="">'+labels.sections+'…</option>'+pinned.map(k=>{let t=localizedTabMeta(k);return '<option value="'+k+'">'+t.icon+' '+t.label+'</option>'}).join('');
+  }
+  let status=document.getElementById('mobileStatus');if(status){
+    let today=document.getElementById('bhToday')?.textContent||'',weather=document.getElementById('bhWeather')?.textContent||'',ver='v'+BH_SITE_VERSION;
+    status.innerHTML='<span>📅 '+liveEsc(today)+'</span><span>🌦️ '+liveEsc(weather)+'</span><span>⚙️ '+ver+'</span>';
+  }
+}
+function toggleMobileMenu(on){
+  let m=document.getElementById('mobileMenu');if(!m)return;let open=on===undefined?!m.classList.contains('open'):!!on;
+  m.classList.toggle('open',open);m.setAttribute('aria-hidden',open?'false':'true');document.body.classList.toggle('mobileMenuOpen',open);if(open)renderMobileChrome();
+}
+async function mobileSetLanguage(code){await setLearningLanguage(code);renderMobileChrome()}
+async function mobileSetLevel(level){await setTargetLanguageLevel(level);renderMobileChrome()}
+function mobileNavigate(tab){toggleMobileMenu(false);navigateAppTab(tab,null,'push');renderMobileChrome()}
+function mobileOpenSection(tab){if(!tab)return;mobileNavigate(tab);let s=document.getElementById('mobileSectionSelect');if(s)s.value=''}
 const PLACEMENT_QS=[
   {band:'A1',q:'She ___ my sister.',opts:['am','is','are','be'],a:1},
   {band:'A1',q:'I have two ___.',opts:['book','books','bookes','booking'],a:1},
