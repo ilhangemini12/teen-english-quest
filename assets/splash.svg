@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2732 2732">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#59d7b7"/><stop offset="1" stop-color="#f1ce75"/></linearGradient></defs>
+<rect width="2732" height="2732" fill="#0b1220"/>
+<rect x="866" y="866" width="1000" height="1000" rx="230" fill="#121c2e" stroke="url(#g)" stroke-width="34"/>
+<text x="1366" y="1495" text-anchor="middle" font-family="Arial,sans-serif" font-size="380" font-weight="800" fill="white">BH</text>
+<path d="M1120 1620h492" stroke="url(#g)" stroke-width="42" stroke-linecap="round"/>
+<text x="1366" y="2070" text-anchor="middle" font-family="Arial,sans-serif" font-size="120" font-weight="700" fill="#f7fbff">BatumHub</text>
+</svg>
