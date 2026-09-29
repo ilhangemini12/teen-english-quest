@@ -139,7 +139,7 @@ try{
     status:getComputedStyle(document.querySelector('.topStatusBar')).display,
     secondary:getComputedStyle(document.querySelector('.secondaryTabs')).display,
     bottom:getComputedStyle(document.getElementById('vnextBottomNav')).display,
-    nav:[...document.querySelectorAll('#vnextBottomNav button')].map(b=>b.innerText.trim().replace(/\s+/g,' ')),
+    nav:[...document.querySelectorAll('#vnextBottomNav button')].map(b=>b.lastElementChild?.textContent.trim()||''),
     appTab:document.body.dataset.appTab,
     primary:document.body.dataset.primaryNav,
     questButtons:document.querySelectorAll('#heroHome .vnextQuestButton').length,

@@ -51,7 +51,7 @@ try {
       appTab:document.body.dataset.appTab,
       primary:document.body.dataset.primaryNav,
       navDisplay:getComputedStyle(document.getElementById('vnextBottomNav')).display,
-      navLabels:[...document.querySelectorAll('#vnextBottomNav button')].map(b=>b.innerText.trim().replace(/\s+/g,' ')),
+      navLabels:[...document.querySelectorAll('#vnextBottomNav button')].map(b=>b.lastElementChild?.textContent.trim()||''),
       hero:visible(document.getElementById('heroHome')),
       questButtons:document.querySelectorAll('#heroHome .vnextQuestButton').length,
       oldHomeHidden:['demoPass','learningLaunch','quickControls','personalWidgets','fresh'].every(id=>!visible(document.getElementById(id)))
