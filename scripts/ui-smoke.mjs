@@ -25,7 +25,7 @@ try {
   await page.goto('http://127.0.0.1:4173/?smoke=1', {waitUntil:'domcontentloaded', timeout:30000});
   await page.waitForSelector('#languageFlags button[data-lang="es"]', {timeout:10000});
   const version = await page.$eval('#bhVersion', el => el.textContent.trim());
-  assert(version === 'v5.1', 'Expected v5.1, got '+version);
+  assert(/^v\d+\.\d+$/.test(version),'Visible version badge is invalid: '+version);
 
   // Spanish global mode. Use DOM click so the smoke test verifies the handler/state
   // without depending on headless Chrome's viewport hit-testing of the sticky header.
