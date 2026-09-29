@@ -1,0 +1,16 @@
+{
+  "appId": "com.batumhub.learn",
+  "appName": "BatumHub",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 700,
+      "launchAutoHide": true,
+      "backgroundColor": "#0b1220",
+      "showSpinner": false
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample"
+    }
+  }
+}
