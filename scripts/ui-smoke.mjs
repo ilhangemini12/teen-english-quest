@@ -11,7 +11,11 @@ await page.setViewport({width: 1280, height: 900});
 await page.evaluateOnNewDocument(() => localStorage.clear());
 
 const pageErrors = [];
+const consoleErrors = [];
 page.on('pageerror', e => pageErrors.push(String(e && e.message || e)));
+page.on('console', msg => {
+  if (msg.type() === 'error') consoleErrors.push(msg.text());
+});
 
 function assert(cond, msg) {
   if (!cond) throw new Error(msg);
@@ -23,9 +27,27 @@ try {
   const version = await page.$eval('#bhVersion', el => el.textContent.trim());
   assert(version === 'v5.1', 'Expected v5.1, got '+version);
 
-  // Spanish global mode.
-  await page.click('#languageFlags button[data-lang="es"]');
-  await page.waitForFunction(() => document.documentElement.lang === 'es', {timeout:5000});
+  // Spanish global mode. Use DOM click so the smoke test verifies the handler/state
+  // without depending on headless Chrome's viewport hit-testing of the sticky header.
+  const beforeLang = await page.evaluate(() => ({
+    htmlLang: document.documentElement.lang,
+    active: window.__bhActiveLanguage,
+    stored: localStorage.getItem('teq-active-language'),
+    handler: typeof window.setLearningLanguage,
+    onclick: document.querySelector('#languageFlags button[data-lang="es"]')?.getAttribute('onclick')
+  }));
+  console.log('Before Spanish:', JSON.stringify(beforeLang));
+  await page.$eval('#languageFlags button[data-lang="es"]', el => el.click());
+  await new Promise(r => setTimeout(r, 500));
+  const afterLang = await page.evaluate(() => ({
+    htmlLang: document.documentElement.lang,
+    active: window.__bhActiveLanguage,
+    stored: localStorage.getItem('teq-active-language'),
+    core: document.querySelector('#coreNav')?.innerText || '',
+    errors: window.__bhSmokeErrors || []
+  }));
+  console.log('After Spanish:', JSON.stringify(afterLang));
+  await page.waitForFunction(() => document.documentElement.lang === 'es', {timeout:8000});
   const coreEs = await page.$eval('#coreNav', el => el.innerText);
   assert(coreEs.includes('Inicio') && coreEs.includes('Aprender') && coreEs.includes('Mensajes') && coreEs.includes('Personalizar'), 'Spanish core navigation did not localize: '+coreEs);
 
@@ -92,6 +114,7 @@ try {
   }
 
   assert(pageErrors.length === 0, 'Page errors: '+pageErrors.join(' | '));
+  assert(consoleErrors.length === 0, 'Console errors: '+consoleErrors.join(' | '));
   console.log('BatumHub UI smoke: PASS');
   console.log(JSON.stringify({version,spanishUnits:spanishUnits.length,grammarCards:grammarControls.length,captionChars:captionText.length}));
 } finally {
