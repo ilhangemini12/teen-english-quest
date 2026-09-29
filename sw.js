@@ -1,5 +1,5 @@
-const C='batumhub-live-v12';
-const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg'];
+const C='batumhub-live-v13';
+const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg','./mobile-native.js'];
 
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(C).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));
