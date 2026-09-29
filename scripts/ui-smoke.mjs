@@ -84,7 +84,7 @@ try {
   assert(widgetEs.includes('Palabra del día'), 'Spanish Word of the Day missing: '+widgetEs.slice(0,300));
 
   // Spanish A1 native curriculum.
-  await page.click('#coreNav button[data-core="Learn"]');
+  await page.evaluate(() => openTab('Learn'));
   await page.waitForSelector('#languageHub:not(.appHidden) .languageUnit', {timeout:5000});
   const spanishUnits = await page.$$eval('#languageCourseGrid .languageUnit', els => els.map(x => x.innerText));
   assert(spanishUnits.length >= 5, 'Expected >=5 Spanish A1 native units');
