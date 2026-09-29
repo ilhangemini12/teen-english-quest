@@ -1413,7 +1413,7 @@ function render(){let X=xp(),L=level(X),w=week();xpEl=document.getElementById('x
 }
 function filterM(){let search=document.getElementById('search'),wf=document.getElementById('wf'),cf=document.getElementById('cf');let q=search?search.value.toLowerCase():'',w=wf?wf.value:'',cat=cf?cf.value:'';document.querySelectorAll('.mission').forEach(function(e){let ok=(!q||e.dataset.text.includes(q))&&(!w||e.dataset.week===w)&&(!cat||e.dataset.cat===cat);if(appMissionCats&&appMissionCats.length)ok=ok&&appMissionCats.includes(e.dataset.cat);if(appMissionMode==='video'){let a=e.querySelector('.actions a'),u=a?a.href:'';ok=ok&&(/youtube\.com|ted\.com/.test(u))}e.style.display=ok?'block':'none'})}function saveJ(){s.journal=document.getElementById('journal').value;sv();alert('Saved on this device.')}function hear(){let u=new SpeechSynthesisUtterance(document.getElementById('prompt').textContent);u.lang='en-US';u.rate=.92;speechSynthesis.cancel();speechSynthesis.speak(u)}let R=null,ch=[];async function record(){let b=document.getElementById('rec');if(R&&R.state==='recording'){R.stop();b.textContent='🎙 Start recording';return}try{let st=await navigator.mediaDevices.getUserMedia({audio:true});ch=[];R=new MediaRecorder(st);R.ondataavailable=e=>ch.push(e.data);R.onstop=()=>{let blob=new Blob(ch,{type:'audio/webm'}),url=URL.createObjectURL(blob);document.getElementById('audio').innerHTML='<audio controls style="width:100%" src="'+url+'"></audio>';st.getTracks().forEach(t=>t.stop())};R.start();b.textContent='⏹ Stop recording'}catch(e){alert('Microphone unavailable. Hosting over HTTPS usually fixes this.')}}function renderQuiz(){document.getElementById('quizbox').innerHTML=quiz.map((q,i)=>'<div class="quizq"><b>'+(i+1)+'. '+q.q+'</b>'+q.opts.map((o,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+o+'</label>').join('')+'<small id="why'+i+'"></small></div>').join('')+'<button class="btn" onclick="grade()">Check answers</button><p id="qr"></p>'}function grade(){let z=0;quiz.forEach((q,i)=>{let e=document.querySelector('input[name="q'+i+'"]:checked'),ok=e&&+e.value===q.a;if(ok)z++;document.getElementById('why'+i).textContent=(ok?'✓ ':'→ ')+q.why});document.getElementById('qr').textContent='Score: '+z+' / '+quiz.length}function exportP(){let b=new Blob([JSON.stringify(s,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='teen-english-quest-progress.json';a.click()}async function copyS(){try{await navigator.clipboard.writeText(document.getElementById('summary').textContent);alert('Copied.')}catch(e){}}
 let appMissionCats=null,appMissionMode='all';
-const appSections=['heroHome','quickControls','dashboard','today','fresh','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','wikiHub','sourceNews','elifAI','messages','settings','learnHub','exploreHub','sportsHub','tedHub','satHub','futureHub'];
+const appSections=['heroHome','quickControls','personalWidgets','dashboard','today','fresh','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','learningGames','foundationHub','clipSprint','wikiHub','sourceNews','elifAI','messages','settings','learnHub','exploreHub','sportsHub','tedHub','satHub','futureHub'];
 function setVisible(ids){appSections.forEach(function(id){let e=document.getElementById(id);if(e)e.classList.toggle('appHidden',!ids.includes(id))})}
 function setTabButton(name){document.querySelectorAll('#appTabs button').forEach(function(b){b.classList.toggle('on',b.textContent.toLowerCase().includes(name.toLowerCase()))})}
 function openTab(name){let b=[...document.querySelectorAll('#appTabs button')].find(x=>x.textContent.toLowerCase().includes(name.toLowerCase()));showAppTab(name,b)}
@@ -1428,6 +1428,8 @@ const TAB_CATALOG={
   Life:{icon:'✨',label:'Life & Style'},
   Sports:{icon:'🏅',label:'Sports'},
   Gaming:{icon:'🎮',label:'Gaming'},
+  Games:{icon:'🧩',label:'Games'},
+  Clips:{icon:'🎬',label:'Clip Sprint'},
   TED:{icon:'💡',label:'TED & Stories'},
   News:{icon:'🗞️',label:'News'},
   Podcasts:{icon:'🎧',label:'Podcasts'},
@@ -1439,13 +1441,16 @@ const TAB_CATALOG={
   Comics:{icon:'💥',label:'Comics'},
   Wiki:{icon:'🌐',label:'Wiki'},
   League:{icon:'🏆',label:'League'},
-  Messages:{icon:'💬',label:'Messages'}
+  Messages:{icon:'💬',label:'Messages'},
+  Personalize:{icon:'🎛️',label:'Personalize'}
 };
 const TAB_PRESETS={
-  balanced:['Home','Learn','ElifAI','Explore','SAT','Future','League'],
-  exam:['Home','Learn','ElifAI','SAT','Future','Vocabulary','Speaking'],
-  explore:['Home','Explore','MoviesTV','Life','Sports','Gaming','TED','Future'],
-  minimal:['Home','Learn','SAT','Future']
+  balanced:['Home','Learn','ElifAI','Explore','SAT','Future','League','Messages'],
+  exam:['Home','Learn','ElifAI','SAT','Future','Vocabulary','Speaking','Messages'],
+  explore:['Home','Explore','Clips','MoviesTV','Life','Sports','Gaming','Games'],
+  minimal:['Home','Learn','ElifAI','Messages'],
+  elementary:['Home','Learn','Games','Vocabulary','Speaking','Clips','Messages'],
+  middle:['Home','Learn','Games','Explore','Vocabulary','Speaking','Clips','Messages']
 };
 function getPinnedTabs(){
   let x;try{x=JSON.parse(localStorage.getItem('teq-pinned-tabs')||'null')}catch(e){}
@@ -1463,6 +1468,7 @@ function savePinnedTabs(arr){
 function renderAppTabs(){
   let box=document.getElementById('appTabs');if(!box)return;
   let pinned=getPinnedTabs(),active=localStorage.getItem('teq-active-tab')||'Home';
+  if(eqUser&&!pinned.includes('Messages')){if(pinned.length>=8)pinned=pinned.slice(0,7);pinned.push('Messages')}
   box.innerHTML=pinned.map(k=>{let t=TAB_CATALOG[k];return '<button data-tab="'+k+'" class="'+(active===k?'on':'')+'" onclick="showAppTab(\''+k+'\',this)"><span class="tabico">'+t.icon+'</span> <span class="tabtxt">'+t.label+'</span></button>'}).join('');
 }
 function renderTabManager(){
@@ -1488,30 +1494,38 @@ function showAppTab(name,btn){
   localStorage.setItem('teq-active-tab',name);
   if(btn){document.querySelectorAll('#appTabs button').forEach(b=>b.classList.remove('on'));btn.classList.add('on')} else setTabButton(name);
   appMissionCats=null;appMissionMode='all';
+  const grade=currentGrade();
 
-  if(name==='Home')setVisible(['heroHome','quickControls','dashboard','today','fresh','badges','progress']);
-  if(name==='Learn')setVisible(['learnHub','missions','lab','quiz']);
+  if(name==='Home'){setVisible(['heroHome','quickControls','personalWidgets','dashboard','today','fresh','badges','progress']);renderWidgets();applyGradeExperience()}
+  if(name==='Learn'){
+    if(grade<=8){setVisible(['learnHub','foundationHub','learningGames']);renderFoundation()}
+    else setVisible(['learnHub','missions','lab','quiz']);
+  }
   if(name==='ElifAI'){setVisible(['elifAI']);elifAiRender()}
-  if(name==='Explore')setVisible(['exploreHub','fresh','hubs']);
-  if(name==='Videos'){setVisible(['missions']);appMissionMode='video'}
+  if(name==='Explore')setVisible(['exploreHub','fresh','hubs'])
+  if(name==='Videos'||name==='Clips'){setVisible(['clipSprint']);renderClipSprint()}
   if(name==='News'){setVisible(['fresh','sourceNews','hubs']);freshCat='All';freshTopic='For You';freshAge=30;renderFresh()}
   if(name==='Podcasts'){setVisible(['fresh','hubs']);freshCat='Podcast';freshTopic='For You';freshAge=0;renderFresh()}
-  if(name==='Comics')setVisible(['comics']);
-  if(name==='Grammar'){setVisible(['missions','quiz']);appMissionCats=['Grammar','Real English']}
-  if(name==='Pronunciation'){setVisible(['missions','lab']);appMissionCats=['Pronunciation']}
+  if(name==='Comics')setVisible(['comics'])
+  if(name==='Grammar'){grade<=8?(setVisible(['foundationHub']),renderFoundation('grammar')):(setVisible(['missions','quiz']),appMissionCats=['Grammar','Real English'])}
+  if(name==='Pronunciation'){grade<=8?(setVisible(['foundationHub']),renderFoundation('speaking')):(setVisible(['missions','lab']),appMissionCats=['Pronunciation'])}
   if(name==='Vocabulary'){setVisible(['vocabDash']);renderVocab()}
-  if(name==='Speaking'){setVisible(['missions','lab']);appMissionCats=['Speaking','Listening']}
-  if(name==='MoviesTV')setVisible(['entertainment']);
-  if(name==='Life')setVisible(['styleHub']);
-  if(name==='Sports')setVisible(['sportsHub']);
-  if(name==='Gaming')setVisible(['gamesHub']);
-  if(name==='TED')setVisible(['tedHub','fresh']);
-  if(name==='Wiki')setVisible(['wikiHub']);
-  if(name==='SAT'){setVisible(['satHub','missions','quiz']);appMissionCats=['SAT & Writing','Study Skills']}
-  if(name==='Future')setVisible(['futureHub']);
+  if(name==='Speaking'){grade<=8?(setVisible(['foundationHub']),renderFoundation('speaking')):(setVisible(['missions','lab']),appMissionCats=['Speaking','Listening'])}
+  if(name==='MoviesTV')setVisible(['entertainment'])
+  if(name==='Life')setVisible(['styleHub'])
+  if(name==='Sports')setVisible(['sportsHub'])
+  if(name==='Gaming')setVisible(['gamesHub'])
+  if(name==='Games'){setVisible(['learningGames']);renderLearningGames()}
+  if(name==='TED')setVisible(['tedHub','fresh'])
+  if(name==='Wiki')setVisible(['wikiHub'])
+  if(name==='SAT'){
+    if(grade<9){setVisible(['foundationHub']);renderFoundation();setTimeout(()=>alert('SAT tools are hidden for younger grades. BatumHub opened the grade-appropriate path instead.'),30)}
+    else{setVisible(['satHub','missions','quiz']);appMissionCats=['SAT & Writing','Study Skills']}
+  }
+  if(name==='Future')setVisible(['futureHub'])
   if(name==='League'){setVisible(['league','badges']);updateLeaguePreview();eqRefreshLeague()}
   if(name==='Messages'){setVisible(['messages']);eqLoadFriends()}
-  if(name==='Settings'){setVisible(['settings']);renderSettings()}
+  if(name==='Settings'||name==='Personalize'){setVisible(['settings']);renderSettings()}
   filterM();window.scrollTo({top:0,behavior:'smooth'});
 }
 function renderVocab(){let box=document.getElementById('vocabCloud');if(!box)return;let words=[...new Set(missions.flatMap(m=>m.vocab||[]))];box.innerHTML=words.map(w=>'<button class="wordchip" onclick="wordChallenge(\''+liveEsc(w).replace(/&#39;/g,"\\'")+'\')">'+liveEsc(w)+'</button>').join('')}
@@ -1527,10 +1541,151 @@ function setTheme(v){document.body.dataset.theme=v;localStorage.setItem('teq-the
 function setFont(v){document.body.dataset.font=v;localStorage.setItem('teq-font',v);renderSettings();eqSaveCloudPrefs()}
 function setDensity(v){document.body.dataset.density=v;localStorage.setItem('teq-density',v);renderSettings();renderQuickControls();eqSaveCloudPrefs()}
 function setNavMode(v){document.body.dataset.nav=v;localStorage.setItem('teq-nav',v);renderSettings();eqSaveCloudPrefs()}
+
+const WIDGETS={
+  word:{icon:'📖',label:'Word of the Day'},
+  friends:{icon:'🟢',label:'Friends Online'},
+  clip:{icon:'🎬',label:'Clip Sprint'},
+  game:{icon:'🧩',label:'Daily Word Game'},
+  path:{icon:'🎓',label:'My Level'}
+};
+function currentGrade(){let g=Number(localStorage.getItem('teq-grade')||10);return g>=1&&g<=12?g:10}
+function getWidgets(){let w;try{w=JSON.parse(localStorage.getItem('teq-widgets')||'null')}catch(e){};if(!Array.isArray(w)||!w.length)w=['word','friends','clip','game'];return w.filter(x=>WIDGETS[x]).slice(0,5)}
+function saveWidgets(w){localStorage.setItem('teq-widgets',JSON.stringify(w));renderWidgets();renderWidgetManager();eqSaveCloudPrefs()}
+function toggleWidget(key){let w=getWidgets();w=w.includes(key)?w.filter(x=>x!==key):[...w,key];if(!w.length)w=['word'];saveWidgets(w)}
+function moveWidget(key,dir){let w=getWidgets(),i=w.indexOf(key),j=i+dir;if(i<0||j<0||j>=w.length)return;[w[i],w[j]]=[w[j],w[i]];saveWidgets(w)}
+function renderWidgetManager(){
+  let box=document.getElementById('widgetManager');if(!box)return;let w=getWidgets();
+  box.innerHTML=Object.entries(WIDGETS).map(([k,v])=>'<div class="widgetToggle"><span>'+v.icon+' '+v.label+'</span><div><button onclick="moveWidget(\''+k+'\',-1)">↑</button> <button onclick="moveWidget(\''+k+'\',1)">↓</button> <button onclick="toggleWidget(\''+k+'\')">'+(w.includes(k)?'Remove':'Add')+'</button></div></div>').join('');
+}
+const DAILY_WORDS={
+  a1:['bright','kind','quiet','carry','choose','build','smile','early','share','little','ready','story'],
+  a2:['discover','improve','message','practice','journey','careful','compare','wonder','useful','simple','create','remember'],
+  b1:['approach','confident','evidence','focus','challenge','reliable','context','adapt','contrast','reflect','strategy','achieve'],
+  b2:['perspective','significant','interpret','evaluate','precise','synthesis','coherent','assumption','relevant','justify','nuance','convey']
+};
+function gradeWordList(){let g=currentGrade();return g<=4?DAILY_WORDS.a1:g<=6?DAILY_WORDS.a2:g<=8?DAILY_WORDS.b1:DAILY_WORDS.b2}
+function todayKey(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tbilisi'}).format(new Date())}
+function dailyWord(){let a=gradeWordList(),d=new Date(todayKey()+'T12:00:00Z'),n=Math.floor(d.getTime()/86400000);return a[Math.abs(n)%a.length]}
+async function fillWordWidget(){
+  let word=dailyWord(),title=document.getElementById('widgetWordTitle'),body=document.getElementById('widgetWordBody');if(title)title.textContent=word;if(!body)return;
+  body.textContent='Loading a simple English definition…';
+  try{let r=await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+encodeURIComponent(word));if(!r.ok)throw 0;let j=await r.json(),first=j?.[0],m=first?.meanings?.[0],d=m?.definitions?.[0];body.innerHTML='<p><b>'+liveEsc(d?.definition||'Learn this word in context today.')+'</b></p>'+(d?.example?'<p>“'+liveEsc(d.example)+'”</p>':'<p>Try using <b>'+liveEsc(word)+'</b> in one sentence about your day.</p>')+'<div class="dictLinks"><a href="https://www.oxfordlearnersdictionaries.com/definition/english/'+encodeURIComponent(word)+'" target="_blank" rel="noopener">Oxford ↗</a></div>'}
+  catch(e){body.innerHTML='<p>Use <b>'+liveEsc(word)+'</b> in one original sentence today.</p>'}
+}
+function renderWidgets(){
+  let grid=document.getElementById('widgetGrid');if(!grid)return;let g=currentGrade(),band=eqGradeBand(g),w=getWidgets();
+  grid.innerHTML=w.map(k=>{
+    if(k==='word')return '<article class="hubWidget"><div class="widgetBig">📖</div><h3>Word of the Day · <span id="widgetWordTitle">…</span></h3><div id="widgetWordBody"><p>Loading…</p></div></article>';
+    if(k==='friends'){let fs=eqOnlineFriends||[],accepted=(eqFriends||[]).filter(x=>x.status==='accepted');let rows=accepted.slice(0,4).map(f=>{let o=eqOnlineFor(f.friend_id);return '<div class="friendMini"><span class="onlineDot '+(o&&o.online?'on':'')+'"></span><span>'+eqAvatarEmoji(o&&o.avatar_key)+' '+liveEsc(f.nickname)+'</span></div>'}).join('');return '<article class="hubWidget"><div class="widgetBig">🟢</div><h3>Friends</h3>'+(eqUser?(rows||'<p>No accepted friends yet.</p>'):'<p>Sign in to see accepted friends.</p>')+'<div class="widgetControls"><button onclick="openTab(\'Messages\')">Messages</button></div></article>'}
+    if(k==='clip')return '<article class="hubWidget"><div class="widgetBig">🎬</div><h3>Clip Sprint</h3><p>Watch one short, embeddable English clip, catch one phrase, then say your own sentence.</p><div class="widgetControls"><button onclick="openTab(\'Clips\')">Start a clip</button></div></article>';
+    if(k==='game')return '<article class="hubWidget"><div class="widgetBig">🧩</div><h3>Daily Word Game</h3><p>One short vocabulary game per day can earn +5 XP once.</p><div class="widgetControls"><button onclick="openTab(\'Games\')">Play</button></div></article>';
+    return '<article class="hubWidget"><div class="widgetBig">🎓</div><h3>'+liveEsc(band.label)+'</h3><span class="gradePill">'+liveEsc(band.cefr)+'</span><p>BatumHub adapts default content and difficulty to this grade.</p><div class="widgetControls"><button onclick="openTab(\'Personalize\')">Change grade</button></div></article>'
+  }).join('');
+  if(w.includes('word'))fillWordWidget();
+}
+function applyGradeExperience(){
+  let g=currentGrade(),band=eqGradeBand(g),txt=document.getElementById('gradeBandText');if(txt)txt.textContent=band.label+' · suggested English '+band.cefr;
+  let sg=document.getElementById('settingsGrade');if(sg)sg.value=String(g);
+  let pg=document.getElementById('eqGradeSelect');if(pg)pg.value=String(g);
+  let ps=document.getElementById('settingsPresence');if(ps)ps.value=localStorage.getItem('teq-presence')||'online';
+  let aps=document.getElementById('eqPresenceSelect');if(aps)aps.value=localStorage.getItem('teq-presence')||'online';
+  let today=document.getElementById('today');if(today)today.style.display=g<=8?'none':'';
+  if(!localStorage.getItem('teq-grade-tabs-v1')){
+    let preset=g<=4?'elementary':g<=8?'middle':'balanced';
+    localStorage.setItem('teq-pinned-tabs',JSON.stringify(TAB_PRESETS[preset]));
+    localStorage.setItem('teq-grade-tabs-v1','1');
+  }
+}
+const FOUNDATION={
+  a1:[
+    ['👋','Hello & Introductions','A1','Say: “Hi, I’m ___. I like ___.” Then ask one simple question.'],
+    ['🏠','My Room','A1','Name 5 things in a room and use there is / there are.'],
+    ['🎨','Colors & Objects','A1','Find 5 objects and say their colors in full sentences.'],
+    ['🕒','My Day','A1','Say 4 things you do: I wake up…, I go…, I play…, I sleep…'],
+    ['🐾','Animals','A1','Choose an animal. Say 3 facts using can / has / is.'],
+    ['🍎','Food Words','A1','Name 5 foods and make 2 sentences with like / don’t like.']
+  ],
+  a2:[
+    ['🧭','Directions','A1–A2','Explain how to go from one room/place to another using left, right, straight.'],
+    ['📅','Yesterday & Today','A2','Write 3 sentences about yesterday and 3 about today.'],
+    ['🌦️','Weather Talk','A2','Describe today’s weather and what you would wear.'],
+    ['🎬','Mini Retell','A2','Watch a short clip and retell it in 3 simple sentences.'],
+    ['🧠','Because','A2','Give 4 opinions and explain each with because.'],
+    ['📚','Story Order','A2','Tell a tiny story using first, then, after that, finally.']
+  ],
+  b1:[
+    ['💬','Give an Opinion','A2–B1','Give an opinion, one reason and one example.'],
+    ['📰','Headline Guess','B1','Read a headline and predict 3 things the story may say.'],
+    ['🎧','Listen & Catch','B1','Listen to a short clip and write 3 phrases you heard.'],
+    ['🔎','Context Clue','B1','Choose one unfamiliar word and infer its meaning from the sentence.'],
+    ['🗣️','60-Second Talk','B1','Speak for 60 seconds using first, however and finally.'],
+    ['✍️','Upgrade a Sentence','B1','Take a simple sentence and make it more precise with 2 details.']
+  ]
+};
+function foundationBand(){let g=currentGrade();return g<=4?'a1':g<=6?'a2':'b1'}
+function renderFoundation(filter){
+  let box=document.getElementById('foundationGrid'),intro=document.getElementById('foundationIntro');if(!box)return;let g=currentGrade(),band=eqGradeBand(g),arr=FOUNDATION[foundationBand()];
+  if(intro)intro.textContent=band.label+' · '+band.cefr+' · short tasks matched to the learner’s stage.';
+  box.innerHTML=arr.map((x,i)=>'<article class="foundationCard"><small>'+x[0]+' '+x[2]+' · 5–10 min</small><h3>'+x[1]+'</h3><div class="task">'+x[3]+'</div><div class="widgetControls"><button onclick="completeFoundation('+i+')">Done +5 XP</button></div></article>').join('');
+}
+async function completeFoundation(i){
+  let key='foundation:'+currentGrade()+':'+i+':'+todayKey(),local='teq-'+key;if(localStorage.getItem(local))return alert('Already completed today.');
+  localStorage.setItem(local,'1');if(eqUser){let p=await eqAward('game',key);alert(p?'+5 XP added.':'Completed.')}else alert('Completed. Sign in to sync XP.');
+}
+const GAME_WORDS={
+  a1:[['APPLE','a fruit'],['HOUSE','a place where people live'],['HAPPY','feeling good'],['WATER','something we drink'],['SCHOOL','a place for learning']],
+  a2:[['TRAVEL','to go from one place to another'],['QUIET','making little or no noise'],['CHOOSE','to decide between options'],['STORY','a description of events'],['BRIGHT','full of light']],
+  b1:[['CONTEXT','the words and situation around an idea'],['FOCUS','to give full attention'],['RELIABLE','able to be trusted'],['REFLECT','to think carefully about something'],['EVIDENCE','facts that support an idea']],
+  b2:[['PRECISE','exact and accurate'],['NUANCE','a small difference in meaning'],['COHERENT','clear and logically connected'],['EVALUATE','to judge quality using evidence'],['SYNTHESIS','combining ideas into a new whole']]
+};
+function gameList(){let g=currentGrade();return g<=4?GAME_WORDS.a1:g<=6?GAME_WORDS.a2:g<=8?GAME_WORDS.b1:GAME_WORDS.b2}
+let hangState=null,huntState=null;
+function renderLearningGames(){if(!hangState)newHangman();if(!huntState)newWordHunt()}
+function newHangman(){
+  let list=gameList(),seed=(Date.now()+Math.floor(Math.random()*999))%list.length,[word,hint]=list[seed];hangState={word,hint,used:new Set(),miss:0};renderHangman();
+}
+function renderHangman(){
+  let w=document.getElementById('hangWord'),h=document.getElementById('hangHint'),l=document.getElementById('hangLetters');if(!w||!hangState)return;
+  w.textContent=[...hangState.word].map(ch=>hangState.used.has(ch)?ch:'_').join(' ');h.textContent=hangState.hint+' · misses '+hangState.miss+'/6';
+  l.innerHTML='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(ch=>'<button '+(hangState.used.has(ch)?'disabled':'')+' onclick="guessHang(\''+ch+'\')">'+ch+'</button>').join('');
+}
+async function guessHang(ch){
+  if(!hangState||hangState.used.has(ch))return;hangState.used.add(ch);if(!hangState.word.includes(ch))hangState.miss++;renderHangman();
+  let won=[...hangState.word].every(x=>hangState.used.has(x));
+  if(won){await awardDailyGame('word-builder');setTimeout(()=>{alert('Great! You found '+hangState.word+'.');newHangman()},60)}
+  else if(hangState.miss>=6){setTimeout(()=>{alert('The word was '+hangState.word+'. Try another one.');newHangman()},60)}
+}
+function newWordHunt(){
+  let list=gameList(),[word]=list[Math.floor(Math.random()*list.length)],target=word.slice(0,Math.min(4,word.length)),letters=target.split('');
+  while(letters.length<16)letters.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random()*26)]);
+  for(let i=letters.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[letters[i],letters[j]]=[letters[j],letters[i]]}
+  huntState={target,letters,picks:[]};renderWordHunt();
+}
+function renderWordHunt(){
+  let g=document.getElementById('wordHuntGrid'),t=document.getElementById('huntTarget'),s=document.getElementById('huntStatus');if(!g||!huntState)return;
+  t.textContent='Target: '+huntState.target;g.innerHTML=huntState.letters.map((x,i)=>'<button class="'+(huntState.picks.includes(i)?'pick':'')+'" onclick="pickHunt('+i+')">'+x+'</button>').join('');
+  s.textContent='Build the target by tapping letters in order.';
+}
+async function pickHunt(i){
+  if(!huntState||huntState.picks.includes(i))return;huntState.picks.push(i);let built=huntState.picks.map(x=>huntState.letters[x]).join('');
+  if(!huntState.target.startsWith(built)){huntState.picks=[];document.getElementById('huntStatus').textContent='Try again — start from the first letter.';renderWordHunt();return}
+  renderWordHunt();if(built===huntState.target){await awardDailyGame('word-hunt');setTimeout(()=>{alert('Found it: '+huntState.target+'!');newWordHunt()},60)}
+}
+async function awardDailyGame(kind){
+  let key='daily:'+kind+':'+todayKey(),local='teq-game-'+key;if(localStorage.getItem(local))return 0;localStorage.setItem(local,'1');
+  if(eqUser)return await eqAward('game',key);return 0;
+}
+function renderClipSprint(){
+  let box=document.getElementById('clipSprintGrid');if(!box)return;let clips=missions.filter(m=>playableKind(m.url,'')).slice(0,12);
+  let day=Math.floor(Date.now()/86400000),start=day%Math.max(1,clips.length);let picks=[];for(let i=0;i<Math.min(6,clips.length);i++)picks.push(clips[(start+i)%clips.length]);
+  box.innerHTML=picks.map(m=>'<button class="sourceCard" onclick="playMedia(\''+liveEsc(m.url)+'\',\''+liveEsc(m.title).replace(/&#39;/g,"\\'")+'\',\''+liveEsc(m.source).replace(/&#39;/g,"\\'")+'\',\'\')"><div class="srcico">▶️</div><h3>'+liveEsc(m.title)+'</h3><p>'+liveEsc(m.desc)+'</p><small>Play inside BatumHub →</small></button>').join('');
+}
 function renderSettings(){
   document.body.dataset.theme=pref('theme','dark');document.body.dataset.font=pref('font','system');document.body.dataset.density=pref('density','compact');document.body.dataset.nav=pref('nav','both');
   [['themeChoices','theme'],['fontChoices','font'],['densityChoices','density'],['navChoices','nav']].forEach(function(pair){let box=document.getElementById(pair[0]);if(!box)return;let val=pref(pair[1],pair[1]==='theme'?'dark':pair[1]==='font'?'system':pair[1]==='density'?'compact':'both');box.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().includes(val==='system'?'clean':val==='comfortable'?'comfortable':val==='both'?'icon + text':val)))});
-  let g=document.getElementById('interestGrid');if(g){let selected=JSON.parse(localStorage.getItem('teq-interests')||'[]');g.innerHTML=INTERESTS.map(x=>'<button class="interestBtn '+(selected.includes(x)?'on':'')+'" onclick="toggleInterest(this)">'+x+'</button>').join('')} renderTabManager();renderAppTabs();renderQuickControls();
+  let g=document.getElementById('interestGrid');if(g){let selected=JSON.parse(localStorage.getItem('teq-interests')||'[]');g.innerHTML=INTERESTS.map(x=>'<button class="interestBtn '+(selected.includes(x)?'on':'')+'" onclick="toggleInterest(this)">'+x+'</button>').join('')}
+  applyGradeExperience();renderWidgetManager();renderTabManager();renderAppTabs();renderQuickControls();
 }
 function renderQuickControls(){
   const map=[
