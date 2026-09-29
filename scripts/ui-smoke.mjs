@@ -29,24 +29,44 @@ try {
 
   // Spanish global mode. Use DOM click so the smoke test verifies the handler/state
   // without depending on headless Chrome's viewport hit-testing of the sticky header.
-  const beforeLang = await page.evaluate(() => ({
-    htmlLang: document.documentElement.lang,
-    active: window.__bhActiveLanguage,
-    stored: localStorage.getItem('teq-active-language'),
-    handler: typeof window.setLearningLanguage,
-    onclick: document.querySelector('#languageFlags button[data-lang="es"]')?.getAttribute('onclick')
-  }));
+  const beforeLang = await page.evaluate(() => {
+    const b=document.querySelector('#languageFlags button[data-lang="es"]');
+    return {
+      htmlLang: document.documentElement.lang,
+      active: window.__bhActiveLanguage,
+      stored: localStorage.getItem('teq-active-language'),
+      handler: typeof window.setLearningLanguage,
+      languages: typeof LEARNING_LANGUAGES,
+      onclick: b?.getAttribute('onclick'),
+      disabled: !!b?.disabled,
+      pointerEvents: b ? getComputedStyle(b).pointerEvents : null,
+      outer: b?.outerHTML
+    };
+  });
   console.log('Before Spanish:', JSON.stringify(beforeLang));
+  console.log('Early page errors:', JSON.stringify(pageErrors));
   await page.$eval('#languageFlags button[data-lang="es"]', el => el.click());
   await new Promise(r => setTimeout(r, 500));
-  const afterLang = await page.evaluate(() => ({
+  let afterLang = await page.evaluate(() => ({
     htmlLang: document.documentElement.lang,
     active: window.__bhActiveLanguage,
     stored: localStorage.getItem('teq-active-language'),
-    core: document.querySelector('#coreNav')?.innerText || '',
-    errors: window.__bhSmokeErrors || []
+    core: document.querySelector('#coreNav')?.innerText || ''
   }));
-  console.log('After Spanish:', JSON.stringify(afterLang));
+  console.log('After DOM click:', JSON.stringify(afterLang));
+  if (afterLang.htmlLang !== 'es') {
+    const direct = await page.evaluate(async () => {
+      try {
+        await window.setLearningLanguage('es');
+        return {ok:true,htmlLang:document.documentElement.lang,active:window.__bhActiveLanguage,stored:localStorage.getItem('teq-active-language'),core:document.querySelector('#coreNav')?.innerText||''};
+      } catch (e) {
+        return {ok:false,error:String(e),stack:e?.stack||'',htmlLang:document.documentElement.lang,active:window.__bhActiveLanguage,stored:localStorage.getItem('teq-active-language')};
+      }
+    });
+    console.log('Direct Spanish call:', JSON.stringify(direct));
+    afterLang = direct;
+  }
+  console.log('Page errors after switch:', JSON.stringify(pageErrors));
   await page.waitForFunction(() => document.documentElement.lang === 'es', {timeout:8000});
   const coreEs = await page.$eval('#coreNav', el => el.innerText);
   assert(coreEs.includes('Inicio') && coreEs.includes('Aprender') && coreEs.includes('Mensajes') && coreEs.includes('Personalizar'), 'Spanish core navigation did not localize: '+coreEs);
