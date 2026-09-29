@@ -412,24 +412,30 @@ if ('serviceWorker' in navigator) {
     <div id="eqFriendRequests" style="margin-top:12px"></div>
   </div>
 </div></div><div class="top"><div class="wrap">
-<nav class="brandnav"><b class="brandWord">BATUM<span>HUB</span></b><button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="Install BatumHub">📲 Install</button><button class="profilebtn" id="eqMessagesButton" style="display:none" onclick="openTab('Messages')" title="Messages">💬</button><button class="profilebtn" onclick="openTab('Settings')" title="Personalize">🎛️</button><button class="profilebtn" id="eqAccountButton" onclick="openAccount()">👤 Account</button></nav>
+<div class="languageBar languageBarTop" id="languageBar">
+  <div class="languageFlags" id="languageFlags">
+    <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
+    <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
+    <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
+    <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+  </div>
+  <div class="languageLevels" id="languageLevelChips"></div>
+</div>
+<nav class="brandnav"><b class="brandWord">BATUM<span>HUB</span></b><button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="BatumHub">📲 BatumHub</button><button class="profilebtn" id="eqAccountButton" onclick="openAccount()">👤 Account</button></nav>
+<div class="coreNav" id="coreNav">
+  <button data-core="Home" onclick="navigateAppTab('Home',null,'push')">🏠 <span>Home</span></button>
+  <button data-core="Learn" onclick="navigateAppTab('Learn',null,'push')">📘 <span>Learn</span></button>
+  <button data-core="Messages" onclick="navigateAppTab('Messages',null,'push')">💬 <span>Messages</span></button>
+  <button data-core="Settings" onclick="navigateAppTab('Settings',null,'push')">🎛️ <span>Personalize</span></button>
+</div>
 <div class="topStatusBar" id="topStatusBar">
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
   <button class="profileStatusPill" id="bhLearningProfile" onclick="openTab('Settings')" title="Learning profile">🎓 <b>Learning profile</b></button>
-  <span class="versionTop">⚙️ <b id="bhVersion">v4.9</b></span>
-  <span>🕒 <b id="bhUpdated">Updated Sep 29, 2026</b></span>
+  <span class="versionTop">⚙️ <b id="bhVersion">v5.0</b></span>
+  <span>🕒 <b id="bhUpdated">—</b></span>
 </div>
-<div class="apptabs" id="appTabs"></div>
-<div class="languageBar" id="languageBar">
-  <div class="languageFlags" id="languageFlags">
-    <button data-lang="en" onclick="setLearningLanguage('en')">🇬🇧 <span>English</span></button>
-    <button data-lang="es" onclick="setLearningLanguage('es')">🇪🇸 <span>Español</span></button>
-    <button data-lang="de" onclick="setLearningLanguage('de')">🇩🇪 <span>Deutsch</span></button>
-    <button data-lang="ru" onclick="setLearningLanguage('ru')">🇷🇺 <span>Русский</span></button>
-  </div>
-  <div class="languageLevels" id="languageLevelChips"></div>
-</div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
+<div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
       <div>
         <b>🎟️ Free demo · 5 learning actions</b>
         <span id="demoPassText">Try BatumHub before creating an account.</span>
@@ -567,10 +573,16 @@ if ('serviceWorker' in navigator) {
     <div><span class="eyebrow">BATUMHUB LANGUAGES</span><h2 id="languageHubTitle">Learn a language</h2><p class="intro" id="languageHubIntro"></p></div>
     <span class="gradePill" id="languageHubProfile"></span>
   </div>
+  <div class="languageCourseHead"><div><span class="eyebrow" id="languageCourseEyebrow">CURRICULUM</span><h3 id="languageCourseTitle"></h3><p id="languageCourseIntro"></p></div><div class="languageCourseProgress" id="languageCourseProgress"></div></div>
+  <div class="languageCourseGrid" id="languageCourseGrid"></div>
   <div class="languageLaneGrid" id="languageLaneGrid"></div>
   <div class="languageCaptureShelf" id="languageCaptureShelf"></div>
   <h3 class="languageSourcesTitle">🔗 Trusted sources</h3>
   <div class="trustedResourceGrid" id="languageResourceGrid"></div>
+</section>
+<section id="languageLesson" class="appHidden">
+  <div class="studyTop"><button class="studyBack" id="langLessonBack" onclick="closeLanguageLesson()">←</button><div class="studyCrumb" id="langLessonCrumb"></div><button class="studyClose" id="langLessonClose" onclick="closeLanguageLesson()">✕</button></div>
+  <div class="languageLessonShell"><div class="languageLessonHeader"><span class="eyebrow" id="langLessonLevel"></span><h1 id="langLessonTitle"></h1><p id="langLessonGoal"></p></div><div class="languageLessonModel" id="langLessonModel"></div><div class="languageLessonPractice" id="langLessonPractice"></div><div class="languageLessonActions"><button class="btn launchPrimary" id="langLessonDone" onclick="completeLanguageLesson()"></button></div></div>
 </section>
 <section id="resourceLab" class="appHidden">
   <div class="resourceLabHead">
@@ -865,7 +877,12 @@ if ('serviceWorker' in navigator) {
 <div class="personalizeGroup slimGroup">
   <h3>💜 Interests</h3><p class="intro">These shape Fresh Today and recommendations.</p><div class="interestGrid" id="interestGrid"></div>
 </div>
-</section><section id="sportsHub" class="appHidden">
+</section><section id="localizedSettings" class="appHidden">
+  <div class="learningProfileCard"><div class="profileCardHead"><div><span class="eyebrow" id="locSettingsEyebrow"></span><h2 id="locSettingsTitle"></h2><p id="locSettingsIntro"></p></div></div><div class="learningProfileGrid"><div><label id="locGradeLabel"></label><select id="locGradeSelect" class="gradeSelect" onchange="eqSetGrade(this.value)"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select></div><div><label id="locLevelLabel"></label><div class="levelChips" id="locLevelChips"></div></div></div></div>
+  <div class="deviceLayoutCard"><h3 id="locDeviceTitle"></h3><p id="locDeviceIntro"></p><div class="deviceModeChips" id="locDeviceChips"><button data-device="auto" onclick="setDevicePreview('auto')">✨ Auto</button><button data-device="desktop" onclick="setDevicePreview('desktop')">🖥️ Desktop</button><button data-device="tablet" onclick="setDevicePreview('tablet')">▣ Tablet</button><button data-device="mobile" onclick="setDevicePreview('mobile')">📱 Mobile</button></div></div>
+  <div class="spacePresetCard"><h3 id="locPresetTitle"></h3><div class="spacePresetGrid" id="locPresetGrid"></div></div>
+</section>
+<section id="sportsHub" class="appHidden">
 <h2>🏅 Sports English</h2>
 <p class="intro">Use scores, stories and match reports to practice authentic English. The goal is not just to follow sport — it is to explain it.</p>
 <div class="sourceGrid">
@@ -972,8 +989,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='4.9';
-const BH_SITE_UPDATED='2026-09-29T19:42:00+04:00';
+const BH_SITE_VERSION='5.0';
+const BH_SITE_UPDATED='2026-09-29T20:35:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
