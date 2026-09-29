@@ -1825,6 +1825,157 @@ function closeMedia(){let dock=document.getElementById('mediaDock');dock.classLi
 function toggleMediaExpand(){document.getElementById('mediaDock').classList.toggle('expanded')}
 function mediaFullscreen(){let d=document.getElementById('mediaDock');if(document.fullscreenElement){document.exitFullscreen().catch(()=>{})}else if(d.requestFullscreen)d.requestFullscreen().catch(()=>{toggleMediaExpand()});else toggleMediaExpand()}
 
+
+/* ===== V5.1 MEDIA CAPTIONS + KARAOKE ===== */
+let activeMediaContext=null,mediaCaptionCues=[],mediaCaptionEnabled=true;
+let bhTtsUtterance=null,bhTtsWords=[],bhTtsTimer=null,bhTtsIndex=-1,bhTtsStartedAt=0,bhTtsPaused=false;
+
+function captionUi(){
+  let l=currentLearningLanguage();
+  if(l==='es')return {cc:'Subtítulos',study:'Texto de estudio',notTimed:'El editor no proporciona subtítulos sincronizados para este audio.',transcript:'Abrir transcripción original ↗',now:'Ahora suena'};
+  if(l==='de')return {cc:'Untertitel',study:'Lerntext',notTimed:'Für dieses Audio stellt der Anbieter keine synchronisierten Untertitel bereit.',transcript:'Original-Transkript öffnen ↗',now:'Gerade gesprochen'};
+  if(l==='ru')return {cc:'Субтитры',study:'Текст для изучения',notTimed:'Для этого аудио издатель не предоставляет синхронизированные субтитры.',transcript:'Открыть оригинальную расшифровку ↗',now:'Сейчас звучит'};
+  return {cc:'Captions',study:'Study text',notTimed:'The publisher does not provide synchronized captions for this audio.',transcript:'Open original transcript ↗',now:'Now speaking'};
+}
+function normalizeCaptionCues(item){
+  if(!item||!Array.isArray(item.captions))return [];
+  return item.captions.map((x,i)=>{
+    if(typeof x==='string')return {start:i*4,end:(i+1)*4,text:x};
+    return {start:Number(x.start||0),end:Number(x.end||x.start||0)+0,text:String(x.text||'')};
+  }).filter(x=>x.text&&Number.isFinite(x.start)&&Number.isFinite(x.end)&&x.end>=x.start);
+}
+function captionCueHtml(cue,ci){
+  let words=String(cue.text||'').trim().split(/\s+/).filter(Boolean);
+  return '<span class="karaokeCue" data-cue="'+ci+'">'+words.map((w,wi)=>'<span class="karaokeWord" data-cue="'+ci+'" data-word="'+wi+'">'+liveEsc(w)+'</span>').join(' ')+'</span> ';
+}
+function renderMediaCaptionPanel(item){
+  let panel=document.getElementById('mediaCaptionPanel'),dock=document.getElementById('mediaDock'),btn=document.getElementById('mediaCaptionToggle');if(!panel||!dock||!btn)return;
+  let ui=captionUi();mediaCaptionCues=normalizeCaptionCues(item);
+  btn.style.display='';btn.title=ui.cc;btn.classList.toggle('on',mediaCaptionEnabled);
+  dock.classList.toggle('captionsOn',mediaCaptionEnabled);
+  if(mediaCaptionCues.length){
+    panel.innerHTML='<div class="captionLabel">CC · '+ui.cc+' <span class="captionNote">Karaoke sync</span></div><div class="karaokeText">'+mediaCaptionCues.map(captionCueHtml).join('')+'</div>';
+    return;
+  }
+  let text=item&&item.summary?String(item.summary):'';
+  let transcript=item&&item.transcript_url?String(item.transcript_url):'';
+  panel.innerHTML='<div class="captionLabel">'+ui.study+' <span class="captionNote">'+ui.notTimed+'</span></div>'+(text?'<div class="captionStudyText">'+liveEsc(text)+'</div>':'')+(transcript?'<p><a class="btn" href="'+liveEsc(transcript)+'" target="_blank" rel="noopener">'+ui.transcript+'</a></p>':'');
+}
+function syncMediaCaptions(t){
+  if(!mediaCaptionCues.length)return;
+  let ci=mediaCaptionCues.findIndex(c=>t>=c.start&&t<=c.end);
+  if(ci<0){for(let i=mediaCaptionCues.length-1;i>=0;i--){if(t>=mediaCaptionCues[i].start){ci=i;break}}}
+  if(ci<0)return;
+  let cue=mediaCaptionCues[ci],words=String(cue.text||'').trim().split(/\s+/).filter(Boolean),frac=cue.end>cue.start?Math.max(0,Math.min(0.999,(t-cue.start)/(cue.end-cue.start))):0,wi=Math.min(words.length-1,Math.floor(frac*Math.max(1,words.length)));
+  document.querySelectorAll('#mediaCaptionPanel .karaokeWord').forEach(el=>{
+    let ec=Number(el.dataset.cue),ew=Number(el.dataset.word);el.classList.toggle('active',ec===ci&&ew===wi);el.classList.toggle('past',ec<ci||(ec===ci&&ew<wi));
+  });
+  let active=document.querySelector('#mediaCaptionPanel .karaokeWord.active');if(active)active.scrollIntoView({block:'center',behavior:'smooth'});
+}
+function toggleMediaCaptions(){
+  mediaCaptionEnabled=!mediaCaptionEnabled;
+  let d=document.getElementById('mediaDock'),b=document.getElementById('mediaCaptionToggle');if(d)d.classList.toggle('captionsOn',mediaCaptionEnabled);if(b)b.classList.toggle('on',mediaCaptionEnabled);
+}
+function bindPersistentAudio(){
+  let a=document.getElementById('bhMediaAudio'),play=document.getElementById('mediaAudioPlay'),mute=document.getElementById('mediaAudioMute'),seek=document.getElementById('mediaAudioSeek'),time=document.getElementById('mediaAudioTime'),vol=document.getElementById('mediaAudioVolume');
+  if(!a)return;
+  function sync(){
+    if(play)play.textContent=a.paused?'▶':'⏸';if(mute)mute.textContent=a.muted||a.volume===0?'🔇':'🔊';
+    if(seek&&Number.isFinite(a.duration)&&a.duration>0)seek.value=String((a.currentTime/a.duration)*100);else if(seek)seek.value='0';
+    if(time)time.textContent=formatMediaTime(a.currentTime)+' / '+formatMediaTime(a.duration);if(vol)vol.value=String(a.muted?0:a.volume);
+    syncMediaCaptions(a.currentTime);
+  }
+  ['timeupdate','loadedmetadata','play','pause','volumechange','ended','durationchange','seeking'].forEach(ev=>a.addEventListener(ev,sync));
+  a.addEventListener('play',()=>{if('mediaSession'in navigator)try{navigator.mediaSession.playbackState='playing'}catch(e){}});
+  a.addEventListener('pause',()=>{if('mediaSession'in navigator)try{navigator.mediaSession.playbackState='paused'}catch(e){}});
+  sync();a.play().catch(()=>sync());
+}
+function setMedia(title,meta,html,audioOnly,originalUrl,sourceMode,item){
+  if('speechSynthesis'in window){speechSynthesis.cancel()}clearInterval(bhTtsTimer);bhTtsTimer=null;bhTtsUtterance=null;
+  activeMediaContext={title:title||'BatumHub Player',meta:meta||'',item:item||null,mode:audioOnly?'audio':'media'};
+  let dock=document.getElementById('mediaDock'),stage=document.getElementById('mediaStage'),orig=document.getElementById('mediaOriginalLink'),cc=document.getElementById('mediaCaptionToggle'),panel=document.getElementById('mediaCaptionPanel');
+  document.getElementById('mediaTitle').textContent=title||'BatumHub Player';document.getElementById('mediaMeta').textContent=meta||'';
+  stage.innerHTML=html;dock.classList.add('open');dock.classList.remove('minimized','ttsMode','fullscreenFallback');dock.classList.toggle('audioOnly',!!audioOnly);dock.classList.toggle('sourceMode',!!sourceMode);
+  if(orig){if(originalUrl){orig.href=originalUrl;orig.style.display=''}else{orig.removeAttribute('href');orig.style.display='none'}}
+  if(audioOnly){mediaCaptionEnabled=true;renderMediaCaptionPanel(item||{})}else{dock.classList.remove('captionsOn');if(cc)cc.style.display='none';if(panel)panel.innerHTML=''}
+  updateMediaTopOffset();if(!audioOnly&&window.innerWidth>=900)dock.classList.add('expanded');else dock.classList.remove('expanded');
+  if(audioOnly)setTimeout(bindPersistentAudio,0);
+}
+function playMedia(url,title,meta,audioUrl,item){
+  let kind=playableKind(url,audioUrl),ctx=item||freshItems.find(x=>x.url===url||(audioUrl&&x.audio_url===audioUrl))||null;
+  if(kind==='audio'){
+    setMedia(title,meta,persistentAudioHtml(audioUrl),true,url,false,ctx);
+    if('mediaSession'in navigator)try{navigator.mediaSession.metadata=new MediaMetadata({title:title||'BatumHub audio',artist:meta||'BatumHub'})}catch(e){}
+    return true;
+  }
+  if(kind==='youtube'){let id=youtubeId(url);setMedia(title,meta,'<iframe src="https://www.youtube.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0&cc_load_policy=1" title="'+liveEsc(title)+'" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>',false,url,false,ctx);return true}
+  if(kind==='ted'){setMedia(title,meta,'<iframe src="'+liveEsc(tedEmbed(url))+'" title="'+liveEsc(title)+'" allow="autoplay; fullscreen" allowfullscreen></iframe>',false,url,false,ctx);return true}
+  return false;
+}
+function playFresh(key){
+  let x=freshItems.find(i=>i.key===key);if(!x)return;
+  if(!playMedia(x.url,x.title,x.source+' · '+x.category,x.audio_url,x))openSourceInHub(x.url,x.title,x.source+' · '+x.category,x);
+}
+function closeMedia(){
+  let a=document.getElementById('bhMediaAudio');if(a)a.pause();if('speechSynthesis'in window)speechSynthesis.cancel();clearInterval(bhTtsTimer);bhTtsTimer=null;bhTtsUtterance=null;activeMediaContext=null;mediaCaptionCues=[];
+  let dock=document.getElementById('mediaDock');dock.classList.remove('open','expanded','minimized','audioOnly','sourceMode','captionsOn','ttsMode','fullscreenFallback');document.getElementById('mediaStage').innerHTML='';document.getElementById('mediaCaptionPanel').innerHTML='';let o=document.getElementById('mediaOriginalLink');if(o)o.style.display='none';
+}
+function toggleMediaMinimize(){let d=document.getElementById('mediaDock');d.classList.toggle('minimized');d.classList.remove('expanded')}
+function toggleMediaExpand(){let d=document.getElementById('mediaDock');d.classList.remove('minimized');d.classList.toggle('expanded')}
+function mediaFullscreen(){
+  let d=document.getElementById('mediaDock');d.classList.remove('minimized');if(d.classList.contains('audioOnly')||d.classList.contains('ttsMode')){mediaCaptionEnabled=true;d.classList.add('captionsOn');let b=document.getElementById('mediaCaptionToggle');if(b)b.classList.add('on')}
+  if(document.fullscreenElement){document.exitFullscreen().catch(()=>{});return}
+  if(d.requestFullscreen)d.requestFullscreen().catch(()=>{d.classList.toggle('fullscreenFallback')});else d.classList.toggle('fullscreenFallback');
+}
+document.addEventListener('fullscreenchange',()=>{let d=document.getElementById('mediaDock');if(d&&!document.fullscreenElement)d.classList.remove('fullscreenFallback')});
+
+function renderTtsKaraoke(text){
+  let panel=document.getElementById('mediaCaptionPanel'),dock=document.getElementById('mediaDock'),btn=document.getElementById('mediaCaptionToggle'),ui=captionUi();if(!panel)return;
+  bhTtsWords=[];let re=/\S+/g,m;while((m=re.exec(text))!==null)bhTtsWords.push({text:m[0],start:m.index});
+  panel.innerHTML='<div class="captionLabel">'+ui.now+' <span class="captionNote">Karaoke</span></div><div class="karaokeText">'+bhTtsWords.map((w,i)=>'<span class="karaokeWord" data-tts="'+i+'">'+liveEsc(w.text)+'</span>').join(' ')+'</div>';
+  mediaCaptionEnabled=true;dock.classList.add('captionsOn','ttsMode','audioOnly');if(btn){btn.style.display='';btn.classList.add('on');btn.title=ui.cc}
+}
+function updateTtsWord(i){
+  if(!bhTtsWords.length)return;i=Math.max(0,Math.min(bhTtsWords.length-1,Number(i)||0));bhTtsIndex=i;
+  document.querySelectorAll('#mediaCaptionPanel .karaokeWord').forEach((el,idx)=>{el.classList.toggle('active',idx===i);el.classList.toggle('past',idx<i)});
+  let a=document.querySelector('#mediaCaptionPanel .karaokeWord.active');if(a)a.scrollIntoView({block:'center',behavior:'smooth'});
+}
+function ttsIndexFromChar(charIndex){
+  let idx=0;for(let i=0;i<bhTtsWords.length;i++){if(bhTtsWords[i].start<=charIndex)idx=i;else break}return idx;
+}
+function startTtsFallback(rate){
+  clearInterval(bhTtsTimer);bhTtsStartedAt=Date.now()-(Math.max(0,bhTtsIndex)*380/(rate||1));
+  bhTtsTimer=setInterval(()=>{if(bhTtsPaused)return;let i=Math.floor(((Date.now()-bhTtsStartedAt)/1000)*(2.55*(rate||1)));if(i<bhTtsWords.length)updateTtsWord(i);else clearInterval(bhTtsTimer)},220);
+}
+function ttsToggle(){
+  if(!bhTtsUtterance)return;let b=document.getElementById('ttsPlayButton');
+  if(speechSynthesis.paused){speechSynthesis.resume();bhTtsPaused=false;startTtsFallback(bhTtsUtterance.rate||1);if(b)b.textContent='⏸'}
+  else{speechSynthesis.pause();bhTtsPaused=true;clearInterval(bhTtsTimer);if(b)b.textContent='▶'}
+}
+function ttsRestart(){if(activeMediaContext&&activeMediaContext.ttsText)speakTextInPlayer(activeMediaContext.ttsText,activeMediaContext.title,activeMediaContext.ttsLang,activeMediaContext.meta)}
+function speakTextInPlayer(text,title,lang,meta){
+  text=String(text||'').trim();if(!text||!('speechSynthesis'in window))return;
+  speechSynthesis.cancel();clearInterval(bhTtsTimer);bhTtsIndex=0;bhTtsPaused=false;
+  let html='<div class="ttsTransport"><button id="ttsPlayButton" onclick="ttsToggle()">⏸</button><button onclick="ttsRestart()">↻</button><span class="ttsStatus">'+liveEsc(meta||'BatumHub listening')+'</span></div>';
+  setMedia(title,meta||'',html,true,'',false,null);
+  let dock=document.getElementById('mediaDock');dock.classList.add('ttsMode','audioOnly');activeMediaContext={title,meta:meta||'',ttsText:text,ttsLang:lang,mode:'tts'};renderTtsKaraoke(text);
+  let u=new SpeechSynthesisUtterance(text);u.lang=lang||'en-US';u.rate=.92;u.pitch=1;bhTtsUtterance=u;
+  u.onstart=()=>startTtsFallback(u.rate);
+  u.onboundary=e=>{if(typeof e.charIndex==='number')updateTtsWord(ttsIndexFromChar(e.charIndex))};
+  u.onend=()=>{clearInterval(bhTtsTimer);bhTtsTimer=null;if(bhTtsWords.length)updateTtsWord(bhTtsWords.length-1);let b=document.getElementById('ttsPlayButton');if(b)b.textContent='▶'};
+  u.onerror=()=>{clearInterval(bhTtsTimer);bhTtsTimer=null};
+  speechSynthesis.speak(u);
+}
+function speechLocaleFor(code){return code==='es'?'es-ES':code==='de'?'de-DE':code==='ru'?'ru-RU':'en-US'}
+function speakMission(id){
+  let m=missions.find(x=>x.id===Number(id));if(!m)return;
+  let kind=playableKind(m.url,m.audio_url||'');if(kind){playMedia(m.url,m.title,m.source,m.audio_url||'',m);return}
+  let text=[m.title,m.desc,m.task].filter(Boolean).join('. ');speakTextInPlayer(text,m.title,'en-US',m.source+' · Grammar listening');
+}
+function listenLanguageLesson(){
+  let a=activeLanguageLesson;if(!a)return;let ui=localeUI(),text=[a.unit[2],a.unit[3]].filter(Boolean).join('. ');
+  speakTextInPlayer(text,a.unit[0],speechLocaleFor(a.lang),LEARNING_LANGUAGES[a.lang].native+' · '+a.level+' · '+ui.lesson);
+}
 let activeContentQuiz=null;
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 function uniq(a){return [...new Set(a.filter(Boolean))]}
@@ -1893,14 +2044,17 @@ function installMissionTools(){
     actions.dataset.interactive='1';
     let src=actions.querySelector('a[href]');
     if(src){
-      let url=src.href,kind=playableKind(url,''),btn=document.createElement('button');
+      let url=src.href,kind=playableKind(url,m.audio_url||''),btn=document.createElement('button');
       btn.className='mediaAction '+(kind?'playHere':'');
       btn.type='button';
       btn.textContent=kind?'▶ Play here':'▣ Open in Hub';
-      btn.onclick=()=>kind?playMedia(url,m.title,m.source,''):openSourceInHub(url,m.title,m.source);
+      btn.onclick=()=>kind?playMedia(url,m.title,m.source,m.audio_url||'',m):openSourceInHub(url,m.title,m.source);
       actions.insertBefore(btn,src);src.remove();
     }
-    let quiz=document.createElement('button');quiz.className='missionQuizBtn';quiz.textContent='🧩 Quiz +15 XP';quiz.onclick=()=>openMissionQuiz(id);actions.appendChild(quiz);
+    if(m.cat==='Grammar'){
+      let listen=document.createElement('button');listen.className='grammarListen';listen.type='button';listen.textContent='🔊 Listen here';listen.onclick=()=>speakMission(id);actions.insertBefore(listen,actions.firstChild);
+    }
+    let quiz=document.createElement('button');quiz.className='missionQuizBtn';quiz.type='button';quiz.textContent='🧩 Quiz +15 XP';quiz.onclick=()=>openMissionQuiz(id);actions.appendChild(quiz);
   });
 }
 function installSourceCards(){
@@ -1912,6 +2066,17 @@ function installSourceCards(){
   });
 }
 
+
+function resizeContentCard(control,delta){
+  let card=control.closest('.mission,.freshcard');if(!card)return;let cur=Number(card.dataset.cardSize||0),next=delta>0?Math.min(1,cur+1):Math.max(-1,cur-1);card.dataset.cardSize=String(next);card.classList.toggle('cardCompact',next<0);card.classList.toggle('cardExpanded',next>0);if(next===0)card.classList.remove('cardCompact','cardExpanded');
+}
+function installCardSizeControls(root){
+  (root||document).querySelectorAll('.mission,.freshcard').forEach(card=>{
+    if(card.querySelector(':scope > .cardSizer'))return;
+    let box=document.createElement('div');box.className='cardSizer';box.innerHTML='<button type="button" aria-label="Smaller" title="Smaller">−</button><button type="button" aria-label="Larger" title="Larger">＋</button>';
+    let bs=box.querySelectorAll('button');bs[0].onclick=e=>{e.preventDefault();e.stopPropagation();resizeContentCard(bs[0],-1)};bs[1].onclick=e=>{e.preventDefault();e.stopPropagation();resizeContentCard(bs[1],1)};card.appendChild(box);
+  });
+}
 const dictMemory={};let dictTimer=null,dictAnchor=null;
 const CORE_DICTIONARY={
   bright:{pos:'adjective',definition:'full of light, or showing intelligence and energy',example:'The room feels bright in the morning.'},
@@ -2085,7 +2250,7 @@ function renderFresh(){
     return '<article class="freshcard studyCard '+(isNew?'isnew':'')+' '+(status==='Done'?'studied':'')+'" data-freshkey="'+liveEsc(x.key)+'">'+(x.image?'<img class="freshmedia" src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<div class="freshCardBody"><div class="kicker"><b>'+liveEsc(x.emoji||'✨')+' '+liveEsc(x.source)+'</b><span>'+formatFreshDate(x.published)+'</span></div><div class="freshBadges"><span>≈ '+lev+'</span><span>'+freshUniqueWords(x).length+' words</span><span>'+words.length+' targets</span><span class="studyStatus '+status.toLowerCase().replace(/\s+/g,'-')+'">'+status+'</span></div><h3>'+liveEsc(x.title)+'</h3><p>'+liveEsc(x.summary||'Open the original source to explore this English content.')+'</p><div class="targetPreview">'+words.map(w=>'<span>'+liveEsc(w)+'</span>').join('')+'</div><div class="freshactions simple">'+(isPlayableFresh(x)?'<button class="playHere" onclick="playFresh(\''+liveEsc(x.key)+'\')">▶ Play here</button>':'')+'<button class="studyNow" onclick="openStudy(\''+liveEsc(x.key)+'\',1,true)">'+(status==='Done'?'Review again':'Study →')+'</button></div></div></article>'
   }).join('');
   let fm=document.getElementById('freshMore');if(fm)fm.innerHTML=list.length>visible.length?'<button class="btn" onclick="showMoreFresh()">Show 6 more</button><small>'+visible.length+' of '+list.length+'</small>':'<small>'+visible.length+' shown</small>';
-  decorateDictionary(g);
+  decorateDictionary(g);installCardSizeControls(g);
 }
 async function loadFresh(){try{let r=await fetch('feed.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('feed');let data=await r.json();freshItems=Array.isArray(data.items)?data.items:[];freshShown=baseFreshLimit();syncFreshPrefs();let u=document.getElementById('freshUpdated');if(u)u.textContent=data.updated_at?'Refreshed '+new Date(data.updated_at).toLocaleString():'Daily feed';renderFresh();renderLearningLaunch()}catch(e){let u=document.getElementById('freshUpdated');if(u)u.textContent='Daily feed';let g=document.getElementById('freshGrid');if(g)g.innerHTML='<div class="freshempty">Fresh feed is warming up. The 38-mission course is ready meanwhile.</div>';renderLearningLaunch()}}
 function render(){let X=xp(),L=level(X),w=week();xpEl=document.getElementById('xp');xpEl.textContent=X;document.getElementById('level').textContent=L.l;document.getElementById('streak').textContent=streak();document.getElementById('donec').textContent=s.done.length+'/'+missions.length;document.getElementById('levelbar').style.width=L.p+'%';document.getElementById('leveltxt').textContent='Level '+L.l+' · '+(L.b-X)+' XP to next';let wm=missions.filter(m=>m.week===w),wd=wm.filter(m=>s.done.includes(m.id)).length;document.getElementById('weekbar').style.width=(100*wd/(wm.length||1))+'%';document.getElementById('weektxt').textContent='Week '+w+' · '+wd+'/'+wm.length+' missions';document.querySelectorAll('.mission').forEach(e=>{let id=+e.dataset.id,d=s.done.includes(id);e.classList.toggle('done',d);let b=e.querySelector('button[onclick^="toggleMission"]');if(b){b.classList.toggle('complete',d);b.textContent=d?'✓ Completed':'✓ Complete'}});document.getElementById('daily').innerHTML='<h3>Today’s 3</h3>'+sugg().map((m,i)=>'<button class="qitem qlink" onclick="goToMission('+m.id+')"><span><b>'+(i+1)+'. '+m.icon+' '+m.title+'</b><br><small>'+m.cat+' · +'+m.xp+' XP</small></span><span class="qarrow">→</span></button>').join('');let B=bosses.find(b=>b.week===w);document.getElementById('boss').innerHTML='<small>WEEK '+B.week+' BOSS · +'+B.xp+' XP</small><h3>👑 '+B.title+'</h3><p>'+B.prompt+'</p><button class="btn" onclick="boss('+B.week+')">'+(s.boss.includes(B.week)?'✓ Boss complete':'Complete Boss')+'</button>';document.getElementById('prompt').textContent=B.prompt;document.getElementById('journal').value=s.journal||'';document.getElementById('b1').classList.toggle('on',s.done.length>=1);document.getElementById('b100').classList.toggle('on',X>=100);document.getElementById('b7').classList.toggle('on',s.done.length>=7);document.getElementById('bsound').classList.toggle('on',s.done.filter(id=>missions.find(m=>m.id===id)?.cat==='Pronunciation').length>=4);document.getElementById('b500').classList.toggle('on',X>=500);document.getElementById('bhalf').classList.toggle('on',s.done.length>=19);let bf=document.getElementById('bfresh');if(bf)bf.classList.toggle('on',(s.freshDone||[]).length>=5);document.getElementById('summary').textContent='Week '+w+' · '+s.done.length+'/'+missions.length+' missions · '+(s.freshDone||[]).length+' fresh explores · '+X+' XP · Level '+L.l+' · '+streak()+'-day streak.';setTimeout(()=>decorateDictionary(document),0)}function goToMission(id){
@@ -2485,7 +2650,7 @@ function renderLanguageLesson(){
   document.getElementById('langLessonGoal').textContent=u[1];
   document.getElementById('langLessonModel').innerHTML='<span class="eyebrow">'+ui.model+'</span><div class="lessonModelText">'+liveEsc(u[2])+'</div>';
   document.getElementById('langLessonPractice').innerHTML='<span class="eyebrow">'+ui.practice+'</span><p>'+liveEsc(u[3])+'</p>';
-  document.getElementById('langLessonDone').textContent='✓ '+ui.done;
+  document.getElementById('langLessonDone').textContent='✓ '+ui.done;let lb=document.getElementById('langLessonListen');if(lb)lb.textContent='🔊 '+(a.lang==='es'?'Escuchar':a.lang==='de'?'Anhören':a.lang==='ru'?'Слушать':'Listen');
 }
 function closeLanguageLesson(){activeLanguageLesson=null;showAppTab('Learn',null)}
 function completeLanguageLesson(){
@@ -3251,7 +3416,7 @@ function elifAiKey(event){
 elifAiLoad();
 
 renderSettings();renderAppTabs();
-handleExternalLaunch();renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installSourceCards();decorateDictionary(document);applyDeviceLayout();renderLanguageSwitcher();renderWidgets();renderClipSprint();renderResourceLab();renderWordBank();renderLearningLaunch();loadFresh();eqInit();navigateAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'),'replace');updateLeaguePreview();renderSettings();updateMediaTopOffset();
+handleExternalLaunch();renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installCardSizeControls(document);installSourceCards();decorateDictionary(document);applyDeviceLayout();renderLanguageSwitcher();renderWidgets();renderClipSprint();renderResourceLab();renderWordBank();renderLearningLaunch();loadFresh();eqInit();navigateAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'),'replace');updateLeaguePreview();renderSettings();updateMediaTopOffset();
 </script>
 
 
