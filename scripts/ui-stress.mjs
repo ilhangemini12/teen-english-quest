@@ -128,12 +128,39 @@ try{
   score+=10;
   assert(pageErrors.length===0,'Desktop page errors: '+pageErrors.join(' | '));
 
-  // Mobile stress: language routing, curriculum, card fit, media top offset.
+  // Mobile stress: compact top chrome, drawer navigation, card fit and mini-player.
   const mobile=await newPage(390,844),m=mobile.p;
-  await switchLang(m,'es');
-  await m.$eval('#coreNav button[data-core="Learn"]',el=>el.click());
+  const compact=await m.evaluate(()=>({
+    top:Math.round(document.querySelector('.top')?.getBoundingClientRect().height||0),
+    mobile:getComputedStyle(document.getElementById('mobileCompactTop')).display,
+    lang:getComputedStyle(document.querySelector('.languageBarTop')).display,
+    brand:getComputedStyle(document.querySelector('.brandnav')).display,
+    core:getComputedStyle(document.querySelector('.coreNav')).display,
+    status:getComputedStyle(document.querySelector('.topStatusBar')).display,
+    secondary:getComputedStyle(document.querySelector('.secondaryTabs')).display,
+    scroll:document.documentElement.scrollWidth,
+    width:innerWidth
+  }));
+  assert(compact.top<=64&&compact.mobile!=='none','Mobile header is not compact: '+JSON.stringify(compact));
+  assert([compact.lang,compact.brand,compact.core,compact.status,compact.secondary].every(x=>x==='none'),'Desktop navigation leaked into mobile header: '+JSON.stringify(compact));
+  assert(compact.scroll<=compact.width+4,'Mobile header causes horizontal overflow: '+JSON.stringify(compact));
+
+  await m.$eval('#mobileModePill',el=>el.click());
+  await m.waitForSelector('#mobileMenu.open',{timeout:3000});
+  const drawer=await m.evaluate(()=>({
+    lang:document.getElementById('mobileLanguageSelect')?.value,
+    level:document.getElementById('mobileLevelSelect')?.value,
+    height:Math.round(document.querySelector('.mobileMenuSheet')?.getBoundingClientRect().height||0)
+  }));
+  assert(drawer.lang==='en'&&drawer.height>120,'Mobile dropdown menu did not open correctly: '+JSON.stringify(drawer));
+  await m.evaluate(()=>toggleMobileMenu(false));
+
+  await m.evaluate(()=>setLearningLanguage('es'));
+  await m.waitForFunction(()=>document.documentElement.lang==='es',{timeout:5000});
+  await m.evaluate(()=>showAppTab('Learn',null));
   await m.waitForSelector('#languageHub:not(.appHidden) .languageUnit',{timeout:5000});
-  await switchLang(m,'en');
+  await m.evaluate(()=>setLearningLanguage('en'));
+  await m.waitForFunction(()=>document.documentElement.lang==='en',{timeout:5000});
   await m.evaluate(()=>showAppTab('Grammar',null));
   const fit=await m.$eval('.mission[data-cat="Grammar"]',el=>{
     const r=el.getBoundingClientRect();return {left:r.left,right:r.right,width:innerWidth,scroll:document.documentElement.scrollWidth};
@@ -142,6 +169,31 @@ try{
   await m.$eval('.mission[data-cat="Grammar"] .cardSizer button:nth-child(2)',el=>el.click());
   const fit2=await m.$eval('.mission[data-cat="Grammar"]',el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right,width:innerWidth,scroll:document.documentElement.scrollWidth}});
   assert(fit2.left>=-2&&fit2.right<=fit2.width+2&&fit2.scroll<=fit2.width+4,'Expanded mobile card overflow: '+JSON.stringify(fit2));
+
+  await m.evaluate(()=>showAppTab('Podcasts',null));
+  await m.waitForFunction(()=>document.querySelectorAll('#freshGrid .playHere').length>0,{timeout:15000});
+  await m.$eval('#freshGrid .playHere',el=>el.click());
+  await m.waitForSelector('#mediaDock.open',{timeout:5000});
+  const mini=await m.$eval('#mediaDock',el=>{
+    const r=el.getBoundingClientRect(),p=document.getElementById('mediaCaptionPanel');
+    return {height:Math.round(r.height),bottom:Math.round(innerHeight-r.bottom),captions:el.classList.contains('captionsOn'),panel:getComputedStyle(p).display};
+  });
+  assert(mini.height<190&&mini.bottom<=12&&!mini.captions,'Mobile audio player is not compact by default: '+JSON.stringify(mini));
+  await m.$eval('#mediaCaptionToggle',el=>el.click());
+  const expandedCaption=await m.$eval('#mediaDock',el=>({height:Math.round(el.getBoundingClientRect().height),viewport:innerHeight,captions:el.classList.contains('captionsOn')}));
+  assert(expandedCaption.captions&&expandedCaption.height<=expandedCaption.viewport*.58,'Mobile caption sheet is too tall: '+JSON.stringify(expandedCaption));
+  await m.evaluate(()=>closeMedia());
+
+  // VOA should open as an in-Hub reader when enriched study text is available.
+  await m.waitForFunction(()=>Array.isArray(freshItems)&&freshItems.some(x=>isVoaItem(x)&&x.study_text&&x.study_text.length>80),{timeout:15000});
+  const voaKey=await m.evaluate(()=>freshItems.find(x=>isVoaItem(x)&&x.study_text&&x.study_text.length>80)?.key||'');
+  assert(voaKey,'No enriched VOA item available');
+  await m.evaluate(k=>openFreshInHub(k),voaKey);
+  await m.waitForSelector('#mediaDock.open.sourceMode .voaReader',{timeout:5000});
+  const voaReader=await m.$eval('.voaReader',el=>({text:el.innerText.length,scroll:el.scrollHeight,client:el.clientHeight}));
+  assert(voaReader.text>120,'VOA in-Hub reader is too thin: '+JSON.stringify(voaReader));
+  await m.evaluate(()=>closeMedia());
+
   assert(mobile.pageErrors.length===0,'Mobile page errors: '+mobile.pageErrors.join(' | '));
   score+=5;
 
