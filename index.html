@@ -529,7 +529,7 @@ if ('serviceWorker' in navigator) {
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
   <button class="profileStatusPill" id="bhLearningProfile" onclick="openTab('Settings')" title="Learning profile">🎓 <b>Learning profile</b></button>
-  <span class="versionTop">⚙️ <b id="bhVersion">v5.2</b></span>
+  <span class="versionTop">⚙️ <b id="bhVersion">v5.3</b></span>
   <span>🕒 <b id="bhUpdated">—</b></span>
 </div>
 <div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
@@ -1088,8 +1088,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='5.2';
-const BH_SITE_UPDATED='2026-09-30T01:28:00+04:00';
+const BH_SITE_VERSION='5.3';
+const BH_SITE_UPDATED='2026-09-30T01:55:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -3055,7 +3055,41 @@ function youglishDirectUrl(q){
 function youglishFrameDocument(q){
   const query=JSON.stringify(String(q||'').trim());
   return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
-    '<style>html,body{margin:0;padding:0;background:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif}#yg{min-height:330px}.msg{padding:18px;color:#52606d;font-size:14px}.powered{padding:8px 12px;font-size:11px;color:#667085;border-top:1px solid #e6e8ec}.powered a{color:#337ab7}</style></head><body>'+
+    '<style>html,body{margin:0;padding:0;background:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif}#yg{min-height:330px}.msg{padding:18px;color:#52606d;font-size:14px}.powered{padding:8px 12px;font-size:11px;color:#667085;border-top:1px solid #e6e8ec}.powered a{color:#337ab7}
+/* ===== V5.3 MOBILE SIMPLIFICATION + RELIABLE CAPTIONS ===== */
+@media(max-width:720px){
+  :root{--mobile-bar-h:52px}
+  .top{min-height:var(--mobile-bar-h)}
+  .mobileCompactTop{height:var(--mobile-bar-h);grid-template-columns:auto minmax(0,1fr) auto auto;gap:5px}
+  .mobileBrand,.mobileIconBtn{width:38px;height:38px;border-radius:12px}
+  .mobileModePill{height:38px;border-radius:12px;padding:0 9px;font-size:13px}
+  .mobileMenuSheet{top:calc(env(safe-area-inset-top) + 55px);max-height:calc(100dvh - 67px);padding:12px;border-radius:18px}
+  .mobileQuickNav{grid-template-columns:1fr 1fr;gap:7px}
+  .mobileStatus{display:none}
+  .mobileMenuActions{margin-top:8px}
+  .hero{padding-top:12px}
+  .hero .pill,.hero .livepill{display:none}
+  .hero h1{font-size:clamp(29px,9vw,40px);margin-top:0}
+  .hero .lead{font-size:15px}
+}
+@media(max-width:720px){
+  .mediaDock.audioOnly,.mediaDock.audioOnly.expanded{top:auto!important;bottom:8px!important;left:8px!important;right:8px!important;width:auto!important;transform:none!important;border-radius:15px!important;overflow:hidden}
+  .mediaDock.audioOnly:not(.expanded):not(:fullscreen):not(.fullscreenFallback){max-height:122px!important}
+  .mediaDock.audioOnly:not(.expanded):not(:fullscreen):not(.fullscreenFallback) .mediaCaptionPanel{max-height:78px!important;overflow:auto;padding:8px 10px}
+  .mediaDock.audioOnly.expanded:not(:fullscreen):not(.fullscreenFallback){max-height:min(52dvh,430px)!important}
+  .mediaDock.audioOnly.expanded:not(:fullscreen):not(.fullscreenFallback) .mediaCaptionPanel{max-height:min(31dvh,250px)!important}
+  .mediaDock.audioOnly:not(.captionsOn) .mediaCaptionPanel{display:none!important}
+  .mediaDock.audioOnly.minimized{max-height:54px!important}
+  .mediaDock.audioOnly.minimized .mediaStage,.mediaDock.audioOnly.minimized .mediaCaptionPanel{display:none!important}
+}
+@media(max-width:720px){
+  .mediaDock.sourceMode{left:6px!important;right:6px!important;top:6px!important;bottom:6px!important;width:auto!important;max-height:none!important;height:auto!important;transform:none!important;border-radius:17px!important}
+  .mediaDock.sourceMode .mediaStage{max-height:none!important;height:calc(100dvh - 68px);overflow:auto}
+}
+.mediaCaptionPanel .captionNote{font-weight:700}
+.mediaCaptionPanel[data-mode="study"] .captionStudyText{color:#ffe56a}
+.voaInlineMedia{margin:14px 0}.voaInlineMedia video{display:block;width:100%;max-height:56vh;background:#000;border-radius:14px}
+</style></head><body>'+
     '<div id="yg"><div class="msg">Loading YouGlish…</div></div><div class="powered">Powered by <a href="https://youglish.com/" target="_blank" rel="noopener">YouGlish.com</a></div>'+
     '<script>var BH_YG_QUERY='+query+';function onYouglishAPIReady(){try{var w=new YG.Widget("yg",{autoStart:0,components:733,restrictionMode:1,videoQuality:"default"});w.fetch(BH_YG_QUERY,"english","us")}catch(e){document.getElementById("yg").innerHTML="<div class=msg>Embedded player unavailable. Use the direct link below BatumHub.</div>"}}<\/script>'+
     '<script async src="https://youglish.com/public/emb/widget.js" charset="utf-8"><\/script></body></html>';
@@ -3644,6 +3678,67 @@ bindPersistentAudio=function(){
   a.addEventListener('pause',()=>{if('mediaSession'in navigator)try{navigator.mediaSession.playbackState='paused'}catch(e){}});
   sync();a.play().catch(()=>sync());
 };
+
+/* ===== V5.3 RUNTIME OVERRIDES ===== */
+const _setMediaV53=setMedia;
+setMedia=function(title,meta,html,audioOnly,originalUrl,sourceMode,item){
+  if(audioOnly&&window.innerWidth<=720)mediaCaptionEnabled=false;
+  _setMediaV53(title,meta,html,audioOnly,originalUrl,sourceMode,item);
+  if(audioOnly&&window.innerWidth<=720){
+    let d=document.getElementById('mediaDock'),b=document.getElementById('mediaCaptionToggle');
+    if(d)d.classList.remove('captionsOn','expanded');
+    if(b)b.classList.remove('on');
+  }
+};
+renderMediaCaptionPanel=function(item){
+  let panel=document.getElementById('mediaCaptionPanel'),dock=document.getElementById('mediaDock'),btn=document.getElementById('mediaCaptionToggle');if(!panel||!dock||!btn)return;
+  let ui=captionUi(),real=normalizeCaptionCues(item);mediaCaptionCues=real;
+  btn.style.display='';btn.classList.toggle('on',mediaCaptionEnabled);
+  if(real.length){
+    btn.textContent='CC';btn.title=ui.cc;panel.dataset.mode='timed';
+    renderCaptionCues('CC · '+ui.cc,'Synchronized');
+  }else{
+    btn.textContent='TXT';btn.title=ui.study;panel.dataset.mode='study';
+    let text=item&&item.study_text?String(item.study_text):item&&item.summary?String(item.summary):'',transcript=item&&item.transcript_url?String(item.transcript_url):'';
+    panel.innerHTML='<div class="captionLabel">'+ui.study+' <span class="captionNote">'+ui.notTimed+'</span></div>'+(text?'<div class="captionStudyText">'+liveEsc(text)+'</div>':'<div class="captionStudyText">No synchronized transcript is available for this item.</div>')+(transcript?'<p><a class="btn" href="'+liveEsc(transcript)+'" target="_blank" rel="noopener">'+ui.transcript+'</a></p>':'');
+  }
+  dock.classList.toggle('captionsOn',mediaCaptionEnabled);
+};
+maybePrepareGuidedCaptions=function(){};
+syncMediaCaptions=function(t){
+  if(!mediaCaptionCues.length)return;
+  let ci=mediaCaptionCues.findIndex(c=>t>=c.start&&t<=c.end);
+  if(ci<0){
+    document.querySelectorAll('#mediaCaptionPanel .karaokeWord').forEach(el=>el.classList.remove('active'));
+    return;
+  }
+  let cue=mediaCaptionCues[ci],words=String(cue.text||'').trim().split(/\s+/).filter(Boolean),frac=cue.end>cue.start?Math.max(0,Math.min(0.999,(t-cue.start)/(cue.end-cue.start))):0,wi=Math.min(words.length-1,Math.floor(frac*Math.max(1,words.length)));
+  document.querySelectorAll('#mediaCaptionPanel .karaokeWord').forEach(el=>{
+    let ec=Number(el.dataset.cue),ew=Number(el.dataset.word);el.classList.toggle('active',ec===ci&&ew===wi);el.classList.toggle('past',ec<ci||(ec===ci&&ew<wi));
+  });
+  let active=document.querySelector('#mediaCaptionPanel .karaokeWord.active');if(active&&mediaCaptionEnabled)active.scrollIntoView({block:'nearest',behavior:'auto'});
+};
+function voaInlineMediaHtml(x){
+  if(!x||!x.audio_url)return '';
+  let u=String(x.audio_url);
+  if(/\.mp4(?:\?|$)/i.test(u))return '<div class="voaInlineMedia"><video controls playsinline preload="metadata" src="'+liveEsc(u)+'"></video></div>';
+  return '<div class="voaInlineMedia"><button class="btn" onclick="playMedia('+JSON.stringify(x.url)+','+JSON.stringify(x.title)+','+JSON.stringify(x.source+' · '+x.category)+','+JSON.stringify(x.audio_url)+',freshItems.find(i=>i.key==='+JSON.stringify(x.key)+'))">▶ Play inside BatumHub</button></div>';
+}
+sourcePreviewHtml=function(url,title,meta,item){
+  const x=item||freshItems.find(i=>i.url===url)||null;
+  const summary=(x&&x.summary)||'';
+  const study=(x&&x.study_text)||'';
+  const image=x&&x.image?'<img src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'';
+  const when=x&&x.published?freshRelative(x.published):'';
+  const source=(x&&x.source)||meta||sourceHost(url)||'Original source';
+  const detail=[source,when].filter(Boolean).join(' · ');
+  if(isVoaItem(x)){
+    let text=study||summary,paras=text?splitStudyParagraphs(text).map(p=>'<p>'+liveEsc(p)+'</p>').join(''):'<p>No article transcript is exposed in the feed for this VOA item. The publisher media is still available inside BatumHub below.</p>';
+    return '<div class="sourceReader voaReader"><div class="sourceReaderHero '+(image?'':'noImage')+'"><div><div class="sourceReaderMeta">'+liveEsc(detail)+'</div><h2>'+liveEsc(title||x?.title||'VOA Learning English')+'</h2>'+(summary?'<p class="sourceReaderSummary">'+liveEsc(summary)+'</p>':'')+'</div>'+image+'</div>'+voaInlineMediaHtml(x)+'<div class="voaReaderActions"><a href="'+liveEsc(url)+'" target="_blank" rel="noopener">Original VOA ↗</a></div><div class="voaArticleText">'+paras+'</div><div class="sourceReaderNotice"><b>VOA inside BatumHub</b><br>Available VOA media and learning text stay inside this reader. The original publisher page remains one tap away when a full transcript is not supplied in the feed.</div></div>';
+  }
+  return '<div class="sourceReader"><div class="sourceReaderHero '+(image?'':'noImage')+'"><div><div class="sourceReaderMeta">'+liveEsc(detail)+'</div><h2>'+liveEsc(title||x?.title||'Source')+'</h2>'+(summary?'<p class="sourceReaderSummary">'+liveEsc(summary)+'</p>':'')+'<div class="sourceReaderNotice"><b>BatumHub Reader Preview</b><br>This publisher does not expose an embeddable full reader here, so BatumHub keeps a compact study preview instead of a broken frame.</div><div class="sourceReaderActions"><a href="'+liveEsc(url)+'" target="_blank" rel="noopener">Read full original ↗</a></div></div>'+image+'</div></div>';
+};
+
 renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installCardSizeControls(document);installSourceCards();decorateDictionary(document);applyDeviceLayout();renderLanguageSwitcher();renderWidgets();renderClipSprint();renderResourceLab();renderWordBank();renderLearningLaunch();loadFresh();eqInit();navigateAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'),'replace');updateLeaguePreview();renderSettings();updateMediaTopOffset();
 </script>
 
