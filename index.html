@@ -1020,7 +1020,7 @@ async function eqLoadCloudPrefs(){
   localStorage.setItem('teq-density','compact');
   localStorage.setItem('teq-font','system');
   localStorage.setItem('teq-nav','both');
-  localStorage.setItem('teq-pinned-tabs',JSON.stringify(TAB_PRESETS.balanced));
+  localStorage.setItem('teq-pinned-tabs',JSON.stringify(TAB_PRESETS[currentGrade()<=4?'elementary':currentGrade()<=8?'middle':'balanced']));
   localStorage.setItem('teq-home-focus','balanced');
   localStorage.setItem('teq-ui-v4-clean','1');
 }
@@ -1504,7 +1504,7 @@ function showAppTab(name,btn){
   appMissionCats=null;appMissionMode='all';
   const grade=currentGrade();
 
-  if(name==='Home'){setVisible(['heroHome','quickControls','personalWidgets','dashboard','today','fresh','badges','progress']);renderWidgets();applyGradeExperience()}
+  if(name==='Home'){let homeIds=grade<=4?['heroHome','quickControls','personalWidgets','dashboard','foundationHub','badges','progress']:grade<=8?['heroHome','quickControls','personalWidgets','dashboard','foundationHub','fresh','badges','progress']:['heroHome','quickControls','personalWidgets','dashboard','today','fresh','badges','progress'];setVisible(homeIds);if(grade<=8)renderFoundation();renderWidgets();applyGradeExperience()}
   if(name==='Learn'){
     if(grade<=8){setVisible(['learnHub','foundationHub','learningGames']);renderFoundation()}
     else setVisible(['learnHub','missions','lab','quiz']);
@@ -1590,7 +1590,7 @@ function renderWidgets(){
     if(k==='game')return '<article class="hubWidget"><div class="widgetBig">🧩</div><h3>Daily Word Game</h3><p>One short vocabulary game per day can earn +5 XP once.</p><div class="widgetControls"><button onclick="openTab(\'Games\')">Play</button></div></article>';
     return '<article class="hubWidget"><div class="widgetBig">🎓</div><h3>'+liveEsc(band.label)+'</h3><span class="gradePill">'+liveEsc(band.cefr)+'</span><p>BatumHub adapts default content and difficulty to this grade.</p><div class="widgetControls"><button onclick="openTab(\'Personalize\')">Change grade</button></div></article>'
   }).join('');
-  if(w.includes('word'))fillWordWidget();
+  if(w.includes('word'))fillWordWidget();setTimeout(()=>decorateDictionary(grid),0);
 }
 function applyGradeExperience(){
   let g=currentGrade(),band=eqGradeBand(g),txt=document.getElementById('gradeBandText');if(txt)txt.textContent=band.label+' · suggested English '+band.cefr;
@@ -1599,6 +1599,8 @@ function applyGradeExperience(){
   let ps=document.getElementById('settingsPresence');if(ps)ps.value=localStorage.getItem('teq-presence')||'online';
   let aps=document.getElementById('eqPresenceSelect');if(aps)aps.value=localStorage.getItem('teq-presence')||'online';
   let today=document.getElementById('today');if(today)today.style.display=g<=8?'none':'';
+  document.querySelectorAll('.dashshort .shortcut').forEach(card=>{let click=card.getAttribute('onclick')||'';if(click.includes("openTab('SAT')")||click.includes("openTab('Future')"))card.style.display=g<9?'none':''});
+  let hero=document.querySelector('#heroHome .lead');if(hero)hero.textContent=g<=4?'Build simple English with short missions, word games, listening clips and daily practice matched to an A1 learner.':g<=8?'Build confidence with A2–B1 missions, short clips, vocabulary games and real English matched to middle school.':'Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.';
   if(!localStorage.getItem('teq-grade-tabs-v1')){
     let preset=g<=4?'elementary':g<=8?'middle':'balanced';
     localStorage.setItem('teq-pinned-tabs',JSON.stringify(TAB_PRESETS[preset]));
@@ -1635,7 +1637,7 @@ function foundationBand(){let g=currentGrade();return g<=4?'a1':g<=6?'a2':'b1'}
 function renderFoundation(filter){
   let box=document.getElementById('foundationGrid'),intro=document.getElementById('foundationIntro');if(!box)return;let g=currentGrade(),band=eqGradeBand(g),arr=FOUNDATION[foundationBand()];
   if(intro)intro.textContent=band.label+' · '+band.cefr+' · short tasks matched to the learner’s stage.';
-  box.innerHTML=arr.map((x,i)=>'<article class="foundationCard"><small>'+x[0]+' '+x[2]+' · 5–10 min</small><h3>'+x[1]+'</h3><div class="task">'+x[3]+'</div><div class="widgetControls"><button onclick="completeFoundation('+i+')">Done +5 XP</button></div></article>').join('');
+  box.innerHTML=arr.map((x,i)=>'<article class="foundationCard"><small>'+x[0]+' '+x[2]+' · 5–10 min</small><h3>'+x[1]+'</h3><div class="task">'+x[3]+'</div><div class="widgetControls"><button onclick="completeFoundation('+i+')">Done +5 XP</button></div></article>').join('');setTimeout(()=>decorateDictionary(box),0);
 }
 async function completeFoundation(i){
   let key='foundation:'+currentGrade()+':'+i+':'+todayKey(),local='teq-'+key;if(localStorage.getItem(local))return alert('Already completed today.');
@@ -1685,9 +1687,15 @@ async function awardDailyGame(kind){
   if(eqUser)return await eqAward('game',key);return 0;
 }
 function renderClipSprint(){
-  let box=document.getElementById('clipSprintGrid');if(!box)return;let clips=missions.filter(m=>playableKind(m.url,'')).slice(0,12);
-  let day=Math.floor(Date.now()/86400000),start=day%Math.max(1,clips.length);let picks=[];for(let i=0;i<Math.min(6,clips.length);i++)picks.push(clips[(start+i)%clips.length]);
-  box.innerHTML=picks.map(m=>'<button class="sourceCard" onclick="playMedia(\''+liveEsc(m.url)+'\',\''+liveEsc(m.title).replace(/&#39;/g,"\\'")+'\',\''+liveEsc(m.source).replace(/&#39;/g,"\\'")+'\',\'\')"><div class="srcico">▶️</div><h3>'+liveEsc(m.title)+'</h3><p>'+liveEsc(m.desc)+'</p><small>Play inside BatumHub →</small></button>').join('');
+  let box=document.getElementById('clipSprintGrid');if(!box)return;let g=currentGrade(),clips;
+  if(g<=6){
+    clips=[
+      {title:"Let's Learn English with Anna",source:'VOA Learning English',url:'https://www.youtube.com/watch?v=Z2iXr8On3LI',desc:'A beginner-friendly American-English video course for children. Watch a short part and repeat one sentence.'},
+      {title:'News Words: Positive',source:'VOA Learning English',url:'https://www.youtube.com/watch?v=1JZLAEkLdU8',desc:'A very short vocabulary clip. Listen for the key word and use it in your own sentence.'}
+    ];
+  }else clips=missions.filter(m=>playableKind(m.url,'')).slice(0,14);
+  let day=Math.floor(Date.now()/86400000),start=day%Math.max(1,clips.length),picks=[];for(let i=0;i<Math.min(g<=6?2:6,clips.length);i++)picks.push(clips[(start+i)%clips.length]);
+  box.innerHTML=picks.map(m=>'<button class="sourceCard" onclick="playMedia(\''+liveEsc(m.url)+'\',\''+liveEsc(m.title).replace(/&#39;/g,"\\'")+'\',\''+liveEsc(m.source).replace(/&#39;/g,"\\'")+'\',\'\')"><div class="srcico">▶️</div><h3>'+liveEsc(m.title)+'</h3><p>'+liveEsc(m.desc)+'</p><small>Play inside BatumHub →</small></button>').join('');setTimeout(()=>decorateDictionary(box),0);
 }
 function renderSettings(){
   document.body.dataset.theme=pref('theme','dark');document.body.dataset.font=pref('font','system');document.body.dataset.density=pref('density','compact');document.body.dataset.nav=pref('nav','both');
