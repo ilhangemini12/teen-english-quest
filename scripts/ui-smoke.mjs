@@ -36,7 +36,6 @@ try {
       active: window.__bhActiveLanguage,
       stored: localStorage.getItem('teq-active-language'),
       handler: typeof window.setLearningLanguage,
-      languages: typeof LEARNING_LANGUAGES,
       onclick: b?.getAttribute('onclick'),
       disabled: !!b?.disabled,
       pointerEvents: b ? getComputedStyle(b).pointerEvents : null,
