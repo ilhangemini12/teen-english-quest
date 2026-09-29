@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "BatumHub",
+  "version": "0.1.0",
+  "description": "Open BatumHub quickly, choose your learning language and save selected words or phrases for later practice.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "BatumHub",
+    "default_popup": "popup.html"
+  }
+}
