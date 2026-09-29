@@ -1,0 +1,42 @@
+name: UI Stress Test
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "feed.json"
+      - "scripts/ui-stress.mjs"
+      - ".github/workflows/ui-stress.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: batumhub-ui-stress
+  cancel-in-progress: true
+
+jobs:
+  stress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Find Chrome
+        shell: bash
+        run: |
+          CHROME_PATH="$(which google-chrome || which google-chrome-stable || which chromium || which chromium-browser || true)"
+          test -n "$CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+      - name: Install browser driver
+        run: npm install --no-save --ignore-scripts puppeteer-core@24.22.3
+      - name: Start local BatumHub
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/batumhub-http.log 2>&1 &
+          echo $! >/tmp/batumhub-http.pid
+          sleep 2
+      - name: Run stress suite
+        run: node scripts/ui-stress.mjs
