@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BatumHub</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <main>
+    <header><div class="logo">BH</div><div><b>BatumHub</b><small>Language learning hub</small></div></header>
+    <section>
+      <label>Learning language</label>
+      <div class="flags" id="flags">
+        <button data-lang="en">🇬🇧 English</button>
+        <button data-lang="es">🇪🇸 Español</button>
+        <button data-lang="de">🇩🇪 Deutsch</button>
+        <button data-lang="ru">🇷🇺 Русский</button>
+      </div>
+    </section>
+    <section>
+      <label>Level</label>
+      <div class="levels" id="levels"></div>
+    </section>
+    <div class="actions">
+      <button class="primary" data-open="">Open BatumHub</button>
+      <button data-open="learn">Learn</button>
+      <button data-open="vocabulary">Vocabulary</button>
+    </div>
+    <p class="hint">Tip: select a word or short phrase on any webpage, right-click it, then choose “Save to BatumHub”.</p>
+  </main>
+  <script src="popup.js"></script>
+</body></html>
