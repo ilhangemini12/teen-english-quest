@@ -8,7 +8,7 @@
 .comicgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.comic{background:linear-gradient(160deg,#182946,#0c182a);border:1px solid #2c4568;border-radius:18px;padding:14px}.comicstrip{display:grid;grid-template-columns:1fr 1fr;gap:8px}.panelbubble{background:#f5f7fb;color:#182235;border-radius:14px;padding:10px;min-height:92px;font-size:13px}.panelbubble b{display:block;color:#34506f;margin-bottom:4px}.comicchallenge{margin-top:10px;background:#0b1728;border-left:3px solid #f9a8d4;border-radius:8px;padding:9px;font-size:13px}
 .vocabcloud{display:flex;gap:8px;flex-wrap:wrap}.wordchip{background:linear-gradient(135deg,#142943,#15213a);border:1px solid #2b4869;border-radius:999px;padding:8px 11px;color:#d9eaff;cursor:pointer}.wordchip:hover{border-color:#6393b5}.wordspot{background:linear-gradient(135deg,#132d36,#182648);border:1px solid #34556f;border-radius:17px;padding:15px;margin-bottom:12px}
 .leaguehero{display:grid;grid-template-columns:1.15fr .85fr;gap:12px}.leaguecard{background:linear-gradient(150deg,#142847,#0b1728);border:1px solid #2c496a;border-radius:19px;padding:16px}.leaguepills{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.leaguepills span{background:#172842;border:1px solid #304d70;padding:5px 8px;border-radius:999px;font-size:12px}.ranklist{display:flex;flex-direction:column;gap:8px}.rankrow{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:9px;background:#0d1a2d;border:1px solid #233a59;padding:10px;border-radius:12px}.ranknum{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#203757;font-weight:900}.inviteSlot{border-style:dashed;opacity:.72}.leagueRules{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.rule{background:#0c1829;border:1px solid #213954;border-radius:13px;padding:10px}.rule b{display:block;color:#c8e4ff}.privacybox{background:#122239;border:1px solid #2d4968;border-radius:15px;padding:12px;color:#b8c9da;margin-top:12px}
-.modalShade{display:none;position:fixed;inset:0;background:#020712cc;z-index:100;align-items:center;justify-content:center;padding:18px}.modalShade.open{display:flex}.authmodal{width:min(480px,100%);background:#0f1d31;border:1px solid #34516f;border-radius:20px;padding:18px;box-shadow:0 30px 80px #0008}.authmodal h2{margin-top:0}.authmodal input{width:100%;margin:6px 0}.authactions{display:flex;gap:8px;flex-wrap:wrap}.authstatus{background:#0a1626;border:1px solid #223a56;border-radius:10px;padding:9px;margin:10px 0;color:#9db0c8;font-size:12px}.appHidden{display:none!important}
+.modalShade{display:none;position:fixed;inset:0;background:#020712cc;z-index:100;align-items:center;justify-content:center;padding:18px}.modalShade.open{display:flex}.authmodal{width:min(430px,100%);background:#0f1d31;border:1px solid #34516f;border-radius:18px;padding:16px;box-shadow:0 30px 80px #0008}.authmodal.compact{width:min(360px,100%)}.authmodal h2{margin:0 0 10px;font-size:22px}.authmodal input{width:100%;margin:5px 0 9px}.authmodal label{display:block;font-size:12px;color:var(--muted);font-weight:700}.authactions{display:flex;gap:7px;flex-wrap:wrap}.authactions .primaryAuth{background:var(--accent);color:var(--accentText);border-color:var(--accent);font-weight:800}.authstatus{display:none;background:#0a1626;border:1px solid #223a56;border-radius:9px;padding:8px;margin:8px 0;color:#9db0c8;font-size:12px}.authstatus.show{display:block}.authSwitch{border:0;background:transparent;color:var(--accent);padding:6px 0;cursor:pointer;font:inherit;font-weight:700}.authHint{font-size:11px;color:var(--muted);margin:9px 0 0}.authCheck{text-align:center;padding:8px 2px 2px}.authCheck .mailIcon{font-size:38px}.authCheck h3{margin:6px 0}.authCheck p{color:var(--muted);font-size:13px}.appHidden{display:none!important}
 @media(max-width:900px){.dashshort{grid-template-columns:1fr 1fr}.comicgrid{grid-template-columns:1fr}.leaguehero{grid-template-columns:1fr}.leagueRules{grid-template-columns:1fr 1fr}}@media(max-width:520px){.dashshort{grid-template-columns:1fr}.leagueRules{grid-template-columns:1fr}}
 
 :root{--card-radius:18px;--gap:14px;--font-main:system-ui,-apple-system,Segoe UI,Roboto,Arial;--card-pad:14px}
@@ -235,19 +235,45 @@ if ('serviceWorker' in navigator) {
   <div class="authstatus" id="authStatus">Secure account system is loading…</div>
 
   <div id="eqSignedOut">
-    <p><b>Private sign-in:</b> try BatumHub first with the Demo Pass. When you create an account, your demo progress is kept and cloud sync, League and Messages unlock. Friends see only the nickname you choose.</p>
-    <label>Nickname</label>
-    <input id="eqSignupUsername" maxlength="20" autocomplete="nickname" placeholder="e.g. AlexReads">
-    <label>Email</label>
-    <input id="eqEmail" type="email" autocomplete="email" placeholder="you@example.com">
-    <label>Password</label>
-    <input id="eqPassword" type="password" minlength="8" autocomplete="current-password" placeholder="At least 8 characters">
-    <div class="authactions">
-      <button class="btn" onclick="eqSignIn()">Sign in</button>
-      <button class="btn" onclick="eqSignUp()">Create account</button>
-      <button class="btn" onclick="closeAccount()">Close</button>
+    <div id="eqAuthSignIn">
+      <label>Email</label>
+      <input id="eqLoginEmail" type="email" autocomplete="email" placeholder="you@example.com">
+      <label>Password</label>
+      <input id="eqLoginPassword" type="password" minlength="8" autocomplete="current-password" placeholder="Password" onkeydown="if(event.key==='Enter')eqSignIn()">
+      <div class="authactions">
+        <button class="btn primaryAuth" onclick="eqSignIn()">Sign in</button>
+        <button class="btn" onclick="closeAccount()">Close</button>
+      </div>
+      <button class="authSwitch" onclick="eqSetAuthMode('signup')">Create a new account →</button>
+      <p class="authHint">Your nickname is your public BatumHub name; your email is used only for private sign-in.</p>
     </div>
-    <p><small>There is no public user directory or location sharing. Messaging works only between accepted friends, and friend connections use private invite codes.</small></p>
+
+    <div id="eqAuthSignUp" style="display:none">
+      <label>Nickname</label>
+      <input id="eqSignupUsername" maxlength="20" autocomplete="nickname" placeholder="e.g. AlexReads">
+      <label>Email</label>
+      <input id="eqSignupEmail" type="email" autocomplete="email" placeholder="you@example.com">
+      <label>Create password</label>
+      <input id="eqSignupPassword" type="password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters">
+      <div class="authactions">
+        <button class="btn primaryAuth" onclick="eqSignUp()">Create account</button>
+        <button class="btn" onclick="closeAccount()">Close</button>
+      </div>
+      <button class="authSwitch" onclick="eqSetAuthMode('signin')">← I already have an account</button>
+      <button class="authSwitch" onclick="eqResendConfirmation()">Resend confirmation email</button>
+      <p class="authHint">No public user directory or location sharing. Messaging works only between accepted friends.</p>
+    </div>
+
+    <div id="eqAuthCheck" class="authCheck" style="display:none">
+      <div class="mailIcon">✉️</div>
+      <h3>Check your email</h3>
+      <p>We sent a confirmation link to <b id="eqConfirmEmail">your email</b>. Open that link once, then BatumHub will sign you in.</p>
+      <div class="authactions" style="justify-content:center">
+        <button class="btn primaryAuth" onclick="closeAccount()">Got it</button>
+        <button class="btn" onclick="eqResendConfirmation()">Resend</button>
+      </div>
+      <button class="authSwitch" onclick="eqSetAuthMode('signin')">Back to sign in</button>
+    </div>
   </div>
 
   <div id="eqSignedIn" style="display:none">
@@ -272,7 +298,7 @@ if ('serviceWorker' in navigator) {
 <div class="topStatusBar" id="topStatusBar">
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
-  <span class="versionTop">⚙️ <b>v4.3</b></span>
+  <span class="versionTop">⚙️ <b>v4.3.1</b></span>
   <span>🕒 <b id="bhUpdated">Updated Sep 29, 2026</b></span>
 </div>
 <div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
@@ -281,7 +307,7 @@ if ('serviceWorker' in navigator) {
         <span id="demoPassText">Try BatumHub before creating an account.</span>
       </div>
       <div class="demoMeter"><div id="demoMeterFill"></div></div>
-      <button class="btn" id="demoPassButton" onclick="openAccount()">Create free account</button>
+      <button class="btn" id="demoPassButton" onclick="openAccount('signup')">Create free account</button>
     </section><section id="quickControls" class="quickControls">
   <div class="quickHead">
     <div><b>🎛 Quick Customize</b><small>Make the page comfortable in one tap.</small></div>
@@ -618,8 +644,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for 3 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='4.3';
-const BH_SITE_UPDATED='2026-09-29T02:18:00+04:00';
+const BH_SITE_VERSION='4.3.1';
+const BH_SITE_UPDATED='2026-09-29T11:42:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -647,14 +673,55 @@ const eqSupa=(window.supabase&&window.supabase.createClient)?window.supabase.cre
 let eqUser=null,eqProfile=null,eqFriends=[],eqSelectedFriend=null,eqMsgChannel=null,eqSyncTimer=null;
 
 function eqSetStatus(msg,ok){
-  let e=document.getElementById('authStatus');if(e){e.innerHTML=(ok?'✅ ':'')+msg;e.style.borderColor=ok?'#2a7c61':'#34516f'}
+  let e=document.getElementById('authStatus');if(!e)return;
+  if(!msg){e.textContent='';e.classList.remove('show');return}
+  e.textContent=(ok?'✓ ':'')+msg;e.style.borderColor=ok?'#2a7c61':'#34516f';e.classList.add('show');
 }
 function eqValidNickname(n){return /^[A-Za-z0-9_.-]{3,20}$/.test(n)}
+function eqSetAuthMode(mode){
+  mode=['signin','signup','check'].includes(mode)?mode:'signin';
+  let si=document.getElementById('eqAuthSignIn'),su=document.getElementById('eqAuthSignUp'),ck=document.getElementById('eqAuthCheck'),card=document.querySelector('#accountModal .authmodal');
+  if(si)si.style.display=mode==='signin'?'block':'none';
+  if(su)su.style.display=mode==='signup'?'block':'none';
+  if(ck)ck.style.display=mode==='check'?'block':'none';
+  if(card)card.classList.toggle('compact',mode!=='signup');
+  if(mode==='signin'){
+    let saved=localStorage.getItem('eq-pending-email')||'';
+    let e=document.getElementById('eqLoginEmail');if(e&&!e.value)e.value=saved;
+  }
+  if(mode==='signup'){
+    let saved=localStorage.getItem('eq-pending-email')||'';
+    let e=document.getElementById('eqSignupEmail');if(e&&!e.value)e.value=saved;
+  }
+}
+function eqAuthCallbackIssue(){
+  const hp=new URLSearchParams((location.hash||'').replace(/^#/,''));
+  const qp=new URLSearchParams(location.search||'');
+  const code=hp.get('error_code')||qp.get('error_code')||'';
+  const desc=hp.get('error_description')||qp.get('error_description')||'';
+  const hasAuthError=hp.has('error')||qp.has('error');
+  if(!hasAuthError)return null;
+  let msg='The sign-in link could not be used.';
+  if(code==='otp_expired'||/expired|invalid/i.test(desc))msg='That confirmation link is invalid or has expired. Request a new confirmation email below.';
+  history.replaceState({},document.title,location.pathname);
+  return {code,msg};
+}
+function eqCleanSuccessfulAuthUrl(){
+  if(/access_token=|refresh_token=|type=signup|type=recovery/i.test(location.hash||''))history.replaceState({},document.title,location.pathname);
+}
 async function eqInit(){
   if(!eqSupa){eqSetStatus('Secure cloud service could not load. Local learning still works.',false);return}
+  const callbackIssue=eqAuthCallbackIssue();
   const {data}=await eqSupa.auth.getSession();
   await eqHandleSession(data.session);
-  eqSupa.auth.onAuthStateChange(async(_event,session)=>{await eqHandleSession(session)});
+  if(data.session)eqCleanSuccessfulAuthUrl();
+  if(callbackIssue&&!data.session){
+    let pending=localStorage.getItem('eq-pending-email')||'';
+    openAccount(pending?'check':'signup');
+    let ce=document.getElementById('eqConfirmEmail');if(ce&&pending)ce.textContent=pending;
+    eqSetStatus(callbackIssue.msg,false);
+  }
+  eqSupa.auth.onAuthStateChange(async(_event,session)=>{await eqHandleSession(session);if(session)eqCleanSuccessfulAuthUrl()});
 }
 async function eqHandleSession(session){
   eqUser=session&&session.user?session.user:null;
@@ -662,7 +729,7 @@ async function eqHandleSession(session){
   if(!eqUser){
     eqProfile=null;eqFriends=[];eqSelectedFriend=null;
     if(so)so.style.display='block';if(si)si.style.display='none';if(btn)btn.textContent='👤 Account';
-    eqSetStatus('Sign in to sync progress, join a private league and message accepted friends.',false);
+    if(!document.getElementById('accountModal')?.classList.contains('open'))eqSetStatus('',false);
     eqRenderInbox();eqRefreshLeague();renderDemoPass();return;
   }
   if(so)so.style.display='none';if(si)si.style.display='block';
@@ -676,23 +743,53 @@ async function eqHandleSession(session){
 }
 async function eqSignUp(){
   if(!eqSupa)return;
-  let nick=(document.getElementById('eqSignupUsername').value||'').trim(),email=(document.getElementById('eqEmail').value||'').trim(),password=document.getElementById('eqPassword').value||'';
+  let nick=(document.getElementById('eqSignupUsername').value||'').trim(),email=(document.getElementById('eqSignupEmail').value||'').trim(),password=document.getElementById('eqSignupPassword').value||'';
   if(!eqValidNickname(nick))return eqSetStatus('Nickname: 3–20 characters; use letters, numbers, _, . or - only.',false);
-  if(!email||password.length<8)return eqSetStatus('Enter a valid email and a password of at least 8 characters.',false);
+  if(!email||!email.includes('@'))return eqSetStatus('Enter a valid email address.',false);
+  if(password.length<8)return eqSetStatus('Create a password with at least 8 characters.',false);
   localStorage.setItem('eq-pending-nickname',nick);
+  localStorage.setItem('eq-pending-email',email);
   eqSetStatus('Creating account…',false);
   const {data,error}=await eqSupa.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});
   if(error)return eqSetStatus(liveEsc(error.message),false);
-  if(data.session){await eqHandleSession(data.session);await eqApplyPendingNickname();eqSetStatus('Account created and signed in.',true)}
-  else eqSetStatus('Account created. Check the confirmation email, then return here and sign in.',true);
+  if(data.session){
+    await eqHandleSession(data.session);await eqApplyPendingNickname();localStorage.removeItem('eq-pending-email');eqSetStatus('Account created and signed in.',true);closeAccount();
+  }else{
+    let ce=document.getElementById('eqConfirmEmail');if(ce)ce.textContent=email;
+    eqSetAuthMode('check');eqSetStatus('Confirmation email sent.',true);
+  }
+}
+async function eqResendConfirmation(){
+  if(!eqSupa)return;
+  let email=(localStorage.getItem('eq-pending-email')||document.getElementById('eqSignupEmail')?.value||document.getElementById('eqLoginEmail')?.value||'').trim();
+  if(!email||!email.includes('@')){
+    eqSetAuthMode('signup');return eqSetStatus('Enter your email first, then choose "Resend confirmation email".',false);
+  }
+  localStorage.setItem('eq-pending-email',email);
+  eqSetStatus('Sending a new confirmation email…',false);
+  const {error}=await eqSupa.auth.resend({type:'signup',email,options:{emailRedirectTo:location.origin+location.pathname}});
+  if(error)return eqSetStatus(liveEsc(error.message),false);
+  let ce=document.getElementById('eqConfirmEmail');if(ce)ce.textContent=email;
+  eqSetAuthMode('check');eqSetStatus('A fresh confirmation email was sent. Use the newest link only.',true);
 }
 async function eqSignIn(){
   if(!eqSupa)return;
-  let email=(document.getElementById('eqEmail').value||'').trim(),password=document.getElementById('eqPassword').value||'';
+  let email=(document.getElementById('eqLoginEmail').value||'').trim(),password=document.getElementById('eqLoginPassword').value||'';
+  if(!email||!email.includes('@'))return eqSetStatus('Enter your email address.',false);
+  if(!password)return eqSetStatus('Enter your password.',false);
   eqSetStatus('Signing in…',false);
   const {data,error}=await eqSupa.auth.signInWithPassword({email,password});
-  if(error)return eqSetStatus(liveEsc(error.message),false);
-  await eqHandleSession(data.session);await eqApplyPendingNickname();
+  if(error){
+    let msg=String(error.message||'Sign-in failed.');
+    if(/email not confirmed/i.test(msg)){
+      localStorage.setItem('eq-pending-email',email);
+      eqSetAuthMode('check');
+      let ce=document.getElementById('eqConfirmEmail');if(ce)ce.textContent=email;
+      return eqSetStatus('Your email still needs confirmation. Use the newest confirmation link or resend it.',false);
+    }
+    return eqSetStatus(liveEsc(msg),false);
+  }
+  await eqHandleSession(data.session);await eqApplyPendingNickname();localStorage.removeItem('eq-pending-email');closeAccount();
 }
 async function eqSignOut(){
   if(eqSupa)await eqSupa.auth.signOut();
@@ -1233,8 +1330,8 @@ function showAppTab(name,btn){
 function renderVocab(){let box=document.getElementById('vocabCloud');if(!box)return;let words=[...new Set(missions.flatMap(m=>m.vocab||[]))];box.innerHTML=words.map(w=>'<button class="wordchip" onclick="wordChallenge(\''+liveEsc(w).replace(/&#39;/g,"\\'")+'\')">'+liveEsc(w)+'</button>').join('')}
 function wordChallenge(w){document.getElementById('wordSpot').innerHTML='<b>🎲 '+liveEsc(w)+'</b><br>1) Say it aloud. 2) Explain it in simple English. 3) Use it in a sentence about your own life.'}
 function updateLeaguePreview(){let x=xp();let e=document.getElementById('leagueXP');if(e)e.textContent=x+' XP';let n=localStorage.getItem('teenQuestNickname');let y=document.getElementById('leagueYou');if(y)y.textContent=n||'You'}
-function openAccount(){let m=document.getElementById('accountModal');if(m)m.classList.add('open');if(eqUser){eqLoadProfile();eqLoadFriends()}}
-function closeAccount(){let m=document.getElementById('accountModal');if(m)m.classList.remove('open')}
+function openAccount(mode){let m=document.getElementById('accountModal');if(m)m.classList.add('open');if(eqUser){eqLoadProfile();eqLoadFriends()}else{eqSetStatus('',false);eqSetAuthMode(mode||'signin')}}
+function closeAccount(){let m=document.getElementById('accountModal');if(m)m.classList.remove('open');eqSetStatus('',false)}
 window.eqGetLocalState=()=>JSON.parse(JSON.stringify(s));window.eqGetLocalXP=()=>xp();
 
 const INTERESTS=['🎬 Movies & TV','🎮 Gaming','🏅 Sports','✨ Life & Style','💄 Beauty','👗 Fashion','🎵 Music','📚 Books','💡 TED & Stories','🔬 Science','🚀 Space','🐾 Animals','🎨 Art & Design','🧠 Study Hacks','🎓 SAT','🏫 Universities','💼 Careers','🌍 Travel'];
