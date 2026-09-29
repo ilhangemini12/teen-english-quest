@@ -1,4 +1,4 @@
-const C='batumhub-live-v2';
+const C='batumhub-live-v3';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 
 self.addEventListener('install',event=>{
