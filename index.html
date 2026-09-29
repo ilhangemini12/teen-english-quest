@@ -375,6 +375,14 @@ html.native-app .installAppBtn{display:none!important}html.native-app .top{paddi
   .freshcard p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   .freshcard .freshactions.simple{display:flex;gap:7px;flex-wrap:wrap}.freshcard .freshactions.simple button{flex:1 1 auto}
 }
+
+/* ===== V5.2 READER / ACTION DISCLOSURE ===== */
+.cardMore{position:relative;margin:0}.cardMore>summary{list-style:none;border:1px solid var(--line);background:var(--surface2);color:var(--text);border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:1000}.cardMore>summary::-webkit-details-marker{display:none}.cardMoreMenu{display:flex;gap:7px}.cardMore[open] .cardMoreMenu{z-index:8}
+@media(min-width:721px){.cardMore{display:contents}.cardMore>summary{display:none}.cardMoreMenu{display:flex}}
+@media(max-width:720px){.cardMoreMenu{display:none;position:absolute;right:0;bottom:44px;min-width:170px;flex-direction:column;padding:7px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 15px 38px #0008}.cardMore[open] .cardMoreMenu{display:flex}.cardMoreMenu button{width:100%!important;text-align:left}}
+.voaReaderActions{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.voaReaderActions button,.voaReaderActions a{border:1px solid var(--accent);background:var(--accent);color:var(--accentText);border-radius:10px;padding:9px 12px;text-decoration:none;font:inherit;font-weight:900;cursor:pointer}.voaReaderActions a{background:var(--surface2);color:var(--text);border-color:var(--line)}
+.voaArticleText{max-width:820px;margin:8px auto 0}.voaArticleText p{font-size:17px;line-height:1.75;color:var(--text);margin:0 0 1em}
+@media(max-width:720px){.voaArticleText p{font-size:16px;line-height:1.65}.sourceReader.voaReader{padding-bottom:30px}}
 </style>
 <link rel="icon" type="image/svg+xml" href="./icon.svg?v=435">
 <link rel="shortcut icon" href="./icon.svg?v=435">
@@ -1725,7 +1733,7 @@ function renderStudyFlow(){
   let body=document.getElementById('studyBody');
   if(activeStudyStep===1){
     let media=studyMediaHtml(x),img=x.image?'<img class="studyImage" src="'+liveEsc(x.image)+'" alt="" onerror="this.remove()">':'';
-    body.innerHTML='<div class="studyRead">'+(media?'<div class="studyMedia">'+media+'</div>':'')+'<div class="studyReadGrid"><div><h3>Publisher preview</h3><p class="studySummary">'+liveEsc(x.summary||'Open the original source and read or listen for the main idea.')+'</p><div class="targetStrip"><b>Target words</b>'+words.map(w=>'<span>'+liveEsc(w)+'</span>').join('')+'</div><div class="studyActions"><a class="btn" href="'+liveEsc(x.url)+'" target="_blank" rel="noopener">Open full original ↗</a><button class="btn launchPrimary" onclick="setStudyStep(2,true)">I read/listened · Next →</button></div></div>'+img+'</div></div>';
+    body.innerHTML='<div class="studyRead">'+(media?'<div class="studyMedia">'+media+'</div>':'')+'<div class="studyReadGrid"><div><h3>Publisher preview</h3><p class="studySummary">'+liveEsc(x.summary||'Open the original source and read or listen for the main idea.')+'</p><div class="targetStrip"><b>Target words</b>'+words.map(w=>'<span>'+liveEsc(w)+'</span>').join('')+'</div><div class="studyActions">'+(isVoaItem(x)?'<button class="btn" onclick="openFreshInHub(\''+liveEsc(x.key)+'\')">▣ Read in BatumHub</button>':'')+'<a class="btn" href="'+liveEsc(x.url)+'" target="_blank" rel="noopener">Open full original ↗</a><button class="btn launchPrimary" onclick="setStudyStep(2,true)">I read/listened · Next →</button></div></div>'+img+'</div></div>';
     decorateDictionary(body);
   }else if(activeStudyStep===2){
     body.innerHTML='<div class="studyWordsHead"><div><h3>Learn only '+words.length+' useful words</h3><p>Say each word, read the meaning, then save the ones worth reviewing later.</p></div><button class="btn launchPrimary" onclick="saveAllStudyWords()">Save all & continue →</button></div><div class="studyWordGrid">'+words.map(w=>{let saved=!!(s.wordBank||{})[w];return '<article class="studyWordCard"><div class="studyWordTop"><button class="wordAsText dictWord" data-word="'+liveEsc(w)+'">'+liveEsc(w)+'</button><button class="'+(saved?'saved':'')+'" onclick="saveStudyWord(\''+liveEsc(w).replace(/&#39;/g,"\\'")+'\',freshItems.find(i=>i.key===activeStudyKey))">'+(saved?'✓ Saved':'+ Save')+'</button></div><p id="studyDef-'+liveEsc(w)+'">Loading meaning…</p><small>From: '+liveEsc(x.title)+'</small></article>'}).join('')+'</div><div class="studyBottom"><button class="btn" onclick="setStudyStep(1,true)">← Read again</button><button class="btn launchPrimary" onclick="setStudyStep(3,true)">Continue to check →</button></div>';
@@ -2321,7 +2329,7 @@ function renderFresh(){
   let shown=Math.max(baseFreshLimit(),freshShown||baseFreshLimit()),visible=list.slice(0,shown);
   g.innerHTML=visible.map(function(x){
     let status=articleStatus(x.key),isNew=freshAgeDays(x.published)<=3&&status==='New',words=freshTargetWords(x),lev=estimateFreshLevel(x);
-    return '<article class="freshcard studyCard '+(isNew?'isnew':'')+' '+(status==='Done'?'studied':'')+'" data-freshkey="'+liveEsc(x.key)+'">'+(x.image?'<img class="freshmedia" src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<div class="freshCardBody"><div class="kicker"><b>'+liveEsc(x.emoji||'✨')+' '+liveEsc(x.source)+'</b><span>'+formatFreshDate(x.published)+'</span></div><div class="freshBadges"><span>≈ '+lev+'</span><span>'+freshUniqueWords(x).length+' words</span><span>'+words.length+' targets</span><span class="studyStatus '+status.toLowerCase().replace(/\s+/g,'-')+'">'+status+'</span></div><h3>'+liveEsc(x.title)+'</h3><p>'+liveEsc(x.summary||'Open the original source to explore this English content.')+'</p><div class="targetPreview">'+words.map(w=>'<span>'+liveEsc(w)+'</span>').join('')+'</div><div class="freshactions simple">'+(isPlayableFresh(x)?'<button class="playHere" onclick="playFresh(\''+liveEsc(x.key)+'\')">▶ Play here</button>':'')+'<button class="studyNow" onclick="openStudy(\''+liveEsc(x.key)+'\',1,true)">'+(status==='Done'?'Review again':'Study →')+'</button></div></div></article>'
+    return '<article class="freshcard studyCard '+(isNew?'isnew':'')+' '+(status==='Done'?'studied':'')+'" data-freshkey="'+liveEsc(x.key)+'">'+(x.image?'<img class="freshmedia" src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<div class="freshCardBody"><div class="kicker"><b>'+liveEsc(x.emoji||'✨')+' '+liveEsc(x.source)+'</b><span>'+formatFreshDate(x.published)+'</span></div><div class="freshBadges"><span>≈ '+lev+'</span><span>'+freshUniqueWords(x).length+' words</span><span>'+words.length+' targets</span><span class="studyStatus '+status.toLowerCase().replace(/\s+/g,'-')+'">'+status+'</span></div><h3>'+liveEsc(x.title)+'</h3><p>'+liveEsc(x.summary||'Open the original source to explore this English content.')+'</p><div class="targetPreview">'+words.map(w=>'<span>'+liveEsc(w)+'</span>').join('')+'</div><div class="freshactions simple"><button class="studyNow" onclick="openStudy(\''+liveEsc(x.key)+'\',1,true)">'+(status==='Done'?'Review again':'Study →')+'</button>'+((isPlayableFresh(x)||isVoaItem(x))?'<details class="cardMore"><summary aria-label="More actions">•••</summary><div class="cardMoreMenu">'+(isPlayableFresh(x)?'<button class="playHere" onclick="playFresh(\''+liveEsc(x.key)+'\')">▶ Play here</button>':'')+(isVoaItem(x)?'<button class="readHub" onclick="openFreshInHub(\''+liveEsc(x.key)+'\')">▣ Read in Hub</button>':'')+'</div></details>':'')+'</div></div></article>'
   }).join('');
   let fm=document.getElementById('freshMore');if(fm)fm.innerHTML=list.length>visible.length?'<button class="btn" onclick="showMoreFresh()">Show 6 more</button><small>'+visible.length+' of '+list.length+'</small>':'<small>'+visible.length+' shown</small>';
   decorateDictionary(g);installCardSizeControls(g);
@@ -3541,7 +3549,96 @@ function elifAiKey(event){
 elifAiLoad();
 
 renderSettings();renderAppTabs();
-handleExternalLaunch();renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installCardSizeControls(document);installSourceCards();decorateDictionary(document);applyDeviceLayout();renderLanguageSwitcher();renderWidgets();renderClipSprint();renderResourceLab();renderWordBank();renderLearningLaunch();loadFresh();eqInit();navigateAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'),'replace');updateLeaguePreview();renderSettings();updateMediaTopOffset();
+handleExternalLaunch();
+/* ===== V5.2 READER + CAPTION BEHAVIOR OVERRIDES ===== */
+function isVoaItem(x){
+  return !!(x&&(/VOA/i.test(String(x.source||''))||/learningenglish\.voanews\.com/i.test(String(x.url||''))));
+}
+function openFreshInHub(key){
+  let x=freshItems.find(i=>i.key===key);if(!x)return;
+  openSourceInHub(x.url,x.title,x.source+' · '+x.category,x);
+}
+function splitStudyParagraphs(text){
+  let chunks=String(text||'').split(/(?<=[.!?])\s+(?=[A-Z0-9“"'])/).filter(Boolean),out=[],buf='';
+  for(const s of chunks){buf+=(buf?' ':'')+s;if(buf.length>420){out.push(buf);buf=''}}
+  if(buf)out.push(buf);return out.slice(0,10);
+}
+sourcePreviewHtml=function(url,title,meta,item){
+  const x=item||freshItems.find(i=>i.url===url)||null;
+  const summary=(x&&x.summary)||'BatumHub keeps a concise learning preview here while preserving the original publisher page.';
+  const study=(x&&x.study_text)||'';
+  const image=x&&x.image?'<img src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'';
+  const when=x&&x.published?freshRelative(x.published):'';
+  const source=(x&&x.source)||meta||sourceHost(url)||'Original source';
+  const detail=[source,when].filter(Boolean).join(' · ');
+  if(isVoaItem(x)&&study){
+    let paras=splitStudyParagraphs(study).map(p=>'<p>'+liveEsc(p)+'</p>').join('');
+    let listen=x.audio_url?'<button onclick="playMedia('+JSON.stringify(x.url)+','+JSON.stringify(x.title)+','+JSON.stringify(x.source+' · '+x.category)+','+JSON.stringify(x.audio_url)+',freshItems.find(i=>i.key==='+JSON.stringify(x.key)+'))">▶ Listen here</button>':'';
+    return '<div class="sourceReader voaReader"><div class="sourceReaderHero '+(image?'':'noImage')+'"><div><div class="sourceReaderMeta">'+liveEsc(detail)+'</div><h2>'+liveEsc(title||x.title||'VOA Learning English')+'</h2><p class="sourceReaderSummary">'+liveEsc(summary)+'</p></div>'+image+'</div><div class="voaReaderActions">'+listen+'<a href="'+liveEsc(url)+'" target="_blank" rel="noopener">Original VOA ↗</a></div><div class="voaArticleText">'+paras+'</div><div class="sourceReaderNotice"><b>BatumHub Reader</b><br>Study view uses a concise publisher-text excerpt for learning. The original VOA page remains available above.</div></div>';
+  }
+  return '<div class="sourceReader"><div class="sourceReaderHero '+(image?'':'noImage')+'"><div><div class="sourceReaderMeta">'+liveEsc(detail)+'</div><h2>'+liveEsc(title||x?.title||'Source')+'</h2><p class="sourceReaderSummary">'+liveEsc(summary)+'</p><div class="sourceReaderNotice"><b>BatumHub Reader Preview</b><br>This publisher does not expose an embeddable full reader here, so BatumHub keeps a compact study preview instead of showing a broken iframe.</div><div class="sourceReaderActions"><a href="'+liveEsc(url)+'" target="_blank" rel="noopener">Read full original ↗</a></div></div>'+image+'</div></div>';
+};
+openSourceInHub=function(url,title,meta,item){
+  if(!url)return;
+  const x=item||freshItems.find(i=>i.url===url)||null;
+  if(!x&&playMedia(url,title,meta||'BatumHub source',''))return;
+  setMedia(title||x?.title||'Source',(meta||x?.source||sourceHost(url))+' · BatumHub Reader',sourcePreviewHtml(url,title,meta,x),false,url,true,x);
+};
+playFresh=function(key){
+  let x=freshItems.find(i=>i.key===key);if(!x)return;
+  if(!playMedia(x.url,x.title,x.source+' · '+x.category,x.audio_url,x))openSourceInHub(x.url,x.title,x.source+' · '+x.category,x);
+};
+
+function buildGuidedCues(text,duration){
+  text=String(text||'').trim();duration=Number(duration);
+  if(!text||!Number.isFinite(duration)||duration<10)return [];
+  let sentences=text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[text];
+  sentences=sentences.map(x=>x.trim()).filter(x=>x.length>12).slice(0,42);
+  let weights=sentences.map(s=>Math.max(3,s.split(/\s+/).length)),total=weights.reduce((a,b)=>a+b,0),cursor=0;
+  return sentences.map((s,i)=>{let start=duration*(cursor/total);cursor+=weights[i];let end=duration*(cursor/total);return {start,end,text:s,guided:true}});
+}
+function renderCaptionCues(label,note){
+  let panel=document.getElementById('mediaCaptionPanel');if(!panel)return;
+  panel.innerHTML='<div class="captionLabel">'+label+(note?'<span class="captionNote">'+note+'</span>':'')+'</div><div class="karaokeText">'+mediaCaptionCues.map(captionCueHtml).join('')+'</div>';
+}
+renderMediaCaptionPanel=function(item){
+  let panel=document.getElementById('mediaCaptionPanel'),dock=document.getElementById('mediaDock'),btn=document.getElementById('mediaCaptionToggle');if(!panel||!dock||!btn)return;
+  let ui=captionUi(),real=normalizeCaptionCues(item);mediaCaptionCues=real;
+  let guided=isVoaItem(item)&&String(item?.study_text||'').trim().length>80;
+  btn.style.display='';btn.classList.toggle('on',mediaCaptionEnabled);
+  if(real.length){
+    btn.textContent='CC';btn.title=ui.cc;renderCaptionCues('CC · '+ui.cc,'Synchronized');
+  }else if(guided){
+    btn.textContent='CC';btn.title='Guided transcript';
+    panel.innerHTML='<div class="captionLabel">Guided transcript <span class="captionNote">Timing starts when audio metadata loads</span></div><div class="captionStudyText">'+liveEsc(item.study_text)+'</div>';
+  }else{
+    btn.textContent='TXT';btn.title=ui.study;
+    let text=item&&item.summary?String(item.summary):'',transcript=item&&item.transcript_url?String(item.transcript_url):'';
+    panel.innerHTML='<div class="captionLabel">'+ui.study+' <span class="captionNote">'+ui.notTimed+'</span></div>'+(text?'<div class="captionStudyText">'+liveEsc(text)+'</div>':'')+(transcript?'<p><a class="btn" href="'+liveEsc(transcript)+'" target="_blank" rel="noopener">'+ui.transcript+'</a></p>':'');
+  }
+  dock.classList.toggle('captionsOn',mediaCaptionEnabled);
+};
+function maybePrepareGuidedCaptions(audio){
+  let item=activeMediaContext&&activeMediaContext.item;if(!audio||!isVoaItem(item)||mediaCaptionCues.length||!item?.study_text)return;
+  let cues=buildGuidedCues(item.study_text,audio.duration);if(!cues.length)return;
+  mediaCaptionCues=cues;renderCaptionCues('CC · Guided transcript','Approximate timing · VOA study text');syncMediaCaptions(audio.currentTime||0);
+}
+bindPersistentAudio=function(){
+  let a=document.getElementById('bhMediaAudio'),play=document.getElementById('mediaAudioPlay'),mute=document.getElementById('mediaAudioMute'),seek=document.getElementById('mediaAudioSeek'),time=document.getElementById('mediaAudioTime'),vol=document.getElementById('mediaAudioVolume');
+  if(!a)return;
+  function sync(){
+    if(play)play.textContent=a.paused?'▶':'⏸';if(mute)mute.textContent=a.muted||a.volume===0?'🔇':'🔊';
+    if(seek&&Number.isFinite(a.duration)&&a.duration>0)seek.value=String((a.currentTime/a.duration)*100);else if(seek)seek.value='0';
+    if(time)time.textContent=formatMediaTime(a.currentTime)+' / '+formatMediaTime(a.duration);if(vol)vol.value=String(a.muted?0:a.volume);
+    if(Number.isFinite(a.duration))maybePrepareGuidedCaptions(a);syncMediaCaptions(a.currentTime);
+  }
+  ['timeupdate','loadedmetadata','durationchange','seeking'].forEach(ev=>a.addEventListener(ev,sync));
+  ['play','pause','volumechange','ended'].forEach(ev=>a.addEventListener(ev,sync));
+  a.addEventListener('play',()=>{if('mediaSession'in navigator)try{navigator.mediaSession.playbackState='playing'}catch(e){}});
+  a.addEventListener('pause',()=>{if('mediaSession'in navigator)try{navigator.mediaSession.playbackState='paused'}catch(e){}});
+  sync();a.play().catch(()=>sync());
+};
+renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installCardSizeControls(document);installSourceCards();decorateDictionary(document);applyDeviceLayout();renderLanguageSwitcher();renderWidgets();renderClipSprint();renderResourceLab();renderWordBank();renderLearningLaunch();loadFresh();eqInit();navigateAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'),'replace');updateLeaguePreview();renderSettings();updateMediaTopOffset();
 </script>
 
 
