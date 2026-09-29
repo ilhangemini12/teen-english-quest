@@ -757,7 +757,7 @@ bhRenderDate();bhLoadWeather();setInterval(bhLoadWeather,15*60*1000);
 const EQ_SUPABASE_URL='https://ylyiptbfqtmqwxirhehm.supabase.co';
 const EQ_SUPABASE_KEY='sb_publishable_H-tabbTCJePhTEEqwuyVBQ_4z02aTmg';
 const eqSupa=(window.supabase&&window.supabase.createClient)?window.supabase.createClient(EQ_SUPABASE_URL,EQ_SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
-let eqUser=null,eqProfile=null,eqFriends=[],eqSelectedFriend=null,eqMsgChannel=null,eqSyncTimer=null;
+let eqUser=null,eqProfile=null,eqFriends=[],eqOnlineFriends=[],eqSelectedFriend=null,eqMsgChannel=null,eqSyncTimer=null,eqPresenceTimer=null;
 const EQ_AVATARS={star:'⭐',moon:'🌙',flower:'🌸',butterfly:'🦋',cat:'🐈',fox:'🦊',panda:'🐼',headphones:'🎧',books:'📚',art:'🎨',wave:'🌊',planet:'🪐'};
 let eqSignupAvatar='star';
 function eqAvatarEmoji(key){return EQ_AVATARS[key]||EQ_AVATARS.star}
@@ -832,10 +832,10 @@ async function eqInit(){
 }
 async function eqHandleSession(session){
   eqUser=session&&session.user?session.user:null;
-  let so=document.getElementById('eqSignedOut'),si=document.getElementById('eqSignedIn'),btn=document.getElementById('eqAccountButton');
+  let so=document.getElementById('eqSignedOut'),si=document.getElementById('eqSignedIn'),btn=document.getElementById('eqAccountButton'),msgBtn=document.getElementById('eqMessagesButton');
   if(!eqUser){
     eqProfile=null;eqFriends=[];eqSelectedFriend=null;
-    if(so)so.style.display='block';if(si)si.style.display='none';if(btn)btn.textContent='👤 Account';
+    if(so)so.style.display='block';if(si)si.style.display='none';if(btn)btn.textContent='👤 Account';if(msgBtn)msgBtn.style.display='none';
     if(!document.getElementById('accountModal')?.classList.contains('open'))eqSetStatus('',false);
     eqRenderInbox();eqRefreshLeague();renderDemoPass();return;
   }
@@ -846,19 +846,23 @@ async function eqHandleSession(session){
   await eqLoadFriends();
   await eqRefreshLeague();
   if(btn)btn.textContent='👤 '+(eqProfile?eqProfile.nickname:'Account');
-  eqSetStatus('Secure cloud account connected.',true);renderDemoPass();
+  if(msgBtn)msgBtn.style.display='';
+  eqStartPresence();
+  eqSetStatus('Secure cloud account connected.',true);renderDemoPass();renderAppTabs();renderWidgets();
 }
 async function eqSignUp(){
   if(!eqSupa)return;
-  let nick=(document.getElementById('eqSignupUsername').value||'').trim(),email=(document.getElementById('eqSignupEmail').value||'').trim(),password=document.getElementById('eqSignupPassword').value||'';
+  let nick=(document.getElementById('eqSignupUsername').value||'').trim(),email=(document.getElementById('eqSignupEmail').value||'').trim(),password=document.getElementById('eqSignupPassword').value||'',grade=Number(document.getElementById('eqSignupGrade')?.value||0);
   if(!eqValidNickname(nick))return eqSetStatus('Nickname: 3–20 characters; use letters, numbers, _, . or - only.',false);
+  if(!(grade>=1&&grade<=12))return eqSetStatus('Choose the learner’s school grade so BatumHub can set the right level.',false);
   if(!email||!email.includes('@'))return eqSetStatus('Enter a valid email address.',false);
   if(password.length<8)return eqSetStatus('Create a password with at least 8 characters.',false);
   localStorage.setItem('eq-pending-nickname',nick);
   localStorage.setItem('eq-pending-email',email);
   localStorage.setItem('eq-pending-avatar',eqSignupAvatar);
+  localStorage.setItem('teq-grade',String(grade));
   eqSetStatus('Creating account…',false);
-  const {data,error}=await eqSupa.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname,data:{nickname:nick,avatar_key:eqSignupAvatar}}});
+  const {data,error}=await eqSupa.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname,data:{nickname:nick,avatar_key:eqSignupAvatar,grade_level:grade}}});
   if(error)return eqSetStatus(liveEsc(error.message),false);
   if(data.session){
     await eqHandleSession(data.session);await eqApplyPendingNickname();localStorage.removeItem('eq-pending-email');eqSetStatus('Account created and signed in.',true);closeAccount();
@@ -927,6 +931,8 @@ async function eqLoadProfile(){
   let u=document.getElementById('eqUsername'),i=document.getElementById('eqInviteCode'),n=document.getElementById('eqNicknameEdit'),a=document.getElementById('eqProfileAvatarLarge'),btn=document.getElementById('eqAccountButton');
   if(u)u.textContent=data.nickname;if(i)i.textContent=data.invite_code;if(n)n.value=data.nickname;if(a)a.textContent=eqAvatarEmoji(data.avatar_key);
   if(btn)btn.textContent=eqAvatarEmoji(data.avatar_key)+' '+data.nickname;
+  let gs=document.getElementById('eqGradeSelect');if(gs)gs.value=localStorage.getItem('teq-grade')||'';
+  let ps=document.getElementById('eqPresenceSelect');if(ps)ps.value=localStorage.getItem('teq-presence')||'online';
   eqRenderAvatarPicker('eqProfileAvatarPicker',data.avatar_key||'star','profile');
 }
 async function eqApplyPendingNickname(){
@@ -967,7 +973,7 @@ async function eqLoadFriends(){
   if(!eqUser){eqFriends=[];eqRenderInbox();return}
   const {data,error}=await eqSupa.rpc('get_my_friends');
   if(error){eqSetStatus('Friends could not load.',false);return}
-  eqFriends=data||[];eqRenderFriendRequests();eqRenderInbox();
+  eqFriends=data||[];await eqLoadOnlineFriends();eqRenderFriendRequests();eqRenderInbox();renderWidgets();
 }
 function eqRenderFriendRequests(){
   let box=document.getElementById('eqFriendRequests');if(!box)return;
@@ -1008,7 +1014,7 @@ async function eqLoadCloudPrefs(){
   if(!eqUser)return;
   const {data}=await eqSupa.from('user_preferences').select('*').eq('user_id',eqUser.id).single();
   if(!data)return;
-  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);if(!localStorage.getItem('teq-ui-v4-clean')){
+  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);if(data.grade_level)localStorage.setItem('teq-grade',String(data.grade_level));localStorage.setItem('teq-presence',data.presence_mode||'online');if(Array.isArray(data.widgets)&&data.widgets.length)localStorage.setItem('teq-widgets',JSON.stringify(data.widgets));if(!localStorage.getItem('teq-ui-v4-clean')){
   localStorage.setItem('teq-theme','dark');
   localStorage.setItem('teq-density','compact');
   localStorage.setItem('teq-font','system');
@@ -1017,12 +1023,12 @@ async function eqLoadCloudPrefs(){
   localStorage.setItem('teq-home-focus','balanced');
   localStorage.setItem('teq-ui-v4-clean','1');
 }
-renderSettings();renderAppTabs();
+renderSettings();renderAppTabs();renderWidgets();applyGradeExperience();
 }
 async function eqSaveCloudPrefs(){
   if(!eqUser||!eqSupa)return;
-  let interests=JSON.parse(localStorage.getItem('teq-interests')||'[]');
-  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','compact'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',updated_at:new Date().toISOString()});
+  let interests=JSON.parse(localStorage.getItem('teq-interests')||'[]'),grade=Number(localStorage.getItem('teq-grade')||0)||null,widgets=getWidgets(),presence=localStorage.getItem('teq-presence')||'online';
+  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','compact'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',grade_level:grade,presence_mode:presence,widgets,updated_at:new Date().toISOString()});
 }
 async function eqRefreshLeague(){
   let list=document.getElementById('rankList');if(!list)return;
@@ -1033,12 +1039,50 @@ async function eqRefreshLeague(){
   list.innerHTML=rows.map((r,i)=>'<div class="rankrow"><span class="ranknum">'+(i+1)+'</span><div><b>'+liveEsc(r.nickname)+'</b><small>'+(r.user_id===eqUser.id?' You':' Friend')+'</small></div><strong>'+Number(r.weekly_xp||0)+' XP</strong></div>').join('')+
   '<div class="rankrow inviteSlot"><span class="ranknum">+</span><div><b>Add a friend</b><small> Use a private invite code.</small></div><button class="btn" onclick="openAccount()">Invite</button></div>';
 }
+async function eqLoadOnlineFriends(){
+  if(!eqUser||!eqSupa){eqOnlineFriends=[];return}
+  const {data,error}=await eqSupa.rpc('get_online_friends');
+  if(!error)eqOnlineFriends=data||[];
+}
+function eqOnlineFor(id){return eqOnlineFriends.find(x=>x.friend_id===id)||null}
+async function eqSetPresence(mode){
+  if(!['online','invisible'].includes(mode))return;
+  localStorage.setItem('teq-presence',mode);
+  if(eqUser&&eqSupa){
+    await eqSupa.from('user_preferences').update({presence_mode:mode,updated_at:new Date().toISOString()}).eq('user_id',eqUser.id);
+    await eqSupa.rpc('record_activity',{section_name:localStorage.getItem('teq-active-tab')||'Home',seconds_delta:0});
+  }
+  renderSettings();await eqLoadOnlineFriends();eqRenderInbox();renderWidgets();
+}
+async function eqPresencePing(){
+  if(!eqUser||!eqSupa||document.hidden)return;
+  await eqSupa.rpc('record_activity',{section_name:localStorage.getItem('teq-active-tab')||'Home',seconds_delta:30});
+  await eqLoadOnlineFriends();eqRenderInbox();renderWidgets();
+}
+function eqStartPresence(){
+  clearInterval(eqPresenceTimer);eqPresencePing();eqPresenceTimer=setInterval(eqPresencePing,60000);
+}
+function eqGradeBand(g){
+  g=Number(g||0);
+  if(g<=0)return {label:'Choose grade',cefr:'Adaptive'};
+  if(g<=4)return {label:'Elementary · Grade '+g,cefr:'A1'};
+  if(g<=6)return {label:'Upper Elementary · Grade '+g,cefr:'A1–A2'};
+  if(g<=8)return {label:'Middle School · Grade '+g,cefr:'A2–B1'};
+  if(g<=10)return {label:'High School · Grade '+g,cefr:'B1–B2'};
+  return {label:'High School · Grade '+g,cefr:'B2–C1'};
+}
+async function eqSetGrade(value){
+  let g=Number(value||0);if(!(g>=1&&g<=12))return;
+  localStorage.setItem('teq-grade',String(g));
+  if(eqUser&&eqSupa)await eqSupa.from('user_preferences').update({grade_level:g,updated_at:new Date().toISOString()}).eq('user_id',eqUser.id);
+  applyGradeExperience();renderSettings();renderWidgets();renderAppTabs();
+}
 function eqRenderInbox(){
   let box=document.getElementById('eqInboxList');if(!box)return;
   if(!eqUser){box.className='emptyThread';box.innerHTML='Sign in to see your friends.';return}
   let friends=eqFriends.filter(f=>f.status==='accepted');
   if(!friends.length){box.className='emptyThread';box.innerHTML='No accepted friends yet.<br><small>Use an invite code from the Account panel.</small>';return}
-  box.className='';box.innerHTML=friends.map(f=>'<button class="btn" style="display:block;width:100%;text-align:left;margin:6px 0" onclick="eqOpenChat(\''+f.friend_id+'\',\''+liveEsc(f.nickname).replace(/&#39;/g,"\\'")+'\')">💬 '+liveEsc(f.nickname)+'</button>').join('');
+  box.className='';box.innerHTML=friends.map(f=>{let o=eqOnlineFor(f.friend_id);return '<button class="btn" style="display:block;width:100%;text-align:left;margin:6px 0" onclick="eqOpenChat(\''+f.friend_id+'\',\''+liveEsc(f.nickname).replace(/&#39;/g,"\\'")+'\')"><span class="onlineDot '+(o&&o.online?'on':'')+'"></span>'+eqAvatarEmoji(o&&o.avatar_key)+' '+liveEsc(f.nickname)+(o&&o.online?' <small>online</small>':'')+'</button>'}).join('');
 }
 async function eqOpenChat(friendId,nickname){
   eqSelectedFriend={id:friendId,nickname};let h=document.getElementById('eqChatHeader'),comp=document.getElementById('eqComposer');
