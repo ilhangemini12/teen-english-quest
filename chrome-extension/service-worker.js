@@ -22,7 +22,7 @@ chrome.runtime.onInstalled.addListener(()=>{
     chrome.contextMenus.create({
       id:'batumhub-open',
       title:'Open BatumHub',
-      contexts:['page','action']
+      contexts:['page']
     });
   });
 });
