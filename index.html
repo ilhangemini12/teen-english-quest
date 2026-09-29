@@ -437,6 +437,76 @@ if ('serviceWorker' in navigator) {
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="mobile-native.js" defer></script>
+<style id="batumhub-vnext-shell">
+:root{--vnav-h:68px;--vbrand:#6366f1;--vbrand2:#818cf8;--vsurface:#101a2d;--vsurface2:#16233a;--vtext:#f8fbff;--vmuted:#9fb0c8}
+html{scroll-padding-bottom:calc(var(--vnav-h) + 28px)}
+body{padding-bottom:calc(var(--vnav-h) + 24px + env(safe-area-inset-bottom))}
+#coreNav,#appTabs{display:none!important}
+.brandnav{min-height:54px;padding:8px 0;gap:8px}
+.brandWord{font-size:18px;letter-spacing:.02em}
+.vnextHeaderIcon{width:42px;height:42px;border-radius:14px;border:1px solid #2b4261;background:#101d31;color:#fff;display:grid;place-items:center;font-size:18px;cursor:pointer}
+.vnextAccountBtn{padding:9px 12px}
+#topStatusBar{min-height:30px;padding:0 0 7px;gap:6px}
+#topStatusBar>*{display:none!important}
+#topStatusBar>span:nth-child(2){display:inline-flex!important;margin-left:auto;font-size:12px;padding:4px 8px;border-radius:999px;background:#0e1b2e;border:1px solid #223854}
+body[data-app-tab="Home"] #demoPass,
+body[data-app-tab="Home"] #learningLaunch,
+body[data-app-tab="Home"] #quickControls,
+body[data-app-tab="Home"] #personalWidgets,
+body[data-app-tab="Home"] #fresh,
+body[data-app-tab="Home"] #foundationHub,
+body[data-app-tab="Home"] #languageHub{display:none!important}
+#heroHome.vnextHero{grid-template-columns:1fr!important;min-height:calc(100dvh - 190px);padding:24px 0 18px;display:grid;place-items:center}
+.vnextHeroCore{width:min(620px,100%);text-align:center;background:linear-gradient(155deg,#121f35,#0b1526);border:1px solid #263a58;border-radius:28px;padding:clamp(22px,5vw,42px);box-shadow:0 24px 70px #0005}
+.vnextProgressLine{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#dfe9f7;font-weight:850;margin-bottom:10px}
+.vnextStreak,.vnextXp{display:inline-flex;align-items:center;gap:6px;background:#0c1829;border:1px solid #243b5a;border-radius:999px;padding:7px 10px}
+.vnextProgressTrack{height:9px;background:#1a2941;border-radius:999px;overflow:hidden;margin:0 0 30px}
+.vnextProgressTrack>div{height:100%;width:0;background:linear-gradient(90deg,#6ee7b7,#7dd3fc);border-radius:inherit;transition:width .35s ease}
+.vnextEyebrow{display:block;font-size:12px;font-weight:1000;letter-spacing:.16em;color:#a5b4fc;margin-bottom:10px}
+#heroHome.vnextHero h1{font-size:clamp(36px,9vw,64px);line-height:.98;margin:0 auto 14px;max-width:10ch}
+.vnextHeroText{max-width:48ch;margin:0 auto 24px;color:#b7c5d8;font-size:15px}
+.vnextQuestButton{width:min(100%,360px);min-height:68px;border:0;border-radius:22px;background:linear-gradient(135deg,var(--vbrand),var(--vbrand2));color:#fff;font:900 18px/1 system-ui;box-shadow:0 14px 34px #4f46e54a;cursor:pointer;transition:transform .14s ease,filter .14s ease}
+.vnextQuestButton:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.vnextQuestButton:active{transform:scale(.98)}
+.vnextExploreLink{display:block;margin:14px auto 0;border:0;background:transparent;color:#9ecdf2;font-weight:800;cursor:pointer;padding:8px}
+.vnextMeta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px;color:#8fa4bf;font-size:12px}
+.vnextMeta span{padding:5px 8px;border-radius:999px;background:#0b1627}
+.vnextLegacyProgress{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.vnextBottomNav{position:fixed;z-index:90;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));height:var(--vnav-h);display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:6px;border-radius:22px;background:#0b1424f2;border:1px solid #2a3f5d;box-shadow:0 18px 50px #0008;backdrop-filter:blur(18px)}
+.vnextBottomNav button{border:0;background:transparent;color:#8fa4bf;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:800 11px/1 system-ui;cursor:pointer;min-width:0}
+.vnextBottomNav .vicon{font-size:21px;line-height:1.1}
+body[data-app-tab="Home"] #vnavHome,
+body[data-app-tab="Explore"] #vnavExplore,
+body[data-app-tab="ElifAI"] #vnavTutor,
+body[data-app-tab="League"] #vnavLeague{background:#1b2942;color:#fff;box-shadow:inset 0 0 0 1px #3a5275}
+#exploreHub .sourceGrid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+#exploreHub .sourceCard{min-height:150px;border-radius:20px;padding:16px}
+#exploreHub .sourceCard .srcico{font-size:30px}
+#exploreHub .sourceCard h3{font-size:17px;margin:8px 0 4px}
+#exploreHub .sourceCard p{font-size:12px;line-height:1.4;margin:0 0 8px;color:#9fb0c8}
+@media(max-width:650px){
+  .wrap{padding-left:14px;padding-right:14px}
+  .brandnav .installAppBtn span,.vnextAccountBtn span{display:none}
+  .profilebtn{width:42px;height:42px;padding:0;display:grid;place-items:center}
+  #topStatusBar{margin-top:-4px}
+  #heroHome.vnextHero{min-height:calc(100dvh - 178px);padding:12px 0}
+  .vnextHeroCore{border-radius:24px;padding:24px 18px}
+  .vnextProgressLine{font-size:12px}
+  .vnextStreak,.vnextXp{padding:6px 8px}
+  .vnextProgressTrack{margin-bottom:24px}
+  .vnextHeroText{font-size:14px;margin-bottom:20px}
+  .vnextQuestButton{min-height:64px;font-size:17px}
+  #exploreHub>h2{font-size:28px}
+  #exploreHub>.intro{display:none}
+  #exploreHub .sourceGrid{grid-template-columns:1fr 1fr;gap:10px}
+  #exploreHub .sourceCard{min-height:130px;padding:14px}
+  #exploreHub .sourceCard p{display:none}
+  #exploreHub .sourceCard small{font-size:11px}
+}
+@media(max-width:390px){#exploreHub .sourceGrid{grid-template-columns:1fr}.vnextBottomNav{left:8px;right:8px}.vnextHeroCore{padding:22px 15px}}
+@media(min-width:900px){.vnextBottomNav{left:50%;right:auto;width:620px;transform:translateX(-50%);bottom:18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
   <h2>👤 BatumHub Account</h2>
@@ -553,7 +623,12 @@ if ('serviceWorker' in navigator) {
   </div>
   <div class="languageLevels" id="languageLevelChips"></div>
 </div>
-<nav class="brandnav"><b class="brandWord">BATUM<span>HUB</span></b><button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="BatumHub">📲 BatumHub</button><button class="profilebtn" id="eqAccountButton" onclick="openAccount()">👤 Account</button></nav>
+<nav class="brandnav">
+  <b class="brandWord">BATUM<span>HUB</span></b>
+  <button class="vnextHeaderIcon" id="vnextMessageButton" onclick="navigateAppTab(document.body.dataset.appTab==='Messages'?'Home':'Messages',null,'push')" title="Messages" aria-label="Messages">💬</button>
+  <button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="Install BatumHub">📲 <span>Install</span></button>
+  <button class="profilebtn vnextAccountBtn" id="eqAccountButton" onclick="openAccount()" aria-label="Account">👤 <span>Account</span></button>
+</nav>
 <div class="coreNav" id="coreNav">
   <button data-core="Home" onclick="navigateAppTab('Home',null,'push')">🏠 <span>Home</span></button>
   <button data-core="Learn" onclick="navigateAppTab('Learn',null,'push')">📘 <span>Learn</span></button>
@@ -564,10 +639,30 @@ if ('serviceWorker' in navigator) {
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
   <button class="profileStatusPill" id="bhLearningProfile" onclick="openTab('Settings')" title="Learning profile">🎓 <b>Learning profile</b></button>
-  <span class="versionTop">⚙️ <b id="bhVersion">v5.3</b></span>
+  <span class="versionTop">⚙️ <b id="bhVersion">v5.4</b></span>
   <span>🕒 <b id="bhUpdated">—</b></span>
 </div>
-<div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
+<div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero vnextHero" id="heroHome">
+  <div class="vnextHeroCore">
+    <div class="vnextProgressLine">
+      <span class="vnextStreak">🔥 <strong id="streak">0</strong> day streak</span>
+      <span class="vnextXp"><strong id="xp">0</strong> XP</span>
+    </div>
+    <div class="vnextProgressTrack" aria-hidden="true"><div id="weekbar"></div></div>
+    <span class="vnextEyebrow">TODAY'S QUEST</span>
+    <h1>One mission. Make it count.</h1>
+    <p class="vnextHeroText">A short, focused English challenge matched to your level. Finish it, earn XP, then choose what comes next.</p>
+    <button class="vnextQuestButton" onclick="launchPrimaryAction()">▶ Start today's quest</button>
+    <button class="vnextExploreLink" onclick="openTab('Explore')">Explore something else →</button>
+    <div class="vnextMeta">
+      <span>Level <strong id="level">1</strong></span>
+      <span><strong id="donec">0/38</strong> missions</span>
+    </div>
+    <div class="vnextLegacyProgress" aria-hidden="true">
+      <small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small>
+    </div>
+  </div>
+</section><section id="demoPass" class="demoPass">
       <div>
         <b>🎟️ Free demo · 5 learning actions</b>
         <span id="demoPassText">Try BatumHub before creating an account.</span>
@@ -1123,8 +1218,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='5.3';
-const BH_SITE_UPDATED='2026-09-30T01:55:00+04:00';
+const BH_SITE_VERSION='5.4';
+const BH_SITE_UPDATED='2026-09-30T02:27:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -2480,6 +2575,7 @@ function navigateAppTab(name,btn,mode='push'){
 function openTab(name){navigateAppTab(name,[...document.querySelectorAll('#appTabs button')].find(x=>x.dataset.tab===name)||null,'push')}
 function showAppTab(name,btn){
   localStorage.setItem('teq-active-tab',name);
+  document.body.dataset.appTab=name;
   if(btn){document.querySelectorAll('#appTabs button').forEach(b=>b.classList.remove('on'));btn.classList.add('on')} else setTabButton(name);
   appMissionCats=null;appMissionMode='all';
   const grade=currentGrade(),lang=currentLearningLanguage();
@@ -3729,4 +3825,10 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
 
 
 
+<nav class="vnextBottomNav" id="vnextBottomNav" aria-label="Primary navigation">
+  <button id="vnavHome" data-vtab="Home" onclick="navigateAppTab('Home',null,'push')"><span class="vicon">🏠</span><span>Home</span></button>
+  <button id="vnavExplore" data-vtab="Explore" onclick="navigateAppTab('Explore',null,'push')"><span class="vicon">🧭</span><span>Explore</span></button>
+  <button id="vnavTutor" data-vtab="ElifAI" onclick="navigateAppTab('ElifAI',null,'push')"><span class="vicon">✨</span><span>AI Tutor</span></button>
+  <button id="vnavLeague" data-vtab="League" onclick="navigateAppTab('League',null,'push')"><span class="vicon">🏆</span><span>League</span></button>
+</nav>
 </body></html>
