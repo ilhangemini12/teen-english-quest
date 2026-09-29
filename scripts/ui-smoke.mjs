@@ -31,7 +31,6 @@ try {
 
   const widgetEs = await page.$eval('#widgetGrid', el => el.innerText);
   assert(widgetEs.includes('Palabra del día'), 'Spanish Word of the Day missing: '+widgetEs.slice(0,300));
-  assert(!document?.foo, 'noop');
 
   // Spanish A1 native curriculum.
   await page.click('#coreNav button[data-core="Learn"]');
