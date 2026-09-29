@@ -101,7 +101,7 @@ def enrich_voa_item(item):
             txt=re.sub(r"\s+"," "," ".join(node.stripped_strings)).strip()
             low=txt.lower()
             if len(txt)<35 or txt in seen: continue
-            if any(x in low for x in ["cookie","privacy","subscribe","follow us","share on","copyright","terms of use"]): continue
+            if any(x in low for x in ["cookie","privacy","subscribe","follow us","share on","copyright","terms of use","no media source currently available"]): continue
             seen.add(txt);paras.append(txt)
             if sum(len(x) for x in paras)>2600: break
         study=" ".join(paras).strip()
