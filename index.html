@@ -1388,12 +1388,20 @@ function freshUniqueWords(x){
 }
 function freshTargetWords(x){
   let arr=freshUniqueWords(x),level=currentEnglishLevel(),li=Math.max(0,levelIndex(level));
-  arr=arr.filter(w=>w.length>=4&&w.length<18);
-  arr.sort((a,b)=>{
-    let sa=(a.length>=6?2:0)+(li>=2&&a.length>=8?2:0)+(a.includes('-')?1:0);
-    let sb=(b.length>=6?2:0)+(li>=2&&b.length>=8?2:0)+(b.includes('-')?1:0);
-    return sb-sa||a.localeCompare(b);
-  });
+  const summary=String(x.summary||''),title=String(x.title||''),full=summary+' '+title;
+  const low=new Set(['building','things','thing','world','years','year','today','episode','learn','learning','english','video','audio','talk','talks','story','stories','people','person','place','places','books','book','using','used','helps','helping','inside','entire','another','really','often','usually','turned','look','find','make','makes','made']);
+  arr=arr.filter(w=>w.length>=4&&w.length<18&&!low.has(w));
+  function score(w){
+    let sc=0;
+    if(summary.toLowerCase().includes(w))sc+=5;
+    if(title.toLowerCase().includes(w))sc+=1;
+    if(full.includes(w))sc+=3; // lowercase occurrence: less likely to be a proper name
+    if(w.length>=6)sc+=2;if(li>=2&&w.length>=8)sc+=2;
+    if(/(tion|sion|ment|ity|ous|ive|able|ible|ance|ence|ed)$/.test(w))sc+=1;
+    if(full.includes(w.charAt(0).toUpperCase()+w.slice(1))&&!full.includes(w))sc-=6;
+    return sc;
+  }
+  arr.sort((a,b)=>score(b)-score(a)||b.length-a.length||a.localeCompare(b));
   return arr.slice(0,4);
 }
 function baseFreshLimit(){let tab=localStorage.getItem('teq-active-tab')||'Home';return tab==='Home'?6:tab==='News'?12:9}
@@ -1456,7 +1464,7 @@ function openStudy(key,step=1,push=true){
 }
 function setStudyStep(step,push=true){if(!activeStudyKey)return;activeStudyStep=Math.max(1,Math.min(3,step));openStudy(activeStudyKey,activeStudyStep,push)}
 function studyBack(){if(activeStudyStep>1){history.back();return}exitStudy()}
-function exitStudy(){activeStudyKey='';activeStudyStep=1;showAppTab(studyReturnTab,null)}
+function exitStudy(){activeStudyKey='';activeStudyStep=1;history.replaceState(null,'',location.pathname+location.search);showAppTab(studyReturnTab,null)}
 window.addEventListener('popstate',e=>{
   let st=e.state;
   if(st&&st.bh==='study'){activeStudyKey=st.key;activeStudyStep=st.step||1;setVisible(['studyFlow']);renderStudyFlow();window.scrollTo({top:0,behavior:'auto'});return}
@@ -1546,7 +1554,7 @@ function rateWordReview(rating){
   if(rating==='easy'){stage=Math.min(6,stage+2);days=[1,3,7,14,30,60,90][stage]||90;cur.correct=Number(cur.correct||0)+1}
   cur.stage=stage;cur.nextReview=addDaysIso(days);cur.lastReviewed=new Date().toISOString();bank[w.word]=cur;s.wordBank=bank;sv();reviewIndex++;renderWordReviewCard();
 }
-function closeWordReview(){reviewQueue=[];reviewIndex=0;showAppTab('Vocabulary',null)}
+function closeWordReview(){reviewQueue=[];reviewIndex=0;history.replaceState(null,'',location.pathname+location.search);showAppTab('Vocabulary',null)}
 function liveEsc(v){return String(v||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function freshFilter(cat,btn){freshCat=cat;freshShown=baseFreshLimit();document.querySelectorAll('#freshFilters button').forEach(function(b){b.classList.toggle('on',b===btn)});renderFresh()}
 function freshAgeFilter(days,btn){freshAge=days;freshShown=baseFreshLimit();localStorage.setItem('teenFreshAge',String(days));document.querySelectorAll('#freshDateFilters button').forEach(function(b){b.classList.toggle('on',b===btn)});renderFresh()}
