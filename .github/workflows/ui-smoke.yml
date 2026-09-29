@@ -1,0 +1,42 @@
+name: UI Smoke Test
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "feed.json"
+      - "scripts/ui-smoke.mjs"
+      - ".github/workflows/ui-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: batumhub-ui-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Find Chrome
+        shell: bash
+        run: |
+          CHROME_PATH="$(which google-chrome || which google-chrome-stable || which chromium || which chromium-browser || true)"
+          test -n "$CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+      - name: Install lightweight browser driver
+        run: npm install --no-save --ignore-scripts puppeteer-core@24.22.3
+      - name: Start local BatumHub
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/batumhub-http.log 2>&1 &
+          echo $! >/tmp/batumhub-http.pid
+          sleep 2
+      - name: Run UI regression smoke
+        run: node scripts/ui-smoke.mjs
