@@ -303,7 +303,7 @@ if ('serviceWorker' in navigator) {
 <div class="topStatusBar" id="topStatusBar">
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
-  <span class="versionTop">⚙️ <b>v4.3.3</b></span>
+  <span class="versionTop">⚙️ <b>v4.3.4</b></span>
   <span>🕒 <b id="bhUpdated">Updated Sep 29, 2026</b></span>
 </div>
 <div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
@@ -649,8 +649,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for 3 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='4.3.3';
-const BH_SITE_UPDATED='2026-09-29T13:55:00+04:00';
+const BH_SITE_VERSION='4.3.4';
+const BH_SITE_UPDATED='2026-09-29T13:59:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -1095,6 +1095,7 @@ function setMedia(title,meta,html,audioOnly){
   document.getElementById('mediaTitle').textContent=title||'BatumHub Player';
   document.getElementById('mediaMeta').textContent=meta||'';
   stage.innerHTML=html;dock.classList.add('open');dock.classList.toggle('audioOnly',!!audioOnly);
+  if(!audioOnly&&window.innerWidth>=900)dock.classList.add('expanded');else dock.classList.remove('expanded');
 }
 function playMedia(url,title,meta,audioUrl){
   let kind=playableKind(url,audioUrl);
@@ -1188,9 +1189,17 @@ function installMissionTools(){
     if(src){
       let url=src.href,kind=playableKind(url,'');
       if(kind){
-        let play=document.createElement('button');play.className='mediaAction playHere';play.textContent='▶ Play here';
-        play.onclick=()=>playMedia(url,m.title,m.source,'');actions.insertBefore(play,src);
+        let play=document.createElement('button');
+        play.className='mediaAction playHere';
+        play.type='button';
+        play.textContent='▶ Play here';
+        play.onclick=()=>playMedia(url,m.title,m.source,'');
+        actions.insertBefore(play,src);
+        src.remove();
+      }else{
         src.textContent='Source ↗';
+        src.target='_blank';
+        src.rel='noopener';
       }
     }
     let quiz=document.createElement('button');quiz.className='missionQuizBtn';quiz.textContent='🧩 Quiz +15 XP';quiz.onclick=()=>openMissionQuiz(id);actions.appendChild(quiz);
@@ -1259,11 +1268,11 @@ function renderFresh(){
   if(!list.length){g.innerHTML='<div class="freshempty">Nothing matches these filters yet. Try <b>All curated</b>, another vibe, or check after the next refresh.</div>';return}
   g.innerHTML=list.slice(0,18).map(function(x){
     let d=(s.freshDone||[]).includes(x.key),isNew=freshAgeDays(x.published)<=3&&!d;
-    return '<article class="freshcard '+(isNew?'isnew':'')+'" data-freshkey="'+liveEsc(x.key)+'">'+(x.image?'<img class="freshmedia" src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<div class="kicker"><b>'+liveEsc(x.emoji||'✨')+' '+liveEsc(x.source)+'</b> · '+liveEsc(x.category)+' · '+liveEsc(freshRelative(x.published))+(isNew?' · <span class="newbadge">NEW</span>':'')+'</div><h3>'+liveEsc(x.title)+'</h3><p>'+liveEsc(x.summary||'Open the original source to explore this English content.')+'</p><div class="freshactions">'+(isPlayableFresh(x)?'<button class="playHere" onclick="playFresh(\''+liveEsc(x.key)+'\')">▶ Play here</button>':'')+'<button class="quizHere" onclick="openFreshQuiz(\''+liveEsc(x.key)+'\')">🧩 Quiz +15 XP</button><a href="'+liveEsc(x.url)+'" target="_blank" rel="noopener">Source ↗</a><button class="'+(d?'done':'')+'" onclick="markFresh(\''+liveEsc(x.key)+'\')">'+(d?'✓ Explored':'+5 XP · Explored')+'</button></div></article>'
+    return '<article class="freshcard '+(isNew?'isnew':'')+'" data-freshkey="'+liveEsc(x.key)+'">'+(x.image?'<img class="freshmedia" src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<div class="kicker"><b>'+liveEsc(x.emoji||'✨')+' '+liveEsc(x.source)+'</b> · '+liveEsc(x.category)+' · '+liveEsc(freshRelative(x.published))+(isNew?' · <span class="newbadge">NEW</span>':'')+'</div><h3>'+liveEsc(x.title)+'</h3><p>'+liveEsc(x.summary||'Open the original source to explore this English content.')+'</p><div class="freshactions">'+(isPlayableFresh(x)?'<button class="playHere" onclick="playFresh(\''+liveEsc(x.key)+'\')">▶ Play here</button>':'<a href="'+liveEsc(x.url)+'" target="_blank" rel="noopener">Source ↗</a>')+'<button class="quizHere" onclick="openFreshQuiz(\''+liveEsc(x.key)+'\')">🧩 Quiz +15 XP</button><button class="'+(d?'done':'')+'" onclick="markFresh(\''+liveEsc(x.key)+'\')">'+(d?'✓ Explored':'+5 XP · Explored')+'</button></div></article>'
   }).join('');decorateDictionary(g)
 }
 async function loadFresh(){try{let r=await fetch('feed.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('feed');let data=await r.json();freshItems=Array.isArray(data.items)?data.items:[];syncFreshPrefs();let u=document.getElementById('freshUpdated');if(u)u.textContent=data.updated_at?'Refreshed '+new Date(data.updated_at).toLocaleString():'Daily feed';renderFresh()}catch(e){let u=document.getElementById('freshUpdated');if(u)u.textContent='Daily feed';let g=document.getElementById('freshGrid');if(g)g.innerHTML='<div class="freshempty">Fresh feed is warming up. The 38-mission course is ready meanwhile.</div>'}}
-function render(){let X=xp(),L=level(X),w=week();xpEl=document.getElementById('xp');xpEl.textContent=X;document.getElementById('level').textContent=L.l;document.getElementById('streak').textContent=streak();document.getElementById('donec').textContent=s.done.length+'/'+missions.length;document.getElementById('levelbar').style.width=L.p+'%';document.getElementById('leveltxt').textContent='Level '+L.l+' · '+(L.b-X)+' XP to next';let wm=missions.filter(m=>m.week===w),wd=wm.filter(m=>s.done.includes(m.id)).length;document.getElementById('weekbar').style.width=(100*wd/(wm.length||1))+'%';document.getElementById('weektxt').textContent='Week '+w+' · '+wd+'/'+wm.length+' missions';document.querySelectorAll('.mission').forEach(e=>{let id=+e.dataset.id,d=s.done.includes(id);e.classList.toggle('done',d);let b=e.querySelector('button');b.classList.toggle('complete',d);b.textContent=d?'✓ Completed':'✓ Complete'});document.getElementById('daily').innerHTML='<h3>Today’s 3</h3>'+sugg().map((m,i)=>'<button class="qitem qlink" onclick="goToMission('+m.id+')"><span><b>'+(i+1)+'. '+m.icon+' '+m.title+'</b><br><small>'+m.cat+' · +'+m.xp+' XP</small></span><span class="qarrow">→</span></button>').join('');let B=bosses.find(b=>b.week===w);document.getElementById('boss').innerHTML='<small>WEEK '+B.week+' BOSS · +'+B.xp+' XP</small><h3>👑 '+B.title+'</h3><p>'+B.prompt+'</p><button class="btn" onclick="boss('+B.week+')">'+(s.boss.includes(B.week)?'✓ Boss complete':'Complete Boss')+'</button>';document.getElementById('prompt').textContent=B.prompt;document.getElementById('journal').value=s.journal||'';document.getElementById('b1').classList.toggle('on',s.done.length>=1);document.getElementById('b100').classList.toggle('on',X>=100);document.getElementById('b7').classList.toggle('on',s.done.length>=7);document.getElementById('bsound').classList.toggle('on',s.done.filter(id=>missions.find(m=>m.id===id)?.cat==='Pronunciation').length>=4);document.getElementById('b500').classList.toggle('on',X>=500);document.getElementById('bhalf').classList.toggle('on',s.done.length>=19);let bf=document.getElementById('bfresh');if(bf)bf.classList.toggle('on',(s.freshDone||[]).length>=5);document.getElementById('summary').textContent='Week '+w+' · '+s.done.length+'/'+missions.length+' missions · '+(s.freshDone||[]).length+' fresh explores · '+X+' XP · Level '+L.l+' · '+streak()+'-day streak.';setTimeout(()=>decorateDictionary(document),0)}function goToMission(id){
+function render(){let X=xp(),L=level(X),w=week();xpEl=document.getElementById('xp');xpEl.textContent=X;document.getElementById('level').textContent=L.l;document.getElementById('streak').textContent=streak();document.getElementById('donec').textContent=s.done.length+'/'+missions.length;document.getElementById('levelbar').style.width=L.p+'%';document.getElementById('leveltxt').textContent='Level '+L.l+' · '+(L.b-X)+' XP to next';let wm=missions.filter(m=>m.week===w),wd=wm.filter(m=>s.done.includes(m.id)).length;document.getElementById('weekbar').style.width=(100*wd/(wm.length||1))+'%';document.getElementById('weektxt').textContent='Week '+w+' · '+wd+'/'+wm.length+' missions';document.querySelectorAll('.mission').forEach(e=>{let id=+e.dataset.id,d=s.done.includes(id);e.classList.toggle('done',d);let b=e.querySelector('button[onclick^="toggleMission"]');if(b){b.classList.toggle('complete',d);b.textContent=d?'✓ Completed':'✓ Complete'}});document.getElementById('daily').innerHTML='<h3>Today’s 3</h3>'+sugg().map((m,i)=>'<button class="qitem qlink" onclick="goToMission('+m.id+')"><span><b>'+(i+1)+'. '+m.icon+' '+m.title+'</b><br><small>'+m.cat+' · +'+m.xp+' XP</small></span><span class="qarrow">→</span></button>').join('');let B=bosses.find(b=>b.week===w);document.getElementById('boss').innerHTML='<small>WEEK '+B.week+' BOSS · +'+B.xp+' XP</small><h3>👑 '+B.title+'</h3><p>'+B.prompt+'</p><button class="btn" onclick="boss('+B.week+')">'+(s.boss.includes(B.week)?'✓ Boss complete':'Complete Boss')+'</button>';document.getElementById('prompt').textContent=B.prompt;document.getElementById('journal').value=s.journal||'';document.getElementById('b1').classList.toggle('on',s.done.length>=1);document.getElementById('b100').classList.toggle('on',X>=100);document.getElementById('b7').classList.toggle('on',s.done.length>=7);document.getElementById('bsound').classList.toggle('on',s.done.filter(id=>missions.find(m=>m.id===id)?.cat==='Pronunciation').length>=4);document.getElementById('b500').classList.toggle('on',X>=500);document.getElementById('bhalf').classList.toggle('on',s.done.length>=19);let bf=document.getElementById('bfresh');if(bf)bf.classList.toggle('on',(s.freshDone||[]).length>=5);document.getElementById('summary').textContent='Week '+w+' · '+s.done.length+'/'+missions.length+' missions · '+(s.freshDone||[]).length+' fresh explores · '+X+' XP · Level '+L.l+' · '+streak()+'-day streak.';setTimeout(()=>decorateDictionary(document),0)}function goToMission(id){
   const learnBtn=[...document.querySelectorAll('#appTabs button')].find(x=>x.dataset.tab==='Learn')||null;
   showAppTab('Learn',learnBtn);
   const search=document.getElementById('search'),wf=document.getElementById('wf'),cf=document.getElementById('cf');
