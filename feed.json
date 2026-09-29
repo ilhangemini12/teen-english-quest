@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-09-28T22:33:11.526697+00:00",
+  "updated_at": "2026-09-29T11:21:57.265199+00:00",
   "items": [
+    {
+      "key": "3e40f287b107a7",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Cuddling helps apes keep the peace",
+      "summary": "Humans could learn from chimpanzees and bonobos. When things get tense, these apes turn to group members for hugs, touches and other physical comfort.",
+      "url": "https://www.snexplores.org/article/cuddling-apes-chimps-bonobos-peace",
+      "published": "2026-09-29T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/072126_MR_primate-cuddles_main.jpg?w=800",
+      "audio_url": ""
+    },
+    {
+      "key": "4440858cea8996",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: In a tizzy",
+      "summary": "An expression to use when you feel stressed about something small and usually not worth the panic. Learn it here with Georgie and Feifei. Get a free transcript for this episode here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0pd00xc",
+      "published": "2026-09-29T09:53:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pd008c.mp3"
+    },
     {
       "key": "01d1485203de97",
       "source": "Teen Vogue",
@@ -35,18 +59,6 @@
       "url": "https://www.snexplores.org/article/ai-space-exploration",
       "published": "2026-09-28T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0826_tech-fic.jpg?w=800",
-      "audio_url": ""
-    },
-    {
-      "key": "d06790dbeedafc",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Paradox",
-      "summary": "When gut instinct leads you astray, paradoxes can point the right way.",
-      "url": "https://www.snexplores.org/article/scientists-say-paradox-definition-pronunciation",
-      "published": "2026-09-28T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_SS_paradox_feat.png?w=800",
       "audio_url": ""
     },
     {
@@ -348,18 +360,6 @@
       "published": "2026-09-07T08:30:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8cb9p.mp3"
-    },
-    {
-      "key": "424fd3b006f8af",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Non-starter",
-      "summary": "Some ideas are just never going to work. Those are what we call 'non-starters'. Learn how to use this expression with Feifei and Phil. As always, get your free transcript for this episode here:…",
-      "url": "http://www.bbc.co.uk/programmes/p0p79z34",
-      "published": "2026-09-01T08:29:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p79x32.mp3"
     },
     {
       "key": "3bbc8ef5d12e6a",
