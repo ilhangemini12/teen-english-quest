@@ -2026,8 +2026,14 @@ function savePinnedTabs(arr){
 }
 function renderAppTabs(){
   let box=document.getElementById('appTabs');if(!box)return;
-  let pinned=getPinnedTabs(),active=localStorage.getItem('teq-active-tab')||'Home';
-  if(eqUser&&!pinned.includes('Messages')){if(pinned.length>=8)pinned=pinned.slice(0,7);pinned.push('Messages')}
+  let pinned=getPinnedTabs(),active=localStorage.getItem('teq-active-tab')||'Home',g=currentGrade();
+  if(g<=3){
+    const allowed=new Set(['Home','Learn','Games','Vocabulary','Speaking','Clips','Comics']);
+    pinned=pinned.filter(k=>allowed.has(k));
+    if(!pinned.includes('Home'))pinned.unshift('Home');
+    if(!pinned.includes('Learn'))pinned.splice(1,0,'Learn');
+    if(pinned.length<4)pinned=['Home','Learn','Games','Vocabulary','Speaking','Clips'];
+  }else if(eqUser&&!pinned.includes('Messages')){if(pinned.length>=8)pinned=pinned.slice(0,7);pinned.push('Messages')}
   box.innerHTML=pinned.map(k=>{let t=tabMetaForLearner(k);return '<button data-tab="'+k+'" class="'+(active===k?'on':'')+'" onclick="navigateAppTab(\''+k+'\',this,\'push\')"><span class="tabico">'+t.icon+'</span> <span class="tabtxt">'+t.label+(t.hint?'<small>'+t.hint+'</small>':'')+'</span></button>'}).join('');
 }
 function renderTabManager(){
@@ -2385,6 +2391,7 @@ function applyGradeExperience(){
   }
   let kidCard=document.getElementById('earlyLearnerCard');if(kidCard)kidCard.classList.toggle('activeForGrade',g<=3);
   let kidToggle=document.getElementById('kidHintsToggle');if(kidToggle)kidToggle.checked=kidHintsEnabled();
+  let msgBtn=document.getElementById('eqMessagesButton');if(msgBtn&&g<=3)msgBtn.style.display='none';
   renderSpacePresetState();applyDeviceLayout();
   if(!localStorage.getItem('teq-grade-tabs-v1')){
     localStorage.setItem('teq-pinned-tabs',JSON.stringify(presetTabs(currentSpacePreset())));
