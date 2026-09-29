@@ -710,7 +710,7 @@ function eqSetAuthMode(mode){
   if(card)card.classList.toggle('compact',mode!=='signup');
   if(mode==='signin'){
     let saved=localStorage.getItem('eq-pending-email')||'';
-    let e=document.getElementById('eqLoginEmail');if(e&&!e.value)e.value=saved;
+    let e=document.getElementById('eqLoginIdentifier');if(e&&!e.value)e.value=saved;
   }
   if(mode==='signup'){
     let saved=localStorage.getItem('eq-pending-email')||'';
