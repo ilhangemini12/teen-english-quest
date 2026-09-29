@@ -1,11 +1,21 @@
 import puppeteer from 'puppeteer-core';
 
 const chromePath=process.env.CHROME_PATH||'/usr/bin/google-chrome';
-const browser=await puppeteer.launch({
-  executablePath:chromePath,
-  headless:true,
-  args:['--no-sandbox','--disable-setuid-sandbox','--autoplay-policy=no-user-gesture-required']
-});
+async function launchBrowser(){
+  let last;
+  for(let attempt=1;attempt<=2;attempt++){
+    try{
+      return await puppeteer.launch({
+        executablePath:chromePath,
+        headless:true,
+        timeout:45000,
+        args:['--no-sandbox','--disable-setuid-sandbox','--disable-dev-shm-usage','--autoplay-policy=no-user-gesture-required']
+      });
+    }catch(e){last=e;if(attempt<2)await new Promise(r=>setTimeout(r,1800));}
+  }
+  throw last;
+}
+const browser=await launchBrowser();
 
 function assert(cond,msg){if(!cond)throw new Error(msg)}
 const expected={
