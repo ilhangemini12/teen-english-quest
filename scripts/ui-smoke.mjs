@@ -88,7 +88,7 @@ try {
   await page.waitForSelector('#languageHub:not(.appHidden) .languageUnit', {timeout:5000});
   const spanishUnits = await page.$$eval('#languageCourseGrid .languageUnit', els => els.map(x => x.innerText));
   assert(spanishUnits.length >= 5, 'Expected >=5 Spanish A1 native units');
-  await page.click('#languageCourseGrid .languageUnit');
+  await page.$eval('#languageCourseGrid .languageUnit', el => el.click());
   await page.waitForSelector('#languageLesson:not(.appHidden)', {timeout:5000});
   const listenText = await page.$eval('#langLessonListen', el => el.textContent.trim());
   assert(/Escuchar/i.test(listenText), 'Spanish lesson listen control missing: '+listenText);
