@@ -100,7 +100,32 @@ for src,cat,url,emoji,priority in FEEDS:
         accepted=0
         for e in f.entries[:30]:
             title=textify(e.get("title","")); link=e.get("link","")
-            summary=textify(e.get("summary") or e.get("description") or "")
+            raw_html=e.get("summary") or e.get("description") or ""
+            summary=textify(raw_html)
+            transcript_url=""
+            try:
+                soup=BeautifulSoup(raw_html,"html.parser")
+                for a in soup.find_all("a",href=True):
+                    label=(" ".join(a.stripped_strings)).lower()
+                    href=html.unescape(a.get("href","")).strip()
+                    if href and "transcript" in label:
+                        transcript_url=href
+                        break
+                pt=e.get("podcast_transcript")
+                if not transcript_url and isinstance(pt,dict):
+                    transcript_url=(pt.get("url") or pt.get("href") or "").strip()
+                elif not transcript_url and isinstance(pt,str) and pt.startswith(("http://","https://")):
+                    transcript_url=pt.strip()
+                if not transcript_url:
+                    for ln in (e.get("links") or []):
+                        lurl=(ln.get("href") or "").strip()
+                        ltype=(ln.get("type") or "").lower()
+                        lrel=(ln.get("rel") or "").lower()
+                        if lurl and ("transcript" in lrel or ltype in ("text/vtt","application/x-subrip","text/plain")):
+                            transcript_url=lurl
+                            break
+            except Exception:
+                transcript_url=""
             combined=title+" "+summary
             if not title or not link or blocked(combined): continue
             if src=="TED Talks Daily" and not any(k in combined.lower() for k in TED_PREFER): continue
@@ -119,7 +144,6 @@ for src,cat,url,emoji,priority in FEEDS:
                         if mtype.startswith("audio/") and murl and not audio_url: audio_url=murl
                         elif murl and not image and (mtype.startswith("image/") or not mtype): image=murl
                 if not image:
-                    raw_html=e.get("summary") or e.get("description") or ""
                     m=re.search(r'<img[^>]+src=["\']([^"\']+)',raw_html,re.I)
                     if m:image=html.unescape(m.group(1))
                 for enc in (e.get("enclosures") or []):
@@ -141,6 +165,7 @@ for src,cat,url,emoji,priority in FEEDS:
             raw.append({
                 "key":key(src,title,link),"source":src,"category":cat,"emoji":emoji,
                 "title":title,"summary":summary,"url":link,"published":published,"image":image,"audio_url":audio_url,
+                "transcript_url":transcript_url,
                 "_score":score_item(src,cat,title,summary,published,priority)
             })
             accepted+=1
