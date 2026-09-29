@@ -2730,7 +2730,7 @@ function applyGlobalLocale(){
   renderWidgets();renderLearningLaunch();renderMessagesLocale();
 }
 function bhWeatherText(code){
-  const lang=currentLearningLanguage();
+  let lang='en';try{lang=currentLearningLanguage()}catch(e){}
   const words={
     en:{0:'Clear',1:'Mostly clear',2:'Partly cloudy',3:'Cloudy',45:'Fog',48:'Fog',51:'Drizzle',53:'Drizzle',55:'Drizzle',61:'Rain',63:'Rain',65:'Heavy rain',71:'Snow',73:'Snow',75:'Heavy snow',80:'Showers',81:'Showers',82:'Heavy showers',95:'Thunderstorm',96:'Thunderstorm',99:'Thunderstorm'},
     es:{0:'Despejado',1:'Casi despejado',2:'Parcialmente nublado',3:'Nublado',45:'Niebla',48:'Niebla',51:'Llovizna',53:'Llovizna',55:'Llovizna',61:'Lluvia',63:'Lluvia',65:'Lluvia intensa',71:'Nieve',73:'Nieve',75:'Nieve intensa',80:'Chubascos',81:'Chubascos',82:'Chubascos fuertes',95:'Tormenta',96:'Tormenta',99:'Tormenta'},
@@ -2740,16 +2740,17 @@ function bhWeatherText(code){
   return (words[lang]&&words[lang][Number(code)])||localeUI().weather;
 }
 function bhRenderDate(){
-  const ui=localeUI(),now=new Date(),loc=ui.locale;
+  let ui={locale:'en-GB',updated:'Updated'};try{ui=localeUI()}catch(e){}
+  const now=new Date(),loc=ui.locale||'en-GB';
   let d=document.getElementById('bhToday'),u=document.getElementById('bhUpdated'),v=document.getElementById('bhVersion');
   if(d)d.textContent=new Intl.DateTimeFormat(loc,{timeZone:'Asia/Tbilisi',day:'2-digit',month:'short',year:'numeric'}).format(now);
-  if(u)u.textContent=ui.updated+' '+new Intl.DateTimeFormat(loc,{timeZone:'Asia/Tbilisi',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(BH_SITE_UPDATED));
+  if(u)u.textContent=(ui.updated||'Updated')+' '+new Intl.DateTimeFormat(loc,{timeZone:'Asia/Tbilisi',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(BH_SITE_UPDATED));
   if(v)v.textContent='v'+BH_SITE_VERSION;
 }
 async function bhLoadWeather(){
   let e=document.getElementById('bhWeather');if(!e)return;
   try{const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=41.6168&longitude=41.6367&current=temperature_2m,weather_code&temperature_unit=celsius&timezone=Asia%2FTbilisi',{cache:'no-store'});if(!r.ok)throw new Error('weather');const j=await r.json(),cur=j.current||{},temp=Math.round(Number(cur.temperature_2m));e.textContent='Batumi '+(Number.isFinite(temp)?temp+'°C · ':'')+bhWeatherText(cur.weather_code)}
-  catch(err){e.textContent='Batumi · '+localeUI().weather}
+  catch(err){let w='Weather unavailable';try{w=localeUI().weather}catch(e2){}e.textContent='Batumi · '+w}
 }
 
 /* Override widget rendering so switching flags changes the whole widget language instantly */
