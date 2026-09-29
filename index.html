@@ -2086,7 +2086,7 @@ function render(){let X=xp(),L=level(X),w=week();xpEl=document.getElementById('x
 }
 function filterM(){let search=document.getElementById('search'),wf=document.getElementById('wf'),cf=document.getElementById('cf');let q=search?search.value.toLowerCase():'',w=wf?wf.value:'',cat=cf?cf.value:'';document.querySelectorAll('.mission').forEach(function(e){let ok=(!q||e.dataset.text.includes(q))&&(!w||e.dataset.week===w)&&(!cat||e.dataset.cat===cat);if(appMissionCats&&appMissionCats.length)ok=ok&&appMissionCats.includes(e.dataset.cat);if(appMissionMode==='video'){let a=e.querySelector('.actions a'),u=a?a.href:'';ok=ok&&(/youtube\.com|ted\.com/.test(u))}e.style.display=ok?'block':'none'})}function saveJ(){s.journal=document.getElementById('journal').value;sv();alert('Saved on this device.')}function hear(){let u=new SpeechSynthesisUtterance(document.getElementById('prompt').textContent);u.lang='en-US';u.rate=.92;speechSynthesis.cancel();speechSynthesis.speak(u)}let R=null,ch=[];async function record(){let b=document.getElementById('rec');if(R&&R.state==='recording'){R.stop();b.textContent='🎙 Start recording';return}try{let st=await navigator.mediaDevices.getUserMedia({audio:true});ch=[];R=new MediaRecorder(st);R.ondataavailable=e=>ch.push(e.data);R.onstop=()=>{let blob=new Blob(ch,{type:'audio/webm'}),url=URL.createObjectURL(blob);document.getElementById('audio').innerHTML='<audio controls style="width:100%" src="'+url+'"></audio>';st.getTracks().forEach(t=>t.stop())};R.start();b.textContent='⏹ Stop recording'}catch(e){alert('Microphone unavailable. Hosting over HTTPS usually fixes this.')}}function renderQuiz(){document.getElementById('quizbox').innerHTML=quiz.map((q,i)=>'<div class="quizq"><b>'+(i+1)+'. '+q.q+'</b>'+q.opts.map((o,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+o+'</label>').join('')+'<small id="why'+i+'"></small></div>').join('')+'<button class="btn" onclick="grade()">Check answers</button><p id="qr"></p>'}function grade(){let z=0;quiz.forEach((q,i)=>{let e=document.querySelector('input[name="q'+i+'"]:checked'),ok=e&&+e.value===q.a;if(ok)z++;document.getElementById('why'+i).textContent=(ok?'✓ ':'→ ')+q.why});document.getElementById('qr').textContent='Score: '+z+' / '+quiz.length}function exportP(){let b=new Blob([JSON.stringify(s,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='teen-english-quest-progress.json';a.click()}async function copyS(){try{await navigator.clipboard.writeText(document.getElementById('summary').textContent);alert('Copied.')}catch(e){}}
 let appMissionCats=null,appMissionMode='all';
-const appSections=['heroHome','demoPass','learningLaunch','quickControls','personalWidgets','dashboard','today','fresh','studyFlow','wordReview','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','learningGames','foundationHub','clipSprint','wikiHub','sourceNews','elifAI','messages','settings','learnHub','languageHub','resourceLab','exploreHub','sportsHub','tedHub','satHub','futureHub'];
+const appSections=['heroHome','demoPass','learningLaunch','quickControls','personalWidgets','dashboard','today','fresh','studyFlow','wordReview','hubs','road','badges','missions','lab','quiz','progress','comics','vocabDash','league','entertainment','styleHub','gamesHub','learningGames','foundationHub','clipSprint','wikiHub','sourceNews','elifAI','messages','settings','localizedSettings','learnHub','languageHub','languageLesson','resourceLab','exploreHub','sportsHub','tedHub','satHub','futureHub'];
 function setVisible(ids){appSections.forEach(function(id){let e=document.getElementById(id);if(e)e.classList.toggle('appHidden',!ids.includes(id))})}
 function setTabButton(name){document.querySelectorAll('#appTabs button').forEach(function(b){b.classList.toggle('on',b.textContent.toLowerCase().includes(name.toLowerCase()))})}
 function openTab(name){let b=[...document.querySelectorAll('#appTabs button')].find(x=>x.textContent.toLowerCase().includes(name.toLowerCase()));showAppTab(name,b)}
@@ -2125,43 +2125,44 @@ const TAB_PRESETS={
   elementary:['Home','Learn','Games','Vocabulary','Speaking','Clips','Messages'],
   middle:['Home','Learn','Games','Explore','Vocabulary','Speaking','Clips','Messages']
 };
+const CORE_TABS=new Set(['Home','Learn','Messages','Personalize','Settings']);
 function getPinnedTabs(){
   let x;try{x=JSON.parse(localStorage.getItem('teq-pinned-tabs')||'null')}catch(e){}
   if(!Array.isArray(x)||!x.length)x=TAB_PRESETS.balanced.slice();
-  if(!x.includes('Home'))x.unshift('Home');
-  return x.filter(k=>TAB_CATALOG[k]).slice(0,8);
+  return [...new Set(x.filter(k=>TAB_CATALOG[k]&&!CORE_TABS.has(k)))].slice(0,12);
 }
 function savePinnedTabs(arr){
-  arr=[...new Set(arr.filter(k=>TAB_CATALOG[k]))];
-  if(!arr.includes('Home'))arr.unshift('Home');
-  arr=arr.slice(0,8);
+  arr=[...new Set(arr.filter(k=>TAB_CATALOG[k]&&!CORE_TABS.has(k)))].slice(0,12);
   localStorage.setItem('teq-pinned-tabs',JSON.stringify(arr));
   renderAppTabs();renderTabManager();eqSaveCloudPrefs();
+}
+function renderCoreNav(){
+  let ui=localeUI(),active=localStorage.getItem('teq-active-tab')||'Home',box=document.getElementById('coreNav');if(!box)return;
+  const rows=[['Home','🏠',ui.home],['Learn','📘',ui.learn],['Messages','💬',ui.messages],['Settings','🎛️',ui.personalize]];
+  box.innerHTML=rows.map(r=>'<button data-core="'+r[0]+'" class="'+(active===r[0]||(r[0]==='Settings'&&active==='Personalize')?'on':'')+'" onclick="navigateAppTab(\''+r[0]+'\',null,\'push\')">'+r[1]+' <span>'+r[2]+'</span></button>').join('');
 }
 function renderAppTabs(){
   let box=document.getElementById('appTabs');if(!box)return;
   let pinned=getPinnedTabs(),active=localStorage.getItem('teq-active-tab')||'Home',g=currentGrade(),lang=currentLearningLanguage();
   if(lang!=='en'){
-    pinned=['Home','Learn','Vocabulary','Speaking','Games','Explore'];
-    if(eqUser)pinned.push('Messages');
+    const wanted=['Grammar','Pronunciation','Vocabulary','Speaking','Games','Explore'];
+    pinned=[...new Set([...wanted,...pinned.filter(k=>wanted.includes(k))])].slice(0,12);
   }else if(g<=3){
-    const allowed=new Set(['Home','Learn','Games','Vocabulary','Speaking','Clips','Comics']);
-    pinned=pinned.filter(k=>allowed.has(k));
-    if(!pinned.includes('Home'))pinned.unshift('Home');
-    if(!pinned.includes('Learn'))pinned.splice(1,0,'Learn');
-    if(pinned.length<4)pinned=['Home','Learn','Games','Vocabulary','Speaking','Clips'];
-  }else if(eqUser&&!pinned.includes('Messages')){if(pinned.length>=8)pinned=pinned.slice(0,7);pinned.push('Messages')}
-  box.innerHTML=pinned.map(k=>{let t=tabMetaForLearner(k);return '<button data-tab="'+k+'" class="'+(active===k?'on':'')+'" onclick="navigateAppTab(\''+k+'\',this,\'push\')"><span class="tabico">'+t.icon+'</span> <span class="tabtxt">'+t.label+(t.hint?'<small>'+t.hint+'</small>':'')+'</span></button>'}).join('');
+    const allowed=new Set(['Games','Vocabulary','Speaking','Clips','Comics','Explore']);
+    pinned=pinned.filter(k=>allowed.has(k));if(pinned.length<3)pinned=['Games','Vocabulary','Speaking','Clips'];
+  }
+  box.innerHTML=pinned.map(k=>{let t=localizedTabMeta(k);return '<button data-tab="'+k+'" class="'+(active===k?'on':'')+'" onclick="navigateAppTab(\''+k+'\',this,\'push\')"><span class="tabico">'+t.icon+'</span> <span class="tabtxt">'+t.label+'</span></button>'}).join('');
+  renderCoreNav();
 }
 function renderTabManager(){
   let box=document.getElementById('tabManager');if(!box)return;
-  let pinned=getPinnedTabs();
-  box.innerHTML=Object.keys(TAB_CATALOG).filter(k=>k!=='Home').map(k=>{let t=TAB_CATALOG[k],on=pinned.includes(k);return '<div class="tabToggle '+(on?'pinned':'')+'"><span>'+t.icon+' '+t.label+'</span><button onclick="togglePinnedTab(\''+k+'\')">'+(on?'Remove':'Pin')+'</button></div>'}).join('');
+  let pinned=getPinnedTabs(),ui=localeUI();
+  box.innerHTML='<p class="authHint">'+ui.pinHelp+'</p>'+Object.keys(TAB_CATALOG).filter(k=>!CORE_TABS.has(k)).map(k=>{let t=localizedTabMeta(k),on=pinned.includes(k);return '<div class="tabToggle '+(on?'pinned':'')+'"><span>'+t.icon+' '+t.label+'</span><button onclick="togglePinnedTab(\''+k+'\')">'+(on?ui.remove:ui.pin)+'</button></div>'}).join('');
 }
 function togglePinnedTab(k){
-  let p=getPinnedTabs(),on=p.includes(k);
-  if(on)p=p.filter(x=>x!==k);
-  else{if(p.length>=8)return alert('Keep the top bar simple: maximum 8 pinned tabs. Remove one first.');p.push(k)}
+  if(CORE_TABS.has(k))return;
+  let p=getPinnedTabs(),on=p.includes(k),ui=localeUI();
+  if(on)p=p.filter(x=>x!==k);else{if(p.length>=12)return alert(ui.pinLimit);p.push(k)}
   savePinnedTabs(p);renderQuickControls();
 }
 function applyTabPreset(name){
