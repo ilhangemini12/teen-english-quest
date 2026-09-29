@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import json,re,hashlib,html,time
+from urllib.request import Request,urlopen
+from urllib.parse import urljoin
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 import feedparser
@@ -67,6 +69,79 @@ def textify(raw):
 def blocked(txt):
     t=" "+txt.lower()+" "
     return any(x in t for x in BLOCK)
+
+def fetch_page(url,timeout=12):
+    req=Request(url,headers={
+        "User-Agent":"Mozilla/5.0 (compatible; BatumHubLearning/1.0; +https://batum.pages.dev)",
+        "Accept-Language":"en-US,en;q=0.9"
+    })
+    with urlopen(req,timeout=timeout) as r:
+        raw=r.read(1_500_000)
+        enc=r.headers.get_content_charset() or "utf-8"
+        return raw.decode(enc,errors="replace")
+
+def enrich_voa_item(item):
+    """Keep VOA reading/listening inside BatumHub without copying an entire page.
+    We retain a concise publisher-text study excerpt and direct audio URL when discoverable.
+    """
+    if not item.get("url") or "learningenglish.voanews.com" not in item["url"]:
+        return item
+    try:
+        page=fetch_page(item["url"])
+        soup=BeautifulSoup(page,"html.parser")
+
+        # Prefer the article/main body, then fall back to the document.
+        root=soup.find("article") or soup.find("main") or soup
+        for bad in root.find_all(["script","style","nav","footer","form","noscript","svg"]):
+            bad.decompose()
+
+        paras=[]
+        seen=set()
+        for node in root.find_all(["p","h2"]):
+            txt=re.sub(r"\s+"," "," ".join(node.stripped_strings)).strip()
+            low=txt.lower()
+            if len(txt)<35 or txt in seen: continue
+            if any(x in low for x in ["cookie","privacy","subscribe","follow us","share on","copyright","terms of use"]): continue
+            seen.add(txt);paras.append(txt)
+            if sum(len(x) for x in paras)>2600: break
+        study=" ".join(paras).strip()
+        if len(study)>2600:
+            study=study[:2597].rsplit(" ",1)[0]+"…"
+        if study:
+            item["study_text"]=study
+
+        # Discover publisher-hosted audio for in-Hub playback.
+        audio=item.get("audio_url") or ""
+        if not audio:
+            for sel,attr in [
+                ('meta[property="og:audio"]',"content"),
+                ('meta[property="og:audio:url"]',"content"),
+                ('meta[name="twitter:player:stream"]',"content"),
+                ("audio","src"),
+                ("audio source","src"),
+            ]:
+                el=soup.select_one(sel)
+                if el and el.get(attr):
+                    cand=urljoin(item["url"],el.get(attr).strip())
+                    if cand.startswith(("http://","https://")):
+                        audio=cand;break
+        if not audio:
+            for el in soup.find_all(["a","source"],href=True):
+                href=el.get("href","")
+                if re.search(r"\.(mp3|m4a|aac|ogg)(\?|$)",href,re.I):
+                    audio=urljoin(item["url"],href);break
+        if not audio:
+            for el in soup.find_all("source",src=True):
+                src=el.get("src","")
+                if re.search(r"\.(mp3|m4a|aac|ogg)(\?|$)",src,re.I):
+                    audio=urljoin(item["url"],src);break
+        if audio:
+            if audio.startswith("http://"): audio="https://"+audio[len("http://"):]
+            item["audio_url"]=audio
+    except Exception as ex:
+        print("VOA enrich failed",item.get("url"),ex)
+    return item
+
 
 def iso(e):
     st=e.get("published_parsed") or e.get("updated_parsed")
@@ -213,6 +288,13 @@ def sort_key(x):
     except: d=0
     return (d,x["_score"])
 out.sort(key=sort_key,reverse=True)
+
+# Enrich only the final VOA shelf so refreshes stay fast and the in-Hub reader/player
+# has useful study text and publisher audio when the page exposes it.
+for i,x in enumerate(out):
+    if str(x.get("source","")).startswith("VOA"):
+        out[i]=enrich_voa_item(x)
+
 for x in out: x.pop("_score",None)
 
 Path("feed.json").write_text(json.dumps({
