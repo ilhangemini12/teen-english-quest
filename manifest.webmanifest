@@ -1,6 +1,6 @@
 {
   "id": "./",
-  "name": "BatumHub — English, SAT & Future",
+  "name": "BatumHub",
   "short_name": "BatumHub",
   "start_url": "./",
   "scope": "./",
@@ -14,7 +14,7 @@
   "dir": "ltr",
   "background_color": "#0b1220",
   "theme_color": "#0b1220",
-  "description": "An adaptive English learning hub with grade-aware practice, vocabulary review, media, SAT and future-planning tools.",
+  "description": "A multilingual learning hub for English, Spanish, German and Russian with level-aware practice, vocabulary review, media and progress tracking.",
   "categories": [
     "education"
   ],
