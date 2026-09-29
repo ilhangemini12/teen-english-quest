@@ -303,7 +303,7 @@ if ('serviceWorker' in navigator) {
 <div class="topStatusBar" id="topStatusBar">
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
-  <span class="versionTop">⚙️ <b>v4.3.2</b></span>
+  <span class="versionTop">⚙️ <b>v4.3.3</b></span>
   <span>🕒 <b id="bhUpdated">Updated Sep 29, 2026</b></span>
 </div>
 <div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
@@ -649,8 +649,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for 3 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='4.3.2';
-const BH_SITE_UPDATED='2026-09-29T13:48:00+04:00';
+const BH_SITE_VERSION='4.3.3';
+const BH_SITE_UPDATED='2026-09-29T13:55:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -1016,10 +1016,11 @@ function renderDemoPass(){
   let box=document.getElementById('demoPass'),text=document.getElementById('demoPassText'),fill=document.getElementById('demoMeterFill'),btn=document.getElementById('demoPassButton');
   if(!box||!text||!fill||!btn)return;
   if(eqUser){
-    box.classList.add('signed');box.classList.remove('full');
-    text.textContent='Full access · progress sync, League and Messages enabled.';
-    fill.style.width='100%';btn.textContent='Account';return;
+    box.style.display='none';
+    box.classList.remove('signed','full');
+    return;
   }
+  box.style.display='';
   let n=demoCount(),left=Math.max(0,DEMO_LIMIT-n);
   box.classList.remove('signed');box.classList.toggle('full',left===0);
   fill.style.width=Math.min(100,(n/DEMO_LIMIT)*100)+'%';
