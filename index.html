@@ -709,6 +709,7 @@ if ('serviceWorker' in navigator) {
   <div class="mediaBar">
     <div><b id="mediaTitle">BatumHub Player</b><small id="mediaMeta"></small></div>
     <div class="mediaTools">
+      <a id="mediaOriginalLink" class="mediaOriginal" href="#" target="_blank" rel="noopener" style="display:none" title="Open original source">↗</a>
       <button onclick="toggleMediaExpand()" title="Expand">⤢</button>
       <button onclick="mediaFullscreen()" title="Fullscreen">⛶</button>
       <button onclick="closeMedia()" title="Close">✕</button>
@@ -834,7 +835,7 @@ async function eqHandleSession(session){
   eqUser=session&&session.user?session.user:null;
   let so=document.getElementById('eqSignedOut'),si=document.getElementById('eqSignedIn'),btn=document.getElementById('eqAccountButton'),msgBtn=document.getElementById('eqMessagesButton');
   if(!eqUser){
-    eqProfile=null;eqFriends=[];eqSelectedFriend=null;
+    eqProfile=null;eqFriends=[];eqOnlineFriends=[];eqSelectedFriend=null;clearInterval(eqPresenceTimer);
     if(so)so.style.display='block';if(si)si.style.display='none';if(btn)btn.textContent='👤 Account';if(msgBtn)msgBtn.style.display='none';
     if(!document.getElementById('accountModal')?.classList.contains('open'))eqSetStatus('',false);
     eqRenderInbox();eqRefreshLeague();renderDemoPass();return;
@@ -1216,32 +1217,38 @@ function playableKind(url,audioUrl){
   return '';
 }
 function isPlayableFresh(x){return !!playableKind(x.url,x.audio_url)}
-function setMedia(title,meta,html,audioOnly){
-  let dock=document.getElementById('mediaDock'),stage=document.getElementById('mediaStage');
+function setMedia(title,meta,html,audioOnly,originalUrl,sourceMode){
+  let dock=document.getElementById('mediaDock'),stage=document.getElementById('mediaStage'),orig=document.getElementById('mediaOriginalLink');
   document.getElementById('mediaTitle').textContent=title||'BatumHub Player';
   document.getElementById('mediaMeta').textContent=meta||'';
-  stage.innerHTML=html;dock.classList.add('open');dock.classList.toggle('audioOnly',!!audioOnly);
+  stage.innerHTML=html;dock.classList.add('open');dock.classList.toggle('audioOnly',!!audioOnly);dock.classList.toggle('sourceMode',!!sourceMode);
+  if(orig){if(originalUrl){orig.href=originalUrl;orig.style.display=''}else{orig.removeAttribute('href');orig.style.display='none'}}
   if(!audioOnly&&window.innerWidth>=900)dock.classList.add('expanded');else dock.classList.remove('expanded');
 }
 function playMedia(url,title,meta,audioUrl){
   let kind=playableKind(url,audioUrl);
   if(kind==='audio'){
-    setMedia(title,meta,'<audio controls autoplay preload="metadata" src="'+liveEsc(audioUrl)+'"></audio>',true);return true;
+    setMedia(title,meta,'<audio controls autoplay preload="metadata" src="'+liveEsc(audioUrl)+'"></audio>',true,url,false);return true;
   }
   if(kind==='youtube'){
     let id=youtubeId(url);
-    setMedia(title,meta,'<iframe src="https://www.youtube.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0" title="'+liveEsc(title)+'" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>',false);return true;
+    setMedia(title,meta,'<iframe src="https://www.youtube.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0" title="'+liveEsc(title)+'" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>',false,url,false);return true;
   }
   if(kind==='ted'){
-    setMedia(title,meta,'<iframe src="'+liveEsc(tedEmbed(url))+'" title="'+liveEsc(title)+'" allow="autoplay; fullscreen" allowfullscreen></iframe>',false);return true;
+    setMedia(title,meta,'<iframe src="'+liveEsc(tedEmbed(url))+'" title="'+liveEsc(title)+'" allow="autoplay; fullscreen" allowfullscreen></iframe>',false,url,false);return true;
   }
   return false;
 }
+function openSourceInHub(url,title,meta){
+  if(!url)return;
+  if(playMedia(url,title,meta||'BatumHub source',''))return;
+  setMedia(title||'Source', (meta||'Source')+' · publisher page inside BatumHub', '<iframe class="sourceFrame" src="'+liveEsc(url)+'" title="'+liveEsc(title||'Source')+'" referrerpolicy="strict-origin-when-cross-origin"></iframe>', false, url, true);
+}
 function playFresh(key){
   let x=freshItems.find(i=>i.key===key);if(!x)return;
-  if(!playMedia(x.url,x.title,x.source+' · '+x.category,x.audio_url))window.open(x.url,'_blank','noopener');
+  if(!playMedia(x.url,x.title,x.source+' · '+x.category,x.audio_url))openSourceInHub(x.url,x.title,x.source+' · '+x.category);
 }
-function closeMedia(){let dock=document.getElementById('mediaDock');dock.classList.remove('open','expanded','audioOnly');document.getElementById('mediaStage').innerHTML=''}
+function closeMedia(){let dock=document.getElementById('mediaDock');dock.classList.remove('open','expanded','audioOnly','sourceMode');document.getElementById('mediaStage').innerHTML='';let o=document.getElementById('mediaOriginalLink');if(o)o.style.display='none'}
 function toggleMediaExpand(){document.getElementById('mediaDock').classList.toggle('expanded')}
 function mediaFullscreen(){let d=document.getElementById('mediaDock');if(document.fullscreenElement){document.exitFullscreen().catch(()=>{})}else if(d.requestFullscreen)d.requestFullscreen().catch(()=>{toggleMediaExpand()});else toggleMediaExpand()}
 
@@ -1313,28 +1320,28 @@ function installMissionTools(){
     actions.dataset.interactive='1';
     let src=actions.querySelector('a[href]');
     if(src){
-      let url=src.href,kind=playableKind(url,'');
-      if(kind){
-        let play=document.createElement('button');
-        play.className='mediaAction playHere';
-        play.type='button';
-        play.textContent='▶ Play here';
-        play.onclick=()=>playMedia(url,m.title,m.source,'');
-        actions.insertBefore(play,src);
-        src.remove();
-      }else{
-        src.textContent='Source ↗';
-        src.target='_blank';
-        src.rel='noopener';
-      }
+      let url=src.href,kind=playableKind(url,''),btn=document.createElement('button');
+      btn.className='mediaAction '+(kind?'playHere':'');
+      btn.type='button';
+      btn.textContent=kind?'▶ Play here':'▣ Open in Hub';
+      btn.onclick=()=>kind?playMedia(url,m.title,m.source,''):openSourceInHub(url,m.title,m.source);
+      actions.insertBefore(btn,src);src.remove();
     }
     let quiz=document.createElement('button');quiz.className='missionQuizBtn';quiz.textContent='🧩 Quiz +15 XP';quiz.onclick=()=>openMissionQuiz(id);actions.appendChild(quiz);
+  });
+}
+function installSourceCards(){
+  document.querySelectorAll('a.sourceCard[href],a.hub[href]').forEach(a=>{
+    if(a.dataset.hubReady==='1')return;
+    const href=a.href,title=(a.querySelector('h3')?.textContent||a.textContent||'Source').trim();
+    a.dataset.hubReady='1';a.removeAttribute('target');
+    a.addEventListener('click',e=>{e.preventDefault();openSourceInHub(href,title,'Learning source')});
   });
 }
 
 const dictMemory={};let dictTimer=null,dictAnchor=null;
 function decorateDictionary(root=document){
-  const els=root.querySelectorAll('.freshcard p,.freshcard h3,.mission .body p:not(.tr),.mission .task,.sourceCard p,.panelbubble,.discoveryBanner p,.boss p');
+  const els=root.querySelectorAll('.lead,.intro,.freshcard p,.freshcard h3,.mission .body p:not(.tr),.mission .task,.sourceCard p,.hub p,.panelbubble,.discoveryBanner p,.boss p,.hubWidget p,.foundationCard,.gameCard p,.comicchallenge');
   els.forEach(el=>{
     if(el.dataset.dictReady==='1'||el.closest('button,a'))return;
     const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement&&['SCRIPT','STYLE','BUTTON','A','INPUT','TEXTAREA','SELECT'].includes(n.parentElement.tagName)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
@@ -1368,7 +1375,8 @@ function renderDict(word,data,context){
     let d=(m.definitions||[])[0];if(!d)return;
     senses.push('<div class="dictSense"><span class="dictPos">'+liveEsc(m.partOfSpeech||'word')+'</span><p><b>'+liveEsc(d.definition)+'</b></p>'+(d.example?'<div class="dictExample">“'+liveEsc(d.example)+'”</div>':'')+((m.synonyms||[]).length?'<div class="dictSyn">Synonyms: '+liveEsc(m.synonyms.slice(0,5).join(', '))+'</div>':'')+'</div>');
   });
-  document.getElementById('dictBody').innerHTML=(senses.join('')||'<div class="dictSense">Definition unavailable.</div>')+'<div class="dictSense"><small>Context on BatumHub</small><div class="dictExample">“'+liveEsc(context)+'”</div></div>';
+  let slug=encodeURIComponent(word);
+  document.getElementById('dictBody').innerHTML=(senses.join('')||'<div class="dictSense">Definition unavailable.</div>')+'<div class="dictSense"><small>Context on BatumHub</small><div class="dictExample">“'+liveEsc(context)+'”</div><div class="dictLinks"><a href="https://www.oxfordlearnersdictionaries.com/definition/english/'+slug+'" target="_blank" rel="noopener">Oxford Learner’s ↗</a><a href="https://www.merriam-webster.com/dictionary/'+slug+'" target="_blank" rel="noopener">Merriam-Webster ↗</a></div></div>';
 }
 function positionDict(el){
   let p=document.getElementById('dictPopup'),r=el.getBoundingClientRect();
@@ -1378,7 +1386,7 @@ function positionDict(el){
 function closeDict(){document.getElementById('dictPopup').classList.remove('open')}
 document.addEventListener('pointerover',e=>{
   let w=e.target.closest&&e.target.closest('.dictWord');if(!w)return;
-  clearTimeout(dictTimer);dictTimer=setTimeout(()=>openDict(w.dataset.word,w),3000);
+  clearTimeout(dictTimer);dictTimer=setTimeout(()=>openDict(w.dataset.word,w),2300);
 });
 document.addEventListener('pointerout',e=>{if(e.target.closest&&e.target.closest('.dictWord'))clearTimeout(dictTimer)});
 document.addEventListener('click',e=>{let w=e.target.closest&&e.target.closest('.dictWord');if(w&&matchMedia('(pointer:coarse)').matches){e.preventDefault();openDict(w.dataset.word,w)}});
@@ -1394,7 +1402,7 @@ function renderFresh(){
   if(!list.length){g.innerHTML='<div class="freshempty">Nothing matches these filters yet. Try <b>All curated</b>, another vibe, or check after the next refresh.</div>';return}
   g.innerHTML=list.slice(0,18).map(function(x){
     let d=(s.freshDone||[]).includes(x.key),isNew=freshAgeDays(x.published)<=3&&!d;
-    return '<article class="freshcard '+(isNew?'isnew':'')+'" data-freshkey="'+liveEsc(x.key)+'">'+(x.image?'<img class="freshmedia" src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<div class="kicker"><b>'+liveEsc(x.emoji||'✨')+' '+liveEsc(x.source)+'</b> · '+liveEsc(x.category)+' · '+liveEsc(freshRelative(x.published))+(isNew?' · <span class="newbadge">NEW</span>':'')+'</div><h3>'+liveEsc(x.title)+'</h3><p>'+liveEsc(x.summary||'Open the original source to explore this English content.')+'</p><div class="freshactions">'+(isPlayableFresh(x)?'<button class="playHere" onclick="playFresh(\''+liveEsc(x.key)+'\')">▶ Play here</button>':'<a href="'+liveEsc(x.url)+'" target="_blank" rel="noopener">Source ↗</a>')+'<button class="quizHere" onclick="openFreshQuiz(\''+liveEsc(x.key)+'\')">🧩 Quiz +15 XP</button><button class="'+(d?'done':'')+'" onclick="markFresh(\''+liveEsc(x.key)+'\')">'+(d?'✓ Explored':'+5 XP · Explored')+'</button></div></article>'
+    return '<article class="freshcard '+(isNew?'isnew':'')+'" data-freshkey="'+liveEsc(x.key)+'">'+(x.image?'<img class="freshmedia" src="'+liveEsc(x.image)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<div class="kicker"><b>'+liveEsc(x.emoji||'✨')+' '+liveEsc(x.source)+'</b> · '+liveEsc(x.category)+' · '+liveEsc(freshRelative(x.published))+(isNew?' · <span class="newbadge">NEW</span>':'')+'</div><h3>'+liveEsc(x.title)+'</h3><p>'+liveEsc(x.summary||'Open the original source to explore this English content.')+'</p><div class="freshactions">'+(isPlayableFresh(x)?'<button class="playHere" onclick="playFresh(\''+liveEsc(x.key)+'\')">▶ Play here</button>':'<button onclick="openSourceInHub(\''+liveEsc(x.url).replace(/&#39;/g,"\\'")+'\',\''+liveEsc(x.title).replace(/&#39;/g,"\\'")+'\',\''+liveEsc(x.source).replace(/&#39;/g,"\\'")+'\')">▣ Open in Hub</button>')+'<button class="quizHere" onclick="openFreshQuiz(\''+liveEsc(x.key)+'\')">🧩 Quiz +15 XP</button><button class="'+(d?'done':'')+'" onclick="markFresh(\''+liveEsc(x.key)+'\')">'+(d?'✓ Explored':'+5 XP · Explored')+'</button></div></article>'
   }).join('');decorateDictionary(g)
 }
 async function loadFresh(){try{let r=await fetch('feed.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('feed');let data=await r.json();freshItems=Array.isArray(data.items)?data.items:[];syncFreshPrefs();let u=document.getElementById('freshUpdated');if(u)u.textContent=data.updated_at?'Refreshed '+new Date(data.updated_at).toLocaleString():'Daily feed';renderFresh()}catch(e){let u=document.getElementById('freshUpdated');if(u)u.textContent='Daily feed';let g=document.getElementById('freshGrid');if(g)g.innerHTML='<div class="freshempty">Fresh feed is warming up. The 38-mission course is ready meanwhile.</div>'}}
@@ -1850,7 +1858,7 @@ function elifAiKey(event){
 elifAiLoad();
 
 renderSettings();renderAppTabs();
-renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();decorateDictionary(document);loadFresh();eqInit();showAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'));updateLeaguePreview();renderSettings();
+renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installSourceCards();decorateDictionary(document);renderWidgets();renderClipSprint();loadFresh();eqInit();showAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'));updateLeaguePreview();renderSettings();
 </script>
 
 
