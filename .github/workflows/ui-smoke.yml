@@ -1,7 +1,7 @@
 name: UI Smoke Test
 on:
   push:
-    branches: [main]
+    branches: [main, vnext-v5.4-refactor]
     paths:
       - "index.html"
       - "feed.json"

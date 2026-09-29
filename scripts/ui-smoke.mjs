@@ -20,11 +20,19 @@ const page = await browser.newPage();
 await page.setViewport({width: 1280, height: 900});
 await page.evaluateOnNewDocument(() => localStorage.clear());
 
+const LOCAL_ORIGIN = 'http://127.0.0.1:4173';
 const pageErrors = [];
 const consoleErrors = [];
+const sameOriginHttpErrors = [];
+const externalHttpErrors = [];
 page.on('pageerror', e => pageErrors.push(String(e && e.message || e)));
+page.on('response', response => {
+  const status=response.status();if(status<400)return;
+  const item={status,url:response.url()};
+  try{(new URL(item.url).origin===LOCAL_ORIGIN?sameOriginHttpErrors:externalHttpErrors).push(item)}catch(e){externalHttpErrors.push(item)}
+});
 page.on('console', msg => {
-  if (msg.type() === 'error') consoleErrors.push(msg.text());
+  if (msg.type() === 'error') consoleErrors.push({text:msg.text(),url:msg.location()?.url||''});
 });
 
 function assert(cond, msg) {
@@ -36,6 +44,31 @@ try {
   await page.waitForSelector('#languageFlags button[data-lang="es"]', {timeout:10000});
   const version = await page.$eval('#bhVersion', el => el.textContent.trim());
   assert(/^v\d+\.\d+$/.test(version),'Visible version badge is invalid: '+version);
+
+  const shell = await page.evaluate(() => {
+    const visible=el=>!!el&&getComputedStyle(el).display!=='none'&&getComputedStyle(el).visibility!=='hidden';
+    return {
+      appTab:document.body.dataset.appTab,
+      primary:document.body.dataset.primaryNav,
+      navDisplay:getComputedStyle(document.getElementById('vnextBottomNav')).display,
+      navLabels:[...document.querySelectorAll('#vnextBottomNav button')].map(b=>b.innerText.trim().replace(/\s+/g,' ')),
+      hero:visible(document.getElementById('heroHome')),
+      questButtons:document.querySelectorAll('#heroHome .vnextQuestButton').length,
+      oldHomeHidden:['demoPass','learningLaunch','quickControls','personalWidgets','fresh'].every(id=>!visible(document.getElementById(id)))
+    };
+  });
+  assert(shell.appTab==='Home'&&shell.primary==='Home','vNext did not start on Home: '+JSON.stringify(shell));
+  assert(shell.navDisplay!=='none'&&shell.navLabels.join('|')==='Home|Explore|AI Tutor|League','vNext bottom navigation invalid: '+JSON.stringify(shell));
+  assert(shell.hero&&shell.questButtons===1&&shell.oldHomeHidden,'Home is not focused on one daily quest: '+JSON.stringify(shell));
+
+  await page.$eval('#vnavExplore',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Explore'&&document.body.dataset.primaryNav==='Explore',{timeout:4000});
+  await page.$eval('#vnavHome',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
+  await page.$eval('#vnextMessageButton',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Messages',{timeout:4000});
+  await page.$eval('#vnextMessageButton',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
 
   // Spanish global mode. Use DOM click so the smoke test verifies the handler/state
   // without depending on headless Chrome's viewport hit-testing of the sticky header.
@@ -142,8 +175,16 @@ try {
     assert(fsText.length > 20, 'Fullscreen caption/study panel became blank');
   }
 
+  const fatalConsole=consoleErrors.filter(e=>{
+    if(!/Failed to load resource/i.test(e.text))return true;
+    if(e.url&&e.url.startsWith(LOCAL_ORIGIN))return true;
+    if(e.url&&!e.url.startsWith(LOCAL_ORIGIN))return false;
+    return sameOriginHttpErrors.length>0||externalHttpErrors.length===0;
+  });
   assert(pageErrors.length === 0, 'Page errors: '+pageErrors.join(' | '));
-  assert(consoleErrors.length === 0, 'Console errors: '+consoleErrors.join(' | '));
+  assert(sameOriginHttpErrors.length === 0, 'Same-origin HTTP errors: '+JSON.stringify(sameOriginHttpErrors));
+  assert(fatalConsole.length === 0, 'Console errors: '+JSON.stringify(fatalConsole));
+  if(externalHttpErrors.length)console.log('External provider warnings:',JSON.stringify(externalHttpErrors.slice(0,8)));
   console.log('BatumHub UI smoke: PASS');
   console.log(JSON.stringify({version,spanishUnits:spanishUnits.length,grammarCards:grammarControls.length,captionChars:captionText.length}));
 } finally {
