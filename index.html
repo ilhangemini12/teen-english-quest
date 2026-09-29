@@ -3097,7 +3097,7 @@ const DAILY_WORDS={
 function gradeWordList(){let l=currentEnglishLevel().toLowerCase();return DAILY_WORDS[l]||DAILY_WORDS.b1}
 function todayKey(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tbilisi'}).format(new Date())}
 function dailyWord(){let a=gradeWordList(),d=new Date(todayKey()+'T12:00:00Z'),n=Math.floor(d.getTime()/86400000);return a[Math.abs(n)%a.length]}
-async function fillWordWidget(){
+async function fillWordWidgetLegacy(){
   let word=dailyWord(),title=document.getElementById('widgetWordTitle'),body=document.getElementById('widgetWordBody');if(title)title.textContent=word;if(!body)return;
   const local=localDictionaryEntry(word);
   if(local){
@@ -3115,7 +3115,7 @@ async function fillWordWidget(){
   }
   setTimeout(()=>decorateDictionary(body),0);
 }
-function renderWidgets(){
+function renderWidgetsLegacy(){
   let grid=document.getElementById('widgetGrid');if(!grid)return;let g=currentGrade(),band=eqGradeBand(g),w=getWidgets();
   grid.innerHTML=w.map(k=>{
     if(k==='word')return '<article class="hubWidget"><div class="widgetBig">📖</div><h3>Word of the Day · <span id="widgetWordTitle">…</span></h3><div id="widgetWordBody"><p>Loading…</p></div></article>';
