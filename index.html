@@ -3090,8 +3090,7 @@ function youglishDirectUrl(q){
 function youglishFrameDocument(q){
   const query=JSON.stringify(String(q||'').trim());
   return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
-    '<style>html,body{margin:0;padding:0;background:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif}#yg{min-height:330px}.msg{padding:18px;color:#52606d;font-size:14px}.powered{padding:8px 12px;font-size:11px;color:#667085;border-top:1px solid #e6e8ec}.powered a{color:#337ab7}
-</style></head><body>'+
+    '<style>html,body{margin:0;padding:0;background:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif}#yg{min-height:330px}.msg{padding:18px;color:#52606d;font-size:14px}.powered{padding:8px 12px;font-size:11px;color:#667085;border-top:1px solid #e6e8ec}.powered a{color:#337ab7}</style></head><body>'+
     '<div id="yg"><div class="msg">Loading YouGlish…</div></div><div class="powered">Powered by <a href="https://youglish.com/" target="_blank" rel="noopener">YouGlish.com</a></div>'+
     '<script>var BH_YG_QUERY='+query+';function onYouglishAPIReady(){try{var w=new YG.Widget("yg",{autoStart:0,components:733,restrictionMode:1,videoQuality:"default"});w.fetch(BH_YG_QUERY,"english","us")}catch(e){document.getElementById("yg").innerHTML="<div class=msg>Embedded player unavailable. Use the direct link below BatumHub.</div>"}}<\/script>'+
     '<script async src="https://youglish.com/public/emb/widget.js" charset="utf-8"><\/script></body></html>';
