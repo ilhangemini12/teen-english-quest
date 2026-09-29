@@ -2484,14 +2484,14 @@ function renderLocalizedSettings(){
   document.getElementById('locGradeLabel').textContent=ui.schoolGrade;
   document.getElementById('locGradeSelect').value=String(currentGrade());
   document.getElementById('locLevelLabel').textContent=ui.languageLevel;
-  document.getElementById('locLevelChips').innerHTML=['A1','A2','B1','B2','C1'].map(v=>'<button class="'+(v===level?'on':'')+'" onclick="setTargetLanguageLevel(\\''+v+'\\')">'+v+'</button>').join('');
+  document.getElementById('locLevelChips').innerHTML=['A1','A2','B1','B2','C1'].map(v=>'<button class="'+(v===level?'on':'')+'" onclick="setTargetLanguageLevel(\''+v+'\')">'+v+'</button>').join('');
   document.getElementById('locDeviceTitle').textContent='🖥️ 📱 '+ui.device;
   document.getElementById('locDeviceIntro').textContent=ui.deviceIntro;
   let devNames=lang==='es'?{auto:'Automático',desktop:'Ordenador',tablet:'Tableta',mobile:'Móvil'}:lang==='de'?{auto:'Automatisch',desktop:'Desktop',tablet:'Tablet',mobile:'Mobil'}:{auto:'Авто',desktop:'Компьютер',tablet:'Планшет',mobile:'Телефон'};
   document.querySelectorAll('#locDeviceChips button').forEach(b=>{let k=b.dataset.device;b.textContent=(k==='auto'?'✨ ':k==='desktop'?'🖥️ ':k==='tablet'?'▣ ':'📱 ')+(devNames[k]||k);b.classList.toggle('on',selectedDevicePreview()===k)});
   document.getElementById('locPresetTitle').textContent='✨ '+ui.preset;
   const presetNames=lang==='es'?{original:'Original',minimal:'Mínimo',focus:'Enfoque',extended:'Ampliado',sat:'SAT'}:lang==='de'?{original:'Original',minimal:'Minimal',focus:'Fokus',extended:'Erweitert',sat:'SAT'}:{original:'Обычный',minimal:'Минимум',focus:'Фокус',extended:'Расширенный',sat:'SAT'};
-  document.getElementById('locPresetGrid').innerHTML=Object.keys(SPACE_PRESETS).map(k=>'<button class="spacePreset '+(currentSpacePreset()===k?'on':'')+'" onclick="applySpacePreset(\\''+k+'\\')"><span class="presetDot"></span><b>'+presetNames[k]+'</b></button>').join('');
+  document.getElementById('locPresetGrid').innerHTML=Object.keys(SPACE_PRESETS).map(k=>'<button class="spacePreset '+(currentSpacePreset()===k?'on':'')+'" onclick="applySpacePreset(\''+k+'\')"><span class="presetDot"></span><b>'+presetNames[k]+'</b></button>').join('');
 }
 function renderMessagesLocale(){
   let ui=localeUI(),sec=document.getElementById('messages');if(!sec)return;
@@ -2507,7 +2507,7 @@ async function localizedEqRenderInbox(){
   if(!eqUser){box.className='emptyThread';box.innerHTML=ui.signIn;return}
   let friends=eqFriends.filter(f=>f.status==='accepted');
   if(!friends.length){box.className='emptyThread';box.innerHTML=ui.noAccepted;return}
-  box.className='';box.innerHTML=friends.map(f=>{let o=eqOnlineFor(f.friend_id);return '<button class="btn" style="display:block;width:100%;text-align:left;margin:6px 0" onclick="eqOpenChat(\\''+f.friend_id+'\\',\\''+liveEsc(f.nickname).replace(/&#39;/g,"\\\\'")+'\\')"><span class="onlineDot '+(o&&o.online?'on':'')+'"></span>'+eqAvatarEmoji(o&&o.avatar_key)+' '+liveEsc(f.nickname)+'</button>'}).join('');
+  box.className='';box.innerHTML=friends.map(f=>{let o=eqOnlineFor(f.friend_id);return '<button class="btn" style="display:block;width:100%;text-align:left;margin:6px 0" onclick="eqOpenChat(\''+f.friend_id+'\',\''+liveEsc(f.nickname).replace(/&#39;/g,"\\\'")+'\')"><span class="onlineDot '+(o&&o.online?'on':'')+'"></span>'+eqAvatarEmoji(o&&o.avatar_key)+' '+liveEsc(f.nickname)+'</button>'}).join('');
 }
 eqRenderInbox=localizedEqRenderInbox;
 
@@ -2571,10 +2571,10 @@ function renderWidgets(){
   let grid=document.getElementById('widgetGrid');if(!grid)return;let ui=localeUI(),lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],g=currentGrade(),w=getWidgets(),level=currentLanguageLevel();
   grid.innerHTML=w.map(k=>{
     if(k==='word')return '<article class="hubWidget"><div class="widgetBig">📖</div><h3>'+ui.wordDay+' · <span id="widgetWordTitle">…</span></h3><div id="widgetWordBody"><p>'+ui.loadingWord+'</p></div></article>';
-    if(k==='friends'){let accepted=(eqFriends||[]).filter(x=>x.status==='accepted'),rows=accepted.slice(0,4).map(f=>'<div class="friendMini"><span class="onlineDot '+(eqOnlineFor(f.friend_id)?.online?'on':'')+'"></span><span>'+eqAvatarEmoji(eqOnlineFor(f.friend_id)?.avatar_key)+' '+liveEsc(f.nickname)+'</span></div>').join('');return '<article class="hubWidget"><div class="widgetBig">🟢</div><h3>'+ui.friends+'</h3>'+(eqUser?(rows||'<p>'+ui.noFriends+'</p>'):'<p>'+ui.signFriends+'</p>')+'<div class="widgetControls"><button onclick="openTab(\\'Messages\\')">'+ui.messages+'</button></div></article>'}
-    if(k==='clip')return '<article class="hubWidget"><div class="widgetBig">🎬</div><h3>'+ui.clipSprint+'</h3><p>'+ui.clipDesc+'</p><div class="widgetControls"><button onclick="openTab(\\''+(lang==='en'?'Clips':'Explore')+'\\')">'+ui.startClip+'</button></div></article>';
-    if(k==='game')return '<article class="hubWidget"><div class="widgetBig">🧩</div><h3>'+ui.wordGame+'</h3><p>'+ui.wordGameDesc+'</p><div class="widgetControls"><button onclick="openTab(\\'Games\\')">'+ui.play+'</button></div></article>';
-    return '<article class="hubWidget"><div class="widgetBig">🎓</div><h3>'+ui.grade+' '+g+' · '+info.native+' '+level+'</h3><span class="gradePill">'+ui.myLevel+'</span><p>'+ui.settingsIntro+'</p><div class="widgetControls"><button onclick="openTab(\\'Settings\\')">'+ui.profile+'</button></div></article>'
+    if(k==='friends'){let accepted=(eqFriends||[]).filter(x=>x.status==='accepted'),rows=accepted.slice(0,4).map(f=>'<div class="friendMini"><span class="onlineDot '+(eqOnlineFor(f.friend_id)?.online?'on':'')+'"></span><span>'+eqAvatarEmoji(eqOnlineFor(f.friend_id)?.avatar_key)+' '+liveEsc(f.nickname)+'</span></div>').join('');return '<article class="hubWidget"><div class="widgetBig">🟢</div><h3>'+ui.friends+'</h3>'+(eqUser?(rows||'<p>'+ui.noFriends+'</p>'):'<p>'+ui.signFriends+'</p>')+'<div class="widgetControls"><button onclick="openTab(\'Messages\')">'+ui.messages+'</button></div></article>'}
+    if(k==='clip')return '<article class="hubWidget"><div class="widgetBig">🎬</div><h3>'+ui.clipSprint+'</h3><p>'+ui.clipDesc+'</p><div class="widgetControls"><button onclick="openTab(\''+(lang==='en'?'Clips':'Explore')+'\')">'+ui.startClip+'</button></div></article>';
+    if(k==='game')return '<article class="hubWidget"><div class="widgetBig">🧩</div><h3>'+ui.wordGame+'</h3><p>'+ui.wordGameDesc+'</p><div class="widgetControls"><button onclick="openTab(\'Games\')">'+ui.play+'</button></div></article>';
+    return '<article class="hubWidget"><div class="widgetBig">🎓</div><h3>'+ui.grade+' '+g+' · '+info.native+' '+level+'</h3><span class="gradePill">'+ui.myLevel+'</span><p>'+ui.settingsIntro+'</p><div class="widgetControls"><button onclick="openTab(\'Settings\')">'+ui.profile+'</button></div></article>'
   }).join('');
   if(w.includes('word'))fillWordWidget();
   if(lang==='en')setTimeout(()=>decorateDictionary(grid),0);
@@ -2608,7 +2608,7 @@ function renderLanguageSwitcher(){
   document.querySelectorAll('#languageFlags button').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
   if(levels){
     let opts=lang==='en'?['auto','A1','A2','B1','B2','C1']:['A1','A2','B1','B2','C1'],cur=lang==='en'?storedEnglishLevel():currentLanguageLevel();
-    levels.innerHTML=opts.map(v=>'<button class="'+(v===cur?'on':'')+'" onclick="setTargetLanguageLevel(\\''+v+'\\')">'+(v==='auto'?localeUI().auto:v)+'</button>').join('');
+    levels.innerHTML=opts.map(v=>'<button class="'+(v===cur?'on':'')+'" onclick="setTargetLanguageLevel(\''+v+'\')">'+(v==='auto'?localeUI().auto:v)+'</button>').join('');
   }
   let bar=document.getElementById('languageBar');if(bar)bar.dataset.language=lang;
   applyGlobalLocale();
