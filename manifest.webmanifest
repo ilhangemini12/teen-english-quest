@@ -1,11 +1,29 @@
 {
-  "name":"BatumHub — English, SAT & Future",
-  "short_name":"BatumHub",
-  "start_url":"./",
-  "scope":"./",
-  "display":"standalone",
-  "background_color":"#0b1220",
-  "theme_color":"#0b1220",
-  "description":"A social ESL learning hub for English, SAT, media, university and career discovery.",
-  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+  "id": "./",
+  "name": "BatumHub — English, SAT & Future",
+  "short_name": "BatumHub",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "description": "An adaptive English learning hub with grade-aware practice, vocabulary review, media, SAT and future-planning tools.",
+  "categories": [
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
