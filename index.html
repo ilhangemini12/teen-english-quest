@@ -213,6 +213,7 @@ body[data-density="compact"] .mission{border-radius:13px!important}
 @media(max-width:820px){.elifAiShell{grid-template-columns:1fr}.elifAiSide{order:-1}.elifAiChat{min-height:360px;max-height:58vh}.elifBubble{max-width:88%}}
 @media(max-width:520px){.elifAiHead{align-items:flex-start}.elifAiHead .elifAiBadge{white-space:normal}.elifAiChat{padding:10px;min-height:330px}.elifAiActions{padding:0 10px 9px}.elifAiComposer{padding:10px}.elifBubble{max-width:92%}}
 
+.avatarPicker{display:flex;gap:7px;flex-wrap:wrap;margin:6px 0 11px}.avatarChoice{width:38px;height:38px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--surface2);font-size:20px;cursor:pointer;display:grid;place-items:center}.avatarChoice.on{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%,transparent);background:color-mix(in srgb,var(--accent) 12%,var(--surface2))}.profileIdentity{display:flex;align-items:center;gap:10px;margin:2px 0 12px}.profileAvatarLarge{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);border:1px solid var(--line);font-size:25px}.profileIdentity p{margin:0}.profileIdentity small{display:block;color:var(--muted)}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#08111f">
@@ -236,8 +237,8 @@ if ('serviceWorker' in navigator) {
 
   <div id="eqSignedOut">
     <div id="eqAuthSignIn">
-      <label>Email</label>
-      <input id="eqLoginEmail" type="email" autocomplete="email" placeholder="you@example.com">
+      <label>Email or nickname</label>
+      <input id="eqLoginIdentifier" type="text" autocomplete="username" maxlength="120" placeholder="you@example.com or AlexReads">
       <label>Password</label>
       <input id="eqLoginPassword" type="password" minlength="8" autocomplete="current-password" placeholder="Password" onkeydown="if(event.key==='Enter')eqSignIn()">
       <div class="authactions">
@@ -251,6 +252,8 @@ if ('serviceWorker' in navigator) {
     <div id="eqAuthSignUp" style="display:none">
       <label>Nickname</label>
       <input id="eqSignupUsername" maxlength="20" autocomplete="nickname" placeholder="e.g. AlexReads">
+      <label>Choose an avatar</label>
+      <div class="avatarPicker" id="eqSignupAvatarPicker"></div>
       <label>Email</label>
       <input id="eqSignupEmail" type="email" autocomplete="email" placeholder="you@example.com">
       <label>Create password</label>
@@ -277,7 +280,9 @@ if ('serviceWorker' in navigator) {
   </div>
 
   <div id="eqSignedIn" style="display:none">
-    <p>Signed in as <b id="eqUsername">…</b></p>
+    <div class="profileIdentity"><div class="profileAvatarLarge" id="eqProfileAvatarLarge">⭐</div><p><b id="eqUsername">…</b><small>Your BatumHub profile</small></p></div>
+    <label>Choose an avatar</label>
+    <div class="avatarPicker" id="eqProfileAvatarPicker"></div>
     <label>Nickname</label>
     <div class="searchRow"><input id="eqNicknameEdit" maxlength="20" placeholder="Nickname"><button class="btn" onclick="eqSaveNickname()">Save</button></div>
     <div class="privacybox"><b>Your private friend invite code</b><br><code id="eqInviteCode">…</code>
@@ -298,7 +303,7 @@ if ('serviceWorker' in navigator) {
 <div class="topStatusBar" id="topStatusBar">
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
-  <span class="versionTop">⚙️ <b>v4.3.1</b></span>
+  <span class="versionTop">⚙️ <b>v4.3.2</b></span>
   <span>🕒 <b id="bhUpdated">Updated Sep 29, 2026</b></span>
 </div>
 <div class="apptabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero" id="heroHome"><div><span class="pill">🌍 English · SAT · Future · Friends</span><span class="livepill"><i></i> Fresh content daily</span><h1>Learn English by doing things, not collecting lessons.</h1><p class="lead">Build real English through missions, media, SAT practice, TED-style ideas, sports, gaming, movies, university exploration and career discovery. Your interests shape what you see; XP and private friend leagues keep progress visible.</p></div><div class="dash"><div class="stats"><div class="stat"><strong id="xp">0</strong><span>Total XP</span></div><div class="stat"><strong id="level">1</strong><span>Level</span></div><div class="stat"><strong id="streak">0</strong><span>Day streak 🔥</span></div><div class="stat"><strong id="donec">0/38</strong><span>Missions</span></div></div><small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small><div class="bar"><div id="weekbar"></div></div><button class="btn" onclick="duo()">🟢 Duolingo done +10 XP</button> <button class="btn" onclick="exportP()">⬇ Export</button></div></section><section id="demoPass" class="demoPass">
@@ -644,8 +649,8 @@ if ('serviceWorker' in navigator) {
   <div id="dictBody"><small>Hold your cursor over an English word for 3 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='4.3.1';
-const BH_SITE_UPDATED='2026-09-29T11:42:00+04:00';
+const BH_SITE_VERSION='4.3.2';
+const BH_SITE_UPDATED='2026-09-29T13:48:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -671,6 +676,24 @@ const EQ_SUPABASE_URL='https://ylyiptbfqtmqwxirhehm.supabase.co';
 const EQ_SUPABASE_KEY='sb_publishable_H-tabbTCJePhTEEqwuyVBQ_4z02aTmg';
 const eqSupa=(window.supabase&&window.supabase.createClient)?window.supabase.createClient(EQ_SUPABASE_URL,EQ_SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
 let eqUser=null,eqProfile=null,eqFriends=[],eqSelectedFriend=null,eqMsgChannel=null,eqSyncTimer=null;
+const EQ_AVATARS={star:'⭐',moon:'🌙',flower:'🌸',butterfly:'🦋',cat:'🐈',fox:'🦊',panda:'🐼',headphones:'🎧',books:'📚',art:'🎨',wave:'🌊',planet:'🪐'};
+let eqSignupAvatar='star';
+function eqAvatarEmoji(key){return EQ_AVATARS[key]||EQ_AVATARS.star}
+function eqRenderAvatarPicker(id,selected,scope){
+  let box=document.getElementById(id);if(!box)return;
+  box.innerHTML=Object.entries(EQ_AVATARS).map(([key,emoji])=>'<button type="button" class="avatarChoice '+(key===selected?'on':'')+'" title="'+key+'" aria-label="'+key+'" onclick="eqChooseAvatar(\''+scope+'\',\''+key+'\')">'+emoji+'</button>').join('');
+}
+async function eqChooseAvatar(scope,key){
+  if(!EQ_AVATARS[key])return;
+  if(scope==='signup'){
+    eqSignupAvatar=key;localStorage.setItem('eq-pending-avatar',key);eqRenderAvatarPicker('eqSignupAvatarPicker',key,'signup');return;
+  }
+  if(scope==='profile'&&eqUser){
+    const {error}=await eqSupa.from('profiles').update({avatar_key:key,updated_at:new Date().toISOString()}).eq('user_id',eqUser.id);
+    if(error)return eqSetStatus('Avatar could not be updated.',false);
+    await eqLoadProfile();eqSetStatus('Avatar updated.',true);
+  }
+}
 
 function eqSetStatus(msg,ok){
   let e=document.getElementById('authStatus');if(!e)return;
@@ -692,6 +715,8 @@ function eqSetAuthMode(mode){
   if(mode==='signup'){
     let saved=localStorage.getItem('eq-pending-email')||'';
     let e=document.getElementById('eqSignupEmail');if(e&&!e.value)e.value=saved;
+    eqSignupAvatar=localStorage.getItem('eq-pending-avatar')||eqSignupAvatar||'star';
+    eqRenderAvatarPicker('eqSignupAvatarPicker',eqSignupAvatar,'signup');
   }
 }
 function eqAuthCallbackIssue(){
@@ -749,8 +774,9 @@ async function eqSignUp(){
   if(password.length<8)return eqSetStatus('Create a password with at least 8 characters.',false);
   localStorage.setItem('eq-pending-nickname',nick);
   localStorage.setItem('eq-pending-email',email);
+  localStorage.setItem('eq-pending-avatar',eqSignupAvatar);
   eqSetStatus('Creating account…',false);
-  const {data,error}=await eqSupa.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});
+  const {data,error}=await eqSupa.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname,data:{nickname:nick,avatar_key:eqSignupAvatar}}});
   if(error)return eqSetStatus(liveEsc(error.message),false);
   if(data.session){
     await eqHandleSession(data.session);await eqApplyPendingNickname();localStorage.removeItem('eq-pending-email');eqSetStatus('Account created and signed in.',true);closeAccount();
@@ -761,7 +787,7 @@ async function eqSignUp(){
 }
 async function eqResendConfirmation(){
   if(!eqSupa)return;
-  let email=(localStorage.getItem('eq-pending-email')||document.getElementById('eqSignupEmail')?.value||document.getElementById('eqLoginEmail')?.value||'').trim();
+  let email=(localStorage.getItem('eq-pending-email')||document.getElementById('eqSignupEmail')?.value||'').trim();
   if(!email||!email.includes('@')){
     eqSetAuthMode('signup');return eqSetStatus('Enter your email first, then choose "Resend confirmation email".',false);
   }
@@ -774,22 +800,38 @@ async function eqResendConfirmation(){
 }
 async function eqSignIn(){
   if(!eqSupa)return;
-  let email=(document.getElementById('eqLoginEmail').value||'').trim(),password=document.getElementById('eqLoginPassword').value||'';
-  if(!email||!email.includes('@'))return eqSetStatus('Enter your email address.',false);
+  let identifier=(document.getElementById('eqLoginIdentifier').value||'').trim(),password=document.getElementById('eqLoginPassword').value||'';
+  if(!identifier)return eqSetStatus('Enter your email or nickname.',false);
   if(!password)return eqSetStatus('Enter your password.',false);
   eqSetStatus('Signing in…',false);
-  const {data,error}=await eqSupa.auth.signInWithPassword({email,password});
-  if(error){
-    let msg=String(error.message||'Sign-in failed.');
-    if(/email not confirmed/i.test(msg)){
-      localStorage.setItem('eq-pending-email',email);
-      eqSetAuthMode('check');
-      let ce=document.getElementById('eqConfirmEmail');if(ce)ce.textContent=email;
-      return eqSetStatus('Your email still needs confirmation. Use the newest confirmation link or resend it.',false);
+
+  if(identifier.includes('@')){
+    const {data,error}=await eqSupa.auth.signInWithPassword({email:identifier,password});
+    if(error){
+      let msg=String(error.message||'Sign-in failed.');
+      if(/email not confirmed/i.test(msg)){
+        localStorage.setItem('eq-pending-email',identifier);
+        eqSetAuthMode('check');
+        let ce=document.getElementById('eqConfirmEmail');if(ce)ce.textContent=identifier;
+        return eqSetStatus('Your email still needs confirmation. Use the newest confirmation link or resend it.',false);
+      }
+      return eqSetStatus('Invalid email or password.',false);
     }
-    return eqSetStatus(liveEsc(msg),false);
+    await eqHandleSession(data.session);
+  }else{
+    if(!eqValidNickname(identifier))return eqSetStatus('Nickname must be 3–20 characters using letters, numbers, _, . or -.',false);
+    const {data,error}=await eqSupa.functions.invoke('nickname-login',{body:{nickname:identifier,password}});
+    if(error||!data?.access_token||!data?.refresh_token){
+      let msg='Invalid nickname or password.';
+      try{if(error?.context&&typeof error.context.json==='function'){let j=await error.context.json();if(j?.error)msg=j.error}}catch(e){}
+      if(/email not confirmed/i.test(msg))msg='Email not confirmed yet. Sign in once with your email to resend confirmation.';
+      return eqSetStatus(msg,false);
+    }
+    const {data:setData,error:setError}=await eqSupa.auth.setSession({access_token:data.access_token,refresh_token:data.refresh_token});
+    if(setError||!setData?.session)return eqSetStatus('Sign-in could not be completed. Please try again.',false);
+    await eqHandleSession(setData.session);
   }
-  await eqHandleSession(data.session);await eqApplyPendingNickname();localStorage.removeItem('eq-pending-email');closeAccount();
+  await eqApplyPendingNickname();localStorage.removeItem('eq-pending-email');closeAccount();
 }
 async function eqSignOut(){
   if(eqSupa)await eqSupa.auth.signOut();
@@ -800,14 +842,23 @@ async function eqLoadProfile(){
   const {data,error}=await eqSupa.from('profiles').select('user_id,nickname,invite_code,avatar_key').eq('user_id',eqUser.id).single();
   if(error){eqSetStatus('Profile load error: '+liveEsc(error.message),false);return}
   eqProfile=data;
-  let u=document.getElementById('eqUsername'),i=document.getElementById('eqInviteCode'),n=document.getElementById('eqNicknameEdit');
-  if(u)u.textContent=data.nickname;if(i)i.textContent=data.invite_code;if(n)n.value=data.nickname;
+  let u=document.getElementById('eqUsername'),i=document.getElementById('eqInviteCode'),n=document.getElementById('eqNicknameEdit'),a=document.getElementById('eqProfileAvatarLarge'),btn=document.getElementById('eqAccountButton');
+  if(u)u.textContent=data.nickname;if(i)i.textContent=data.invite_code;if(n)n.value=data.nickname;if(a)a.textContent=eqAvatarEmoji(data.avatar_key);
+  if(btn)btn.textContent=eqAvatarEmoji(data.avatar_key)+' '+data.nickname;
+  eqRenderAvatarPicker('eqProfileAvatarPicker',data.avatar_key||'star','profile');
 }
 async function eqApplyPendingNickname(){
-  let n=localStorage.getItem('eq-pending-nickname');if(!n||!eqUser)return;
-  if(eqValidNickname(n)){
-    const {error}=await eqSupa.from('profiles').update({nickname:n}).eq('user_id',eqUser.id);
-    if(!error){localStorage.removeItem('eq-pending-nickname');await eqLoadProfile()}
+  if(!eqUser)return;
+  let n=localStorage.getItem('eq-pending-nickname'),avatar=localStorage.getItem('eq-pending-avatar');
+  let patch={};
+  if(n&&eqValidNickname(n))patch.nickname=n;
+  if(avatar&&EQ_AVATARS[avatar])patch.avatar_key=avatar;
+  if(!Object.keys(patch).length)return;
+  const {error}=await eqSupa.from('profiles').update({...patch,updated_at:new Date().toISOString()}).eq('user_id',eqUser.id);
+  if(!error){
+    localStorage.removeItem('eq-pending-nickname');localStorage.removeItem('eq-pending-avatar');await eqLoadProfile();
+  }else if(n){
+    eqSetStatus('That nickname is already in use. Choose another nickname in your profile.',false);
   }
 }
 async function eqSaveNickname(){
@@ -815,7 +866,7 @@ async function eqSaveNickname(){
   let n=(document.getElementById('eqNicknameEdit').value||'').trim();
   if(!eqValidNickname(n))return eqSetStatus('Nickname must be 3–20 characters using letters, numbers, _, . or -.',false);
   const {error}=await eqSupa.from('profiles').update({nickname:n}).eq('user_id',eqUser.id);
-  if(error)return eqSetStatus('Nickname unavailable or invalid.',false);
+  if(error)return eqSetStatus('That nickname is already in use or invalid. Try another one.',false);
   await eqLoadProfile();eqSetStatus('Nickname updated.',true);updateLeaguePreview();
 }
 async function eqCopyInvite(){
