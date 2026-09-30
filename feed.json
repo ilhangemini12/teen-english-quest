@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-09-30T11:10:26.722319+00:00",
+  "updated_at": "2026-09-30T21:25:37.386286+00:00",
   "items": [
+    {
+      "key": "c7827d6c105e13",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "AI and the end of loneliness | Paul Bloom",
+      "summary": "AI companions may soon cure loneliness, says psychologist Paul Bloom: a gift for the isolated and the elderly, but a danger for the young, who need to experience the hard work of real relationships. So what…",
+      "url": "http://go.ted.com/paulbloom26",
+      "published": "2026-09-30T15:01:47+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abd245b56d8e12f09c351cf/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "88e26d5cef0072",
       "source": "Teen Vogue",
@@ -311,19 +324,6 @@
       "published": "2026-09-15T08:35:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9p4tv.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "a1a8c0da98041e",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How AI unleashed (not replaced) my creativity | Kelly A. Boesch",
-      "summary": "After working for years in film, fashion and graphic design, visual artist Kelly A. Boesch found a new collaborator to work with: AI. She walks through how she uses the technology to create dreamlike images…",
-      "url": "http://go.ted.com/kellyaboesch",
-      "published": "2026-09-14T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aa808faa6e9aef4ccb6de56/media.mp3",
       "transcript_url": ""
     },
     {
