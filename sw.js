@@ -1,4 +1,4 @@
-const C='batumhub-live-v19';
+const C='batumhub-live-v20';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg','./mobile-native.js'];
 
 self.addEventListener('install',event=>{
