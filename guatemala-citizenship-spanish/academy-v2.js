@@ -380,6 +380,22 @@
       const v=el?Number(el.value):-1;
       if(v>=0)baselineAnswered++;
       if(v===q.c)baselineCorrect++;
+      if(v!==q.c&&v>=0)addError('civics',q.q,q.a[v],q.a[q.c],{topic:q.t});
+    });
+    if(baselineEligible&&baselineAnswered<quizNow.length){
+      const area=document.getElementById('quiz');
+      if(area){
+        const note=document.createElement('div');
+        note.className='task';
+        note.textContent='Baseline için 5 sorunun tamamını işaretle; boş soru değerlendirmeye alınmaz.';
+        area.prepend(note);
+        setTimeout(()=>note.remove(),3500);
+      }
+      return;
+    }
+    quizNow.forEach((q,i)=>{
+      const el=document.querySelector('input[name="q'+i+'"]:checked');
+      const v=el?Number(el.value):-1;
       if(v!==q.c)addError('civics',q.q,v>=0?q.a[v]:'Cevap yok',q.a[q.c],{topic:q.t});
     });
     originalGradeQuiz();
