@@ -26,6 +26,7 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;bord
 .small{font-size:12px}.danger{color:var(--danger)}.right{float:right}
 @media(max-width:850px){.hero,.two{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.external{grid-template-columns:1fr}}@media(max-width:560px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 <header class="top"><div class="nav">
@@ -318,5 +319,7 @@ function renderHistory(){let rows=Object.entries(S.days).sort((a,b)=>b[0].locale
 function renderAll(){renderDash();renderWeeks();renderWordStats();renderTopicStats();renderApps();renderHistory()}
 renderAll();renderFlash();newQuiz();renderInterview();
 </script>
+  <script src="./academy-data.js"></script>
+  <script src="./academy-v2.js"></script>
 </body>
 </html>
