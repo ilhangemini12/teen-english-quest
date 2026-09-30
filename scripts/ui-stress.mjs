@@ -181,16 +181,19 @@ try{
   score+=10;
   assert(pageErrors.length===0,'Desktop page errors: '+pageErrors.join(' | '));
 
-  // Mobile vNext shell: brand + tiny weather + messages/account on top, four-item bottom nav.
+  // Mobile vNext shell: minimal brand + messages + settings top row, four-item bottom nav.
   const mobile=await newPage(390,844),m=mobile.p;
   const compact=await m.evaluate(()=>({
     top:Math.round(document.querySelector('.top')?.getBoundingClientRect().height||0),
-    legacyMobile:getComputedStyle(document.getElementById('mobileCompactTop')).display,
+    mobileTop:getComputedStyle(document.getElementById('mobileCompactTop')).display,
     lang:getComputedStyle(document.querySelector('.languageBarTop')).display,
     brand:getComputedStyle(document.querySelector('.brandnav')).display,
     core:getComputedStyle(document.querySelector('.coreNav')).display,
     status:getComputedStyle(document.querySelector('.topStatusBar')).display,
     weatherMini:getComputedStyle(document.getElementById('bhWeatherMini')).display,
+    focusButton:getComputedStyle(document.getElementById('focusPlayerButton')).display,
+    focusMini:getComputedStyle(document.getElementById('focusMiniBar')).display,
+    account:getComputedStyle(document.getElementById('eqAccountButton')).display,
     secondary:getComputedStyle(document.querySelector('.secondaryTabs')).display,
     bottom:getComputedStyle(document.getElementById('vnextBottomNav')).display,
     nav:[...document.querySelectorAll('#vnextBottomNav button')].map(b=>b.lastElementChild?.textContent.trim()||''),
@@ -200,9 +203,9 @@ try{
     scroll:document.documentElement.scrollWidth,
     width:innerWidth
   }));
-  assert(compact.top<=100&&compact.legacyMobile==='none','Legacy mobile header leaked into vNext: '+JSON.stringify(compact));
-  assert(compact.brand!=='none'&&compact.weatherMini!=='none'&&compact.bottom!=='none','vNext mobile shell missing: '+JSON.stringify(compact));
-  assert(compact.status==='none'&&compact.lang==='none'&&compact.core==='none'&&compact.secondary==='none','Legacy secondary chrome leaked into vNext mobile header: '+JSON.stringify(compact));
+  assert(compact.top<=60&&compact.mobileTop!=='none'&&compact.bottom!=='none','Minimal mobile shell missing or too tall: '+JSON.stringify(compact));
+  assert(compact.brand==='none'&&compact.weatherMini==='none'&&compact.focusButton==='none'&&compact.focusMini==='none'&&compact.account==='none','Desktop controls leaked into minimal mobile shell: '+JSON.stringify(compact));
+  assert(compact.status==='none'&&compact.lang==='none'&&compact.core==='none'&&compact.secondary==='none','Legacy secondary chrome leaked into minimal mobile header: '+JSON.stringify(compact));
   assert(compact.nav.join('|')==='Home|Explore|AI Tutor|League'&&compact.appTab==='Home'&&compact.primary==='Home'&&compact.questButtons===1,'vNext mobile navigation/home focus invalid: '+JSON.stringify(compact));
   assert(compact.scroll<=compact.width+4,'Mobile shell causes horizontal overflow: '+JSON.stringify(compact));
 
@@ -210,19 +213,19 @@ try{
     await m.$eval('#'+id,el=>el.click());
     await m.waitForFunction((t,p)=>document.body.dataset.appTab===t&&document.body.dataset.primaryNav===p,{timeout:4000},tab,primary);
   }
-  await m.$eval('#vnextMessageButton',el=>el.click());
+  await m.$eval('#mobileMessageButton',el=>el.click());
   await m.waitForFunction(()=>document.body.dataset.appTab==='Messages',{timeout:4000});
-  await m.$eval('#vnextMessageButton',el=>el.click());
+  await m.evaluate(()=>mobileNavigate('Home'));
   await m.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
 
-  await m.$eval('#eqAccountButton',el=>el.click());
+  await m.$eval('#mobileSettingsButton',el=>el.click());
   await m.waitForSelector('#mobileMenu.open',{timeout:3000});
   const drawer=await m.evaluate(()=>({
     lang:document.getElementById('mobileLanguageSelect')?.value,
     level:document.getElementById('mobileLevelSelect')?.value,
     height:Math.round(document.querySelector('.mobileMenuSheet')?.getBoundingClientRect().height||0)
   }));
-  assert(drawer.lang==='en'&&drawer.height>120,'Avatar secondary menu did not open correctly: '+JSON.stringify(drawer));
+  assert(drawer.lang==='en'&&drawer.level&&drawer.height>180,'Minimal settings drawer did not open correctly: '+JSON.stringify(drawer));
   await m.evaluate(()=>toggleMobileMenu(false));
 
   await m.evaluate(()=>setLearningLanguage('es'));

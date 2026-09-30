@@ -259,6 +259,38 @@ try {
     assert(fsText.length > 20, 'Fullscreen caption/study panel became blank');
   }
 
+  // Minimal mobile shell: no weather, Focus Player, level bar or desktop account chip.
+  const mobilePage=await browser.newPage();
+  await mobilePage.setViewport({width:390,height:844});
+  await mobilePage.evaluateOnNewDocument(()=>localStorage.clear());
+  await mobilePage.goto(LOCAL_ORIGIN+'/?mobile-smoke=1',{waitUntil:'domcontentloaded',timeout:30000});
+  await mobilePage.waitForSelector('#mobileCompactTop',{timeout:10000});
+  const mobileShell=await mobilePage.evaluate(()=>({
+    top:Math.round(document.querySelector('.top')?.getBoundingClientRect().height||0),
+    compact:getComputedStyle(document.getElementById('mobileCompactTop')).display,
+    learning:getComputedStyle(document.getElementById('languageBar')).display,
+    brand:getComputedStyle(document.querySelector('.brandnav')).display,
+    weather:getComputedStyle(document.getElementById('bhWeatherMini')).display,
+    focus:getComputedStyle(document.getElementById('focusPlayerButton')).display,
+    focusMini:getComputedStyle(document.getElementById('focusMiniBar')).display,
+    account:getComputedStyle(document.getElementById('eqAccountButton')).display,
+    nav:getComputedStyle(document.getElementById('vnextBottomNav')).display,
+    overflow:document.documentElement.scrollWidth-innerWidth
+  }));
+  assert(mobileShell.top<=60&&mobileShell.compact!=='none'&&mobileShell.nav!=='none','Minimal mobile shell failed: '+JSON.stringify(mobileShell));
+  assert(mobileShell.learning==='none'&&mobileShell.brand==='none'&&mobileShell.weather==='none'&&mobileShell.focus==='none'&&mobileShell.focusMini==='none'&&mobileShell.account==='none','Desktop controls leaked into mobile: '+JSON.stringify(mobileShell));
+  assert(mobileShell.overflow<=4,'Minimal mobile shell overflows horizontally: '+JSON.stringify(mobileShell));
+  await mobilePage.$eval('#mobileSettingsButton',el=>el.click());
+  await mobilePage.waitForSelector('#mobileMenu.open',{timeout:3000});
+  const mobileDrawer=await mobilePage.evaluate(()=>({
+    language:document.getElementById('mobileLanguageSelect')?.value,
+    level:document.getElementById('mobileLevelSelect')?.value,
+    quick:getComputedStyle(document.querySelector('.mobileQuickTestAction')).display,
+    quickNav:getComputedStyle(document.getElementById('mobileQuickNav')).display
+  }));
+  assert(mobileDrawer.language==='en'&&mobileDrawer.level&&mobileDrawer.quick!=='none'&&mobileDrawer.quickNav==='none','Mobile settings drawer is not minimal/usable: '+JSON.stringify(mobileDrawer));
+  await mobilePage.close();
+
   const fatalConsole=consoleErrors.filter(e=>{
     if(!/Failed to load resource/i.test(e.text))return true;
     if(e.url&&e.url.startsWith(LOCAL_ORIGIN))return true;
