@@ -25,7 +25,7 @@ android {
                 storeFile file(ks)
                 storePassword System.getenv("GUA_KEYSTORE_PASSWORD")
                 keyAlias System.getenv("GUA_KEY_ALIAS")
-                keyPassword System.getenv("GUA_KEY_PASSWORD")
+                keyPassword System.getenv("GUA_KEYSTORE_PASSWORD")
             }
         }
     }
