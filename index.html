@@ -3876,7 +3876,155 @@ function elifAiKey(event){
     event.preventDefault();elifAiSend();
   }
 }
-elifAiLoad();
+
+/* ===== ELIF AI VOICE PRACTICE ===== */
+const ELIF_VOICE_SETTINGS='batumhub-elif-voice-settings-v1';
+let elifVoiceRecognition=null,elifVoiceActive=false,elifVoiceListening=false,elifVoiceSpeaking=false,elifVoiceFinalCaptured=false;
+function elifVoiceRecognitionCtor(){return window.SpeechRecognition||window.webkitSpeechRecognition||null}
+function elifVoiceCapabilities(){return {recognition:!!elifVoiceRecognitionCtor(),synthesis:!!(window.speechSynthesis&&window.SpeechSynthesisUtterance),secure:!!window.isSecureContext}}
+function elifVoiceHandsFreeEnabled(){let e=document.getElementById('elifVoiceHandsFree');return !e||e.checked}
+function elifVoiceAutoSpeakEnabled(){let e=document.getElementById('elifVoiceAutoSpeak');return !e||e.checked}
+function elifVoiceRateValue(){let e=document.getElementById('elifVoiceRate'),n=Number(e&&e.value);return Number.isFinite(n)?Math.min(1.12,Math.max(.72,n)):.94}
+function elifVoiceSaveSettings(){
+  try{localStorage.setItem(ELIF_VOICE_SETTINGS,JSON.stringify({handsFree:elifVoiceHandsFreeEnabled(),autoSpeak:elifVoiceAutoSpeakEnabled(),rate:elifVoiceRateValue()}))}catch(e){}
+}
+function elifVoiceLoadSettings(){
+  try{
+    let x=JSON.parse(localStorage.getItem(ELIF_VOICE_SETTINGS)||'{}'),h=document.getElementById('elifVoiceHandsFree'),a=document.getElementById('elifVoiceAutoSpeak'),r=document.getElementById('elifVoiceRate');
+    if(h&&typeof x.handsFree==='boolean')h.checked=x.handsFree;
+    if(a&&typeof x.autoSpeak==='boolean')a.checked=x.autoSpeak;
+    if(r&&Number.isFinite(Number(x.rate)))r.value=String(x.rate);
+  }catch(e){}
+}
+function elifVoiceSetState(state,text){
+  let panel=document.getElementById('elifVoicePanel'),label=document.getElementById('elifVoiceState'),start=document.getElementById('elifVoiceStart'),stop=document.getElementById('elifVoiceStop');
+  if(panel)panel.dataset.state=state||'ready';
+  if(label&&text)label.textContent=text;
+  if(start){
+    start.classList.toggle('listening',state==='listening');
+    start.disabled=state==='listening'||state==='thinking'||state==='speaking'||!elifVoiceCapabilities().recognition;
+    start.textContent=state==='listening'?'🎙 Listening…':elifVoiceActive?'🎙 Speak':'🎙 Start voice practice';
+  }
+  if(stop)stop.disabled=!elifVoiceActive&&!elifVoiceListening&&!elifVoiceSpeaking;
+}
+function elifVoiceRenderSupport(){
+  let e=document.getElementById('elifVoiceSupport');if(!e)return;
+  let c=elifVoiceCapabilities(),start=document.getElementById('elifVoiceStart');
+  if(!c.secure){e.textContent='HTTPS required';e.title='Microphone recognition requires a secure page.'}
+  else if(!c.recognition){e.textContent=c.synthesis?'Listen only':'Voice unavailable';e.title='This browser does not expose speech recognition. You can still use the speaker buttons on AI replies.'}
+  else if(!c.synthesis){e.textContent='Mic only';e.title='Speech recognition is available, but spoken AI replies are not supported here.'}
+  else{e.textContent='Mic + voice ready';e.title='Voice conversation is supported in this browser.'}
+  if(start&&!elifVoiceListening&&!elifAiBusy&&!elifVoiceSpeaking)start.disabled=!c.recognition;
+}
+function elifVoicePrepareMode(){
+  let mode=document.getElementById('elifAiMode');
+  if(mode&&mode.value!=='conversation'){mode.value='conversation';elifAiSaveSettings()}
+}
+function elifVoicePlainText(text){
+  return String(text||'').replace(/\x60\x60\x60[\s\S]*?\x60\x60\x60/g,' ').replace(/\[([^\]]+)\]\([^\)]+\)/g,'$1').replace(/[*_#>\x60~]/g,'').replace(/\s+/g,' ').trim().slice(0,2400);
+}
+function elifVoiceTranscript(text,interim=false){
+  let e=document.getElementById('elifVoiceTranscript');if(!e)return;
+  e.textContent=text||'Your speech transcript will appear here before it is sent.';
+  e.classList.toggle('interim',!!interim);
+}
+function elifVoiceBuildRecognition(){
+  const Ctor=elifVoiceRecognitionCtor();if(!Ctor)return null;
+  let r=new Ctor();r.lang='en-US';r.interimResults=true;r.continuous=false;r.maxAlternatives=1;
+  r.onstart=()=>{elifVoiceListening=true;elifVoiceFinalCaptured=false;elifVoiceSetState('listening','Listening… speak in English.')};
+  r.onresult=event=>{
+    let finalText='',interim='';
+    for(let i=event.resultIndex;i<event.results.length;i++){
+      let t=(event.results[i][0]&&event.results[i][0].transcript)||'';
+      if(event.results[i].isFinal)finalText+=t;else interim+=t;
+    }
+    if(interim)elifVoiceTranscript(interim,true);
+    if(finalText.trim()){
+      elifVoiceFinalCaptured=true;elifVoiceListening=false;
+      let clean=finalText.trim();elifVoiceTranscript('You said: “'+clean+'”',false);
+      try{r.stop()}catch(e){}
+      elifAiSend(clean,{voice:true});
+    }
+  };
+  r.onerror=event=>{
+    elifVoiceListening=false;let code=String(event.error||'');
+    if(code==='aborted')return;
+    if(code==='not-allowed'||code==='service-not-allowed'){
+      elifVoiceActive=false;elifVoiceSetState('ready','Microphone permission was blocked. Allow microphone access, then try again.');
+    }else if(code==='no-speech'){
+      elifVoiceSetState('ready','I did not hear anything. Tap Speak and try again.');
+    }else{
+      elifVoiceSetState('ready','Voice recognition paused ('+code+'). Tap Speak to try again.');
+    }
+  };
+  r.onend=()=>{
+    elifVoiceListening=false;
+    if(elifVoiceActive&&!elifAiBusy&&!elifVoiceSpeaking&&!elifVoiceFinalCaptured)elifVoiceSetState('ready','Tap Speak when you are ready.');
+  };
+  return r;
+}
+function elifVoiceStartListening(){
+  if(!elifVoiceActive||elifAiBusy||elifVoiceSpeaking)return;
+  if(!elifVoiceRecognition)elifVoiceRecognition=elifVoiceBuildRecognition();
+  if(!elifVoiceRecognition){
+    elifVoiceRenderSupport();elifVoiceSetState('ready','Speech recognition is not supported in this browser.');return;
+  }
+  elifVoiceFinalCaptured=false;elifVoiceTranscript('Listening…',true);
+  try{elifVoiceRecognition.start()}catch(e){elifVoiceSetState('ready','Microphone is already starting.')}
+}
+function elifVoicePrimaryAction(){
+  if(!eqUser){
+    elifAiShowSetup('Sign in first so Voice Practice can use your private AI allowance.');openAccount();return;
+  }
+  if(!elifVoiceCapabilities().recognition){
+    elifVoiceRenderSupport();elifVoiceSetState('ready','Speech recognition is not supported here. Try Chrome or Edge, or use the 🔊 buttons to hear replies.');return;
+  }
+  elifVoicePrepareMode();elifVoiceActive=true;elifVoiceSaveSettings();elifVoiceSetState('ready','Voice Practice is on.');elifVoiceStartListening();
+}
+function elifVoiceAbortRecognition(){
+  if(elifVoiceRecognition){try{elifVoiceRecognition.abort()}catch(e){}}
+  elifVoiceListening=false;
+}
+function elifVoiceStopPractice(silent=false){
+  elifVoiceActive=false;elifVoiceAbortRecognition();
+  if(window.speechSynthesis){try{window.speechSynthesis.cancel()}catch(e){}}
+  elifVoiceSpeaking=false;elifVoiceFinalCaptured=false;
+  if(!silent)elifVoiceTranscript('',false);
+  elifVoiceSetState('ready',silent?'Voice Practice stopped.':'Voice Practice stopped. Tap Start when you want to speak again.');
+}
+function elifVoicePickVoice(){
+  if(!window.speechSynthesis)return null;
+  let voices=window.speechSynthesis.getVoices()||[];
+  return voices.find(v=>String(v.lang).toLowerCase()==='en-us')||voices.find(v=>String(v.lang).toLowerCase().startsWith('en-'))||null;
+}
+function elifVoiceSpeak(text,resumeListening=false){
+  let clean=elifVoicePlainText(text);if(!clean)return;
+  let c=elifVoiceCapabilities();
+  if(!c.synthesis){
+    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),300);
+    return;
+  }
+  elifVoiceAbortRecognition();
+  try{window.speechSynthesis.cancel()}catch(e){}
+  let u=new window.SpeechSynthesisUtterance(clean);u.lang='en-US';u.rate=elifVoiceRateValue();u.pitch=1;
+  let v=elifVoicePickVoice();if(v)u.voice=v;
+  u.onstart=()=>{elifVoiceSpeaking=true;elifVoiceSetState('speaking','Elif is speaking…')};
+  u.onend=()=>{
+    elifVoiceSpeaking=false;
+    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
+    else elifVoiceSetState('ready',elifVoiceActive?'Your turn. Tap Speak when ready.':'Ready for an English conversation.');
+  };
+  u.onerror=()=>{
+    elifVoiceSpeaking=false;
+    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
+    else elifVoiceSetState('ready','Voice playback stopped. You can continue by text or microphone.');
+  };
+  window.speechSynthesis.speak(u);
+}
+function elifVoiceInit(){elifVoiceLoadSettings();elifVoiceRenderSupport();elifVoiceSetState('ready','Ready for an English conversation.')}
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&elifVoiceActive)elifVoiceStopPractice(true)});
+window.addEventListener('beforeunload',()=>elifVoiceStopPractice(true));
+elifAiLoad();elifVoiceInit();
 
 renderSettings();renderAppTabs();
 handleExternalLaunch();
