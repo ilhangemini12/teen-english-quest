@@ -4440,12 +4440,12 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
 
 <aside class="focusPlayerPanel" id="focusPlayerPanel" aria-hidden="true" aria-label="BatumHub Focus Player">
   <div class="focusPlayerHead">
-    <div><span class="focusPlayerKicker">🎧 BATUMHUB</span><h2>Focus Player</h2><small>Ad-free focus sounds and music from this device. No feeds, no recommendations, no distractions.</small></div>
+    <div><span class="focusPlayerKicker">🎧 BATUMHUB</span><h2>Focus Player</h2><small>Focus sounds first. Optional local audio stays on this device. No streaming feeds, recommendations, accounts or distractions.</small></div>
     <button class="focusClose" onclick="toggleFocusPlayer(false)" aria-label="Close Focus Player">✕</button>
   </div>
   <div class="focusTabs" role="tablist">
     <button class="on" data-focus-tab="ambient" onclick="focusShowTab('ambient',this)">🌧 Focus sounds</button>
-    <button data-focus-tab="local" onclick="focusShowTab('local',this)">🎵 My music</button>
+    <button data-focus-tab="local" onclick="focusShowTab('local',this)">🎵 Local audio · optional</button>
   </div>
   <div class="focusPane on" id="focusPaneAmbient">
     <div class="focusSoundGrid">
@@ -4459,7 +4459,7 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
   <div class="focusPane" id="focusPaneLocal">
     <label class="focusFileDrop">
       <input id="focusLocalInput" type="file" accept="audio/*" multiple onchange="focusLoadLocalFiles(this.files)">
-      <span>＋ Add music from this device</span>
+      <span>＋ Add optional audio from this device</span>
       <small>Files stay on this device and are not uploaded to BatumHub.</small>
     </label>
     <div class="focusLocalList" id="focusLocalList"><small>No local tracks selected for this session.</small></div>
