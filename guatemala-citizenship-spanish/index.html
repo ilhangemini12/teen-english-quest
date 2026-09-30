@@ -54,6 +54,7 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;bord
         <div class="stat"><b id="dueCount">0</b><span>bugün tekrar</span></div>
         <div class="stat"><b id="mastered">0</b><span>öğrenilen kelime</span></div>
         <div class="stat"><b id="score">0%</b><span>civics doğruluk</span></div>
+        <div class="stat"><b id="prepScore">0</b><span>hazırlık skoru /100</span></div>
       </div>
       <p class="small muted">Haftalık hedef</p><div class="progress"><i id="weekBar" style="width:0%"></i></div>
       <p class="small muted" id="weekText">0 / 5 çalışma günü</p>
@@ -107,13 +108,58 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;bord
 
 <section id="apps" class="section">
   <h2>Busuu + Drops Entegrasyon Merkezi</h2>
-  <p class="muted">Kişisel aboneliklerin ilerleme API’si açık olmadığı için güvenilir yöntem: görevleri buradan yönet, uygulamada yap, sonucu tek tıkla kaydet. Böylece vatandaşlık planı da ilerlemene göre ayarlanır.</p>
-  <div class="external">
-    <div class="ext"><h3>Busuu</h3><p>Gramer, diyalog, yazma ve konuşma için ana dış kaynak. Haftada 4 gün, 15–20 dk.</p><p><a href="https://www.busuu.com/" target="_blank" rel="noopener">Busuu’yu aç ↗</a></p>
-      <label>Bugünkü dakika</label><input id="busuuMin" type="number" min="0" value="15"><label>Ders/ünite notu</label><input id="busuuNote" placeholder="Örn. B1 Past tenses"><button class="btn" onclick="logApp('Busuu')">Çalışmayı kaydet</button></div>
-    <div class="ext"><h3>Drops</h3><p>Kelime hacmi ve hızlı tekrar için. Her gün 5–10 dk. Yeni kelimeleri SRS havuzuna ekle.</p><p><a href="https://languagedrops.com/" target="_blank" rel="noopener">Drops’u aç ↗</a></p>
-      <label>Bugünkü dakika</label><input id="dropsMin" type="number" min="0" value="10"><label>Öğrendiğin yeni kelimeler</label><input id="dropsNote" placeholder="virreinato, frontera, deber..."><button class="btn" onclick="logApp('Drops')">Çalışmayı kaydet</button></div>
+  <p class="muted">Şifrelerini bu siteye vermiyorsun. Bireysel hesap ilerlemesini çeken açık bir API olmadığı için güvenli entegrasyon modeli: çalışma hedefini burada belirle → Busuu/Drops'u tek tıkla aç → dönüşte süre ve sonucu kaydet. Bu kayıtlar hazırlık skoruna ve günlük plana dahil edilir.</p>
+
+  <div class="card" style="margin-bottom:12px">
+    <h3>Çalışma profili</h3>
+    <div class="external">
+      <div class="ext">
+        <label>Busuu mevcut seviyem</label>
+        <select id="busuuLevel"><option>A2</option><option selected>B1</option><option>B1+</option><option>B2</option></select>
+        <label>Bu haftanın Busuu odağı</label>
+        <select id="busuuFocus">
+          <option>Grammar Review</option><option>Vocabulary Review</option><option>Complete Spanish course</option><option>Speaking / Conversations</option><option>Writing</option>
+        </select>
+      </div>
+      <div class="ext">
+        <label>Drops İspanyolcası</label>
+        <select id="dropsVariant"><option selected>Spanish (Mexican) — önerilen</option><option>Spanish (Castilian)</option></select>
+        <label>Drops kullanım modu</label>
+        <select id="dropsFocus"><option selected>Review Dojo / tekrar</option><option>Yeni kelime</option><option>Quiz Mode</option><option>Audio Mode</option><option>Grammar</option></select>
+      </div>
+    </div>
+    <button class="btn" onclick="saveAppSettings()">Profili kaydet</button>
+    <p class="small muted" id="appProfileHint"></p>
   </div>
+
+  <div class="external">
+    <div class="ext">
+      <h3>Busuu — ana dil kursu</h3>
+      <p>Haftada 4 gün, 15–20 dk. Öncelik sırası: <b>Grammar Review → Vocabulary Review → Complete Spanish → konuşma</b>. Premium Plus kullanıyorsan Conversations'ı haftada en az 2 kez vatandaşlık/mülakat konuşmasına dönüştür.</p>
+      <p><a href="https://www.busuu.com/" target="_blank" rel="noopener">Busuu’yu aç ↗</a></p>
+      <label>Bugünkü dakika</label><input id="busuuMin" type="number" min="0" value="15">
+      <label>Ders / sonuç notu</label><input id="busuuNote" placeholder="Örn. B1 Grammar Review — indefinido %80">
+      <button class="btn" onclick="logApp('Busuu')">Busuu çalışmasını kaydet</button>
+    </div>
+
+    <div class="ext">
+      <h3>Drops — kelime katmanı</h3>
+      <p>Guatemala hedefi için <b>Spanish (Mexican)</b> çeşidini tercih et. Her iş günü 5–10 dk; yeni kelime kovalamaktan çok <b>Review Dojo</b> ve zayıf kelime tekrarına ağırlık ver. Vatandaşlıkla ilgili önemli kelimeleri buradaki SRS havuzuna da ekle.</p>
+      <p><a href="https://languagedrops.com/" target="_blank" rel="noopener">Drops’u aç ↗</a></p>
+      <label>Bugünkü dakika</label><input id="dropsMin" type="number" min="0" value="10">
+      <label>Öğrendiğin / zorlandığın kelimeler</label><input id="dropsNote" placeholder="frontera, deber, trámite...">
+      <button class="btn" onclick="logApp('Drops')">Drops çalışmasını kaydet</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <h3>Bu araçları nasıl bölüştürüyoruz?</h3>
+    <p><b>Guatemala Lab:</b> vatandaşlık kelimeleri, civics, mülakat ve kişisel dosyana özel İspanyolca.</p>
+    <p><b>Busuu:</b> sistematik CEFR grameri, genel dil doğruluğu, konuşma ve yazma.</p>
+    <p><b>Drops:</b> kısa boşluklarda kelime maruziyeti ve kendi SRS/Dojo tekrarı.</p>
+    <p class="small muted">Aynı işi üç yerde tekrar etmiyoruz: Busuu grameri taşır, Drops kelime hacmini büyütür, bu site ise vatandaşlık hedefine göre neyin önemli olduğunu seçer ve toplam ilerlemeyi birleştirir.</p>
+  </div>
+
   <div class="card" style="margin-top:12px"><h3>Son kayıtlar</h3><div id="appLogs"></div></div>
 </section>
 
@@ -213,7 +259,7 @@ const interview=[
 {q:'¿Qué haría si no entiende una pregunta durante una entrevista?',m:'Pediría respetuosamente que la repitan o la reformulen: “¿Podría repetir la pregunta, por favor?” Es mejor aclarar que responder algo que no he entendido.'}
 ];
 function today(){return new Date().toISOString().slice(0,10)}
-function freshState(){return {created:today(),words:seedWords.map((w,i)=>({id:'s'+i,es:w[0],tr:w[1],ex:w[2],cat:w[3],ef:2.5,interval:0,reps:0,due:today()})),civics:{correct:0,total:0,topics:{}},weeks:{},days:{},apps:[],interviews:[]}}
+function freshState(){return {created:today(),words:seedWords.map((w,i)=>({id:'s'+i,es:w[0],tr:w[1],ex:w[2],cat:w[3],ef:2.5,interval:0,reps:0,due:today()})),civics:{correct:0,total:0,topics:{}},weeks:{},days:{},apps:[],interviews:[],appSettings:{busuuLevel:'B1',busuuFocus:'Grammar Review',dropsVariant:'Spanish (Mexican) — önerilen',dropsFocus:'Review Dojo / tekrar'}}}
 let S=(()=>{try{return JSON.parse(localStorage.getItem(KEY))||freshState()}catch(e){return freshState()}})();
 if(!S.words||!S.words.length)S=freshState();
 function save(){localStorage.setItem(KEY,JSON.stringify(S));touch();renderAll()}
@@ -222,7 +268,11 @@ function go(id){document.querySelectorAll('.section').forEach(x=>x.classList.tog
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>go(b.dataset.tab));
 function streak(){let n=0,d=new Date();for(;;){let k=d.toISOString().slice(0,10);if(S.days[k]&&S.days[k].actions>0)n++;else break;d.setDate(d.getDate()-1)}return n}
 function activeDays7(){let n=0,d=new Date();for(let i=0;i<7;i++){let k=d.toISOString().slice(0,10);if(S.days[k]?.actions)n++;d.setDate(d.getDate()-1)}return n}
-function renderDash(){let due=S.words.filter(w=>w.due<=today()).length,master=S.words.filter(w=>w.reps>=3).length,acc=S.civics.total?Math.round(S.civics.correct/S.civics.total*100):0,ad=activeDays7();streakEl=document.getElementById('streak');if(streakEl)streakEl.textContent=streak();document.getElementById('dueCount').textContent=due;document.getElementById('mastered').textContent=master;document.getElementById('score').textContent=acc+'%';document.getElementById('weekBar').style.width=Math.min(100,ad/5*100)+'%';document.getElementById('weekText').textContent=ad+' / 5 çalışma günü';
+function renderDash(){let due=S.words.filter(w=>w.due<=today()).length,master=S.words.filter(w=>w.reps>=3).length,acc=S.civics.total?Math.round(S.civics.correct/S.civics.total*100):0,ad=activeDays7();streakEl=document.getElementById('streak');if(streakEl)streakEl.textContent=streak();document.getElementById('dueCount').textContent=due;document.getElementById('mastered').textContent=master;document.getElementById('score').textContent=acc+'%';
+let vocabRatio=Math.min(1,master/40), civicsRatio=S.civics.total?S.civics.correct/S.civics.total:0, interviewRatio=Math.min(1,S.interviews.length/8), consistencyRatio=Math.min(1,ad/5);
+let prep=Math.round(vocabRatio*25+civicsRatio*30+interviewRatio*25+consistencyRatio*20);
+let prepEl=document.getElementById('prepScore');if(prepEl)prepEl.textContent=prep;
+document.getElementById('weekBar').style.width=Math.min(100,ad/5*100)+'%';document.getElementById('weekText').textContent=ad+' / 5 çalışma günü';
 let tasks=[['10 SRS kelime tekrarı',due===0],['Busuu 15–20 dakika',!!S.apps.find(x=>x.date===today()&&x.app==='Busuu')],['Drops 5–10 dakika',!!S.apps.find(x=>x.date===today()&&x.app==='Drops')],['5 civics sorusu',!!S.days[today()]?.civics],['1 mülakat cevabı',!!S.days[today()]?.interview]];
 document.getElementById('todayTasks').innerHTML=tasks.map((x,i)=>'<div class="task '+(x[1]?'done':'')+'">'+(x[1]?'✓ ':'○ ')+x[0]+'</div>').join('')}
 function renderWeeks(){document.getElementById('weeks').innerHTML=weeks.map((w,i)=>'<div class="card week"><div class="wk">HAFTA '+w[0]+'</div><h3>'+w[1]+'</h3><ul><li>'+w[2]+'</li><li>'+w[3]+'</li><li>'+w[4]+'</li></ul><button class="btn" onclick="toggleWeek('+i+')">'+(S.weeks[i]?'✓ Tamamlandı':'Tamamla')+'</button></div>').join('')}
@@ -245,7 +295,23 @@ function speakQuestion(){let u=new SpeechSynthesisUtterance(interview[intIdx].q)
 function saveInterview(){let a=document.getElementById('interviewAnswer').value.trim();if(!a)return;S.interviews.unshift({date:today(),q:interview[intIdx].q,a});S.interviews=S.interviews.slice(0,100);S.days[today()]=S.days[today()]||{actions:0,minutes:0};S.days[today()].interview=(S.days[today()].interview||0)+1;S.days[today()].actions++;localStorage.setItem(KEY,JSON.stringify(S));document.getElementById('interviewFeedback').textContent=a.split(/\s+/).length>=35?'İyi: cevap yeterince gelişmiş. Şimdi aynı cevabı ekrana bakmadan sesli söyle.':'Cevap kısa. Hedef 35–80 kelime; porque, además, durante, por eso gibi bağlaçlarla geliştir.';renderDash()}
 function copyModel(){navigator.clipboard?.writeText(interview[intIdx].m)}
 function logApp(app){let min=+(document.getElementById(app==='Busuu'?'busuuMin':'dropsMin').value||0),note=document.getElementById(app==='Busuu'?'busuuNote':'dropsNote').value.trim();S.apps.unshift({date:today(),app,min,note});S.apps=S.apps.slice(0,200);S.days[today()]=S.days[today()]||{actions:0,minutes:0};S.days[today()].actions++;S.days[today()].minutes+=min;localStorage.setItem(KEY,JSON.stringify(S));renderAll();if(app==='Drops'&&note)document.getElementById('dropsNote').value=''}
-function renderApps(){let box=document.getElementById('appLogs');box.innerHTML=S.apps.slice(0,12).map(x=>'<p><span class="tag">'+x.app+'</span> <b>'+x.date+'</b> · '+x.min+' dk '+(x.note?'· '+x.note:'')+'</p>').join('')||'<p class="muted">Henüz kayıt yok.</p>'}
+function saveAppSettings(){
+  S.appSettings=S.appSettings||{};
+  S.appSettings.busuuLevel=document.getElementById('busuuLevel')?.value||'B1';
+  S.appSettings.busuuFocus=document.getElementById('busuuFocus')?.value||'Grammar Review';
+  S.appSettings.dropsVariant=document.getElementById('dropsVariant')?.value||'Spanish (Mexican) — önerilen';
+  S.appSettings.dropsFocus=document.getElementById('dropsFocus')?.value||'Review Dojo / tekrar';
+  localStorage.setItem(KEY,JSON.stringify(S));renderApps();
+}
+function renderApps(){
+  let box=document.getElementById('appLogs');
+  if(box)box.innerHTML=S.apps.slice(0,12).map(x=>'<p><span class="tag">'+x.app+'</span> <b>'+x.date+'</b> · '+x.min+' dk '+(x.note?'· '+x.note:'')+'</p>').join('')||'<p class="muted">Henüz kayıt yok.</p>';
+  S.appSettings=S.appSettings||{busuuLevel:'B1',busuuFocus:'Grammar Review',dropsVariant:'Spanish (Mexican) — önerilen',dropsFocus:'Review Dojo / tekrar'};
+  const ids=['busuuLevel','busuuFocus','dropsVariant','dropsFocus'];
+  ids.forEach(id=>{let el=document.getElementById(id);if(el&&S.appSettings[id]!==undefined)el.value=S.appSettings[id]});
+  let h=document.getElementById('appProfileHint');
+  if(h)h.textContent='Aktif plan: Busuu '+S.appSettings.busuuLevel+' · '+S.appSettings.busuuFocus+' | Drops: '+S.appSettings.dropsFocus;
+}
 function exportData(){let b=new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='guatemala-study-'+today()+'.json';a.click();URL.revokeObjectURL(a.href)}
 function importData(){let f=document.getElementById('importFile').files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{S=JSON.parse(r.result);localStorage.setItem(KEY,JSON.stringify(S));renderAll();alert('Veri içe aktarıldı.')}catch(e){alert('Geçersiz JSON dosyası.')}};r.readAsText(f)}
 function renderHistory(){let rows=Object.entries(S.days).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,14);document.getElementById('historyTable').innerHTML='<table><tr><th>Tarih</th><th>Aktivite</th><th>Dakika</th><th>Civics</th><th>Mülakat</th></tr>'+rows.map(([d,x])=>'<tr><td>'+d+'</td><td>'+x.actions+'</td><td>'+x.minutes+'</td><td>'+(x.civics||0)+'</td><td>'+(x.interview||0)+'</td></tr>').join('')+'</table>'}
