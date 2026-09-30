@@ -63,10 +63,14 @@ try{
     railWidth:Math.round(document.getElementById('vnextDesktopRail').getBoundingClientRect().width),
     heroWidth:Math.round(document.querySelector('.vnextHeroCore').getBoundingClientRect().width),
     level:[...document.getElementById('desktopLevelSelect').options].map(o=>o.value),
-    quick:getComputedStyle(document.getElementById('vnextQuickTestBtn')).display
+    quick:getComputedStyle(document.getElementById('vnextQuickTestBtn')).display,
+    learningLeft:Math.round(document.getElementById('languageBar').getBoundingClientRect().left),
+    brandLeft:Math.round(document.querySelector('.brandnav').getBoundingClientRect().left),
+    heroLeft:Math.round(document.getElementById('heroHome').getBoundingClientRect().left)
   }));
   assert(desktop55.rail!=='none'&&desktop55.railWidth>250&&desktop55.heroWidth>600,'Desktop v5.5 layout failed: '+JSON.stringify(desktop55));
   assert(desktop55.level.join('|')==='auto|A1|A2|B1|B2|C1'&&desktop55.quick!=='none','Desktop level/test controls failed: '+JSON.stringify(desktop55));
+  assert(Math.abs(desktop55.learningLeft-desktop55.brandLeft)<=3&&Math.abs(desktop55.brandLeft-desktop55.heroLeft)<=3,'Desktop alignment drift: '+JSON.stringify(desktop55));
   for(const native of ['tr','es','ka','ru','de','en','tr']){
     await p.evaluate(n=>setNativeLanguage(n),native);
     const saved=await p.evaluate(()=>localStorage.getItem('teq-native-language'));
@@ -79,10 +83,17 @@ try{
     spotify:/spotify/i.test(document.documentElement.innerHTML)||!!document.getElementById('focusPaneSpotify'),
     localLabel:document.querySelector('[data-focus-tab="local"]')?.textContent.trim()||'',
     tabs:[...document.querySelectorAll('.focusTabs button')].map(b=>b.dataset.focusTab),
+    sounds:[...document.querySelectorAll('[data-focus-sound]')].map(b=>b.dataset.focusSound),
+    mini:!!document.getElementById('focusMiniBar'),
     ctx:!!(window.AudioContext||window.webkitAudioContext),
     bestVoice:typeof elifVoicePickVoice==='function'
   }));
-  assert(!focusStress.spotify&&/optional/i.test(focusStress.localLabel)&&focusStress.tabs.join('|')==='ambient|local'&&focusStress.bestVoice,'Focus/voice stress state invalid: '+JSON.stringify(focusStress));
+  assert(!focusStress.spotify&&/optional/i.test(focusStress.localLabel)&&focusStress.tabs.join('|')==='ambient|local'&&focusStress.sounds.length>=9&&focusStress.mini&&focusStress.bestVoice,'Focus/voice stress state invalid: '+JSON.stringify(focusStress));
+  for(const kind of ['rain','ocean','deep','fireplace','night','forest']){
+    await p.evaluate(k=>{focusPlaySound(k,document.querySelector('[data-focus-sound="'+k+'"]'));focusTogglePlayback();focusTogglePlayback()},kind);
+  }
+  await p.evaluate(()=>{focusToggleMute();focusToggleMute();focusStopAudio(true,false)});
+  assert(pageErrors.length===0,'Focus mini lifecycle caused errors: '+pageErrors.join(' | '));
   await p.evaluate(()=>openTab('ElifAI'));
   await p.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
   const voiceStress=await p.evaluate(()=>({
