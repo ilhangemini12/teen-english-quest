@@ -797,8 +797,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 </div></div><div class="top"><div class="wrap"><div class="mobileCompactTop" id="mobileCompactTop">
   <button class="mobileBrand" onclick="mobileNavigate('Home')" aria-label="BatumHub home">BATUM<span>HUB</span></button>
   <span class="mobileHeaderSpacer" aria-hidden="true"></span>
-  <button class="mobileIconBtn" onclick="mobileNavigate('Messages')" aria-label="Messages" title="Messages">💬</button>
-  <button class="mobileIconBtn mobileSettingsBtn" onclick="toggleMobileMenu(true)" aria-label="Settings" title="Settings">⚙️</button>
+  <button class="mobileIconBtn" id="mobileMessageButton" onclick="mobileNavigate('Messages')" aria-label="Messages" title="Messages">💬</button>
+  <button class="mobileIconBtn mobileSettingsBtn" id="mobileSettingsButton" onclick="toggleMobileMenu(true)" aria-label="Settings" title="Settings">⚙️</button>
 </div>
 <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
   <button class="mobileMenuBackdrop" onclick="toggleMobileMenu(false)" aria-label="Close menu"></button>
