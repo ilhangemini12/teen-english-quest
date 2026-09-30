@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GUA</title>
+<style>
+:root{--bg:#07111a;--card:#102231;--line:#29475a;--text:#eff9fb;--muted:#9eb7c2;--accent:#67d5b5;--accent2:#76bdf2}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111a,#0b1b28);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:760px;margin:auto;padding:20px 16px 42px}.hero{padding:18px 0 10px}.tag{display:inline-block;border:1px solid #33715f;background:#12372f;color:#aef0dc;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}
+h1{font-size:44px;margin:10px 0 5px;line-height:1}h2{margin:0 0 6px}.muted{color:var(--muted)}.card{background:linear-gradient(145deg,#102231,#0c1b27);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 14px 34px #0003}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:1px solid var(--line);background:#163349;color:#fff;border-radius:12px;padding:11px 13px;font:800 14px system-ui;cursor:pointer}.btn.primary{background:#1d665a;border-color:#4aa78f}.btn.full{width:100%}.btn.stop{background:#543039}.episode{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border-top:1px solid var(--line);padding:10px 0}.episode:first-of-type{border-top:0}.episode b,.episode small{display:block}.episode small{color:var(--muted)}
+select,input{width:100%;border:1px solid var(--line);border-radius:11px;background:#0a1925;color:#fff;padding:10px;font:inherit}.status{padding:9px 11px;border-radius:10px;background:#0b1c28;border:1px solid var(--line);color:var(--muted);margin-top:10px}
+.station{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border-top:1px solid var(--line);padding:9px 0}.station small{display:block;color:var(--muted)}a{color:#bce8ff}.note{font-size:12px;color:var(--muted)}
+@media(max-width:560px){.grid{grid-template-columns:1fr}h1{font-size:38px}}
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <span class="tag">GUA · Guatemala Spanish</span>
+    <h1>Tek yerde çalış.</h1>
+    <p class="muted">Academy, Gym Podcast, ücretsiz Spanish Radio ve ChatGPT GUA Project.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h2>🇬🇹 Academy</h2>
+      <p class="muted">SRS, civics, baseline, mülakat ve ilerleme.</p>
+      <button class="btn primary full" onclick="Gua.openAcademy()">Academy'yi aç</button>
+    </article>
+    <article class="card">
+      <h2>💬 ChatGPT GUA</h2>
+      <p class="muted">Pratik konuşma ve Voice için kendi ChatGPT Project'in.</p>
+      <button class="btn primary full" onclick="Gua.openChatGptProject()">GUA Project'i aç</button>
+    </article>
+  </section>
+
+  <article class="card">
+    <h2>🎧 Gym Podcast</h2>
+    <p class="muted">Android'in cihazdaki TTS motoruyla ücretsiz hazırlanır. Oluşturduktan sonra ekran kapalıyken Media3 player üzerinden devam eder.</p>
+    <div class="episode"><div><b>Daily Spanish</b><small>Doğal konuşma ve kurtarıcı kalıplar</small></div><button class="btn" onclick="build('daily')">▶</button></div>
+    <div class="episode"><div><b>Interview Drill</b><small>Vatandaşlık mülakat soruları + cevap boşlukları</small></div><button class="btn" onclick="build('interview')">▶</button></div>
+    <div class="episode"><div><b>Guatemala Civics</b><small>Anayasa, devlet yapısı, tarih</small></div><button class="btn" onclick="build('civics')">▶</button></div>
+    <div class="episode"><div><b>Formal Spanish</b><small>Trámite, expediente, requisitos, poder</small></div><button class="btn" onclick="build('formal')">▶</button></div>
+    <div class="episode"><div><b>Shadowing Mix</b><small>Akıcılık için yarım saniye geriden tekrar</small></div><button class="btn" onclick="build('shadow')">▶</button></div>
+    <button class="btn stop full" onclick="Gua.stopAudio()">■ Oynatmayı durdur</button>
+    <div id="status" class="status">TTS hazırlanıyor…</div>
+  </article>
+
+  <article class="card">
+    <h2>📻 Spanish Radio</h2>
+    <p class="muted">Ücretsiz Radio Browser dizininden popüler İspanyolca internet istasyonlarını getirir. Üyelik veya API anahtarı gerekmez.</p>
+    <button class="btn full" onclick="Gua.loadStations()">İstasyonları getir</button>
+    <div id="stations"><p class="note">İstasyon listesi yalnızca istediğinde yüklenir.</p></div>
+  </article>
+
+  <article class="card">
+    <h2>🔗 GUA Project bağlantısı</h2>
+    <p class="muted">ChatGPT'de GUA adında Project oluşturduktan sonra adresini buraya bir kez yapıştır. Sonrasında üstteki düğme doğrudan açar.</p>
+    <input id="projectUrl" placeholder="https://chatgpt.com/..." />
+    <div class="grid" style="margin-top:9px">
+      <button class="btn" onclick="saveProject()">Bağlantıyı kaydet</button>
+      <button class="btn" onclick="Gua.openChatGptProject()">ChatGPT'yi aç</button>
+    </div>
+    <p class="note">ChatGPT Projects kendi Voice modunu destekler. APK Project'i gömmek yerine güvenli biçimde ChatGPT uygulamasına aktarır.</p>
+  </article>
+
+  <p class="note">GUA kişisel kullanım içindir. Academy verileri kendi Supabase hesabında tutulur; radyo istasyonları üçüncü taraf yayıncılar tarafından sağlanır.</p>
+</main>
+<script>
+function build(id){document.getElementById('status').textContent='Podcast hazırlanıyor…';Gua.generateEpisode(id)}
+function saveProject(){Gua.saveProjectUrl(document.getElementById('projectUrl').value)}
+function guaEpisodeState(state,message){document.getElementById('status').textContent=message}
+function guaStationsLoaded(rows){
+  const box=document.getElementById('stations');
+  if(!rows||!rows.length){box.innerHTML='<p class="note">İstasyon bulunamadı.</p>';return}
+  box.innerHTML=rows.slice(0,25).map((x,i)=>'<div class="station"><div><b>'+escapeHtml(x.name)+'</b><small>'+escapeHtml(x.country||'')+' · '+escapeHtml(x.codec||'')+(x.bitrate?' · '+x.bitrate+' kbps':'')+'</small></div><button class="btn" data-i="'+i+'">▶</button></div>').join('');
+  [...box.querySelectorAll('button')].forEach(btn=>btn.onclick=()=>{const x=rows[Number(btn.dataset.i)];Gua.playRadio(x.url,x.name)})
+}
+function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+try{document.getElementById('projectUrl').value=Gua.getProjectUrl()||''}catch(e){}
+</script>
+</body>
+</html>
