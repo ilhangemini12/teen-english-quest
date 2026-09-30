@@ -1,0 +1,41 @@
+name: GUA Android APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-gua:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install dependencies
+        run: npm install
+      - name: Prepare GUA web bundle
+        run: node scripts/prepare-gua-mobile.mjs
+      - name: Use GUA Capacitor config
+        run: cp capacitor.gua.config.json capacitor.config.json
+      - name: Add Android platform
+        run: npx cap add android
+      - name: Sync GUA
+        run: npx cap sync android
+      - name: Patch native background audio
+        run: node scripts/patch-gua-android.mjs
+      - name: Build GUA debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GUA-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
