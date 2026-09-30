@@ -1,0 +1,13 @@
+{
+  "appId": "com.gua.spanish",
+  "appName": "GUA",
+  "webDir": "www-gua",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 500,
+      "launchAutoHide": true,
+      "backgroundColor": "#08131d",
+      "showSpinner": false
+    }
+  }
+}
