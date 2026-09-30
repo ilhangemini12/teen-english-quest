@@ -1672,7 +1672,7 @@ async function eqLoadCloudPrefs(){
   if(!eqUser)return;
   const {data}=await eqSupa.from('user_preferences').select('*').eq('user_id',eqUser.id).single();
   if(!data)return;
-  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);if(data.grade_level)localStorage.setItem('teq-grade',String(data.grade_level));if(data.english_level)localStorage.setItem('teq-english-level',data.english_level);if(data.ui_preset)localStorage.setItem('teq-ui-preset',data.ui_preset);if(data.device_presets&&typeof data.device_presets==='object')localStorage.setItem('teq-device-presets',JSON.stringify(data.device_presets));if(typeof data.kid_hints==='boolean')localStorage.setItem('teq-kid-hints',data.kid_hints?'1':'0');if(data.active_language)localStorage.setItem('teq-active-language',data.active_language);if(data.language_levels&&typeof data.language_levels==='object')localStorage.setItem('teq-language-levels',JSON.stringify(data.language_levels));localStorage.setItem('teq-presence',data.presence_mode||'online');if(Array.isArray(data.widgets)&&data.widgets.length)localStorage.setItem('teq-widgets',JSON.stringify(data.widgets));if(!localStorage.getItem('teq-ui-v4-clean')){
+  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);if(data.grade_level)localStorage.setItem('teq-grade',String(data.grade_level));if(data.english_level)localStorage.setItem('teq-english-level',data.english_level);if(data.ui_preset)localStorage.setItem('teq-ui-preset',data.ui_preset);if(data.device_presets&&typeof data.device_presets==='object')localStorage.setItem('teq-device-presets',JSON.stringify(data.device_presets));if(typeof data.kid_hints==='boolean')localStorage.setItem('teq-kid-hints',data.kid_hints?'1':'0');if(data.active_language)localStorage.setItem('teq-active-language',data.active_language);if(data.native_language&&NATIVE_LANGUAGES[data.native_language])localStorage.setItem('teq-native-language',data.native_language);if(data.language_levels&&typeof data.language_levels==='object')localStorage.setItem('teq-language-levels',JSON.stringify(data.language_levels));localStorage.setItem('teq-presence',data.presence_mode||'online');if(Array.isArray(data.widgets)&&data.widgets.length)localStorage.setItem('teq-widgets',JSON.stringify(data.widgets));if(!localStorage.getItem('teq-ui-v4-clean')){
   localStorage.setItem('teq-theme','dark');
   localStorage.setItem('teq-density','compact');
   localStorage.setItem('teq-font','system');
@@ -1685,8 +1685,8 @@ renderSettings();renderAppTabs();renderWidgets();applyGradeExperience();
 }
 async function eqSaveCloudPrefs(){
   if(!eqUser||!eqSupa)return;
-  let interests=JSON.parse(localStorage.getItem('teq-interests')||'[]'),grade=Number(localStorage.getItem('teq-grade')||0)||null,widgets=getWidgets(),presence=localStorage.getItem('teq-presence')||'online',english_level=storedEnglishLevel(),ui_preset=currentSpacePreset(),device_presets=getDevicePresets(),kid_hints=kidHintsEnabled(),active_language=currentLearningLanguage(),language_levels=getLanguageLevels();
-  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','compact'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',grade_level:grade,english_level,ui_preset,device_presets,kid_hints,active_language,language_levels,presence_mode:presence,widgets,updated_at:new Date().toISOString()});
+  let interests=JSON.parse(localStorage.getItem('teq-interests')||'[]'),grade=Number(localStorage.getItem('teq-grade')||0)||null,widgets=getWidgets(),presence=localStorage.getItem('teq-presence')||'online',english_level=storedEnglishLevel(),ui_preset=currentSpacePreset(),device_presets=getDevicePresets(),kid_hints=kidHintsEnabled(),active_language=currentLearningLanguage(),native_language=currentNativeLanguage(),language_levels=getLanguageLevels();
+  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','compact'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',grade_level:grade,english_level,ui_preset,device_presets,kid_hints,active_language,native_language,language_levels,presence_mode:presence,widgets,updated_at:new Date().toISOString()});
 }
 async function eqRefreshLeague(){
   let list=document.getElementById('rankList');if(!list)return;
@@ -2899,6 +2899,33 @@ const LEARNING_LANGUAGES={
   de:{flag:'🇩🇪',name:'German',native:'Deutsch',speak:'Deutsch'},
   ru:{flag:'🇷🇺',name:'Russian',native:'Русский',speak:'русский'}
 };
+const NATIVE_LANGUAGES={
+  tr:{flag:'🇹🇷',name:'Turkish',native:'Türkçe'},
+  es:{flag:'🇪🇸',name:'Spanish',native:'Español'},
+  ka:{flag:'🇬🇪',name:'Georgian',native:'ქართული'},
+  ru:{flag:'🇷🇺',name:'Russian',native:'Русский'},
+  de:{flag:'🇩🇪',name:'German',native:'Deutsch'},
+  en:{flag:'🇬🇧',name:'English',native:'English'}
+};
+function currentNativeLanguage(){
+  let v=localStorage.getItem('teq-native-language')||'tr';
+  return NATIVE_LANGUAGES[v]?v:'tr';
+}
+function currentNativeLanguageInfo(){return NATIVE_LANGUAGES[currentNativeLanguage()]||NATIVE_LANGUAGES.tr}
+async function setNativeLanguage(code){
+  if(!NATIVE_LANGUAGES[code])return;
+  localStorage.setItem('teq-native-language',code);
+  renderNativeLanguageControls();
+  renderMobileChrome();
+  if(typeof renderSettings==='function')renderSettings();
+  await eqSaveCloudPrefs();
+}
+function renderNativeLanguageControls(){
+  let code=currentNativeLanguage();
+  let desktop=document.getElementById('nativeLanguageSelect'),mobile=document.getElementById('mobileNativeLanguageSelect');
+  if(desktop)desktop.value=code;
+  if(mobile)mobile.value=code;
+}
 const LANGUAGE_RESOURCES={
   es:[
     {icon:'🏛️',name:'Instituto Cervantes · AVE',url:'https://cvc.cervantes.es/ensenanza/actividades_ave/',desc:'Official CEFR-organized Spanish activities from A1 through C1.',tags:'grammar · pronunciation · interactive'},
@@ -2982,9 +3009,11 @@ function renderLanguageSwitcher(){
     desktop.value=cur;
   }
   let bar=document.getElementById('languageBar');if(bar)bar.dataset.language=lang;
+  renderNativeLanguageControls();
   renderTopLanguageVisibility();
   applyLanguageExperience();
   renderDesktopHomeRail();
+  renderMobileChrome();
 }
 function applyLanguageExperience(){
   let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),g=currentGrade();
@@ -3354,23 +3383,24 @@ showAppTab=function(name,btn){
 /* ===== V5.2 MOBILE COMPACT NAV ===== */
 function mobileLabels(){
   let l=currentLearningLanguage();
-  if(l==='es')return {language:'Idioma',level:'Nivel',sections:'Más secciones',account:'Cuenta'};
-  if(l==='de')return {language:'Sprache',level:'Niveau',sections:'Weitere Bereiche',account:'Konto'};
-  if(l==='ru')return {language:'Язык',level:'Уровень',sections:'Другие разделы',account:'Аккаунт'};
-  return {language:'Language',level:'Level',sections:'More sections',account:'Account'};
+  if(l==='es')return {native:'Mi idioma',language:'Estoy aprendiendo',level:'Nivel',sections:'Más secciones',account:'Cuenta'};
+  if(l==='de')return {native:'Meine Sprache',language:'Ich lerne',level:'Niveau',sections:'Weitere Bereiche',account:'Konto'};
+  if(l==='ru')return {native:'Мой язык',language:'Я изучаю',level:'Уровень',sections:'Другие разделы',account:'Аккаунт'};
+  return {native:'My language',language:"I'm learning",level:'Level',sections:'More sections',account:'Account'};
 }
 function renderMobileChrome(){
   let pill=document.getElementById('mobileModePill');if(!pill)return;
-  let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),labels=mobileLabels();
-  pill.textContent=info.flag+' '+info.native+' · '+level+' ▾';
+  let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),labels=mobileLabels(),nativeInfo=currentNativeLanguageInfo();
+  pill.textContent='🌍 '+nativeInfo.flag+' → 🎯 '+info.flag+' '+info.native+' · '+level+' ▾';
+  let ns=document.getElementById('mobileNativeLanguageSelect');if(ns)ns.value=currentNativeLanguage();
   let ls=document.getElementById('mobileLanguageSelect');if(ls)ls.value=lang;
   let levelBox=document.getElementById('mobileLevelSelect');if(levelBox){
     let opts=lang==='en'?['auto','A1','A2','B1','B2','C1']:['A1','A2','B1','B2','C1'];
     levelBox.innerHTML=opts.map(v=>'<option value="'+v+'">'+(v==='auto'?localeUI().auto:v)+'</option>').join('');
     levelBox.value=lang==='en'?storedEnglishLevel():level;
   }
-  let l1=document.getElementById('mobileLanguageLabel'),l2=document.getElementById('mobileLevelLabel'),l3=document.getElementById('mobileSectionLabel'),acct=document.getElementById('mobileAccountText');
-  if(l1)l1.textContent=labels.language;if(l2)l2.textContent=labels.level;if(l3)l3.textContent=labels.sections;if(acct)acct.textContent=labels.account;
+  let ln=document.getElementById('mobileNativeLabel'),l1=document.getElementById('mobileLanguageLabel'),l2=document.getElementById('mobileLevelLabel'),l3=document.getElementById('mobileSectionLabel'),acct=document.getElementById('mobileAccountText');
+  if(ln)ln.textContent='🌍 '+labels.native;if(l1)l1.textContent='🎯 '+labels.language;if(l2)l2.textContent=labels.level;if(l3)l3.textContent=labels.sections;if(acct)acct.textContent=labels.account;
   let ui=localeUI(),active=localStorage.getItem('teq-active-tab')||'Home',quick=document.getElementById('mobileQuickNav');
   if(quick)quick.innerHTML=[['Home','🏠',ui.home],['Learn','📘',ui.learn],['Messages','💬',ui.messages],['Settings','🎛️',ui.personalize]].map(r=>'<button class="'+(active===r[0]?'on':'')+'" onclick="mobileNavigate(\''+r[0]+'\')">'+r[1]+' '+r[2]+'</button>').join('');
   let sec=document.getElementById('mobileSectionSelect');if(sec){
@@ -3385,6 +3415,7 @@ function toggleMobileMenu(on){
   let m=document.getElementById('mobileMenu');if(!m)return;let open=on===undefined?!m.classList.contains('open'):!!on;
   m.classList.toggle('open',open);m.setAttribute('aria-hidden',open?'false':'true');document.body.classList.toggle('mobileMenuOpen',open);if(open)renderMobileChrome();
 }
+async function mobileSetNativeLanguage(code){await setNativeLanguage(code);renderMobileChrome()}
 async function mobileSetLanguage(code){await setLearningLanguage(code);renderMobileChrome()}
 async function mobileSetLevel(level){await setTargetLanguageLevel(level);renderMobileChrome()}
 function mobileNavigate(tab){toggleMobileMenu(false);navigateAppTab(tab,null,'push');renderMobileChrome()}
