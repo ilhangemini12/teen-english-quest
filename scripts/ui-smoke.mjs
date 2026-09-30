@@ -72,6 +72,19 @@ try {
   }));
   assert(desktopV55.levelVisible&&desktopV55.levelOptions.join('|')==='auto|A1|A2|B1|B2|C1','Desktop level dropdown invalid: '+JSON.stringify(desktopV55));
   assert(desktopV55.testVisible&&desktopV55.railVisible&&desktopV55.railWidth>250&&desktopV55.heroWidth>600,'Desktop v5.5 layout not using available space: '+JSON.stringify(desktopV55));
+  const lang57=await page.evaluate(()=>({
+    native:document.getElementById('nativeLanguageSelect')?.value,
+    mobileNative:!!document.getElementById('mobileNativeLanguageSelect'),
+    homePill:!!document.getElementById('vnextHomePill'),
+    voicePersona:[...document.getElementById('elifVoicePersona').options].map(o=>o.value),
+    chunks:elifVoiceChunks('This is a short natural voice sentence. '.repeat(12))
+  }));
+  assert(lang57.native==='tr'&&lang57.mobileNative&&lang57.homePill,'v5.7 native-language/Home controls missing: '+JSON.stringify(lang57));
+  assert(lang57.voicePersona.join('|')==='hannah|diana|autumn|austin|daniel|troy','Natural voice selector invalid: '+JSON.stringify(lang57.voicePersona));
+  assert(lang57.chunks.length>1&&lang57.chunks.every(x=>x.length<=185),'Voice chunking exceeds Orpheus limit: '+JSON.stringify(lang57.chunks));
+  await page.$eval('#nativeLanguageSelect',(el)=>{el.value='ka';el.dispatchEvent(new Event('change',{bubbles:true}))});
+  await page.waitForFunction(()=>localStorage.getItem('teq-native-language')==='ka',{timeout:3000});
+  await page.evaluate(()=>setNativeLanguage('tr'));
   await page.$eval('#vnextQuickTestBtn',el=>el.click());
   await page.waitForSelector('#placementModal.open',{timeout:3000});
   await page.evaluate(()=>closePlacementTest());
@@ -85,6 +98,10 @@ try {
 
   await page.$eval('#vnavExplore',el=>el.click());
   await page.waitForFunction(()=>document.body.dataset.appTab==='Explore'&&document.body.dataset.primaryNav==='Explore',{timeout:4000});
+  await page.$eval('#vnextHomePill',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
+  await page.$eval('#vnavExplore',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Explore',{timeout:4000});
   await page.$eval('#vnavHome',el=>el.click());
   await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
   await page.$eval('#vnextMessageButton',el=>el.click());
