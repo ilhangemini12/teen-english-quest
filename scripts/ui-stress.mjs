@@ -67,6 +67,13 @@ try{
   }));
   assert(desktop55.rail!=='none'&&desktop55.railWidth>250&&desktop55.heroWidth>600,'Desktop v5.5 layout failed: '+JSON.stringify(desktop55));
   assert(desktop55.level.join('|')==='auto|A1|A2|B1|B2|C1'&&desktop55.quick!=='none','Desktop level/test controls failed: '+JSON.stringify(desktop55));
+  for(const native of ['tr','es','ka','ru','de','en','tr']){
+    await p.evaluate(n=>setNativeLanguage(n),native);
+    const saved=await p.evaluate(()=>localStorage.getItem('teq-native-language'));
+    assert(saved===native,'Native-language state mismatch: '+native+' -> '+saved);
+  }
+  const chunks57=await p.evaluate(()=>elifVoiceChunks(('Natural speech should stay smooth and within the provider limit. ').repeat(18)));
+  assert(chunks57.length>1&&chunks57.every(x=>x.length<=185),'Voice chunks too long: '+JSON.stringify(chunks57));
   await p.evaluate(()=>openTab('ElifAI'));
   await p.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
   const voiceStress=await p.evaluate(()=>({
