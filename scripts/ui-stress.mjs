@@ -67,6 +67,21 @@ try{
   }));
   assert(desktop55.rail!=='none'&&desktop55.railWidth>250&&desktop55.heroWidth>600,'Desktop v5.5 layout failed: '+JSON.stringify(desktop55));
   assert(desktop55.level.join('|')==='auto|A1|A2|B1|B2|C1'&&desktop55.quick!=='none','Desktop level/test controls failed: '+JSON.stringify(desktop55));
+  for(const native of ['tr','es','ka','ru','de','en','tr']){
+    await p.evaluate(n=>setNativeLanguage(n),native);
+    const saved=await p.evaluate(()=>localStorage.getItem('teq-native-language'));
+    assert(saved===native,'Native-language state mismatch: '+native+' -> '+saved);
+  }
+  for(let i=0;i<10;i++){
+    await p.evaluate(()=>{toggleFocusPlayer(true);focusPlaySound(i%2?'brown':'rain');focusStopAudio();toggleFocusPlayer(false)});
+  }
+  const focusStress=await p.evaluate(()=>({
+    spotify:document.body.innerText.includes('Spotify')||!!document.getElementById('focusPaneSpotify'),
+    tabs:[...document.querySelectorAll('.focusTabs button')].map(b=>b.dataset.focusTab),
+    ctx:!!(window.AudioContext||window.webkitAudioContext),
+    bestVoice:typeof elifVoicePickVoice==='function'
+  }));
+  assert(!focusStress.spotify&&focusStress.tabs.join('|')==='ambient|local'&&focusStress.bestVoice,'Focus/voice stress state invalid: '+JSON.stringify(focusStress));
   await p.evaluate(()=>openTab('ElifAI'));
   await p.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
   const voiceStress=await p.evaluate(()=>({
