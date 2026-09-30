@@ -601,29 +601,6 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   .mobileMenuSheet .mobileField select{min-height:46px;border-radius:13px}
 }
 
-/* ===== STUDY TOOLS ===== */
-function geminiNotebookSavedUrl(){
-  let u=localStorage.getItem('bh-gemini-notebook-url')||'';
-  try{let x=new URL(u);return /^https:\/\/(notebooklm\.google\.com|gemini\.google\.com)\//.test(x.href)?x.href:''}catch(e){return''}
-}
-function saveGeminiNotebookLink(){
-  let input=document.getElementById('geminiNotebookUrl');if(!input)return;
-  let raw=input.value.trim();if(!raw){localStorage.removeItem('bh-gemini-notebook-url');return}
-  try{
-    let u=new URL(raw);
-    if(!['notebooklm.google.com','gemini.google.com'].includes(u.hostname)){alert('Please paste a Gemini Notebook / NotebookLM link.');return}
-    localStorage.setItem('bh-gemini-notebook-url',u.href);
-  }catch(e){alert('That notebook link is not valid.')}
-}
-function openGeminiNotebook(){
-  let u=geminiNotebookSavedUrl()||'https://notebooklm.google.com/';
-  window.open(u,'_blank','noopener');
-}
-function renderStudyToolLinks(){
-  let input=document.getElementById('geminiNotebookUrl');if(input)input.value=geminiNotebookSavedUrl();
-}
-document.addEventListener('DOMContentLoaded',renderStudyToolLinks);
-
 /* ===== BATUMHUB FOCUS PLAYER ===== */
 .focusFab{position:fixed;z-index:89;right:18px;bottom:98px;display:flex;align-items:center;gap:7px;min-height:44px;padding:0 13px;border:1px solid #bfd7df;border-radius:999px;background:linear-gradient(135deg,#0d1d35,#17324f);color:#fff;font-weight:900;box-shadow:0 12px 30px rgba(8,20,40,.22);cursor:pointer}.focusFab:hover{transform:translateY(-1px)}.focusFab.playing{background:linear-gradient(135deg,#17634f,#2b6f91)}
 .focusPlayer{position:fixed;z-index:110;right:18px;bottom:154px;width:min(390px,calc(100vw - 28px));max-height:min(680px,calc(100dvh - 190px));overflow:auto;display:none;padding:14px;border:1px solid #d9d5e5;border-radius:22px;background:linear-gradient(165deg,#fff,#f7f5fb 58%,#eef9f7);color:#29263b;box-shadow:0 24px 70px rgba(24,20,45,.22);backdrop-filter:blur(18px)}.focusPlayer.open{display:block}
@@ -1727,52 +1704,6 @@ async function eqLoadCloudPrefs(){
   localStorage.setItem('teq-ui-v4-clean','1');
 }
 
-/* ===== BATUMHUB FOCUS PLAYER ===== */
-let focusCtx=null,focusNodes=[],focusMode='',focusPlaying=false,focusGain=null,focusTimerEnd=0,focusTimerHandle=null,focusLocalTracks=[],focusTrackIndex=-1,focusAudio=null;
-function focusEnsureCtx(){
-  if(!focusCtx)focusCtx=new (window.AudioContext||window.webkitAudioContext)();
-  if(focusCtx.state==='suspended')focusCtx.resume();
-  if(!focusGain){focusGain=focusCtx.createGain();focusGain.gain.value=(Number(localStorage.getItem('bh-focus-volume'))||38)/100*.55;focusGain.connect(focusCtx.destination)}
-  return focusCtx;
-}
-function focusNoiseBuffer(kind='white',seconds=3){
-  let ctx=focusEnsureCtx(),length=Math.floor(ctx.sampleRate*seconds),buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0),last=0;
-  for(let i=0;i<length;i++){let white=Math.random()*2-1;if(kind==='brown'){last=(last+.02*white)/1.02;data[i]=last*3.5}else data[i]=white}
-  return buffer;
-}
-function focusNodeCleanup(){for(let n of focusNodes){try{n.stop&&n.stop()}catch(e){}try{n.disconnect&&n.disconnect()}catch(e){}}focusNodes=[]}
-function focusStopGenerated(){focusNodeCleanup();focusPlaying=false;focusRenderState()}
-function focusBuildMode(mode){
-  focusNodeCleanup();let ctx=focusEnsureCtx();
-  if(mode==='deep'){
-    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=650;let g=ctx.createGain();g.gain.value=.15;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
-    for(const [hz,vol] of [[110,.022],[164.81,.014],[220,.009]]){let o=ctx.createOscillator(),og=ctx.createGain();o.type='sine';o.frequency.value=hz;og.gain.value=vol;o.connect(og).connect(focusGain);o.start();focusNodes.push(o,og)}
-  }else if(mode==='rain'){
-    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',3);src.loop=true;let bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=4200;bp.Q.value=.45;let g=ctx.createGain();g.gain.value=.13;src.connect(bp).connect(g).connect(focusGain);src.start();focusNodes.push(src,bp,g);
-  }else if(mode==='brown'){
-    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=700;let g=ctx.createGain();g.gain.value=.21;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
-  }else if(mode==='ocean'){
-    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=900;let g=ctx.createGain();g.gain.value=.11;let lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=.09;lg.gain.value=.07;lfo.connect(lg).connect(g.gain);src.connect(lp).connect(g).connect(focusGain);src.start();lfo.start();focusNodes.push(src,lp,g,lfo,lg);
-  }
-}
-function focusModeLabel(mode){return ({deep:'Deep Focus ambience',rain:'Soft rain',brown:'Brown noise',ocean:'Ocean ambience'})[mode]||'Focus sound'}
-function focusStartMode(mode){focusStopLocalAudio();focusMode=mode;focusPlaying=true;focusBuildMode(mode);let label=document.getElementById('focusNowLabel');if(label)label.textContent=focusModeLabel(mode);document.querySelectorAll('[data-focus-mode]').forEach(x=>x.classList.toggle('on',x.dataset.focusMode===mode));focusRenderState()}
-function focusTogglePlay(){if(focusAudio){focusAudio.paused?focusAudio.play():focusAudio.pause();return}if(focusPlaying){focusStopGenerated();return}if(focusMode){focusPlaying=true;focusBuildMode(focusMode);focusRenderState();return}focusStartMode('deep')}
-function focusSetVolume(value){let v=Math.max(0,Math.min(100,Number(value)||0));localStorage.setItem('bh-focus-volume',String(v));if(focusGain)focusGain.gain.value=v/100*.55;if(focusAudio)focusAudio.volume=v/100}
-function toggleFocusPlayer(force){let p=document.getElementById('focusPlayer');if(!p)return;let open=force===undefined?!p.classList.contains('open'):!!force;p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true')}
-function focusRenderState(){let play=document.getElementById('focusPlayBtn'),fab=document.getElementById('focusFab');if(play)play.textContent=focusPlaying?'⏸':'▶';if(fab)fab.classList.toggle('playing',focusPlaying)}
-function focusSetTimer(minutes){clearInterval(focusTimerHandle);focusTimerHandle=null;focusTimerEnd=minutes?Date.now()+minutes*60000:0;focusRenderTimer();if(minutes){focusTimerHandle=setInterval(()=>{if(Date.now()>=focusTimerEnd){focusStopAll();focusSetTimer(0)}else focusRenderTimer()},1000)}}
-function focusRenderTimer(){let e=document.getElementById('focusTimerLabel');if(!e)return;if(!focusTimerEnd){e.textContent='Off';return}let ms=Math.max(0,focusTimerEnd-Date.now()),m=Math.floor(ms/60000),sec=Math.floor(ms%60000/1000);e.textContent=m+':'+String(sec).padStart(2,'0')}
-function focusLoadFiles(fileList){focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}focusLocalTracks=[...fileList].filter(f=>f.type.startsWith('audio/')).map(f=>({name:f.name,url:URL.createObjectURL(f)}));focusTrackIndex=-1;focusRenderTracks();if(focusLocalTracks.length)focusPlayTrack(0)}
-function focusRenderTracks(){let root=document.getElementById('focusLocalList');if(!root)return;root.innerHTML='';focusLocalTracks.forEach((t,i)=>{let d=document.createElement('button');d.type='button';d.className='focusTrack'+(i===focusTrackIndex?' on':'');d.onclick=()=>focusPlayTrack(i);d.innerHTML='<span>🎵 '+liveEsc(t.name)+'</span><b>Play</b>';root.appendChild(d)})}
-function focusStopLocalAudio(){if(focusAudio){try{focusAudio.pause();focusAudio.src=''}catch(e){}focusAudio=null}}
-function focusPlayTrack(index){if(!focusLocalTracks.length)return;focusStopGenerated();focusStopLocalAudio();focusTrackIndex=(index+focusLocalTracks.length)%focusLocalTracks.length;let t=focusLocalTracks[focusTrackIndex];focusAudio=new Audio(t.url);focusAudio.volume=(Number(localStorage.getItem('bh-focus-volume'))||38)/100;focusAudio.onplay=()=>{focusPlaying=true;focusRenderState()};focusAudio.onpause=()=>{focusPlaying=false;focusRenderState()};focusAudio.onended=()=>focusNextTrack();focusAudio.play().catch(()=>{});let label=document.getElementById('focusNowLabel');if(label)label.textContent=t.name;focusRenderTracks()}
-function focusPrevTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex-1)}
-function focusNextTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex+1)}
-function focusStopAll(){focusStopGenerated();focusStopLocalAudio();focusPlaying=false;focusRenderState()}
-function focusSpotifyEmbedUrl(url){try{let u=new URL(url.trim());if(u.hostname!=='open.spotify.com')return'';let parts=u.pathname.split('/').filter(Boolean);if(parts[0]==='embed')parts.shift();if(!['track','album','playlist','show','episode','artist'].includes(parts[0])||!parts[1])return'';return'https://open.spotify.com/embed/'+parts[0]+'/'+encodeURIComponent(parts[1])+'?utm_source=generator'}catch(e){return''}}
-function focusLoadSpotify(){let input=document.getElementById('focusSpotifyUrl'),root=document.getElementById('focusSpotifyEmbed'),url=focusSpotifyEmbedUrl(input?input.value:'');if(!root)return;root.innerHTML=url?'<iframe src="'+liveEsc(url)+'" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>':'<small style="color:#a44">Paste a valid open.spotify.com track, album or playlist link.</small>'}
-window.addEventListener('beforeunload',()=>{focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}});
 renderSettings();renderAppTabs();renderWidgets();applyGradeExperience();
 }
 async function eqSaveCloudPrefs(){
@@ -4285,6 +4216,76 @@ function elifVoiceInit(){elifVoiceLoadSettings();elifVoiceRenderSupport();elifVo
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&elifVoiceActive)elifVoiceStopPractice(true)});
 window.addEventListener('beforeunload',()=>elifVoiceStopPractice(true));
 elifAiLoad();elifVoiceInit();
+
+/* ===== STUDY TOOLS ===== */
+function geminiNotebookSavedUrl(){
+  let u=localStorage.getItem('bh-gemini-notebook-url')||'';
+  try{let x=new URL(u);return /^https:\/\/(notebooklm\.google\.com|gemini\.google\.com)\//.test(x.href)?x.href:''}catch(e){return''}
+}
+function saveGeminiNotebookLink(){
+  let input=document.getElementById('geminiNotebookUrl');if(!input)return;
+  let raw=input.value.trim();if(!raw){localStorage.removeItem('bh-gemini-notebook-url');return}
+  try{
+    let u=new URL(raw);
+    if(!['notebooklm.google.com','gemini.google.com'].includes(u.hostname)){alert('Please paste a Gemini Notebook / NotebookLM link.');return}
+    localStorage.setItem('bh-gemini-notebook-url',u.href);
+  }catch(e){alert('That notebook link is not valid.')}
+}
+function openGeminiNotebook(){
+  let u=geminiNotebookSavedUrl()||'https://notebooklm.google.com/';
+  window.open(u,'_blank','noopener');
+}
+function renderStudyToolLinks(){
+  let input=document.getElementById('geminiNotebookUrl');if(input)input.value=geminiNotebookSavedUrl();
+}
+document.addEventListener('DOMContentLoaded',renderStudyToolLinks);
+
+/* ===== BATUMHUB FOCUS PLAYER ===== */
+let focusCtx=null,focusNodes=[],focusMode='',focusPlaying=false,focusGain=null,focusTimerEnd=0,focusTimerHandle=null,focusLocalTracks=[],focusTrackIndex=-1,focusAudio=null;
+function focusEnsureCtx(){
+  if(!focusCtx)focusCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(focusCtx.state==='suspended')focusCtx.resume();
+  if(!focusGain){focusGain=focusCtx.createGain();focusGain.gain.value=(Number(localStorage.getItem('bh-focus-volume'))||38)/100*.55;focusGain.connect(focusCtx.destination)}
+  return focusCtx;
+}
+function focusNoiseBuffer(kind='white',seconds=3){
+  let ctx=focusEnsureCtx(),length=Math.floor(ctx.sampleRate*seconds),buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0),last=0;
+  for(let i=0;i<length;i++){let white=Math.random()*2-1;if(kind==='brown'){last=(last+.02*white)/1.02;data[i]=last*3.5}else data[i]=white}
+  return buffer;
+}
+function focusNodeCleanup(){for(let n of focusNodes){try{n.stop&&n.stop()}catch(e){}try{n.disconnect&&n.disconnect()}catch(e){}}focusNodes=[]}
+function focusStopGenerated(){focusNodeCleanup();focusPlaying=false;focusRenderState()}
+function focusBuildMode(mode){
+  focusNodeCleanup();let ctx=focusEnsureCtx();
+  if(mode==='deep'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=650;let g=ctx.createGain();g.gain.value=.15;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
+    for(const [hz,vol] of [[110,.022],[164.81,.014],[220,.009]]){let o=ctx.createOscillator(),og=ctx.createGain();o.type='sine';o.frequency.value=hz;og.gain.value=vol;o.connect(og).connect(focusGain);o.start();focusNodes.push(o,og)}
+  }else if(mode==='rain'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',3);src.loop=true;let bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=4200;bp.Q.value=.45;let g=ctx.createGain();g.gain.value=.13;src.connect(bp).connect(g).connect(focusGain);src.start();focusNodes.push(src,bp,g);
+  }else if(mode==='brown'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=700;let g=ctx.createGain();g.gain.value=.21;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
+  }else if(mode==='ocean'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=900;let g=ctx.createGain();g.gain.value=.11;let lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=.09;lg.gain.value=.07;lfo.connect(lg).connect(g.gain);src.connect(lp).connect(g).connect(focusGain);src.start();lfo.start();focusNodes.push(src,lp,g,lfo,lg);
+  }
+}
+function focusModeLabel(mode){return ({deep:'Deep Focus ambience',rain:'Soft rain',brown:'Brown noise',ocean:'Ocean ambience'})[mode]||'Focus sound'}
+function focusStartMode(mode){focusStopLocalAudio();focusMode=mode;focusPlaying=true;focusBuildMode(mode);let label=document.getElementById('focusNowLabel');if(label)label.textContent=focusModeLabel(mode);document.querySelectorAll('[data-focus-mode]').forEach(x=>x.classList.toggle('on',x.dataset.focusMode===mode));focusRenderState()}
+function focusTogglePlay(){if(focusAudio){focusAudio.paused?focusAudio.play():focusAudio.pause();return}if(focusPlaying){focusStopGenerated();return}if(focusMode){focusPlaying=true;focusBuildMode(focusMode);focusRenderState();return}focusStartMode('deep')}
+function focusSetVolume(value){let v=Math.max(0,Math.min(100,Number(value)||0));localStorage.setItem('bh-focus-volume',String(v));if(focusGain)focusGain.gain.value=v/100*.55;if(focusAudio)focusAudio.volume=v/100}
+function toggleFocusPlayer(force){let p=document.getElementById('focusPlayer');if(!p)return;let open=force===undefined?!p.classList.contains('open'):!!force;p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true')}
+function focusRenderState(){let play=document.getElementById('focusPlayBtn'),fab=document.getElementById('focusFab');if(play)play.textContent=focusPlaying?'⏸':'▶';if(fab)fab.classList.toggle('playing',focusPlaying)}
+function focusSetTimer(minutes){clearInterval(focusTimerHandle);focusTimerHandle=null;focusTimerEnd=minutes?Date.now()+minutes*60000:0;focusRenderTimer();if(minutes){focusTimerHandle=setInterval(()=>{if(Date.now()>=focusTimerEnd){focusStopAll();focusSetTimer(0)}else focusRenderTimer()},1000)}}
+function focusRenderTimer(){let e=document.getElementById('focusTimerLabel');if(!e)return;if(!focusTimerEnd){e.textContent='Off';return}let ms=Math.max(0,focusTimerEnd-Date.now()),m=Math.floor(ms/60000),sec=Math.floor(ms%60000/1000);e.textContent=m+':'+String(sec).padStart(2,'0')}
+function focusLoadFiles(fileList){focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}focusLocalTracks=[...fileList].filter(f=>f.type.startsWith('audio/')).map(f=>({name:f.name,url:URL.createObjectURL(f)}));focusTrackIndex=-1;focusRenderTracks();if(focusLocalTracks.length)focusPlayTrack(0)}
+function focusRenderTracks(){let root=document.getElementById('focusLocalList');if(!root)return;root.innerHTML='';focusLocalTracks.forEach((t,i)=>{let d=document.createElement('button');d.type='button';d.className='focusTrack'+(i===focusTrackIndex?' on':'');d.onclick=()=>focusPlayTrack(i);d.innerHTML='<span>🎵 '+liveEsc(t.name)+'</span><b>Play</b>';root.appendChild(d)})}
+function focusStopLocalAudio(){if(focusAudio){try{focusAudio.pause();focusAudio.src=''}catch(e){}focusAudio=null}}
+function focusPlayTrack(index){if(!focusLocalTracks.length)return;focusStopGenerated();focusStopLocalAudio();focusTrackIndex=(index+focusLocalTracks.length)%focusLocalTracks.length;let t=focusLocalTracks[focusTrackIndex];focusAudio=new Audio(t.url);focusAudio.volume=(Number(localStorage.getItem('bh-focus-volume'))||38)/100;focusAudio.onplay=()=>{focusPlaying=true;focusRenderState()};focusAudio.onpause=()=>{focusPlaying=false;focusRenderState()};focusAudio.onended=()=>focusNextTrack();focusAudio.play().catch(()=>{});let label=document.getElementById('focusNowLabel');if(label)label.textContent=t.name;focusRenderTracks()}
+function focusPrevTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex-1)}
+function focusNextTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex+1)}
+function focusStopAll(){focusStopGenerated();focusStopLocalAudio();focusPlaying=false;focusRenderState()}
+function focusSpotifyEmbedUrl(url){try{let u=new URL(url.trim());if(u.hostname!=='open.spotify.com')return'';let parts=u.pathname.split('/').filter(Boolean);if(parts[0]==='embed')parts.shift();if(!['track','album','playlist','show','episode','artist'].includes(parts[0])||!parts[1])return'';return'https://open.spotify.com/embed/'+parts[0]+'/'+encodeURIComponent(parts[1])+'?utm_source=generator'}catch(e){return''}}
+function focusLoadSpotify(){let input=document.getElementById('focusSpotifyUrl'),root=document.getElementById('focusSpotifyEmbed'),url=focusSpotifyEmbedUrl(input?input.value:'');if(!root)return;root.innerHTML=url?'<iframe src="'+liveEsc(url)+'" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>':'<small style="color:#a44">Paste a valid open.spotify.com track, album or playlist link.</small>'}
+window.addEventListener('beforeunload',()=>{focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}});
 
 renderSettings();renderAppTabs();
 handleExternalLaunch();
