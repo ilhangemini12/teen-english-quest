@@ -75,7 +75,8 @@ try {
   const focus57=await page.evaluate(()=>({
     focusButton:!!document.getElementById('focusPlayerButton'),
     tabs:[...document.querySelectorAll('.focusTabs button')].map(b=>b.dataset.focusTab),
-    spotify:!!document.getElementById('focusPaneSpotify')||document.body.innerText.includes('Spotify'),
+    spotify:!!document.getElementById('focusPaneSpotify')||/spotify/i.test(document.documentElement.innerHTML),
+    localLabel:document.querySelector('[data-focus-tab="local"]')?.textContent.trim()||'',
     sounds:[...document.querySelectorAll('[data-focus-sound]')].map(b=>b.dataset.focusSound),
     localInput:!!document.getElementById('focusLocalInput'),
     native:document.getElementById('nativeLanguageSelect')?.value,
@@ -84,8 +85,8 @@ try {
     notebook:!!document.querySelector('.elifStudyNotebook'),
     deviceVoice:!!document.getElementById('elifVoiceDeviceSelect')
   }));
-  assert(focus57.focusButton&&focus57.tabs.join('|')==='ambient|local'&&!focus57.spotify,'Focus Player should contain only ambient + local music: '+JSON.stringify(focus57));
-  assert(focus57.sounds.join('|')==='rain|brown|pink|ambient'&&focus57.localInput,'Focus sounds/local music missing: '+JSON.stringify(focus57));
+  assert(focus57.focusButton&&focus57.tabs.join('|')==='ambient|local'&&!focus57.spotify,'Focus Player must remain Spotify-free with ambient + optional local audio only: '+JSON.stringify(focus57));
+  assert(/optional/i.test(focus57.localLabel)&&focus57.sounds.join('|')==='rain|brown|pink|ambient'&&focus57.localInput,'Focus-first/local-optional audio contract failed: '+JSON.stringify(focus57));
   assert(focus57.native==='tr'&&focus57.mobileNative&&focus57.home,'Home/native-language controls missing: '+JSON.stringify(focus57));
   assert(focus57.notebook&&focus57.deviceVoice,'Study Notebook/device voice controls missing: '+JSON.stringify(focus57));
   await page.$eval('#focusPlayerButton',el=>el.click());
