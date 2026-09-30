@@ -455,19 +455,19 @@ body{padding-bottom:calc(var(--vnav-h) + 24px + env(safe-area-inset-bottom))}
 .brandWord{font-size:18px;letter-spacing:.02em}
 .vnextHeaderIcon{width:42px;height:42px;border-radius:14px;border:1px solid #2b4261;background:#101d31;color:#fff;display:grid;place-items:center;font-size:18px;cursor:pointer}
 .vnextAccountBtn{padding:9px 12px}
+.vnextWeatherMini{display:none}
 #topStatusBar{min-height:30px;padding:0 0 7px;gap:6px}
 #topStatusBar>*{display:none!important}
 #topStatusBar>span:nth-child(2){display:inline-flex!important;margin-left:auto;font-size:12px;padding:4px 8px;border-radius:999px;background:#0e1b2e;border:1px solid #223854}
 @media(max-width:720px){
   .mobileCompactTop{display:none!important}
   .top{min-height:62px!important}
-  .top>.wrap{position:relative;padding:0 10px!important}
+  .top>.wrap{padding:0 10px!important}
   .top .brandnav{display:flex!important}
-  .top .topStatusBar{display:flex!important}
+  .top .topStatusBar{display:none!important}
   .top .languageBarTop,.top .coreNav,.top .secondaryTabs{display:none!important}
   .brandnav{height:62px;min-height:62px;padding:4px 0!important}
-  #topStatusBar{position:absolute;z-index:2;right:142px;top:17px;width:auto;min-height:0!important;padding:0!important;margin:0!important;pointer-events:none}
-  #topStatusBar>span:nth-child(2){max-width:78px;min-height:28px;margin:0!important;padding:4px 7px!important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px!important}
+  .vnextWeatherMini{display:inline-flex!important;align-items:center;justify-content:center;max-width:72px;min-height:30px;padding:4px 7px;border:1px solid #223854;border-radius:999px;background:#0e1b2e;color:#fff;font-size:10px;font-weight:850;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 }
 body[data-app-tab="Home"] #demoPass,
 body[data-app-tab="Home"] #learningLaunch,
@@ -770,6 +770,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 <nav class="brandnav">
   <button class="brandWord brandHomeButton" onclick="navigateAppTab('Home',null,'push')" aria-label="BatumHub home">BATUM<span>HUB</span></button>
   <button class="profilebtn vnextHomePill" id="vnextHomePill" onclick="navigateAppTab('Home',null,'push')" title="Home">🏠 <span>Home</span></button>
+  <span class="vnextWeatherMini" id="bhWeatherMini" aria-label="Batumi weather">🌦️ —</span>
   <button class="vnextHeaderIcon focusHeaderButton" id="focusPlayerButton" onclick="toggleFocusPlayer()" title="Focus Player" aria-label="Focus Player">🎧</button>
   <button class="vnextHeaderIcon" id="vnextMessageButton" onclick="navigateAppTab(document.body.dataset.appTab==='Messages'?'Home':'Messages',null,'push')" title="Messages" aria-label="Messages">💬</button>
   <button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="Install BatumHub">📲 <span>Install</span></button>
@@ -1416,13 +1417,17 @@ function bhRenderDate(){
   if(v)v.textContent='v'+BH_SITE_VERSION;
 }
 async function bhLoadWeather(){
-  let e=document.getElementById('bhWeather');if(!e)return;
+  let e=document.getElementById('bhWeather'),mini=document.getElementById('bhWeatherMini');if(!e&&!mini)return;
   try{
     const url='https://api.open-meteo.com/v1/forecast?latitude=41.6168&longitude=41.6367&current=temperature_2m,weather_code&temperature_unit=celsius&timezone=Asia%2FTbilisi';
     const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('weather');
-    const j=await r.json(),cur=j.current||{},temp=Math.round(Number(cur.temperature_2m));
-    e.textContent=window.innerWidth<=720?((Number.isFinite(temp)?temp+'°C ':'')+bhWeatherText(cur.weather_code)):('Batumi '+(Number.isFinite(temp)?temp+'°C · ':'')+bhWeatherText(cur.weather_code));
-  }catch(err){e.textContent='Batumi · weather unavailable'}
+    const j=await r.json(),cur=j.current||{},temp=Math.round(Number(cur.temperature_2m)),label=bhWeatherText(cur.weather_code);
+    if(e)e.textContent='Batumi '+(Number.isFinite(temp)?temp+'°C · ':'')+label;
+    if(mini)mini.textContent=(Number.isFinite(temp)?temp+'°C ':'')+label;
+  }catch(err){
+    if(e)e.textContent='Batumi · weather unavailable';
+    if(mini)mini.textContent='🌦️ —';
+  }
 }
 bhRenderDate();bhLoadWeather();setInterval(bhLoadWeather,15*60*1000);
 
