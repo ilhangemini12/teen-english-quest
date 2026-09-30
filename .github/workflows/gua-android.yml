@@ -2,6 +2,14 @@ name: GUA Android APK
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'guatemala-citizenship-spanish/**'
+      - 'scripts/prepare-gua-mobile.mjs'
+      - 'scripts/patch-gua-android.mjs'
+      - 'capacitor.gua.config.json'
+      - '.github/workflows/gua-android.yml'
 
 permissions:
   contents: read
