@@ -72,6 +72,35 @@ try {
   }));
   assert(desktopV55.levelVisible&&desktopV55.levelOptions.join('|')==='auto|A1|A2|B1|B2|C1','Desktop level dropdown invalid: '+JSON.stringify(desktopV55));
   assert(desktopV55.testVisible&&desktopV55.railVisible&&desktopV55.railWidth>250&&desktopV55.heroWidth>600,'Desktop v5.5 layout not using available space: '+JSON.stringify(desktopV55));
+  const focus57=await page.evaluate(()=>({
+    focusButton:!!document.getElementById('focusPlayerButton'),
+    tabs:[...document.querySelectorAll('.focusTabs button')].map(b=>b.dataset.focusTab),
+    spotify:!!document.getElementById('focusPaneSpotify')||/spotify/i.test(document.documentElement.innerHTML),
+    localLabel:document.querySelector('[data-focus-tab="local"]')?.textContent.trim()||'',
+    sounds:[...document.querySelectorAll('[data-focus-sound]')].map(b=>b.dataset.focusSound),
+    localInput:!!document.getElementById('focusLocalInput'),
+    native:document.getElementById('nativeLanguageSelect')?.value,
+    mobileNative:!!document.getElementById('mobileNativeLanguageSelect'),
+    home:!!document.getElementById('vnextHomePill'),
+    notebook:!!document.querySelector('.elifStudyNotebook'),
+    deviceVoice:!!document.getElementById('elifVoiceDeviceSelect')
+  }));
+  assert(focus57.focusButton&&focus57.tabs.join('|')==='ambient|local'&&!focus57.spotify,'Focus Player must remain Spotify-free with ambient + optional local audio only: '+JSON.stringify(focus57));
+  assert(/optional/i.test(focus57.localLabel)&&focus57.sounds.join('|')==='rain|brown|pink|ambient'&&focus57.localInput,'Focus-first/local-optional audio contract failed: '+JSON.stringify(focus57));
+  assert(focus57.native==='tr'&&focus57.mobileNative&&focus57.home,'Home/native-language controls missing: '+JSON.stringify(focus57));
+  assert(focus57.notebook&&focus57.deviceVoice,'Study Notebook/device voice controls missing: '+JSON.stringify(focus57));
+  await page.$eval('#focusPlayerButton',el=>el.click());
+  await page.waitForSelector('#focusPlayerPanel.open',{timeout:3000});
+  await page.$eval('[data-focus-sound="rain"]',el=>el.click());
+  const rainState=await page.evaluate(()=>({sound:focusCurrentSound,playing:document.getElementById('focusPlayerPanel').classList.contains('playing')}));
+  assert(rainState.sound==='rain'&&rainState.playing,'Local rain generator did not start: '+JSON.stringify(rainState));
+  await page.evaluate(()=>{focusStopAudio();toggleFocusPlayer(false)});
+  await page.$eval('#nativeLanguageSelect',(el)=>{el.value='ka';el.dispatchEvent(new Event('change',{bubbles:true}))});
+  await page.waitForFunction(()=>localStorage.getItem('teq-native-language')==='ka',{timeout:3000});
+  await page.evaluate(()=>setNativeLanguage('tr'));
+  await page.evaluate(()=>openTab('Explore'));
+  await page.$eval('#vnextHomePill',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:3000});
   await page.$eval('#vnextQuickTestBtn',el=>el.click());
   await page.waitForSelector('#placementModal.open',{timeout:3000});
   await page.evaluate(()=>closePlacementTest());
@@ -230,3 +259,9 @@ try {
 } finally {
   await browser.close();
 }
+
+// v5.7-focus final gate
+
+// v5.7-focus attempt-2 gate
+
+// v5.7-focus compact-header verification

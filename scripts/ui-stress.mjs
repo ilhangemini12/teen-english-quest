@@ -67,6 +67,22 @@ try{
   }));
   assert(desktop55.rail!=='none'&&desktop55.railWidth>250&&desktop55.heroWidth>600,'Desktop v5.5 layout failed: '+JSON.stringify(desktop55));
   assert(desktop55.level.join('|')==='auto|A1|A2|B1|B2|C1'&&desktop55.quick!=='none','Desktop level/test controls failed: '+JSON.stringify(desktop55));
+  for(const native of ['tr','es','ka','ru','de','en','tr']){
+    await p.evaluate(n=>setNativeLanguage(n),native);
+    const saved=await p.evaluate(()=>localStorage.getItem('teq-native-language'));
+    assert(saved===native,'Native-language state mismatch: '+native+' -> '+saved);
+  }
+  for(let i=0;i<10;i++){
+    await p.evaluate(n=>{toggleFocusPlayer(true);focusPlaySound(n%2?'brown':'rain');focusStopAudio();toggleFocusPlayer(false)},i);
+  }
+  const focusStress=await p.evaluate(()=>({
+    spotify:/spotify/i.test(document.documentElement.innerHTML)||!!document.getElementById('focusPaneSpotify'),
+    localLabel:document.querySelector('[data-focus-tab="local"]')?.textContent.trim()||'',
+    tabs:[...document.querySelectorAll('.focusTabs button')].map(b=>b.dataset.focusTab),
+    ctx:!!(window.AudioContext||window.webkitAudioContext),
+    bestVoice:typeof elifVoicePickVoice==='function'
+  }));
+  assert(!focusStress.spotify&&/optional/i.test(focusStress.localLabel)&&focusStress.tabs.join('|')==='ambient|local'&&focusStress.bestVoice,'Focus/voice stress state invalid: '+JSON.stringify(focusStress));
   await p.evaluate(()=>openTab('ElifAI'));
   await p.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
   const voiceStress=await p.evaluate(()=>({
@@ -163,6 +179,7 @@ try{
     brand:getComputedStyle(document.querySelector('.brandnav')).display,
     core:getComputedStyle(document.querySelector('.coreNav')).display,
     status:getComputedStyle(document.querySelector('.topStatusBar')).display,
+    weatherMini:getComputedStyle(document.getElementById('bhWeatherMini')).display,
     secondary:getComputedStyle(document.querySelector('.secondaryTabs')).display,
     bottom:getComputedStyle(document.getElementById('vnextBottomNav')).display,
     nav:[...document.querySelectorAll('#vnextBottomNav button')].map(b=>b.lastElementChild?.textContent.trim()||''),
@@ -173,8 +190,8 @@ try{
     width:innerWidth
   }));
   assert(compact.top<=100&&compact.legacyMobile==='none','Legacy mobile header leaked into vNext: '+JSON.stringify(compact));
-  assert(compact.brand!=='none'&&compact.status!=='none'&&compact.bottom!=='none','vNext mobile shell missing: '+JSON.stringify(compact));
-  assert(compact.lang==='none'&&compact.core==='none'&&compact.secondary==='none','Secondary chrome leaked into vNext mobile header: '+JSON.stringify(compact));
+  assert(compact.brand!=='none'&&compact.weatherMini!=='none'&&compact.bottom!=='none','vNext mobile shell missing: '+JSON.stringify(compact));
+  assert(compact.status==='none'&&compact.lang==='none'&&compact.core==='none'&&compact.secondary==='none','Legacy secondary chrome leaked into vNext mobile header: '+JSON.stringify(compact));
   assert(compact.nav.join('|')==='Home|Explore|AI Tutor|League'&&compact.appTab==='Home'&&compact.primary==='Home'&&compact.questButtons===1,'vNext mobile navigation/home focus invalid: '+JSON.stringify(compact));
   assert(compact.scroll<=compact.width+4,'Mobile shell causes horizontal overflow: '+JSON.stringify(compact));
 
@@ -245,3 +262,7 @@ try{
 } finally {
   await browser.close();
 }
+
+// v5.7-focus final gate
+
+// v5.7-focus compact-header verification
