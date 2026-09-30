@@ -1120,7 +1120,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
       <button type="button" onclick="elifAiAction('correct')">Correct my English</button>
       <button type="button" onclick="elifAiAction('examples')">Give 3 examples</button>
       <button type="button" onclick="elifAiAction('quiz')">Quiz me</button>
-      <button type="button" onclick="elifAiAction('turkish')">Translate to Turkish</button>
+      <button type="button" onclick="elifAiAction('native')">Explain in my language</button>
     </div>
     <div class="elifAiComposer">
       <textarea id="elifAiInput" maxlength="2500" placeholder="Write in English… Ask a question, practice a conversation, or paste a short paragraph to improve." onkeydown="elifAiKey(event)"></textarea>
@@ -3970,7 +3970,7 @@ function elifAiAction(type){
     correct:'Please correct my most recent English message. Show the improved version first, then explain the 1–3 most useful corrections.',
     examples:'Please give me 3 short, natural English examples related to what we were just discussing.',
     quiz:'Quiz me on what we were just discussing. Ask one question at a time and wait for my answer before revealing the answer.',
-    turkish:'Please translate or explain the key point from your last answer in concise Turkish, then give the most important English phrase again.'
+    native:'Please explain the key point from your last answer briefly in '+currentNativeLanguageInfo().name+', then give the most important English phrase again.'
   };
   elifAiSend(prompts[type]||prompts.simple);
 }
@@ -3982,21 +3982,23 @@ function elifAiKey(event){
 
 /* ===== ELIF AI VOICE PRACTICE ===== */
 const ELIF_VOICE_SETTINGS='batumhub-elif-voice-settings-v1';
-let elifVoiceRecognition=null,elifVoiceActive=false,elifVoiceListening=false,elifVoiceSpeaking=false,elifVoiceFinalCaptured=false;
+let elifVoiceRecognition=null,elifVoiceActive=false,elifVoiceListening=false,elifVoiceSpeaking=false,elifVoiceFinalCaptured=false,elifVoiceAudio=null,elifVoiceSpeakSeq=0;
 function elifVoiceRecognitionCtor(){return window.SpeechRecognition||window.webkitSpeechRecognition||null}
 function elifVoiceCapabilities(){return {recognition:!!elifVoiceRecognitionCtor(),synthesis:!!(window.speechSynthesis&&window.SpeechSynthesisUtterance),secure:!!window.isSecureContext}}
 function elifVoiceHandsFreeEnabled(){let e=document.getElementById('elifVoiceHandsFree');return !e||e.checked}
 function elifVoiceAutoSpeakEnabled(){let e=document.getElementById('elifVoiceAutoSpeak');return !e||e.checked}
-function elifVoiceRateValue(){let e=document.getElementById('elifVoiceRate'),n=Number(e&&e.value);return Number.isFinite(n)?Math.min(1.12,Math.max(.72,n)):.94}
+function elifVoiceRateValue(){let e=document.getElementById('elifVoiceRate'),n=Number(e&&e.value);return Number.isFinite(n)?Math.min(1.15,Math.max(.8,n)):.96}
+function elifVoicePersonaValue(){let e=document.getElementById('elifVoicePersona'),v=e?e.value:'hannah';return ['autumn','diana','hannah','austin','daniel','troy'].includes(v)?v:'hannah'}
 function elifVoiceSaveSettings(){
-  try{localStorage.setItem(ELIF_VOICE_SETTINGS,JSON.stringify({handsFree:elifVoiceHandsFreeEnabled(),autoSpeak:elifVoiceAutoSpeakEnabled(),rate:elifVoiceRateValue()}))}catch(e){}
+  try{localStorage.setItem(ELIF_VOICE_SETTINGS,JSON.stringify({handsFree:elifVoiceHandsFreeEnabled(),autoSpeak:elifVoiceAutoSpeakEnabled(),rate:elifVoiceRateValue(),voice:elifVoicePersonaValue()}))}catch(e){}
 }
 function elifVoiceLoadSettings(){
   try{
-    let x=JSON.parse(localStorage.getItem(ELIF_VOICE_SETTINGS)||'{}'),h=document.getElementById('elifVoiceHandsFree'),a=document.getElementById('elifVoiceAutoSpeak'),r=document.getElementById('elifVoiceRate');
+    let x=JSON.parse(localStorage.getItem(ELIF_VOICE_SETTINGS)||'{}'),h=document.getElementById('elifVoiceHandsFree'),a=document.getElementById('elifVoiceAutoSpeak'),r=document.getElementById('elifVoiceRate'),v=document.getElementById('elifVoicePersona');
     if(h&&typeof x.handsFree==='boolean')h.checked=x.handsFree;
     if(a&&typeof x.autoSpeak==='boolean')a.checked=x.autoSpeak;
     if(r&&Number.isFinite(Number(x.rate)))r.value=String(x.rate);
+    if(v&&['autumn','diana','hannah','austin','daniel','troy'].includes(x.voice))v.value=x.voice;
   }catch(e){}
 }
 function elifVoiceSetState(state,text){
@@ -4014,9 +4016,10 @@ function elifVoiceRenderSupport(){
   let e=document.getElementById('elifVoiceSupport');if(!e)return;
   let c=elifVoiceCapabilities(),start=document.getElementById('elifVoiceStart');
   if(!c.secure){e.textContent='HTTPS required';e.title='Microphone recognition requires a secure page.'}
-  else if(!c.recognition){e.textContent=c.synthesis?'Listen only':'Voice unavailable';e.title='This browser does not expose speech recognition. You can still use the speaker buttons on AI replies.'}
-  else if(!c.synthesis){e.textContent='Mic only';e.title='Speech recognition is available, but spoken AI replies are not supported here.'}
-  else{e.textContent='Mic + voice ready';e.title='Voice conversation is supported in this browser.'}
+  else if(!c.recognition){e.textContent=eqUser?'Natural voice · listen only':'Listen only';e.title='This browser does not expose speech recognition. Natural AI reply audio can still work when signed in.'}
+  else if(eqUser&&eqSupa){e.textContent='✨ Natural AI voice';e.title='Groq Orpheus natural voice is primary; your device voice is fallback only.'}
+  else if(c.synthesis){e.textContent='Mic + device voice';e.title='Sign in to use the natural AI voice. Device speech is available as fallback.'}
+  else{e.textContent='Mic ready';e.title='Speech recognition is available.'}
   if(start&&!elifVoiceListening&&!elifAiBusy&&!elifVoiceSpeaking)start.disabled=!c.recognition;
 }
 function elifVoicePrepareMode(){
@@ -4089,7 +4092,8 @@ function elifVoiceAbortRecognition(){
   elifVoiceListening=false;
 }
 function elifVoiceStopPractice(silent=false){
-  elifVoiceActive=false;elifVoiceAbortRecognition();
+  elifVoiceActive=false;elifVoiceAbortRecognition();elifVoiceSpeakSeq++;
+  if(elifVoiceAudio){try{elifVoiceAudio.pause();elifVoiceAudio.src=''}catch(e){}elifVoiceAudio=null}
   if(window.speechSynthesis){try{window.speechSynthesis.cancel()}catch(e){}}
   elifVoiceSpeaking=false;elifVoiceFinalCaptured=false;
   if(!silent)elifVoiceTranscript('',false);
@@ -4100,29 +4104,70 @@ function elifVoicePickVoice(){
   let voices=window.speechSynthesis.getVoices()||[];
   return voices.find(v=>String(v.lang).toLowerCase()==='en-us')||voices.find(v=>String(v.lang).toLowerCase().startsWith('en-'))||null;
 }
-function elifVoiceSpeak(text,resumeListening=false){
-  let clean=elifVoicePlainText(text);if(!clean)return;
-  let c=elifVoiceCapabilities();
-  if(!c.synthesis){
-    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),300);
-    return;
+function elifVoiceChunks(text,max=185){
+  let clean=elifVoicePlainText(text),sentences=clean.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[clean],out=[],buf='';
+  for(let sentence of sentences){
+    sentence=sentence.trim();if(!sentence)continue;
+    if(sentence.length<=max&&(!buf||buf.length+1+sentence.length<=max)){buf+=(buf?' ':'')+sentence;continue}
+    if(buf){out.push(buf);buf=''}
+    if(sentence.length<=max){buf=sentence;continue}
+    let words=sentence.split(/\s+/),part='';
+    for(let word of words){
+      if(part&&part.length+1+word.length>max){out.push(part);part=word}else part+=(part?' ':'')+word;
+    }
+    if(part)buf=part;
   }
-  elifVoiceAbortRecognition();
-  try{window.speechSynthesis.cancel()}catch(e){}
-  let u=new window.SpeechSynthesisUtterance(clean);u.lang='en-US';u.rate=elifVoiceRateValue();u.pitch=1;
-  let v=elifVoicePickVoice();if(v)u.voice=v;
-  u.onstart=()=>{elifVoiceSpeaking=true;elifVoiceSetState('speaking','Elif is speaking…')};
-  u.onend=()=>{
-    elifVoiceSpeaking=false;
-    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
-    else elifVoiceSetState('ready',elifVoiceActive?'Your turn. Tap Speak when ready.':'Ready for an English conversation.');
-  };
-  u.onerror=()=>{
-    elifVoiceSpeaking=false;
-    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
-    else elifVoiceSetState('ready','Voice playback stopped. You can continue by text or microphone.');
-  };
-  window.speechSynthesis.speak(u);
+  if(buf)out.push(buf);
+  return out.filter(Boolean).slice(0,8);
+}
+function elifVoiceBase64Audio(data){
+  return new Promise((resolve,reject)=>{
+    let audio=new Audio('data:'+(data.mime||'audio/wav')+';base64,'+data.audio_base64);elifVoiceAudio=audio;
+    audio.onended=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;resolve()};
+    audio.onerror=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;reject(new Error('audio playback'))};
+    audio.play().catch(reject);
+  });
+}
+async function elifVoiceCloudSpeak(clean,seq){
+  if(!eqUser||!eqSupa)throw new Error('cloud voice unavailable');
+  let chunks=elifVoiceChunks(clean);if(!chunks.length)throw new Error('empty voice text');
+  for(let chunk of chunks){
+    if(seq!==elifVoiceSpeakSeq)throw new Error('voice cancelled');
+    const {data,error}=await eqSupa.functions.invoke('elif-voice',{body:{text:chunk,voice:elifVoicePersonaValue(),speed:elifVoiceRateValue()}});
+    if(error||!data?.audio_base64)throw new Error('natural voice request failed');
+    if(seq!==elifVoiceSpeakSeq)throw new Error('voice cancelled');
+    await elifVoiceBase64Audio(data);
+  }
+}
+function elifVoiceBrowserSpeak(clean){
+  return new Promise((resolve,reject)=>{
+    let c=elifVoiceCapabilities();if(!c.synthesis)return reject(new Error('device voice unavailable'));
+    try{window.speechSynthesis.cancel()}catch(e){}
+    let u=new window.SpeechSynthesisUtterance(clean);u.lang='en-US';u.rate=elifVoiceRateValue();u.pitch=.98;
+    let v=elifVoicePickVoice();if(v)u.voice=v;
+    u.onend=()=>resolve();u.onerror=()=>reject(new Error('device voice failed'));window.speechSynthesis.speak(u);
+  });
+}
+async function elifVoiceSpeak(text,resumeListening=false){
+  let clean=elifVoicePlainText(text);if(!clean)return;
+  elifVoiceAbortRecognition();let seq=++elifVoiceSpeakSeq;elifVoiceSpeaking=true;
+  elifVoiceSetState('speaking',eqUser&&eqSupa?'Elif is speaking naturally…':'Elif is speaking…');
+  let usedNatural=false;
+  try{
+    await elifVoiceCloudSpeak(clean,seq);usedNatural=true;
+  }catch(e){
+    if(seq!==elifVoiceSpeakSeq)return;
+    try{
+      elifVoiceSetState('speaking','Natural voice unavailable — using device voice…');
+      await elifVoiceBrowserSpeak(clean);
+    }catch(e2){}
+  }
+  if(seq!==elifVoiceSpeakSeq)return;
+  elifVoiceSpeaking=false;
+  let support=document.getElementById('elifVoiceSupport');
+  if(support&&usedNatural){support.textContent='✨ Natural AI voice';support.title='Groq Orpheus natural voice is active.'}
+  if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
+  else elifVoiceSetState('ready',elifVoiceActive?'Your turn. Tap Speak when ready.':'Ready for an English conversation.');
 }
 function elifVoiceInit(){elifVoiceLoadSettings();elifVoiceRenderSupport();elifVoiceSetState('ready','Ready for an English conversation.')}
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&elifVoiceActive)elifVoiceStopPractice(true)});
