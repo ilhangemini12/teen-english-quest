@@ -600,6 +600,17 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   .brandnav{gap:6px!important}
   .mobileMenuSheet .mobileField select{min-height:46px;border-radius:13px}
 }
+
+/* ===== BATUMHUB FOCUS PLAYER ===== */
+.focusFab{position:fixed;z-index:89;right:18px;bottom:98px;display:flex;align-items:center;gap:7px;min-height:44px;padding:0 13px;border:1px solid #bfd7df;border-radius:999px;background:linear-gradient(135deg,#0d1d35,#17324f);color:#fff;font-weight:900;box-shadow:0 12px 30px rgba(8,20,40,.22);cursor:pointer}.focusFab:hover{transform:translateY(-1px)}.focusFab.playing{background:linear-gradient(135deg,#17634f,#2b6f91)}
+.focusPlayer{position:fixed;z-index:110;right:18px;bottom:154px;width:min(390px,calc(100vw - 28px));max-height:min(680px,calc(100dvh - 190px));overflow:auto;display:none;padding:14px;border:1px solid #d9d5e5;border-radius:22px;background:linear-gradient(165deg,#fff,#f7f5fb 58%,#eef9f7);color:#29263b;box-shadow:0 24px 70px rgba(24,20,45,.22);backdrop-filter:blur(18px)}.focusPlayer.open{display:block}
+.focusPlayerHead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.focusPlayerHead>div{display:flex;gap:9px}.focusPlayerHead b{display:block;font-size:15px}.focusPlayerHead small{display:block;margin-top:2px;color:#766f88;font-size:11px}.focusNowIcon{font-size:22px}.focusPlayerHead>button{width:34px;height:34px;border:1px solid #ddd8e7;border-radius:11px;background:#fff;color:#5a536d;cursor:pointer}
+.focusModes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.focusModes button{min-height:44px;border:1px solid #ddd7e7;border-radius:13px;background:#fff;color:#3a354b;font-weight:850;cursor:pointer}.focusModes button.on{background:linear-gradient(135deg,#dff7f0,#e7ecff);border-color:#70cbbb;color:#244c49}
+.focusTransport{display:grid;grid-template-columns:40px 54px 40px 1fr;align-items:center;gap:8px;margin-top:12px;padding:10px;border:1px solid #e0dbea;border-radius:15px;background:rgba(255,255,255,.72)}.focusTransport button{height:38px;border:1px solid #ddd8e7;border-radius:11px;background:#fff;cursor:pointer}.focusPlayBtn{font-size:18px!important;background:#182842!important;color:#fff!important;border-color:#182842!important}.focusTransport label{display:flex;align-items:center;gap:6px;font-size:11px}.focusTransport input[type="range"]{width:100%}
+.focusTimerRow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:#6f687f}.focusTimerRow>span{font-weight:900;color:#3b354c}.focusTimerRow button{border:1px solid #ddd7e6;border-radius:999px;background:#fff;padding:6px 8px;cursor:pointer;font-weight:800}.focusTimerRow b{margin-left:auto;color:#4b4560}
+.focusLocal{margin-top:12px;padding:11px;border:1px dashed #cfc7dd;border-radius:15px;background:rgba(255,255,255,.62)}.focusLocal>button{border:1px solid #c7d7f1;background:#eef5ff;color:#315477;border-radius:11px;padding:8px 10px;font-weight:850;cursor:pointer}.focusLocal small{display:block;margin-top:6px;color:#797187;font-size:9.5px}.focusLocalList{display:grid;gap:5px;margin-top:8px}.focusTrack{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 8px;border-radius:10px;background:#fff;border:1px solid #e3deea;font-size:11px;cursor:pointer}.focusTrack.on{border-color:#6ecab9;background:#edfaf6}.focusTrack span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.focusSpotify{margin-top:12px;border-top:1px solid #e3ddea;padding-top:10px}.focusSpotify summary{cursor:pointer;font-weight:900;font-size:12px}.focusSpotify p{font-size:9.5px;color:#776f86}.focusSpotify>div{display:flex;gap:6px}.focusSpotify input{min-width:0;flex:1;height:36px;border:1px solid #ddd7e6;border-radius:10px;padding:0 9px}.focusSpotify button{border:1px solid #b9d7c8;background:#eaf8f0;border-radius:10px;padding:0 10px;font-weight:850;cursor:pointer}.focusSpotify iframe{width:100%;height:152px;border:0;border-radius:12px;margin-top:8px}
+@media(max-width:720px){.focusFab{right:12px;bottom:94px;width:46px;height:46px;padding:0;justify-content:center}.focusFab span{display:none}.focusPlayer{left:10px;right:10px;bottom:152px;width:auto;max-height:64dvh;border-radius:20px}.focusModes{grid-template-columns:1fr 1fr}.focusTransport{grid-template-columns:38px 50px 38px 1fr}}
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
@@ -1681,6 +1692,53 @@ async function eqLoadCloudPrefs(){
   localStorage.setItem('teq-home-focus','balanced');
   localStorage.setItem('teq-ui-v4-clean','1');
 }
+
+/* ===== BATUMHUB FOCUS PLAYER ===== */
+let focusCtx=null,focusNodes=[],focusMode='',focusPlaying=false,focusGain=null,focusTimerEnd=0,focusTimerHandle=null,focusLocalTracks=[],focusTrackIndex=-1,focusAudio=null;
+function focusEnsureCtx(){
+  if(!focusCtx)focusCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(focusCtx.state==='suspended')focusCtx.resume();
+  if(!focusGain){focusGain=focusCtx.createGain();focusGain.gain.value=(Number(localStorage.getItem('bh-focus-volume'))||38)/100*.55;focusGain.connect(focusCtx.destination)}
+  return focusCtx;
+}
+function focusNoiseBuffer(kind='white',seconds=3){
+  let ctx=focusEnsureCtx(),length=Math.floor(ctx.sampleRate*seconds),buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0),last=0;
+  for(let i=0;i<length;i++){let white=Math.random()*2-1;if(kind==='brown'){last=(last+.02*white)/1.02;data[i]=last*3.5}else data[i]=white}
+  return buffer;
+}
+function focusNodeCleanup(){for(let n of focusNodes){try{n.stop&&n.stop()}catch(e){}try{n.disconnect&&n.disconnect()}catch(e){}}focusNodes=[]}
+function focusStopGenerated(){focusNodeCleanup();focusPlaying=false;focusRenderState()}
+function focusBuildMode(mode){
+  focusNodeCleanup();let ctx=focusEnsureCtx();
+  if(mode==='deep'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=650;let g=ctx.createGain();g.gain.value=.15;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
+    for(const [hz,vol] of [[110,.022],[164.81,.014],[220,.009]]){let o=ctx.createOscillator(),og=ctx.createGain();o.type='sine';o.frequency.value=hz;og.gain.value=vol;o.connect(og).connect(focusGain);o.start();focusNodes.push(o,og)}
+  }else if(mode==='rain'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',3);src.loop=true;let bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=4200;bp.Q.value=.45;let g=ctx.createGain();g.gain.value=.13;src.connect(bp).connect(g).connect(focusGain);src.start();focusNodes.push(src,bp,g);
+  }else if(mode==='brown'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=700;let g=ctx.createGain();g.gain.value=.21;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
+  }else if(mode==='ocean'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=900;let g=ctx.createGain();g.gain.value=.11;let lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=.09;lg.gain.value=.07;lfo.connect(lg).connect(g.gain);src.connect(lp).connect(g).connect(focusGain);src.start();lfo.start();focusNodes.push(src,lp,g,lfo,lg);
+  }
+}
+function focusModeLabel(mode){return ({deep:'Deep Focus ambience',rain:'Soft rain',brown:'Brown noise',ocean:'Ocean ambience'})[mode]||'Focus sound'}
+function focusStartMode(mode){focusStopLocalAudio();focusMode=mode;focusPlaying=true;focusBuildMode(mode);let label=document.getElementById('focusNowLabel');if(label)label.textContent=focusModeLabel(mode);document.querySelectorAll('[data-focus-mode]').forEach(x=>x.classList.toggle('on',x.dataset.focusMode===mode));focusRenderState()}
+function focusTogglePlay(){if(focusAudio){focusAudio.paused?focusAudio.play():focusAudio.pause();return}if(focusPlaying){focusStopGenerated();return}if(focusMode){focusPlaying=true;focusBuildMode(focusMode);focusRenderState();return}focusStartMode('deep')}
+function focusSetVolume(value){let v=Math.max(0,Math.min(100,Number(value)||0));localStorage.setItem('bh-focus-volume',String(v));if(focusGain)focusGain.gain.value=v/100*.55;if(focusAudio)focusAudio.volume=v/100}
+function toggleFocusPlayer(force){let p=document.getElementById('focusPlayer');if(!p)return;let open=force===undefined?!p.classList.contains('open'):!!force;p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true')}
+function focusRenderState(){let play=document.getElementById('focusPlayBtn'),fab=document.getElementById('focusFab');if(play)play.textContent=focusPlaying?'⏸':'▶';if(fab)fab.classList.toggle('playing',focusPlaying)}
+function focusSetTimer(minutes){clearInterval(focusTimerHandle);focusTimerHandle=null;focusTimerEnd=minutes?Date.now()+minutes*60000:0;focusRenderTimer();if(minutes){focusTimerHandle=setInterval(()=>{if(Date.now()>=focusTimerEnd){focusStopAll();focusSetTimer(0)}else focusRenderTimer()},1000)}}
+function focusRenderTimer(){let e=document.getElementById('focusTimerLabel');if(!e)return;if(!focusTimerEnd){e.textContent='Off';return}let ms=Math.max(0,focusTimerEnd-Date.now()),m=Math.floor(ms/60000),sec=Math.floor(ms%60000/1000);e.textContent=m+':'+String(sec).padStart(2,'0')}
+function focusLoadFiles(fileList){focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}focusLocalTracks=[...fileList].filter(f=>f.type.startsWith('audio/')).map(f=>({name:f.name,url:URL.createObjectURL(f)}));focusTrackIndex=-1;focusRenderTracks();if(focusLocalTracks.length)focusPlayTrack(0)}
+function focusRenderTracks(){let root=document.getElementById('focusLocalList');if(!root)return;root.innerHTML='';focusLocalTracks.forEach((t,i)=>{let d=document.createElement('button');d.type='button';d.className='focusTrack'+(i===focusTrackIndex?' on':'');d.onclick=()=>focusPlayTrack(i);d.innerHTML='<span>🎵 '+liveEsc(t.name)+'</span><b>Play</b>';root.appendChild(d)})}
+function focusStopLocalAudio(){if(focusAudio){try{focusAudio.pause();focusAudio.src=''}catch(e){}focusAudio=null}}
+function focusPlayTrack(index){if(!focusLocalTracks.length)return;focusStopGenerated();focusStopLocalAudio();focusTrackIndex=(index+focusLocalTracks.length)%focusLocalTracks.length;let t=focusLocalTracks[focusTrackIndex];focusAudio=new Audio(t.url);focusAudio.volume=(Number(localStorage.getItem('bh-focus-volume'))||38)/100;focusAudio.onplay=()=>{focusPlaying=true;focusRenderState()};focusAudio.onpause=()=>{focusPlaying=false;focusRenderState()};focusAudio.onended=()=>focusNextTrack();focusAudio.play().catch(()=>{});let label=document.getElementById('focusNowLabel');if(label)label.textContent=t.name;focusRenderTracks()}
+function focusPrevTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex-1)}
+function focusNextTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex+1)}
+function focusStopAll(){focusStopGenerated();focusStopLocalAudio();focusPlaying=false;focusRenderState()}
+function focusSpotifyEmbedUrl(url){try{let u=new URL(url.trim());if(u.hostname!=='open.spotify.com')return'';let parts=u.pathname.split('/').filter(Boolean);if(parts[0]==='embed')parts.shift();if(!['track','album','playlist','show','episode','artist'].includes(parts[0])||!parts[1])return'';return'https://open.spotify.com/embed/'+parts[0]+'/'+encodeURIComponent(parts[1])+'?utm_source=generator'}catch(e){return''}}
+function focusLoadSpotify(){let input=document.getElementById('focusSpotifyUrl'),root=document.getElementById('focusSpotifyEmbed'),url=focusSpotifyEmbedUrl(input?input.value:'');if(!root)return;root.innerHTML=url?'<iframe src="'+liveEsc(url)+'" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>':'<small style="color:#a44">Paste a valid open.spotify.com track, album or playlist link.</small>'}
+window.addEventListener('beforeunload',()=>{focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}});
 renderSettings();renderAppTabs();renderWidgets();applyGradeExperience();
 }
 async function eqSaveCloudPrefs(){
@@ -4357,6 +4415,45 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
 
 
 <div class="socialToastHost" id="socialToastHost" aria-live="polite" aria-atomic="true"></div>
+<button class="focusFab" id="focusFab" onclick="toggleFocusPlayer()" aria-label="Open Focus Player" title="Study music">🎵 <span>Focus</span></button>
+<section class="focusPlayer" id="focusPlayer" aria-hidden="true">
+  <div class="focusPlayerHead">
+    <div><span class="focusNowIcon">🎧</span><div><b>BatumHub Focus</b><small id="focusNowLabel">Choose a focus sound</small></div></div>
+    <button onclick="toggleFocusPlayer(false)" aria-label="Close music player">✕</button>
+  </div>
+  <div class="focusModes" id="focusModes">
+    <button data-focus-mode="deep" onclick="focusStartMode('deep',this)">🧠 Deep Focus</button>
+    <button data-focus-mode="rain" onclick="focusStartMode('rain',this)">🌧 Rain</button>
+    <button data-focus-mode="brown" onclick="focusStartMode('brown',this)">🟤 Brown Noise</button>
+    <button data-focus-mode="ocean" onclick="focusStartMode('ocean',this)">🌊 Ocean</button>
+  </div>
+  <div class="focusTransport">
+    <button id="focusPrevBtn" onclick="focusPrevTrack()" title="Previous">⏮</button>
+    <button class="focusPlayBtn" id="focusPlayBtn" onclick="focusTogglePlay()">▶</button>
+    <button id="focusNextBtn" onclick="focusNextTrack()" title="Next">⏭</button>
+    <label>🔊 <input id="focusVolume" type="range" min="0" max="100" value="38" oninput="focusSetVolume(this.value)"></label>
+  </div>
+  <div class="focusTimerRow">
+    <span>⏱ Focus timer</span>
+    <button onclick="focusSetTimer(25)">25m</button>
+    <button onclick="focusSetTimer(45)">45m</button>
+    <button onclick="focusSetTimer(60)">60m</button>
+    <button onclick="focusSetTimer(0)">Off</button>
+    <b id="focusTimerLabel">Off</b>
+  </div>
+  <div class="focusLocal">
+    <input id="focusFileInput" type="file" accept="audio/*" multiple hidden onchange="focusLoadFiles(this.files)">
+    <button onclick="document.getElementById('focusFileInput').click()">📁 Add my music</button>
+    <small>Files stay on this device/browser session. BatumHub does not upload them.</small>
+    <div class="focusLocalList" id="focusLocalList"></div>
+  </div>
+  <details class="focusSpotify">
+    <summary>🟢 Spotify playlist (optional)</summary>
+    <p>Paste a Spotify track/album/playlist link. Spotify account rules and ads still apply.</p>
+    <div><input id="focusSpotifyUrl" placeholder="https://open.spotify.com/playlist/…" autocomplete="off"><button onclick="focusLoadSpotify()">Load</button></div>
+    <div id="focusSpotifyEmbed"></div>
+  </details>
+</section>
 <nav class="vnextBottomNav" id="vnextBottomNav" aria-label="Primary navigation">
   <button id="vnavHome" data-vtab="Home" onclick="navigateAppTab('Home',null,'push')"><span class="vicon">🏠</span><span>Home</span></button>
   <button id="vnavExplore" data-vtab="Explore" onclick="navigateAppTab('Explore',null,'push')"><span class="vicon">🧭</span><span>Explore</span></button>
