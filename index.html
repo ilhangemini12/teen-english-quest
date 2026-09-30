@@ -3799,21 +3799,25 @@ async function elifAiErrorMessage(error){
   }catch(e){}
   return {message:(error&&error.message)||'Elif AI could not answer right now.'};
 }
-async function elifAiSend(customText){
+async function elifAiSend(customText,options={}){
   if(elifAiBusy)return;
   let input=document.getElementById('elifAiInput');
   let text=typeof customText==='string'?customText.trim():(input?input.value.trim():'');
   if(!text)return;
   if(!eqUser){
     elifAiShowSetup('Sign in with your BatumHub account to use Elif AI safely and keep the free daily allowance private.');
+    if(options.voice&&typeof elifVoiceStopPractice==='function')elifVoiceStopPractice(true);
     openAccount();return;
   }
   if(text.length>2500){elifAiShowSetup('Keep each message under 2,500 characters.');return}
+  const voiceRequest=!!options.voice;
+  let spokenReply='';
   elifAiShowSetup('');
   elifAiMessages.push({role:'user',content:text});
   elifAiMessages=elifAiMessages.slice(-20);
   if(input&&typeof customText!=='string')input.value='';
   elifAiSave();elifAiRender();elifAiSetBusy(true,'Elif AI is thinking…');
+  if(voiceRequest&&typeof elifVoiceSetState==='function')elifVoiceSetState('thinking','Elif is thinking…');
   try{
     let mode=document.getElementById('elifAiMode'),level=document.getElementById('elifAiLevel');
     const {data,error}=await eqSupa.functions.invoke('elif-ai',{body:{
@@ -3827,7 +3831,8 @@ async function elifAiSend(customText){
       elifAiMessages.push({role:'assistant',content:info.message});
       if(info.quota)elifAiUpdateQuota(info.quota);
     }else if(data&&data.answer){
-      elifAiMessages.push({role:'assistant',content:String(data.answer)});
+      spokenReply=String(data.answer);
+      elifAiMessages.push({role:'assistant',content:spokenReply});
       if(data.quota)elifAiUpdateQuota(data.quota);
     }else{
       elifAiMessages.push({role:'assistant',content:'I could not generate a response this time. Please try again.'});
@@ -3836,6 +3841,15 @@ async function elifAiSend(customText){
     elifAiMessages.push({role:'assistant',content:'Elif AI is temporarily unavailable. Please try again in a moment.'});
   }finally{
     elifAiMessages=elifAiMessages.slice(-20);elifAiSave();elifAiRender();elifAiSetBusy(false,'Ready · Enter sends, Shift+Enter adds a line.');
+    if(voiceRequest&&typeof elifVoiceSetState==='function'){
+      if(spokenReply){
+        if(elifVoiceAutoSpeakEnabled())elifVoiceSpeak(spokenReply,true);
+        else if(elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),350);
+        else elifVoiceSetState('ready','Reply ready. Tap Speak when you are ready.');
+      }else{
+        elifVoiceSetState('ready','I could not get a spoken reply. Tap Speak to try again.');
+      }
+    }
   }
 }
 function elifAiUpdateQuota(q){
