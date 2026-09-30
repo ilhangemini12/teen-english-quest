@@ -68,16 +68,23 @@ try {
     railVisible:getComputedStyle(document.getElementById('vnextDesktopRail')).display!=='none',
     railWidth:Math.round(document.getElementById('vnextDesktopRail').getBoundingClientRect().width),
     heroWidth:Math.round(document.querySelector('.vnextHeroCore').getBoundingClientRect().width),
-    weatherColor:getComputedStyle(document.getElementById('bhWeather')).color
+    weatherColor:getComputedStyle(document.getElementById('bhWeather')).color,
+    learningLeft:Math.round(document.getElementById('languageBar').getBoundingClientRect().left),
+    brandLeft:Math.round(document.querySelector('.brandnav').getBoundingClientRect().left),
+    heroLeft:Math.round(document.getElementById('heroHome').getBoundingClientRect().left),
+    weatherMini:getComputedStyle(document.getElementById('bhWeatherMini')).display
   }));
   assert(desktopV55.levelVisible&&desktopV55.levelOptions.join('|')==='auto|A1|A2|B1|B2|C1','Desktop level dropdown invalid: '+JSON.stringify(desktopV55));
   assert(desktopV55.testVisible&&desktopV55.railVisible&&desktopV55.railWidth>250&&desktopV55.heroWidth>600,'Desktop v5.5 layout not using available space: '+JSON.stringify(desktopV55));
+  assert(Math.abs(desktopV55.learningLeft-desktopV55.brandLeft)<=3&&Math.abs(desktopV55.brandLeft-desktopV55.heroLeft)<=3&&desktopV55.weatherMini!=='none','Desktop containers are not aligned: '+JSON.stringify(desktopV55));
   const focus57=await page.evaluate(()=>({
     focusButton:!!document.getElementById('focusPlayerButton'),
     tabs:[...document.querySelectorAll('.focusTabs button')].map(b=>b.dataset.focusTab),
     spotify:!!document.getElementById('focusPaneSpotify')||/spotify/i.test(document.documentElement.innerHTML),
     localLabel:document.querySelector('[data-focus-tab="local"]')?.textContent.trim()||'',
     sounds:[...document.querySelectorAll('[data-focus-sound]')].map(b=>b.dataset.focusSound),
+    mini:!!document.getElementById('focusMiniBar'),
+    miniSelect:!!document.getElementById('focusMiniSelect'),
     localInput:!!document.getElementById('focusLocalInput'),
     native:document.getElementById('nativeLanguageSelect')?.value,
     mobileNative:!!document.getElementById('mobileNativeLanguageSelect'),
@@ -86,15 +93,23 @@ try {
     deviceVoice:!!document.getElementById('elifVoiceDeviceSelect')
   }));
   assert(focus57.focusButton&&focus57.tabs.join('|')==='ambient|local'&&!focus57.spotify,'Focus Player must remain Spotify-free with ambient + optional local audio only: '+JSON.stringify(focus57));
-  assert(/optional/i.test(focus57.localLabel)&&focus57.sounds.join('|')==='rain|brown|pink|ambient'&&focus57.localInput,'Focus-first/local-optional audio contract failed: '+JSON.stringify(focus57));
+  assert(/optional/i.test(focus57.localLabel)&&focus57.sounds.length>=9&&['ocean','fireplace','forest','night','deep'].every(x=>focus57.sounds.includes(x))&&focus57.localInput&&focus57.mini&&focus57.miniSelect,'Focus moods/mini controls contract failed: '+JSON.stringify(focus57));
   assert(focus57.native==='tr'&&focus57.mobileNative&&focus57.home,'Home/native-language controls missing: '+JSON.stringify(focus57));
   assert(focus57.notebook&&focus57.deviceVoice,'Study Notebook/device voice controls missing: '+JSON.stringify(focus57));
   await page.$eval('#focusPlayerButton',el=>el.click());
   await page.waitForSelector('#focusPlayerPanel.open',{timeout:3000});
   await page.$eval('[data-focus-sound="rain"]',el=>el.click());
-  const rainState=await page.evaluate(()=>({sound:focusCurrentSound,playing:document.getElementById('focusPlayerPanel').classList.contains('playing')}));
-  assert(rainState.sound==='rain'&&rainState.playing,'Local rain generator did not start: '+JSON.stringify(rainState));
-  await page.evaluate(()=>{focusStopAudio();toggleFocusPlayer(false)});
+  const rainState=await page.evaluate(()=>({sound:focusCurrentSound,playing:document.getElementById('focusPlayerPanel').classList.contains('playing'),mini:document.getElementById('focusMiniBar').classList.contains('show')}));
+  assert(rainState.sound==='rain'&&rainState.playing&&rainState.mini,'Local rain generator/mini player did not start: '+JSON.stringify(rainState));
+  await page.evaluate(()=>focusMiniChange('sound:ocean'));
+  let miniState=await page.evaluate(()=>({sound:focusCurrentSound,title:document.getElementById('focusMiniTitle').textContent,selected:document.getElementById('focusMiniSelect').value}));
+  assert(miniState.sound==='ocean'&&/Ocean drift/.test(miniState.title)&&miniState.selected==='sound:ocean','Mini source switch failed: '+JSON.stringify(miniState));
+  await page.evaluate(()=>{focusTogglePlayback();focusToggleMute();focusToggleMute();focusTogglePlayback()});
+  await page.evaluate(()=>focusStopAudio(true,true));
+  await new Promise(r=>setTimeout(r,3100));
+  const miniHidden=await page.$eval('#focusMiniBar',el=>!el.classList.contains('show'));
+  assert(miniHidden,'Mini player did not auto-hide after stop');
+  await page.evaluate(()=>toggleFocusPlayer(false));
   await page.$eval('#nativeLanguageSelect',(el)=>{el.value='ka';el.dispatchEvent(new Event('change',{bubbles:true}))});
   await page.waitForFunction(()=>localStorage.getItem('teq-native-language')==='ka',{timeout:3000});
   await page.evaluate(()=>setNativeLanguage('tr'));
