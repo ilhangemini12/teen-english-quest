@@ -76,12 +76,13 @@ try{
     await p.evaluate(n=>{toggleFocusPlayer(true);focusPlaySound(n%2?'brown':'rain');focusStopAudio();toggleFocusPlayer(false)},i);
   }
   const focusStress=await p.evaluate(()=>({
-    spotify:document.body.innerText.includes('Spotify')||!!document.getElementById('focusPaneSpotify'),
+    spotify:/spotify/i.test(document.documentElement.innerHTML)||!!document.getElementById('focusPaneSpotify'),
+    localLabel:document.querySelector('[data-focus-tab="local"]')?.textContent.trim()||'',
     tabs:[...document.querySelectorAll('.focusTabs button')].map(b=>b.dataset.focusTab),
     ctx:!!(window.AudioContext||window.webkitAudioContext),
     bestVoice:typeof elifVoicePickVoice==='function'
   }));
-  assert(!focusStress.spotify&&focusStress.tabs.join('|')==='ambient|local'&&focusStress.bestVoice,'Focus/voice stress state invalid: '+JSON.stringify(focusStress));
+  assert(!focusStress.spotify&&/optional/i.test(focusStress.localLabel)&&focusStress.tabs.join('|')==='ambient|local'&&focusStress.bestVoice,'Focus/voice stress state invalid: '+JSON.stringify(focusStress));
   await p.evaluate(()=>openTab('ElifAI'));
   await p.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
   const voiceStress=await p.evaluate(()=>({
