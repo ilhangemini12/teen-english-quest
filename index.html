@@ -666,7 +666,11 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <button class="mobileMenuBackdrop" onclick="toggleMobileMenu(false)" aria-label="Close menu"></button>
   <div class="mobileMenuSheet">
     <div class="mobileMenuHead"><b id="mobileMenuTitle">BatumHub</b><button onclick="toggleMobileMenu(false)">✕</button></div>
-    <label class="mobileField"><span id="mobileLanguageLabel">Language</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
+    <div class="mobileLanguageJourney">
+      <label class="mobileField mobileNativeField"><span id="mobileNativeLabel">🌍 My language</span><select id="mobileNativeLanguageSelect" onchange="mobileSetNativeLanguage(this.value)"><option value="tr">🇹🇷 Türkçe</option><option value="es">🇪🇸 Español</option><option value="ka">🇬🇪 ქართული</option><option value="ru">🇷🇺 Русский</option><option value="de">🇩🇪 Deutsch</option><option value="en">🇬🇧 English</option></select></label>
+      <div class="mobileJourneyArrow">↓</div>
+      <label class="mobileField mobileTargetField"><span id="mobileLanguageLabel">🎯 I'm learning</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
+    </div>
     <label class="mobileField"><span id="mobileLevelLabel">Level</span><select id="mobileLevelSelect" onchange="mobileSetLevel(this.value)"></select></label>
     <div class="mobileQuickNav" id="mobileQuickNav"></div>
     <label class="mobileField"><span id="mobileSectionLabel">More sections</span><select id="mobileSectionSelect" onchange="mobileOpenSection(this.value)"></select></label>
@@ -677,12 +681,19 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 
 <div class="languageBar languageBarTop vnextLearningBar" id="languageBar">
   <div class="vnextLanguageControl">
-    <span class="vnextControlLabel">Learning language</span>
-    <div class="languageFlags" id="languageFlags">
-      <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
-      <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
-      <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
-      <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+    <div class="vnextLanguageStory">
+      <label class="vnextNativeControl"><span>🌍 I speak</span><select id="nativeLanguageSelect" onchange="setNativeLanguage(this.value)" aria-label="My language"><option value="tr">🇹🇷 Türkçe</option><option value="es">🇪🇸 Español</option><option value="ka">🇬🇪 ქართული</option><option value="ru">🇷🇺 Русский</option><option value="de">🇩🇪 Deutsch</option><option value="en">🇬🇧 English</option></select></label>
+      <span class="vnextJourneyArrow">→</span>
+      <div class="vnextTargetControl">
+        <span class="vnextControlLabel">🎯 I'm learning</span>
+        <div class="languageFlags" id="languageFlags">
+          <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
+          <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
+          <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
+          <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+        </div>
+      </div>
+    </div>
     </div>
     <button class="vnextCustomizeLangBtn" id="vnextCustomizeLangBtn" onclick="toggleTopLanguageCustomize()" aria-expanded="false" title="Customize visible languages">⚙ Customize</button>
     <div class="vnextLanguageCustomize" id="vnextLanguageCustomize" aria-hidden="true">
@@ -702,7 +713,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <div class="languageLevels vnextLegacyLevelChips" id="languageLevelChips" aria-hidden="true"></div>
 </div>
 <nav class="brandnav">
-  <b class="brandWord">BATUM<span>HUB</span></b>
+  <button class="brandWord brandHomeButton" onclick="navigateAppTab('Home',null,'push')" aria-label="BatumHub home">BATUM<span>HUB</span></button>
+  <button class="profilebtn vnextHomePill" id="vnextHomePill" onclick="navigateAppTab('Home',null,'push')" title="Home">🏠 <span>Home</span></button>
   <button class="vnextHeaderIcon focusHeaderButton" id="focusPlayerButton" onclick="toggleFocusPlayer()" title="Focus Player" aria-label="Focus Player">🎧</button>
   <button class="vnextHeaderIcon" id="vnextMessageButton" onclick="navigateAppTab(document.body.dataset.appTab==='Messages'?'Home':'Messages',null,'push')" title="Messages" aria-label="Messages">💬</button>
   <button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="Install BatumHub">📲 <span>Install</span></button>
@@ -1054,7 +1066,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
         <button type="button" class="elifVoiceStop" id="elifVoiceStop" onclick="elifVoiceStopPractice()" disabled>■ Stop</button>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceHandsFree" checked onchange="elifVoiceSaveSettings()"> Hands-free</label>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceAutoSpeak" checked onchange="elifVoiceSaveSettings()"> Read replies aloud</label>
-        <label class="elifVoiceRate">Voice speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.82">Slow</option><option value="0.94" selected>Natural</option><option value="1.04">Fast</option></select></label>
+        <label class="elifVoiceRate">Voice <select id="elifVoiceDeviceSelect" onchange="elifVoiceSaveSettings()"><option value="">Best available</option></select></label>
+        <label class="elifVoiceRate">Voice speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.84">Slow</option><option value="0.92" selected>Natural</option><option value="1.02">Fast</option></select></label>
       </div>
       <div class="elifVoiceLive" id="elifVoiceLive"><span class="elifVoiceDot"></span><span id="elifVoiceState">Ready for an English conversation.</span></div>
       <div class="elifVoiceTranscript" id="elifVoiceTranscript" aria-live="polite">Your speech transcript will appear here before it is sent.</div>
@@ -1093,6 +1106,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
       <option value="c1">C1</option>
     </select>
     <div class="elifAiQuota" id="elifAiQuota">Free allowance: up to 40 AI requests per day.</div>
+    <a class="elifStudyNotebook" href="https://notebooklm.google.com/" target="_blank" rel="noopener"><span>📚</span><div><b>Study Notebook</b><small>Open NotebookLM for source-based study notes and revision.</small></div><span>↗</span></a>
     <div class="elifAiTip"><b>Best results</b><br>Try: “Correct this paragraph and explain my 3 biggest mistakes.”<br><br>Or: “Talk with me in B2 English about movies. Correct only important mistakes.”</div>
     <div class="elifAiTip"><b>Privacy</b><br>This first version keeps the conversation only for the current browser session. Do not share passwords, addresses, phone numbers or other sensitive personal information with AI.</div>
   </aside>
@@ -4220,7 +4234,7 @@ function toggleFocusPlayer(force){
 function focusShowTab(name,btn){
   document.querySelectorAll('.focusTabs button').forEach(x=>x.classList.toggle('on',x===btn));
   document.querySelectorAll('.focusPane').forEach(x=>x.classList.remove('on'));
-  let id=name==='local'?'focusPaneLocal':name==='spotify'?'focusPaneSpotify':'focusPaneAmbient';
+  let id=name==='local'?'focusPaneLocal':'focusPaneAmbient';
   document.getElementById(id)?.classList.add('on');
 }
 function focusStatus(text){let e=document.getElementById('focusStatus');if(e)e.textContent=text}
@@ -4302,17 +4316,6 @@ function focusPlayLocal(i,btn){
   a.onpause=()=>{focusPaused=true;focusSetPlayingUi(x.name,false)};a.onended=()=>{focusPaused=true;focusSetPlayingUi(x.name,false)};
   a.play().catch(()=>focusStatus('Tap play again if your browser blocked autoplay.'));
 }
-function focusSpotifyEmbedURL(input){
-  let raw=String(input||'').trim(),type='',id='';
-  if(/^spotify:(track|album|playlist):[A-Za-z0-9]+$/i.test(raw)){let p=raw.split(':');type=p[1];id=p[2]}
-  else{try{let u=new URL(raw);if(!/(^|\\.)spotify\\.com$/i.test(u.hostname))return '';let p=u.pathname.split('/').filter(Boolean);if(p[0]==='embed')p.shift();if(['track','album','playlist'].includes(p[0])&&p[1]){type=p[0];id=p[1].split('?')[0]}}catch(e){return ''}}
-  return type&&id?'https://open.spotify.com/embed/'+type+'/'+encodeURIComponent(id)+'?utm_source=generator':'';
-}
-function focusLoadSpotify(){
-  let input=document.getElementById('focusSpotifyUrl'),frame=document.getElementById('focusSpotifyFrame'),src=focusSpotifyEmbedURL(input?.value);if(!frame)return;
-  if(!src){frame.innerHTML='<small>Paste a valid Spotify track, album or playlist link.</small>';return}
-  frame.innerHTML='<iframe src="'+src+'" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify"></iframe>';
-}
 function focusSetSleepTimer(minutes){
   clearTimeout(focusSleepTimer);focusSleepTimer=null;let n=Number(minutes);
   if(n>0){focusSleepTimer=setTimeout(()=>{focusStopAudio();let s=document.getElementById('focusSleepSelect');if(s)s.value='0';focusStatus('Sleep timer finished — audio stopped.')},n*60*1000);focusStatus('Sleep timer set for '+n+' minutes.')}
@@ -4340,13 +4343,12 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
 
 <aside class="focusPlayerPanel" id="focusPlayerPanel" aria-hidden="true" aria-label="BatumHub Focus Player">
   <div class="focusPlayerHead">
-    <div><span class="focusPlayerKicker">🎧 BATUMHUB</span><h2>Focus Player</h2><small>Ad-free focus sounds, your own music, or an optional Spotify embed.</small></div>
+    <div><span class="focusPlayerKicker">🎧 BATUMHUB</span><h2>Focus Player</h2><small>Ad-free focus sounds and music from this device. No feeds, no recommendations, no distractions.</small></div>
     <button class="focusClose" onclick="toggleFocusPlayer(false)" aria-label="Close Focus Player">✕</button>
   </div>
   <div class="focusTabs" role="tablist">
     <button class="on" data-focus-tab="ambient" onclick="focusShowTab('ambient',this)">🌧 Focus sounds</button>
     <button data-focus-tab="local" onclick="focusShowTab('local',this)">🎵 My music</button>
-    <button data-focus-tab="spotify" onclick="focusShowTab('spotify',this)">🟢 Spotify</button>
   </div>
   <div class="focusPane on" id="focusPaneAmbient">
     <div class="focusSoundGrid">
@@ -4365,14 +4367,6 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
     </label>
     <div class="focusLocalList" id="focusLocalList"><small>No local tracks selected for this session.</small></div>
     <audio id="focusLocalAudio" preload="metadata"></audio>
-  </div>
-  <div class="focusPane" id="focusPaneSpotify">
-    <div class="focusSpotifyNote"><b>Spotify — optional official embed</b><p>Paste a Spotify track, album or playlist link. BatumHub does not remove Spotify ads or subscription rules.</p></div>
-    <div class="focusSpotifyForm">
-      <input id="focusSpotifyUrl" type="url" placeholder="https://open.spotify.com/playlist/…" autocomplete="off">
-      <button onclick="focusLoadSpotify()">Load</button>
-    </div>
-    <div class="focusSpotifyFrame" id="focusSpotifyFrame"><small>Nothing loaded yet.</small></div>
   </div>
   <div class="focusControlDeck">
     <button class="focusPlayToggle" id="focusPlayToggle" onclick="focusTogglePlayback()" title="Play / pause">▶</button>
