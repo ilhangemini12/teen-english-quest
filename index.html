@@ -3491,9 +3491,9 @@ function mobileLabels(){
   return {native:'My language',language:"I'm learning",level:'Level',sections:'More sections',account:'Account'};
 }
 function renderMobileChrome(){
-  let pill=document.getElementById('mobileModePill');if(!pill)return;
+  let pill=document.getElementById('mobileModePill');
   let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),labels=mobileLabels(),nativeInfo=currentNativeLanguageInfo();
-  pill.textContent='🌍 '+nativeInfo.flag+' → 🎯 '+info.flag+' '+info.native+' · '+level+' ▾';
+  if(pill)pill.textContent='🌍 '+nativeInfo.flag+' → 🎯 '+info.flag+' '+info.native+' · '+level+' ▾';
   let ns=document.getElementById('mobileNativeLanguageSelect');if(ns)ns.value=currentNativeLanguage();
   let ls=document.getElementById('mobileLanguageSelect');if(ls)ls.value=lang;
   let levelBox=document.getElementById('mobileLevelSelect');if(levelBox){
