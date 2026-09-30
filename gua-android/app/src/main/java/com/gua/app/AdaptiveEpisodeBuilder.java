@@ -32,7 +32,39 @@ public final class AdaptiveEpisodeBuilder {
         }
     }
 
+    private static int wordLimit(String level) {
+        if ("A2".equals(level)) return 5;
+        if ("B1".equals(level)) return 6;
+        if ("B2".equals(level)) return 10;
+        return 8;
+    }
+
+    private static int civicsLimit(String level) {
+        if ("A2".equals(level)) return 3;
+        if ("B1".equals(level)) return 4;
+        if ("B2".equals(level)) return 6;
+        return 5;
+    }
+
+    private static int speakingLimit(String level) {
+        if ("A2".equals(level)) return 1;
+        if ("B1".equals(level)) return 2;
+        if ("B2".equals(level)) return 4;
+        return 3;
+    }
+
+    private static int speakingPause(String level) {
+        if ("A2".equals(level)) return 14;
+        if ("B1".equals(level)) return 12;
+        if ("B2".equals(level)) return 8;
+        return 10;
+    }
+
     public static List<EpisodeLibrary.Segment> fromJson(String json) {
+        return fromJson(json, "B1+");
+    }
+
+    public static List<EpisodeLibrary.Segment> fromJson(String json, String level) {
         List<EpisodeLibrary.Segment> out = new ArrayList<>();
         if (json == null || json.isBlank()) return out;
 
@@ -43,32 +75,27 @@ public final class AdaptiveEpisodeBuilder {
             List<JSONObject> speaking = collectErrors(root, "speaking", "mock-speaking");
             List<JSONObject> recentInterviews = collectShortInterviews(root);
 
-            if (words.isEmpty() && civics.isEmpty() && speaking.isEmpty() && recentInterviews.isEmpty()) {
-                return out;
-            }
+            if (words.isEmpty() && civics.isEmpty() && speaking.isEmpty() && recentInterviews.isEmpty()) return out;
 
             out.add(EpisodeLibrary.Segment.speech("tr-TR",
-                    "GUA This Week. Bu bölüm Academy'deki gerçek zayıf noktalarından otomatik hazırlandı. Ekrana bakma; İspanyolca bölümlerde yüksek sesle cevap ver."));
+                    "GUA This Week. Seviye " + level + ". Bu bölüm Academy'deki gerçek zayıf noktalarından otomatik hazırlandı."));
             out.add(EpisodeLibrary.Segment.pause(3));
 
             if (!words.isEmpty()) {
                 out.add(EpisodeLibrary.Segment.speech("tr-TR",
                         "Önce zorlandığın kelime ve kalıplar. Kelimeyi duyunca anlamını hatırla, sonra örnek cümleyi tekrar et."));
                 out.add(EpisodeLibrary.Segment.pause(2));
-
-                for (int i = 0; i < Math.min(8, words.size()); i++) {
+                for (int i = 0; i < Math.min(wordLimit(level), words.size()); i++) {
                     WeakWord w = words.get(i);
                     out.add(EpisodeLibrary.Segment.speech("es-MX", w.es));
                     out.add(EpisodeLibrary.Segment.pause(3));
-                    if (w.tr != null && !w.tr.isBlank()) {
-                        out.add(EpisodeLibrary.Segment.speech("tr-TR", "Anlamı: " + w.tr));
-                    }
+                    if (w.tr != null && !w.tr.isBlank()) out.add(EpisodeLibrary.Segment.speech("tr-TR", "Anlamı: " + w.tr));
                     if (w.ex != null && !w.ex.isBlank()) {
                         out.add(EpisodeLibrary.Segment.speech("es-MX", w.ex));
-                        out.add(EpisodeLibrary.Segment.pause(5));
+                        out.add(EpisodeLibrary.Segment.pause("B2".equals(level) ? 3 : 5));
                     } else {
                         out.add(EpisodeLibrary.Segment.speech("es-MX", "Usa esta expresión en una frase propia: " + w.es));
-                        out.add(EpisodeLibrary.Segment.pause(6));
+                        out.add(EpisodeLibrary.Segment.pause("B2".equals(level) ? 4 : 6));
                     }
                 }
             }
@@ -77,13 +104,13 @@ public final class AdaptiveEpisodeBuilder {
                 out.add(EpisodeLibrary.Segment.speech("tr-TR",
                         "Şimdi daha önce yanlış yaptığın civics soruları. Önce cevabı kendin söyle."));
                 out.add(EpisodeLibrary.Segment.pause(2));
-                for (int i = 0; i < Math.min(5, civics.size()); i++) {
+                for (int i = 0; i < Math.min(civicsLimit(level), civics.size()); i++) {
                     JSONObject e = civics.get(i);
                     String q = e.optString("prompt", "");
                     String correct = e.optString("correct", "");
                     if (q.isBlank()) continue;
                     out.add(EpisodeLibrary.Segment.speech("es-MX", q));
-                    out.add(EpisodeLibrary.Segment.pause(7));
+                    out.add(EpisodeLibrary.Segment.pause("B2".equals(level) ? 5 : 7));
                     if (!correct.isBlank()) {
                         out.add(EpisodeLibrary.Segment.speech("es-MX", "Respuesta correcta: " + correct));
                         out.add(EpisodeLibrary.Segment.pause(4));
@@ -97,17 +124,17 @@ public final class AdaptiveEpisodeBuilder {
 
             if (!speakingPool.isEmpty()) {
                 out.add(EpisodeLibrary.Segment.speech("tr-TR",
-                        "Son bölüm konuşma. Soruyu dinle ve en az kırk beş saniye doğal cevap ver. Ezberleme."));
+                        "Son bölüm konuşma. Soruyu dinle ve doğal cevap ver. Ezberleme."));
                 out.add(EpisodeLibrary.Segment.pause(2));
-                for (int i = 0; i < Math.min(3, speakingPool.size()); i++) {
+                for (int i = 0; i < Math.min(speakingLimit(level), speakingPool.size()); i++) {
                     JSONObject e = speakingPool.get(i);
                     String q = e.optString("prompt", e.optString("q", ""));
                     if (q.isBlank()) continue;
                     out.add(EpisodeLibrary.Segment.speech("es-MX", q));
-                    out.add(EpisodeLibrary.Segment.pause(12));
+                    out.add(EpisodeLibrary.Segment.pause(speakingPause(level)));
                     out.add(EpisodeLibrary.Segment.speech("es-MX",
                             "Ahora responde otra vez, pero con una idea principal, un detalle concreto y una frase final."));
-                    out.add(EpisodeLibrary.Segment.pause(12));
+                    out.add(EpisodeLibrary.Segment.pause(speakingPause(level)));
                 }
             }
 
@@ -123,18 +150,15 @@ public final class AdaptiveEpisodeBuilder {
     private static List<WeakWord> collectWords(JSONObject root) {
         List<WeakWord> all = new ArrayList<>();
         JSONObject errorCounts = new JSONObject();
-
         JSONArray errors = root.optJSONArray("errors");
         if (errors != null) {
             for (int i = 0; i < errors.length(); i++) {
                 JSONObject e = errors.optJSONObject(i);
-                if (e == null || e.optBoolean("resolved", false)) continue;
-                if (!"srs".equals(e.optString("type"))) continue;
+                if (e == null || e.optBoolean("resolved", false) || !"srs".equals(e.optString("type"))) continue;
                 String key = e.optString("prompt", "").trim().toLowerCase();
                 if (!key.isBlank()) {
-                    try {
-                        errorCounts.put(key, errorCounts.optInt(key, 0) + Math.max(1, e.optInt("count", 1)));
-                    } catch (Exception ignored) {}
+                    try { errorCounts.put(key, errorCounts.optInt(key, 0) + Math.max(1, e.optInt("count", 1))); }
+                    catch (Exception ignored) {}
                 }
             }
         }
@@ -153,13 +177,9 @@ public final class AdaptiveEpisodeBuilder {
                 w.ef = x.optDouble("ef", 2.5);
                 w.due = x.optString("due", "");
                 w.errorCount = errorCounts.optInt(w.es.toLowerCase(), 0);
-
-                if (w.errorCount > 0 || w.reps < 3 || (w.due != null && !w.due.isBlank() && w.due.compareTo(LocalDate.now().toString()) <= 0)) {
-                    all.add(w);
-                }
+                if (w.errorCount > 0 || w.reps < 3 || (w.due != null && !w.due.isBlank() && w.due.compareTo(LocalDate.now().toString()) <= 0)) all.add(w);
             }
         }
-
         all.sort(Comparator.comparingInt(WeakWord::score).reversed());
         return all;
     }
@@ -168,7 +188,6 @@ public final class AdaptiveEpisodeBuilder {
         List<JSONObject> out = new ArrayList<>();
         JSONArray errors = root.optJSONArray("errors");
         if (errors == null) return out;
-
         for (int i = 0; i < errors.length(); i++) {
             JSONObject e = errors.optJSONObject(i);
             if (e == null || e.optBoolean("resolved", false)) continue;
@@ -177,7 +196,6 @@ public final class AdaptiveEpisodeBuilder {
             for (String t : types) if (t.equals(type)) match = true;
             if (match) out.add(e);
         }
-
         out.sort((a, b) -> Integer.compare(b.optInt("count", 1), a.optInt("count", 1)));
         return out;
     }
@@ -186,7 +204,6 @@ public final class AdaptiveEpisodeBuilder {
         List<JSONObject> out = new ArrayList<>();
         JSONArray interviews = root.optJSONArray("interviews");
         if (interviews == null) return out;
-
         for (int i = 0; i < Math.min(interviews.length(), 12); i++) {
             JSONObject x = interviews.optJSONObject(i);
             if (x == null) continue;
@@ -211,15 +228,13 @@ public final class AdaptiveEpisodeBuilder {
                 out.put("hasData", false);
                 return out.toString();
             }
-
             JSONObject root = new JSONObject(json);
             List<WeakWord> words = collectWords(root);
             List<JSONObject> civics = collectErrors(root, "civics", "mock-civics");
             List<JSONObject> speaking = collectErrors(root, "speaking", "mock-speaking");
             List<JSONObject> interviews = collectShortInterviews(root);
-
             out.put("hasData", true);
-            out.put("weakWords", Math.min(8, words.size()));
+            out.put("weakWords", Math.min(10, words.size()));
             out.put("civicsErrors", civics.size());
             out.put("speakingErrors", speaking.size());
             out.put("shortInterviews", interviews.size());

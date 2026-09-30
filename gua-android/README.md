@@ -1,21 +1,19 @@
-# GUA Android v1.1
+# GUA Android v1.2
 
-Private-use Android companion for the Guatemala Citizenship Academy.
+Personal Android companion for the Guatemala Citizenship Academy.
 
-## What it does
-- Opens the live Guatemala Academy.
-- Generates gym-friendly Spanish practice episodes locally using Android TextToSpeech.
-- **This Week / Zayıf Noktalarım** builds a personalized episode from the live Academy state: unresolved SRS errors, due/low-repetition words, civics mistakes, and weak interview responses.
-- Plays generated lessons in the background using AndroidX Media3 `MediaSessionService`.
-- Shows lock-screen / notification media controls through the Android media session.
-- Loads Spanish-language internet radio from the free, open Radio Browser directory.
-- Stores a ChatGPT GUA Project URL locally and opens it in ChatGPT/browser.
+## v1.2
+- Multi-mirror Radio Browser loading with local last-known-good cache.
+- Persistent bottom player with previous, play/pause, next and playback speed.
+- CC captions for locally generated GUA audio with karaoke-style approximate word highlighting based on current segment playback position.
+- A2 / B1 / B1+ / B2 level selector. It changes local Spanish TTS pace and the density/difficulty of the adaptive weekly episode.
+- VOA Español shortcuts for Avance Informativo, Buenos Días América, El Mundo al Día, podcasts and Guatemala coverage.
+- In-app update checker backed by public GitHub Releases.
+- Stable release signing key is stored only in GitHub Actions Secrets, not in the repository.
+- Automatic daily update check; new APK can be downloaded in-app and handed to Android's installer.
+
+## Update security
+Android requires the same application ID and signing certificate for an APK to update an installed app. v1.2 is the first GUA version built with the stable long-lived signing key. Because v1.1 used an ephemeral CI debug key, upgrading from v1.1 to v1.2 requires one final uninstall/reinstall. Versions after v1.2 can update through the app, subject to Android's package-install confirmation/security settings.
 
 ## Privacy
-The Android source does not embed personal citizenship history. The personalized Academy snapshot is copied only into the app's private internal storage on the user's Android device; it is not committed to GitHub. Personal conversation context belongs in the ChatGPT GUA Project instructions. The GUA Project URL is stored only in Android SharedPreferences.
-
-## Build
-The GitHub Actions workflow `GUA Android APK` builds a debug APK suitable for sideloading.
-
-## Install
-Enable installation from the browser/file-manager you use, then install the downloaded `GUA-debug.apk`. Android may warn because this is a sideloaded private build, not a Play Store release.
+Academy personal state is copied only to the app's private internal storage for adaptive podcast generation. It is not committed to GitHub. The signing private key is not stored in source control.

@@ -5,22 +5,27 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>GUA</title>
 <style>
-:root{--bg:#07111a;--card:#102231;--line:#29475a;--text:#eff9fb;--muted:#9eb7c2;--accent:#67d5b5;--accent2:#76bdf2}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111a,#0b1b28);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+:root{--bg:#07111a;--card:#102231;--line:#29475a;--text:#eff9fb;--muted:#9eb7c2;--accent:#67d5b5;--accent2:#76bdf2;--active:#ffd86b}
+*{box-sizing:border-box}body{margin:0;padding-bottom:210px;background:linear-gradient(180deg,#07111a,#0b1b28);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
 main{max-width:760px;margin:auto;padding:20px 16px 42px}.hero{padding:18px 0 10px}.tag{display:inline-block;border:1px solid #33715f;background:#12372f;color:#aef0dc;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}
 h1{font-size:44px;margin:10px 0 5px;line-height:1}h2{margin:0 0 6px}.muted{color:var(--muted)}.card{background:linear-gradient(145deg,#102231,#0c1b27);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 14px 34px #0003}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:1px solid var(--line);background:#163349;color:#fff;border-radius:12px;padding:11px 13px;font:800 14px system-ui;cursor:pointer}.btn.primary{background:#1d665a;border-color:#4aa78f}.btn.full{width:100%}.btn.stop{background:#543039}.episode{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border-top:1px solid var(--line);padding:10px 0}.episode:first-of-type{border-top:0}.episode b,.episode small{display:block}.episode small{color:var(--muted)}
 select,input{width:100%;border:1px solid var(--line);border-radius:11px;background:#0a1925;color:#fff;padding:10px;font:inherit}.status{padding:9px 11px;border-radius:10px;background:#0b1c28;border:1px solid var(--line);color:var(--muted);margin-top:10px}
 .station{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border-top:1px solid var(--line);padding:9px 0}.station small{display:block;color:var(--muted)}a{color:#bce8ff}.note{font-size:12px;color:var(--muted)}
-@media(max-width:560px){.grid{grid-template-columns:1fr}h1{font-size:38px}}
+.sourceRow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}.sourceRow:first-of-type{border-top:0}.sourceRow small{display:block;color:var(--muted)}
+.playerDock{position:fixed;z-index:30;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,100%);background:#08131df5;border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px #0008;backdrop-filter:blur(14px)}
+.playerTop{display:flex;justify-content:space-between;gap:10px;align-items:center}.playerTitle{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#d6e9ef}.playerMeta{font-size:11px;color:var(--muted)}
+.playerControls{display:grid;grid-template-columns:48px 56px 48px 1fr 52px;gap:6px;align-items:center;margin-top:7px}.playerControls button{height:42px}.playerControls select{height:42px;padding:5px}.caption{min-height:44px;max-height:70px;overflow:auto;text-align:center;padding:8px 6px 2px;font-size:16px;line-height:1.6}.caption .w{display:inline-block;padding:0 2px;color:#d8e6eb;transition:.12s}.caption .on{color:#07111a;background:var(--active);border-radius:5px;font-weight:900}.caption.off{display:none}
+.updateReady{border-color:#5687b0;background:#102c42}.hidden{display:none!important}
+@media(max-width:560px){.grid{grid-template-columns:1fr}h1{font-size:38px}.playerControls{grid-template-columns:44px 52px 44px 1fr 48px}.caption{font-size:15px}}
 </style>
 </head>
 <body>
 <main>
   <section class="hero">
-    <span class="tag">GUA v1.1 · Guatemala Spanish</span>
+    <span class="tag">GUA v1.2 · Guatemala Spanish</span>
     <h1>Tek yerde çalış.</h1>
-    <p class="muted">Academy, Gym Podcast, ücretsiz Spanish Radio ve ChatGPT GUA Project.</p>
+    <p class="muted">Academy, kişisel Gym Podcast, Spanish Radio, VOA Español ve ChatGPT GUA.</p>
   </section>
 
   <section class="grid">
@@ -31,67 +36,152 @@ select,input{width:100%;border:1px solid var(--line);border-radius:11px;backgrou
     </article>
     <article class="card">
       <h2>💬 ChatGPT GUA</h2>
-      <p class="muted">Pratik konuşma ve Voice için kendi ChatGPT Project'in.</p>
+      <p class="muted">Pratik konuşma ve Voice için GUA Project.</p>
       <button class="btn primary full" onclick="Gua.openChatGptProject()">GUA Project'i aç</button>
     </article>
   </section>
 
   <article class="card">
+    <h2>⚙️ Çalışma ayarı</h2>
+    <div class="grid">
+      <div><label class="note">İspanyolca seviye / konuşma hızı</label><select id="level" onchange="Gua.setLevel(this.value)"><option>A2</option><option>B1</option><option selected>B1+</option><option>B2</option></select></div>
+      <div><label class="note">Uygulama sürümü</label><div id="versionBox" class="status" style="margin:0">v1.2.0</div></div>
+    </div>
+  </article>
+
+  <article class="card">
     <h2>🎧 Gym Podcast</h2>
-    <p class="muted">Android'in cihazdaki TTS motoruyla ücretsiz hazırlanır. <b>This Week</b> Academy'deki gerçek zayıf noktalarını kullanır; Academy'yi her açtığında snapshot otomatik güncellenir. Oynatma ekran kapalıyken devam eder.</p>
-    <div class="episode"><div><b>🎯 This Week — Zayıf Noktalarım</b><small>Academy'deki gerçek SRS, civics ve mülakat hatalarından otomatik</small></div><button class="btn primary" onclick="build('adaptive')">▶</button></div>
+    <p class="muted">This Week gerçek Academy zayıflarını kullanır. Seviye yükseldikçe içerik yoğunluğu, konuşma hızı ve cevap süresi zorlaşır.</p>
+    <div class="episode"><div><b>🎯 This Week — Zayıf Noktalarım</b><small>SRS + civics + mülakat hatalarından otomatik</small></div><button class="btn primary" onclick="build('adaptive')">▶</button></div>
     <div id="adaptiveSummary" class="status">Academy verisi kontrol ediliyor…</div>
     <div class="episode"><div><b>Daily Spanish</b><small>Doğal konuşma ve kurtarıcı kalıplar</small></div><button class="btn" onclick="build('daily')">▶</button></div>
     <div class="episode"><div><b>Interview Drill</b><small>Vatandaşlık mülakat soruları + cevap boşlukları</small></div><button class="btn" onclick="build('interview')">▶</button></div>
     <div class="episode"><div><b>Guatemala Civics</b><small>Anayasa, devlet yapısı, tarih</small></div><button class="btn" onclick="build('civics')">▶</button></div>
     <div class="episode"><div><b>Formal Spanish</b><small>Trámite, expediente, requisitos, poder</small></div><button class="btn" onclick="build('formal')">▶</button></div>
     <div class="episode"><div><b>Shadowing Mix</b><small>Akıcılık için yarım saniye geriden tekrar</small></div><button class="btn" onclick="build('shadow')">▶</button></div>
-    <button class="btn stop full" onclick="Gua.stopAudio()">■ Oynatmayı durdur</button>
     <div id="status" class="status">TTS hazırlanıyor…</div>
   </article>
 
   <article class="card">
     <h2>📻 Spanish Radio</h2>
-    <p class="muted">Ücretsiz Radio Browser dizininden popüler İspanyolca internet istasyonlarını getirir. Üyelik veya API anahtarı gerekmez.</p>
-    <button class="btn full" onclick="Gua.loadStations()">İstasyonları getir</button>
-    <div id="stations"><p class="note">İstasyon listesi yalnızca istediğinde yüklenir.</p></div>
+    <p class="muted">Radio Browser artık tek sunucuya bağlı değil; üç mirror denenir ve son çalışan liste telefonda cache'lenir.</p>
+    <button class="btn full" onclick="loadRadio()">↻ İstasyonları yenile</button>
+    <div id="radioStatus" class="status">İstasyonlar yükleniyor…</div>
+    <div id="stations"></div>
+  </article>
+
+  <article class="card">
+    <h2>📰 VOA Español</h2>
+    <p class="muted">Gerçek yetişkin İspanyolcası için kısa haber ve radyo programları. VOA'nın resmî sayfalarını GUA'dan tek dokunuşla aç.</p>
+    <div class="sourceRow"><div><b>Avance Informativo</b><small>Yaklaşık 3 dk · kısa haber</small></div><button class="btn" onclick="openVOA('https://www.vozdeamerica.com/avance-informativo-radio')">Aç</button></div>
+    <div class="sourceRow"><div><b>Buenos Días América</b><small>Yaklaşık 30 dk · günlük haber</small></div><button class="btn" onclick="openVOA('https://www.vozdeamerica.com/Buenos-dias-america-radio')">Aç</button></div>
+    <div class="sourceRow"><div><b>El Mundo al Día</b><small>Yaklaşık 30 dk · günlük radyo</small></div><button class="btn" onclick="openVOA('https://www.vozdeamerica.com/z/4557')">Aç</button></div>
+    <div class="sourceRow"><div><b>VOA Podcasts</b><small>Tüm İspanyolca podcast seçenekleri</small></div><button class="btn" onclick="openVOA('https://www.vozdeamerica.com/podcasts')">Aç</button></div>
+    <div class="sourceRow"><div><b>VOA Guatemala</b><small>Guatemala odaklı güncel içerik</small></div><button class="btn" onclick="openVOA('https://www.vozdeamerica.com/guatemala')">Aç</button></div>
+  </article>
+
+  <article class="card" id="updateCard">
+    <h2>⬆️ GUA Update</h2>
+    <p id="updateStatus" class="muted">Güncelleme durumu kontrol edilebilir.</p>
+    <div class="grid">
+      <button class="btn" onclick="Gua.checkUpdate()">Güncellemeleri kontrol et</button>
+      <button id="installUpdate" class="btn primary hidden" onclick="installUpdate()">İndir ve güncelle</button>
+    </div>
+    <p class="note">Android güvenliği nedeniyle ilk kez GUA'nın APK kurmasına izin vermen gerekebilir. Sonraki sürümlerde aynı kalıcı imza kullanılır.</p>
   </article>
 
   <article class="card">
     <h2>🔗 GUA Project bağlantısı</h2>
-    <p class="muted">ChatGPT'de GUA adında Project oluşturduktan sonra adresini buraya bir kez yapıştır. Sonrasında üstteki düğme doğrudan açar.</p>
     <input id="projectUrl" placeholder="https://chatgpt.com/..." />
     <div class="grid" style="margin-top:9px">
       <button class="btn" onclick="saveProject()">Bağlantıyı kaydet</button>
       <button class="btn" onclick="Gua.openChatGptProject()">ChatGPT'yi aç</button>
     </div>
-    <p class="note">ChatGPT Projects kendi Voice modunu destekler. APK Project'i gömmek yerine güvenli biçimde ChatGPT uygulamasına aktarır.</p>
   </article>
-
-  <p class="note">GUA kişisel kullanım içindir. Academy verileri kendi Supabase hesabında tutulur; radyo istasyonları üçüncü taraf yayıncılar tarafından sağlanır.</p>
 </main>
+
+<div class="playerDock">
+  <div class="playerTop">
+    <div style="min-width:0"><div id="playerTitle" class="playerTitle">GUA Player</div><div id="playerMeta" class="playerMeta">Hazır</div></div>
+    <div class="playerMeta">CC yaklaşık senkron</div>
+  </div>
+  <div id="caption" class="caption"><span class="muted">Podcast başladığında altyazı burada akar.</span></div>
+  <div class="playerControls">
+    <button class="btn" onclick="Gua.playerCommand('previous')">⏮</button>
+    <button id="playPause" class="btn primary" onclick="Gua.playerCommand('toggle')">▶</button>
+    <button class="btn" onclick="Gua.playerCommand('next')">⏭</button>
+    <select id="speed" onchange="Gua.setPlaybackSpeed(parseFloat(this.value))">
+      <option value=".75">0.75×</option><option value=".9">0.90×</option><option value="1" selected>1.00×</option><option value="1.1">1.10×</option><option value="1.25">1.25×</option><option value="1.5">1.50×</option>
+    </select>
+    <button id="ccBtn" class="btn" onclick="toggleCC()">CC</button>
+  </div>
+</div>
+
 <script>
+let lastUpdateUrl='',ccOn=true,radioRows=[];
 function build(id){document.getElementById('status').textContent='Podcast hazırlanıyor…';Gua.generateEpisode(id)}
 function saveProject(){Gua.saveProjectUrl(document.getElementById('projectUrl').value)}
+function openVOA(url){Gua.openUrl(url)}
 function guaEpisodeState(state,message){document.getElementById('status').textContent=message}
 function adaptiveText(x){
   if(!x||!x.hasData)return 'Henüz Academy snapshotı yok. Academy’yi bu APK içinden aç; veri otomatik alınacak.';
   return 'Kişisel playlist hazır · '+x.weakWords+' zayıf SRS · '+x.civicsErrors+' civics hatası · '+(x.speakingErrors+x.shortInterviews)+' konuşma hedefi';
 }
 function guaAdaptiveUpdated(x){document.getElementById('adaptiveSummary').textContent=adaptiveText(x)}
-function refreshAdaptiveSummary(){
-  try{guaAdaptiveUpdated(JSON.parse(Gua.getAdaptiveSummary()||'{}'))}
-  catch(e){document.getElementById('adaptiveSummary').textContent='Kişisel veri özeti okunamadı.'}
+function refreshAdaptiveSummary(){try{guaAdaptiveUpdated(JSON.parse(Gua.getAdaptiveSummary()||'{}'))}catch(e){}}
+
+function loadRadio(){
+  document.getElementById('radioStatus').textContent='İstasyonlar yükleniyor…';
+  Gua.loadStations();
 }
 function guaStationsLoaded(rows){
+  radioRows=rows||[];
   const box=document.getElementById('stations');
-  if(!rows||!rows.length){box.innerHTML='<p class="note">İstasyon bulunamadı.</p>';return}
-  box.innerHTML=rows.slice(0,25).map((x,i)=>'<div class="station"><div><b>'+escapeHtml(x.name)+'</b><small>'+escapeHtml(x.country||'')+' · '+escapeHtml(x.codec||'')+(x.bitrate?' · '+x.bitrate+' kbps':'')+'</small></div><button class="btn" data-i="'+i+'">▶</button></div>').join('');
-  [...box.querySelectorAll('button')].forEach(btn=>btn.onclick=()=>{const x=rows[Number(btn.dataset.i)];Gua.playRadio(x.url,x.name)})
+  document.getElementById('radioStatus').textContent=radioRows.length+' İspanyolca istasyon bulundu.';
+  if(!radioRows.length){box.innerHTML='<p class="note">İstasyon bulunamadı.</p>';return}
+  box.innerHTML=radioRows.slice(0,30).map((x,i)=>'<div class="station"><div><b>'+escapeHtml(x.name)+'</b><small>'+escapeHtml(x.country||'')+' · '+escapeHtml(x.codec||'')+(x.bitrate?' · '+x.bitrate+' kbps':'')+'</small></div><button class="btn" data-i="'+i+'">▶</button></div>').join('');
+  [...box.querySelectorAll('button')].forEach(btn=>btn.onclick=()=>{const x=radioRows[Number(btn.dataset.i)];Gua.playRadio(x.url,x.name)})
 }
+function guaStationsError(message){
+  document.getElementById('radioStatus').textContent='Radyo dizini şu an erişilemiyor: '+message;
+  document.getElementById('stations').innerHTML='<p class="note">Tekrar deneyebilirsin. Daha önce çalışan liste varsa uygulama onu otomatik kullanır.</p>';
+}
+
+function guaPlayerState(x){
+  document.getElementById('playerTitle').textContent=x.title||'GUA Player';
+  document.getElementById('playPause').textContent=x.playing?'⏸':'▶';
+  const meta=(x.count?((x.index+1)+'/'+x.count+' · '):'')+fmt(x.position)+(x.duration?' / '+fmt(x.duration):'')+' · '+Number(x.speed||1).toFixed(2)+'×';
+  document.getElementById('playerMeta').textContent=meta;
+  const speed=String(Number(x.speed||1));
+  const sel=document.getElementById('speed');
+  [...sel.options].forEach(o=>o.selected=Math.abs(parseFloat(o.value)-parseFloat(speed))<.01);
+  renderCaption(x.caption||'',Number(x.wordIndex));
+}
+function renderCaption(text,active){
+  const el=document.getElementById('caption');
+  if(!text){el.innerHTML='<span class="muted">♪</span>';return}
+  const words=text.trim().split(/\s+/);
+  el.innerHTML=words.map((w,i)=>'<span class="w '+(i===active?'on':'')+'">'+escapeHtml(w)+'</span>').join(' ');
+  const on=el.querySelector('.on');if(on)on.scrollIntoView({block:'nearest',inline:'center'});
+}
+function toggleCC(){ccOn=!ccOn;document.getElementById('caption').classList.toggle('off',!ccOn);document.getElementById('ccBtn').textContent=ccOn?'CC':'CC×'}
+function fmt(ms){if(!ms||ms<0)return '0:00';const s=Math.floor(ms/1000),m=Math.floor(s/60);return m+':'+String(s%60).padStart(2,'0')}
+
+function guaUpdateStatus(x){
+  const el=document.getElementById('updateStatus'),btn=document.getElementById('installUpdate');
+  lastUpdateUrl=x.url||'';
+  if(x.available){el.innerHTML='Yeni sürüm: <b>v'+escapeHtml(x.latest)+'</b> · mevcut v'+escapeHtml(x.current);btn.classList.remove('hidden');document.getElementById('updateCard').classList.add('updateReady')}
+  else{el.textContent='GUA güncel · v'+(x.current||'');btn.classList.add('hidden');document.getElementById('updateCard').classList.remove('updateReady')}
+}
+function guaUpdateError(msg){document.getElementById('updateStatus').textContent='Güncelleme kontrolü başarısız: '+msg}
+function installUpdate(){if(lastUpdateUrl){document.getElementById('updateStatus').textContent='APK indiriliyor…';Gua.downloadUpdate(lastUpdateUrl)}}
+
 function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 try{document.getElementById('projectUrl').value=Gua.getProjectUrl()||''}catch(e){}
+try{document.getElementById('level').value=Gua.getLevel()||'B1+'}catch(e){}
+try{document.getElementById('versionBox').textContent='v'+Gua.getVersion()}catch(e){}
 refreshAdaptiveSummary();
+setTimeout(loadRadio,500);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refreshAdaptiveSummary()});
 </script>
 </body>

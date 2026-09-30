@@ -8,7 +8,7 @@ on:
       - '.github/workflows/gua-android-build.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -17,6 +17,9 @@ jobs:
     env:
       ANDROID_HOME: /usr/local/lib/android/sdk
       ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+      GUA_KEYSTORE_PASSWORD: ${{ secrets.GUA_KEYSTORE_PASSWORD }}
+      GUA_KEY_ALIAS: ${{ secrets.GUA_KEY_ALIAS }}
+      GUA_KEY_PASSWORD: ${{ secrets.GUA_KEY_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
@@ -31,25 +34,49 @@ jobs:
         shell: bash
         run: |
           SDKMANAGER="$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager | sort -V | tail -1)"
-          echo "Using $SDKMANAGER"
           yes | "$SDKMANAGER" --licenses >/dev/null || true
           "$SDKMANAGER" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Restore GUA signing key
+        shell: bash
+        run: |
+          echo "${{ secrets.GUA_KEYSTORE_B64 }}" | base64 --decode > "$RUNNER_TEMP/gua-release.jks"
+          echo "GUA_KEYSTORE_FILE=$RUNNER_TEMP/gua-release.jks" >> "$GITHUB_ENV"
+          test -s "$RUNNER_TEMP/gua-release.jks"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.10.2'
 
-      - name: Build debug APK
+      - name: Build signed release APK
         working-directory: gua-android
-        run: gradle :app:assembleDebug --stacktrace
+        run: gradle :app:assembleRelease --stacktrace
 
-      - name: Rename APK
-        run: cp gua-android/app/build/outputs/apk/debug/app-debug.apk GUA-debug.apk
+      - name: Prepare release file
+        shell: bash
+        run: |
+          VERSION="$(grep -oP 'versionName "\K[^"]+' gua-android/app/build.gradle)"
+          echo "GUA_VERSION=$VERSION" >> "$GITHUB_ENV"
+          cp gua-android/app/build/outputs/apk/release/app-release.apk "GUA-v$VERSION.apk"
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "GUA-v$VERSION.apk"
 
-      - name: Upload APK
+      - name: Upload workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: GUA-Android-APK
-          path: GUA-debug.apk
+          path: GUA-v${{ env.GUA_VERSION }}.apk
           if-no-files-found: error
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          TAG="gua-v$GUA_VERSION"
+          APK="GUA-v$GUA_VERSION.apk"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$APK" --clobber
+          else
+            gh release create "$TAG" "$APK" --title "GUA v$GUA_VERSION" --notes "Signed personal Android release for GUA Spanish Academy." --latest
+          fi
