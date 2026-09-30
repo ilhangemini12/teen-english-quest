@@ -210,6 +210,15 @@ body[data-density="compact"] .mission{border-radius:13px!important}
 .elifAiSide select{width:100%}.elifAiTip{margin-top:12px;padding:10px;border-radius:12px;background:var(--surface2);border:1px solid var(--line);font-size:12px;color:var(--muted)}
 .elifAiTip b{color:var(--text)}.elifAiQuota{margin-top:10px;font-size:12px;color:var(--muted)}
 .elifAiSetup{padding:10px 12px;margin:10px 14px;border:1px solid var(--gold);border-radius:11px;color:var(--gold);background:color-mix(in srgb,var(--gold) 7%,transparent);display:none}
+.elifVoicePanel{margin:12px 14px;padding:13px;border:1px solid color-mix(in srgb,var(--accent) 32%,var(--line));border-radius:16px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--surface));box-shadow:0 8px 22px rgba(27,37,62,.045)}
+.elifVoiceIntro{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.elifVoiceIntro>div{display:flex;align-items:flex-start;gap:9px}.elifVoiceIcon{font-size:24px;line-height:1}.elifVoiceIntro b{display:block;color:var(--text);font-size:14px}.elifVoiceIntro small{display:block;color:var(--muted);font-size:11px;line-height:1.4;margin-top:2px}.elifVoiceSupport{flex:0 0 auto;border:1px solid var(--line);background:var(--surface2);color:var(--muted);border-radius:999px;padding:5px 8px;font-size:10px;font-weight:850}
+.elifVoiceControls{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:11px}.elifVoiceControls button{min-height:38px;border-radius:11px;padding:0 12px;font:850 12px/1 system-ui;cursor:pointer}.elifVoicePrimary{border:1px solid #4fba9f;background:#55bfa6;color:#08261f}.elifVoicePrimary.listening{background:#ef6f79;border-color:#ef6f79;color:#fff;animation:elifVoicePulse 1.2s ease-in-out infinite}.elifVoicePrimary:disabled{opacity:.55;cursor:not-allowed;animation:none}.elifVoiceStop{border:1px solid var(--line);background:var(--surface2);color:var(--text)}.elifVoiceStop:disabled{opacity:.38;cursor:not-allowed}
+.elifVoiceToggle{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:var(--surface2);color:var(--text);font-size:11px;font-weight:750;cursor:pointer}.elifVoiceToggle input{accent-color:var(--accent)}.elifVoiceRate{display:inline-flex;align-items:center;gap:5px;color:var(--muted);font-size:10px;font-weight:800}.elifVoiceRate select{width:auto;min-width:78px;padding:6px 8px;border-radius:9px}
+.elifVoiceLive{display:flex;align-items:center;gap:7px;margin-top:10px;color:var(--muted);font-size:11px;font-weight:750}.elifVoiceDot{width:9px;height:9px;border-radius:50%;background:#8592a7;box-shadow:0 0 0 4px rgba(133,146,167,.10)}.elifVoicePanel[data-state="listening"] .elifVoiceDot{background:#ef6f79;box-shadow:0 0 0 5px rgba(239,111,121,.14);animation:elifVoicePulse 1.2s ease-in-out infinite}.elifVoicePanel[data-state="thinking"] .elifVoiceDot{background:#f1ce75}.elifVoicePanel[data-state="speaking"] .elifVoiceDot{background:#59d7b7}
+.elifVoiceTranscript{margin-top:8px;min-height:38px;padding:9px 10px;border:1px dashed var(--line);border-radius:11px;background:color-mix(in srgb,var(--surface2) 70%,transparent);color:var(--text);font-size:12px;line-height:1.45}.elifVoiceTranscript.interim{color:var(--muted);font-style:italic}.elifVoicePrivacy{display:block;margin-top:7px;color:var(--muted);font-size:9.5px;line-height:1.35}
+.elifVoiceReplay{margin:5px 0 0 7px;align-self:flex-end;width:30px;height:30px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:13px}.elifVoiceReplay:hover{color:var(--text);border-color:var(--accent)}
+@keyframes elifVoicePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@media(max-width:620px){.elifVoicePanel{margin:9px 10px;padding:11px}.elifVoiceIntro{display:block}.elifVoiceSupport{display:inline-flex;margin-top:8px}.elifVoiceControls{align-items:stretch}.elifVoicePrimary{flex:1 1 180px}.elifVoiceRate{width:100%;justify-content:space-between}.elifVoiceTranscript{font-size:11px}}
 @media(max-width:820px){.elifAiShell{grid-template-columns:1fr}.elifAiSide{order:-1}.elifAiChat{min-height:360px;max-height:58vh}.elifBubble{max-width:88%}}
 @media(max-width:520px){.elifAiHead{align-items:flex-start}.elifAiHead .elifAiBadge{white-space:normal}.elifAiChat{padding:10px;min-height:330px}.elifAiActions{padding:0 10px 9px}.elifAiComposer{padding:10px}.elifBubble{max-width:92%}}
 
@@ -1017,6 +1026,22 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
       <span class="elifAiBadge">⚡ GPT-OSS 120B · Groq</span>
     </div>
     <div class="elifAiSetup" id="elifAiSetup"></div>
+    <section class="elifVoicePanel" id="elifVoicePanel" aria-label="Voice conversation practice">
+      <div class="elifVoiceIntro">
+        <div><span class="elifVoiceIcon">🗣️</span><div><b>Voice Practice</b><small>Speak naturally. Elif listens, answers, and can keep the conversation going hands-free.</small></div></div>
+        <span class="elifVoiceSupport" id="elifVoiceSupport">Checking voice support…</span>
+      </div>
+      <div class="elifVoiceControls">
+        <button type="button" class="elifVoicePrimary" id="elifVoiceStart" onclick="elifVoicePrimaryAction()">🎙 Start voice practice</button>
+        <button type="button" class="elifVoiceStop" id="elifVoiceStop" onclick="elifVoiceStopPractice()" disabled>■ Stop</button>
+        <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceHandsFree" checked onchange="elifVoiceSaveSettings()"> Hands-free</label>
+        <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceAutoSpeak" checked onchange="elifVoiceSaveSettings()"> Read replies aloud</label>
+        <label class="elifVoiceRate">Voice speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.82">Slow</option><option value="0.94" selected>Natural</option><option value="1.04">Fast</option></select></label>
+      </div>
+      <div class="elifVoiceLive" id="elifVoiceLive"><span class="elifVoiceDot"></span><span id="elifVoiceState">Ready for an English conversation.</span></div>
+      <div class="elifVoiceTranscript" id="elifVoiceTranscript" aria-live="polite">Your speech transcript will appear here before it is sent.</div>
+      <small class="elifVoicePrivacy">Microphone audio is handled by your browser's speech service. BatumHub does not save the audio recording; only the resulting text can enter this browser-session AI chat.</small>
+    </section>
     <div class="elifAiChat" id="elifAiChat" aria-live="polite"></div>
     <div class="elifAiActions" aria-label="Quick learning actions">
       <button type="button" onclick="elifAiAction('simple')">Explain simply</button>
