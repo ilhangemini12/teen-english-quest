@@ -4,7 +4,7 @@ const out=new URL('../www-gua/',import.meta.url);
 await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 const srcDir=new URL('../guatemala-citizenship-spanish/',import.meta.url);
-const files=['index.html','academy-data.js','academy-v2.js','gua-podcasts.js','gua-podcast-ui.js'];
+const files=['index.html','academy-data.js','academy-v2.js','gua-podcasts.js','gua-project.js','gua-podcast-ui.js'];
 for(const name of files){
   const src=new URL(name,srcDir);
   await access(src,constants.R_OK);
