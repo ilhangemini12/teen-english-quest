@@ -9,7 +9,7 @@ Personal Android companion for the Guatemala Citizenship Academy.
 - A2 / B1 / B1+ / B2 level selector. It changes local Spanish TTS pace and the density/difficulty of the adaptive weekly episode.
 - VOA Español shortcuts for Avance Informativo, Buenos Días América, El Mundo al Día, podcasts and Guatemala coverage.
 - In-app update checker backed by public GitHub Releases.
-- Stable release signing key is stored only in GitHub Actions Secrets, not in the repository.
+- The signing keystore is stored only as an AES-256/PBKDF2 encrypted blob; the decryption password remains only in GitHub Actions Secrets. The private key is never committed in plaintext.
 - Automatic daily update check; new APK can be downloaded in-app and handed to Android's installer.
 
 ## Update security

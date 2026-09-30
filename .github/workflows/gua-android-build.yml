@@ -37,26 +37,16 @@ jobs:
           yes | "$SDKMANAGER" --licenses >/dev/null || true
           "$SDKMANAGER" "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Restore and normalize GUA signing key
+      - name: Restore encrypted GUA signing key
         shell: bash
         run: |
-          SRC="$RUNNER_TEMP/gua-release.p12"
           DEST="$RUNNER_TEMP/gua-release.jks"
-          echo "${{ secrets.GUA_KEYSTORE_B64 }}" | base64 --decode > "$SRC"
-          test -s "$SRC"
-          echo "PKCS12 sha256: $(sha256sum "$SRC" | cut -d' ' -f1)"
-          keytool -importkeystore \
-            -srckeystore "$SRC" \
-            -srcstoretype PKCS12 \
-            -srcstorepass "$GUA_KEYSTORE_PASSWORD" \
-            -srcalias "$GUA_KEY_ALIAS" \
-            -srckeypass "$GUA_KEYSTORE_PASSWORD" \
-            -destkeystore "$DEST" \
-            -deststoretype JKS \
-            -deststorepass "$GUA_KEYSTORE_PASSWORD" \
-            -destkeypass "$GUA_KEYSTORE_PASSWORD" \
-            -destalias "$GUA_KEY_ALIAS" \
-            -noprompt
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in gua-android/signing/gua-release.jks.enc \
+            -out "$DEST" \
+            -pass env:GUA_KEYSTORE_PASSWORD
+          test -s "$DEST"
+          echo "JKS sha256: $(sha256sum "$DEST" | cut -d' ' -f1)"
           keytool -list -keystore "$DEST" -storetype JKS -storepass "$GUA_KEYSTORE_PASSWORD" -alias "$GUA_KEY_ALIAS"
           echo "GUA_KEYSTORE_FILE=$DEST" >> "$GITHUB_ENV"
 
