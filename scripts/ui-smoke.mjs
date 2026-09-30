@@ -76,12 +76,15 @@ try {
     native:document.getElementById('nativeLanguageSelect')?.value,
     mobileNative:!!document.getElementById('mobileNativeLanguageSelect'),
     homePill:!!document.getElementById('vnextHomePill'),
-    voicePersona:[...document.getElementById('elifVoicePersona').options].map(o=>o.value),
-    chunks:elifVoiceChunks('This is a short natural voice sentence. '.repeat(12))
+    hasLocalVoice:typeof elifVoiceGetLocalTTS==='function',
+    chunks:elifVoiceChunks('This is a short natural voice sentence. '.repeat(12)),
+    focus:!!document.getElementById('focusPlayer'),
+    focusSpotify:focusSpotifyEmbedUrl('https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS')
   }));
   assert(lang57.native==='tr'&&lang57.mobileNative&&lang57.homePill,'v5.7 native-language/Home controls missing: '+JSON.stringify(lang57));
-  assert(lang57.voicePersona.join('|')==='hannah|diana|autumn|austin|daniel|troy','Natural voice selector invalid: '+JSON.stringify(lang57.voicePersona));
-  assert(lang57.chunks.length>1&&lang57.chunks.every(x=>x.length<=185),'Voice chunking exceeds Orpheus limit: '+JSON.stringify(lang57.chunks));
+  assert(lang57.hasLocalVoice,'Free local Kokoro voice engine missing');
+  assert(lang57.chunks.length>1&&lang57.chunks.every(x=>x.length<=230),'Local voice chunking exceeds safe size: '+JSON.stringify(lang57.chunks));
+  assert(lang57.focus&&/open\.spotify\.com\/embed\/playlist\//.test(lang57.focusSpotify),'Focus Player / Spotify embed sanitizer missing: '+JSON.stringify(lang57));
   await page.$eval('#nativeLanguageSelect',(el)=>{el.value='ka';el.dispatchEvent(new Event('change',{bubbles:true}))});
   await page.waitForFunction(()=>localStorage.getItem('teq-native-language')==='ka',{timeout:3000});
   await page.evaluate(()=>setNativeLanguage('tr'));
@@ -126,6 +129,12 @@ try {
   assert(voiceMode==='conversation','Voice Practice did not select Conversation mode: '+voiceMode);
   await page.evaluate(()=>openTab('Home'));
   await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
+  await page.$eval('#focusFab',el=>el.click());
+  await page.waitForSelector('#focusPlayer.open',{timeout:3000});
+  await page.evaluate(()=>{focusStartMode('brown');focusSetVolume(22);focusSetTimer(25)});
+  const focusState=await page.evaluate(()=>({mode:focusMode,playing:focusPlaying,vol:localStorage.getItem('bh-focus-volume'),timer:focusTimerEnd>Date.now()}));
+  assert(focusState.mode==='brown'&&focusState.playing&&focusState.vol==='22'&&focusState.timer,'Focus Player state failed: '+JSON.stringify(focusState));
+  await page.evaluate(()=>{focusStopAll();focusSetTimer(0);toggleFocusPlayer(false)});
 
   // Spanish global mode. Use DOM click so the smoke test verifies the handler/state
   // without depending on headless Chrome's viewport hit-testing of the sticky header.
