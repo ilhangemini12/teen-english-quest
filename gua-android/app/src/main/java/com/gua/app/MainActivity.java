@@ -24,6 +24,7 @@ import org.json.JSONObject;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private static final String ACADEMY = "https://ilhangemini12.github.io/teen-english-quest/guatemala-citizenship-spanish/";
     private static final String PREFS = "gua_prefs";
     private static final String PREF_PROJECT = "chatgpt_project_url";
+    private static final String ACADEMY_STATE_FILE = "academy_state.json";
 
     private WebView webView;
     private TextToSpeech tts;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private final ArrayList<String> generatedUris = new ArrayList<>();
     private int currentIndex = 0;
     private String currentEpisode = "daily";
+    private String currentCacheKey = "daily_v2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +67,18 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
 
         webView.addJavascriptInterface(new Bridge(), "Gua");
-        webView.setWebViewClient(new WebViewClient());
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (url != null && url.startsWith(ACADEMY)) {
+                    view.evaluateJavascript(
+                            "try{if(typeof S!=='undefined'&&window.Gua&&Gua.syncAcademyState){Gua.syncAcademyState(JSON.stringify(S));}}catch(e){}",
+                            null
+                    );
+                }
+            }
+        });
         webView.loadUrl(HOME);
 
         tts = new TextToSpeech(this, this);
@@ -122,11 +136,24 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             return;
         }
         currentEpisode = id == null ? "daily" : id;
-        currentSegments = EpisodeLibrary.get(currentEpisode);
+        String adaptiveState = null;
+        if ("adaptive".equals(currentEpisode)) {
+            adaptiveState = readAcademyState();
+            currentSegments = AdaptiveEpisodeBuilder.fromJson(adaptiveState);
+            if (currentSegments.isEmpty()) {
+                toast("Henüz kişiselleştirilmiş veri yok. Önce Academy'yi açıp birkaç çalışma yap.");
+                notifyEpisodeState("needs-data", "Academy verisi gerekli");
+                return;
+            }
+            currentCacheKey = "adaptive_" + Integer.toHexString(adaptiveState.hashCode());
+        } else {
+            currentSegments = EpisodeLibrary.get(currentEpisode);
+            currentCacheKey = currentEpisode + "_v2";
+        }
         generatedUris.clear();
         currentIndex = 0;
 
-        File dir = new File(getCacheDir(), "gua_audio/" + currentEpisode + "_v1");
+        File dir = new File(getCacheDir(), "gua_audio/" + currentCacheKey);
         if (!dir.exists() && !dir.mkdirs()) {
             toast("Ses önbelleği oluşturulamadı.");
             return;
@@ -144,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
 
         EpisodeLibrary.Segment segment = currentSegments.get(currentIndex);
-        File dir = new File(getCacheDir(), "gua_audio/" + currentEpisode + "_v1");
+        File dir = new File(getCacheDir(), "gua_audio/" + currentCacheKey);
         File out = new File(dir, String.format(Locale.US, "seg_%03d.wav", currentIndex));
         int idx = currentIndex;
         currentIndex++;
@@ -257,6 +284,31 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }).start();
     }
 
+    private File academyStateFile() {
+        return new File(getFilesDir(), ACADEMY_STATE_FILE);
+    }
+
+    private void saveAcademyState(String json) {
+        if (json == null || json.isBlank() || json.length() > 1_500_000) return;
+        try {
+            new JSONObject(json);
+            try (FileOutputStream out = new FileOutputStream(academyStateFile())) {
+                out.write(json.getBytes(StandardCharsets.UTF_8));
+            }
+        } catch (Exception ignored) {
+        }
+    }
+
+    private String readAcademyState() {
+        File file = academyStateFile();
+        if (!file.exists()) return "";
+        try (FileInputStream in = new FileInputStream(file)) {
+            return new String(in.readAllBytes(), StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
     private static void writeLeInt(BufferedOutputStream out, int value) throws Exception {
         out.write(value & 0xff);
         out.write((value >> 8) & 0xff);
@@ -313,6 +365,21 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         @JavascriptInterface
         public void generateEpisode(String id) {
             runOnUiThread(() -> MainActivity.this.generateEpisode(id));
+        }
+
+        @JavascriptInterface
+        public void syncAcademyState(String json) {
+            MainActivity.this.saveAcademyState(json);
+            runOnUiThread(() -> {
+                String summary = AdaptiveEpisodeBuilder.summaryJson(MainActivity.this.readAcademyState());
+                String js = "window.guaAdaptiveUpdated && window.guaAdaptiveUpdated(JSON.parse(" + JSONObject.quote(summary) + "));";
+                webView.evaluateJavascript(js, null);
+            });
+        }
+
+        @JavascriptInterface
+        public String getAdaptiveSummary() {
+            return AdaptiveEpisodeBuilder.summaryJson(MainActivity.this.readAcademyState());
         }
 
         @JavascriptInterface

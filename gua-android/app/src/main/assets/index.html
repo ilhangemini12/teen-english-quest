@@ -18,7 +18,7 @@ select,input{width:100%;border:1px solid var(--line);border-radius:11px;backgrou
 <body>
 <main>
   <section class="hero">
-    <span class="tag">GUA · Guatemala Spanish</span>
+    <span class="tag">GUA v1.1 · Guatemala Spanish</span>
     <h1>Tek yerde çalış.</h1>
     <p class="muted">Academy, Gym Podcast, ücretsiz Spanish Radio ve ChatGPT GUA Project.</p>
   </section>
@@ -38,7 +38,9 @@ select,input{width:100%;border:1px solid var(--line);border-radius:11px;backgrou
 
   <article class="card">
     <h2>🎧 Gym Podcast</h2>
-    <p class="muted">Android'in cihazdaki TTS motoruyla ücretsiz hazırlanır. Oluşturduktan sonra ekran kapalıyken Media3 player üzerinden devam eder.</p>
+    <p class="muted">Android'in cihazdaki TTS motoruyla ücretsiz hazırlanır. <b>This Week</b> Academy'deki gerçek zayıf noktalarını kullanır; Academy'yi her açtığında snapshot otomatik güncellenir. Oynatma ekran kapalıyken devam eder.</p>
+    <div class="episode"><div><b>🎯 This Week — Zayıf Noktalarım</b><small>Academy'deki gerçek SRS, civics ve mülakat hatalarından otomatik</small></div><button class="btn primary" onclick="build('adaptive')">▶</button></div>
+    <div id="adaptiveSummary" class="status">Academy verisi kontrol ediliyor…</div>
     <div class="episode"><div><b>Daily Spanish</b><small>Doğal konuşma ve kurtarıcı kalıplar</small></div><button class="btn" onclick="build('daily')">▶</button></div>
     <div class="episode"><div><b>Interview Drill</b><small>Vatandaşlık mülakat soruları + cevap boşlukları</small></div><button class="btn" onclick="build('interview')">▶</button></div>
     <div class="episode"><div><b>Guatemala Civics</b><small>Anayasa, devlet yapısı, tarih</small></div><button class="btn" onclick="build('civics')">▶</button></div>
@@ -72,6 +74,15 @@ select,input{width:100%;border:1px solid var(--line);border-radius:11px;backgrou
 function build(id){document.getElementById('status').textContent='Podcast hazırlanıyor…';Gua.generateEpisode(id)}
 function saveProject(){Gua.saveProjectUrl(document.getElementById('projectUrl').value)}
 function guaEpisodeState(state,message){document.getElementById('status').textContent=message}
+function adaptiveText(x){
+  if(!x||!x.hasData)return 'Henüz Academy snapshotı yok. Academy’yi bu APK içinden aç; veri otomatik alınacak.';
+  return 'Kişisel playlist hazır · '+x.weakWords+' zayıf SRS · '+x.civicsErrors+' civics hatası · '+(x.speakingErrors+x.shortInterviews)+' konuşma hedefi';
+}
+function guaAdaptiveUpdated(x){document.getElementById('adaptiveSummary').textContent=adaptiveText(x)}
+function refreshAdaptiveSummary(){
+  try{guaAdaptiveUpdated(JSON.parse(Gua.getAdaptiveSummary()||'{}'))}
+  catch(e){document.getElementById('adaptiveSummary').textContent='Kişisel veri özeti okunamadı.'}
+}
 function guaStationsLoaded(rows){
   const box=document.getElementById('stations');
   if(!rows||!rows.length){box.innerHTML='<p class="note">İstasyon bulunamadı.</p>';return}
@@ -80,6 +91,8 @@ function guaStationsLoaded(rows){
 }
 function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 try{document.getElementById('projectUrl').value=Gua.getProjectUrl()||''}catch(e){}
+refreshAdaptiveSummary();
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refreshAdaptiveSummary()});
 </script>
 </body>
 </html>

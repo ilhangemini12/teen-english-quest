@@ -349,7 +349,7 @@
   }
 
   const originalRenderAll=renderAll;
-  renderAll=function(){originalRenderAll();renderOnboarding();renderSmartPlan();renderCoach();renderMockHistory();renderCloudUI()};
+  renderAll=function(){originalRenderAll();renderOnboarding();renderSmartPlan();renderCoach();renderMockHistory();renderCloudUI();syncNativeSnapshot()};
 
   const originalSave=save;
   save=function(){S.updatedAt=nowStamp();originalSave();scheduleCloudSync()};
@@ -438,6 +438,14 @@
   if(typeof saveAppSettings==='function'){
     const originalSaveAppSettings=saveAppSettings;
     saveAppSettings=function(){originalSaveAppSettings();S.updatedAt=nowStamp();localStorage.setItem(KEY,JSON.stringify(S));scheduleCloudSync();renderSmartPlan()};
+  }
+
+  function syncNativeSnapshot(){
+    try{
+      if(window.Gua&&typeof window.Gua.syncAcademyState==='function'){
+        window.Gua.syncAcademyState(JSON.stringify(S));
+      }
+    }catch(e){}
   }
 
   function renderCloudUI(){
