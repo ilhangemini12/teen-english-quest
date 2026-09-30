@@ -461,8 +461,8 @@ body{padding-bottom:calc(var(--vnav-h) + 24px + env(safe-area-inset-bottom))}
 #topStatusBar>span:nth-child(2){display:inline-flex!important;margin-left:auto;font-size:12px;padding:4px 8px;border-radius:999px;background:#0e1b2e;border:1px solid #223854}
 @media(max-width:720px){
   .mobileCompactTop{display:none!important}
-  .top{min-height:62px!important}
-  .top>.wrap{padding:0 10px!important}
+  .top{height:63px!important;min-height:63px!important;max-height:63px!important;overflow:visible}
+  .top>.wrap{height:62px!important;min-height:62px!important;max-height:62px!important;padding:0 10px!important}
   .top .brandnav{display:flex!important}
   .top .topStatusBar{display:none!important}
   .top .languageBarTop,.top .coreNav,.top .secondaryTabs{display:none!important}
