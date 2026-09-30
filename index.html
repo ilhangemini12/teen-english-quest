@@ -649,7 +649,11 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <button class="mobileMenuBackdrop" onclick="toggleMobileMenu(false)" aria-label="Close menu"></button>
   <div class="mobileMenuSheet">
     <div class="mobileMenuHead"><b id="mobileMenuTitle">BatumHub</b><button onclick="toggleMobileMenu(false)">✕</button></div>
-    <label class="mobileField"><span id="mobileLanguageLabel">Language</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
+    <div class="mobileLanguageJourney">
+      <label class="mobileField mobileNativeField"><span id="mobileNativeLabel">🌍 My language</span><select id="mobileNativeLanguageSelect" onchange="mobileSetNativeLanguage(this.value)"><option value="tr">🇹🇷 Türkçe</option><option value="es">🇪🇸 Español</option><option value="ka">🇬🇪 ქართული</option><option value="ru">🇷🇺 Русский</option><option value="de">🇩🇪 Deutsch</option><option value="en">🇬🇧 English</option></select></label>
+      <div class="mobileJourneyArrow">↓</div>
+      <label class="mobileField mobileTargetField"><span id="mobileLanguageLabel">🎯 I'm learning</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
+    </div>
     <label class="mobileField"><span id="mobileLevelLabel">Level</span><select id="mobileLevelSelect" onchange="mobileSetLevel(this.value)"></select></label>
     <div class="mobileQuickNav" id="mobileQuickNav"></div>
     <label class="mobileField"><span id="mobileSectionLabel">More sections</span><select id="mobileSectionSelect" onchange="mobileOpenSection(this.value)"></select></label>
@@ -660,16 +664,32 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 
 <div class="languageBar languageBarTop vnextLearningBar" id="languageBar">
   <div class="vnextLanguageControl">
-    <span class="vnextControlLabel">Learning language</span>
-    <div class="languageFlags" id="languageFlags">
-      <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
-      <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
-      <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
-      <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+    <div class="vnextLanguageStory">
+      <label class="vnextNativeControl">
+        <span>🌍 I speak</span>
+        <select id="nativeLanguageSelect" onchange="setNativeLanguage(this.value)" aria-label="My language">
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="ka">🇬🇪 ქართული</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </label>
+      <span class="vnextJourneyArrow" aria-hidden="true">→</span>
+      <div class="vnextTargetControl">
+        <span class="vnextControlLabel">🎯 I'm learning</span>
+        <div class="languageFlags" id="languageFlags">
+          <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
+          <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
+          <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
+          <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+        </div>
+      </div>
     </div>
-    <button class="vnextCustomizeLangBtn" id="vnextCustomizeLangBtn" onclick="toggleTopLanguageCustomize()" aria-expanded="false" title="Customize visible languages">⚙ Customize</button>
+    <button class="vnextCustomizeLangBtn" id="vnextCustomizeLangBtn" onclick="toggleTopLanguageCustomize()" aria-expanded="false" title="Customize visible languages">✨ Customize</button>
     <div class="vnextLanguageCustomize" id="vnextLanguageCustomize" aria-hidden="true">
-      <b>Show in the top bar</b>
+      <b>Show learning languages</b>
       <label><input type="checkbox" data-top-lang="es" onchange="setTopLanguageVisible('es',this.checked)"> Español</label>
       <label><input type="checkbox" data-top-lang="de" onchange="setTopLanguageVisible('de',this.checked)"> Deutsch</label>
       <label><input type="checkbox" data-top-lang="ru" onchange="setTopLanguageVisible('ru',this.checked)"> Русский</label>
@@ -685,7 +705,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <div class="languageLevels vnextLegacyLevelChips" id="languageLevelChips" aria-hidden="true"></div>
 </div>
 <nav class="brandnav">
-  <b class="brandWord">BATUM<span>HUB</span></b>
+  <button class="brandWord brandHomeButton" onclick="navigateAppTab('Home',null,'push')" aria-label="BatumHub home">BATUM<span>HUB</span></button>
+  <button class="profilebtn vnextHomePill" id="vnextHomePill" onclick="navigateAppTab('Home',null,'push')" title="Home">🏠 <span>BatumHub</span></button>
   <button class="vnextHeaderIcon" id="vnextMessageButton" onclick="navigateAppTab(document.body.dataset.appTab==='Messages'?'Home':'Messages',null,'push')" title="Messages" aria-label="Messages">💬</button>
   <button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="Install BatumHub">📲 <span>Install</span></button>
   <button class="profilebtn vnextAccountBtn" id="eqAccountButton" onclick="openVnextAccountMenu()" aria-label="Account">👤 <span>Account</span></button>
@@ -1036,7 +1057,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
         <button type="button" class="elifVoiceStop" id="elifVoiceStop" onclick="elifVoiceStopPractice()" disabled>■ Stop</button>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceHandsFree" checked onchange="elifVoiceSaveSettings()"> Hands-free</label>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceAutoSpeak" checked onchange="elifVoiceSaveSettings()"> Read replies aloud</label>
-        <label class="elifVoiceRate">Voice speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.82">Slow</option><option value="0.94" selected>Natural</option><option value="1.04">Fast</option></select></label>
+        <label class="elifVoiceRate">Voice <select id="elifVoicePersona" onchange="elifVoiceSaveSettings()"><option value="hannah" selected>Hannah</option><option value="diana">Diana</option><option value="autumn">Autumn</option><option value="austin">Austin</option><option value="daniel">Daniel</option><option value="troy">Troy</option></select></label>
+        <label class="elifVoiceRate">Speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.88">Calm</option><option value="0.96" selected>Natural</option><option value="1.05">Fast</option></select></label>
       </div>
       <div class="elifVoiceLive" id="elifVoiceLive"><span class="elifVoiceDot"></span><span id="elifVoiceState">Ready for an English conversation.</span></div>
       <div class="elifVoiceTranscript" id="elifVoiceTranscript" aria-live="polite">Your speech transcript will appear here before it is sent.</div>
