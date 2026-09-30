@@ -91,6 +91,24 @@ try {
   await page.waitForFunction(()=>document.body.dataset.appTab==='Messages',{timeout:4000});
   await page.$eval('#vnextMessageButton',el=>el.click());
   await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
+  await page.evaluate(()=>openTab('ElifAI'));
+  await page.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
+  const voiceUi=await page.evaluate(()=>({
+    start:!!document.getElementById('elifVoiceStart'),
+    stop:!!document.getElementById('elifVoiceStop'),
+    hands:document.getElementById('elifVoiceHandsFree')?.checked,
+    autoSpeak:document.getElementById('elifVoiceAutoSpeak')?.checked,
+    replay:document.querySelectorAll('#elifAiChat .elifVoiceReplay').length,
+    caps:elifVoiceCapabilities(),
+    plain:elifVoicePlainText('**Hello** _there_')
+  }));
+  assert(voiceUi.start&&voiceUi.stop&&voiceUi.hands&&voiceUi.autoSpeak&&voiceUi.replay>=1,'Voice Practice UI missing: '+JSON.stringify(voiceUi));
+  assert(voiceUi.plain==='Hello there','Voice text cleanup failed: '+voiceUi.plain);
+  await page.evaluate(()=>{elifVoicePrepareMode();elifVoiceStopPractice(true)});
+  const voiceMode=await page.$eval('#elifAiMode',el=>el.value);
+  assert(voiceMode==='conversation','Voice Practice did not select Conversation mode: '+voiceMode);
+  await page.evaluate(()=>openTab('Home'));
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
 
   // Spanish global mode. Use DOM click so the smoke test verifies the handler/state
   // without depending on headless Chrome's viewport hit-testing of the sticky header.
