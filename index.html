@@ -518,6 +518,29 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 @media(max-width:390px){#exploreHub .sourceGrid{grid-template-columns:1fr}.vnextBottomNav{left:8px;right:8px}.vnextHeroCore{padding:22px 15px}}
 @media(min-width:900px){.vnextBottomNav{left:50%;right:auto;width:620px;transform:translateX(-50%);bottom:18px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ===== BATUMHUB v5.5 DESKTOP HOME + LEARNING CONTROL BAR ===== */
+.vnextLearningBar{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 14px!important;margin:8px 0 10px;border:1px solid #ded8eb;border-radius:20px;background:linear-gradient(135deg,#fbfaff 0%,#f4f1fb 58%,#eef9f7 100%);box-shadow:0 8px 24px rgba(43,35,73,.055);overflow:visible!important}
+.vnextLanguageControl,.vnextLevelControl{display:flex;align-items:center;gap:9px;min-width:0}.vnextLanguageControl{flex:1}.vnextControlLabel{font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;color:#756d89;white-space:nowrap}
+.vnextLearningBar .languageFlags{display:flex;align-items:center;gap:7px;flex-wrap:nowrap;overflow:auto;scrollbar-width:none}.vnextLearningBar .languageFlags::-webkit-scrollbar{display:none}
+.vnextLearningBar .languageFlags button{min-height:38px;padding:7px 12px!important;border-radius:13px!important;border:1px solid #ded8e9!important;background:rgba(255,255,255,.58)!important;color:#383247!important;font-size:12px!important;font-weight:850!important;box-shadow:none!important;transition:transform .15s ease,border-color .15s ease,background .15s ease}
+.vnextLearningBar .languageFlags button:hover{transform:translateY(-1px);background:#fff!important;border-color:#c5bdd7!important}.vnextLearningBar .languageFlags button.on{background:#fff!important;border-color:#69cbbd!important;box-shadow:0 0 0 2px rgba(92,199,182,.12),0 6px 16px rgba(33,42,74,.06)!important}.vnextLearningBar .languageFlags button.topLangHidden{display:none!important}
+.vnextCustomizeLangBtn{height:38px;padding:0 10px;border-radius:12px;border:1px solid #ded8e9;background:#fff;color:#5e5871;font:800 11px/1 system-ui;cursor:pointer;white-space:nowrap}.vnextCustomizeLangBtn:hover{border-color:#bdb4d2;background:#fdfcff}
+.vnextLanguageCustomize{display:none;position:absolute;z-index:120;left:12px;top:calc(100% + 7px);min-width:250px;padding:12px;background:#fff;color:#312c42;border:1px solid #dcd5e8;border-radius:16px;box-shadow:0 18px 50px rgba(32,25,56,.16)}.vnextLanguageCustomize.open{display:grid;gap:8px}.vnextLanguageCustomize>b{font-size:12px}.vnextLanguageCustomize label{display:flex;align-items:center;gap:8px;font-size:13px}.vnextLanguageCustomize button{justify-self:start;border:1px solid #dcd5e8;background:#f6f3fa;color:#4a435c;border-radius:9px;padding:6px 9px;font-weight:800;cursor:pointer}
+.vnextLevelControl{flex:0 0 auto}.vnextLevelSelectWrap{display:flex;align-items:center;gap:7px;color:#716a82;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.vnextLevelSelectWrap select{height:38px;min-width:112px;padding:0 34px 0 11px;border:1px solid #d9d2e5;border-radius:12px;background:#fff;color:#302a42;font:850 12px/1 system-ui;cursor:pointer}.vnextQuickTestBtn{height:38px;padding:0 11px;border:1px solid #bdd9ff;border-radius:12px;background:#edf5ff;color:#294f7e;font:850 11px/1 system-ui;cursor:pointer;white-space:nowrap}.vnextQuickTestBtn:hover{background:#e4f0ff;border-color:#99c4fb}.vnextLegacyLevelChips{display:none!important}
+#topStatusBar>span:nth-child(2),#topStatusBar>span:nth-child(2) b{color:#fff!important;-webkit-text-fill-color:#fff!important}.topStatusBar #bhWeather{color:#fff!important}
+@media(min-width:1100px){
+  .wrap{max-width:1360px!important}
+  #heroHome.vnextHero{grid-template-columns:minmax(0,1fr) 310px!important;gap:20px;align-items:stretch;min-height:auto;padding:16px 0 24px;max-width:1180px;margin:0 auto}
+  .vnextHeroCore{width:100%!important;min-height:610px;padding:34px 44px;border-radius:30px}
+  #heroHome.vnextHero h1{font-size:clamp(42px,4.2vw,62px)!important;max-width:12ch!important}
+  .vnextHeroText{max-width:56ch!important;font-size:16px!important}
+  .vnextDesktopRail{display:flex;flex-direction:column;gap:14px}
+  .vnextRailCard{flex:1;display:flex;flex-direction:column;min-height:0;padding:17px;border:1px solid #ded9e9;border-radius:22px;background:linear-gradient(160deg,#fff 0%,#f8f6fb 100%);color:#2f2a40;box-shadow:0 12px 30px rgba(37,31,63,.07)}
+  .vnextRailHead{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#6b647d;font-size:11px;font-weight:850}.vnextRailHead strong{color:#4b4560!important}.vnextRailCard h3{margin:12px 0 7px;color:#29243a!important;font-size:19px;line-height:1.14}.vnextRailCard p{margin:0 0 14px;color:#726b83!important;font-size:13px;line-height:1.48}.vnextRailCard button{margin-top:auto;width:100%;min-height:40px;border:1px solid #d9d2e6;border-radius:12px;background:#f0edfa;color:#4c47a2;font-weight:900;cursor:pointer}.vnextRailCard button:hover{background:#e8e5f7}.vnextRailContinue{background:linear-gradient(150deg,#f2f5ff,#ffffff 70%)}.vnextRailWord{background:linear-gradient(150deg,#fff9e9,#fff 72%)}.vnextRailWord h3{font-size:24px}
+}
+@media(max-width:1099px){.vnextDesktopRail{display:none}.vnextLearningBar{padding:9px 11px!important}.vnextControlLabel{display:none}}
+@media(max-width:720px){.vnextLearningBar{display:none!important}}
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
@@ -626,14 +649,31 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   </div>
 </div>
 
-<div class="languageBar languageBarTop" id="languageBar">
-  <div class="languageFlags" id="languageFlags">
-    <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
-    <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
-    <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
-    <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+<div class="languageBar languageBarTop vnextLearningBar" id="languageBar">
+  <div class="vnextLanguageControl">
+    <span class="vnextControlLabel">Learning language</span>
+    <div class="languageFlags" id="languageFlags">
+      <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
+      <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
+      <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
+      <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+    </div>
+    <button class="vnextCustomizeLangBtn" id="vnextCustomizeLangBtn" onclick="toggleTopLanguageCustomize()" aria-expanded="false" title="Customize visible languages">⚙ Customize</button>
+    <div class="vnextLanguageCustomize" id="vnextLanguageCustomize" aria-hidden="true">
+      <b>Show in the top bar</b>
+      <label><input type="checkbox" data-top-lang="es" onchange="setTopLanguageVisible('es',this.checked)"> Español</label>
+      <label><input type="checkbox" data-top-lang="de" onchange="setTopLanguageVisible('de',this.checked)"> Deutsch</label>
+      <label><input type="checkbox" data-top-lang="ru" onchange="setTopLanguageVisible('ru',this.checked)"> Русский</label>
+      <button onclick="resetTopLanguageVisibility()">Reset</button>
+    </div>
   </div>
-  <div class="languageLevels" id="languageLevelChips"></div>
+  <div class="vnextLevelControl">
+    <label class="vnextLevelSelectWrap"><span>Level</span>
+      <select id="desktopLevelSelect" onchange="setTargetLanguageLevel(this.value)" aria-label="Learning level"></select>
+    </label>
+    <button class="vnextQuickTestBtn" id="vnextQuickTestBtn" onclick="openPlacementTest()">🧪 Quick test</button>
+  </div>
+  <div class="languageLevels vnextLegacyLevelChips" id="languageLevelChips" aria-hidden="true"></div>
 </div>
 <nav class="brandnav">
   <b class="brandWord">BATUM<span>HUB</span></b>
@@ -651,7 +691,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
   <button class="profileStatusPill" id="bhLearningProfile" onclick="openTab('Settings')" title="Learning profile">🎓 <b>Learning profile</b></button>
-  <span class="versionTop">⚙️ <b id="bhVersion">v5.4</b></span>
+  <span class="versionTop">⚙️ <b id="bhVersion">v5.5</b></span>
   <span>🕒 <b id="bhUpdated">—</b></span>
 </div>
 <div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero vnextHero" id="heroHome">
@@ -674,6 +714,26 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
       <small id="leveltxt"></small><div class="bar"><div id="levelbar"></div></div><small id="weektxt"></small>
     </div>
   </div>
+  <aside class="vnextDesktopRail" id="vnextDesktopRail" aria-label="Home shortcuts">
+    <article class="vnextRailCard vnextRailContinue">
+      <div class="vnextRailHead"><span>▶ Continue</span><small id="railContinueMeta">Today</small></div>
+      <h3 id="railContinueTitle">Continue learning</h3>
+      <p id="railContinueText">Pick up the next useful step without browsing the whole platform.</p>
+      <button onclick="launchPrimaryAction()">Continue →</button>
+    </article>
+    <article class="vnextRailCard">
+      <div class="vnextRailHead"><span>🏆 Friends League</span><strong id="railLeagueXp">0 XP</strong></div>
+      <h3 id="railLeagueTitle">Your weekly progress</h3>
+      <p id="railLeagueText">See friends, achievements and recent learning activity.</p>
+      <button onclick="openTab('League')">Open league →</button>
+    </article>
+    <article class="vnextRailCard vnextRailWord">
+      <div class="vnextRailHead"><span>📖 Word of the day</span><small>1 minute</small></div>
+      <h3 id="railWordTitle">—</h3>
+      <p id="railWordText">A small word worth keeping today.</p>
+      <button onclick="openTab('Vocabulary')">Practice word →</button>
+    </article>
+  </aside>
 </section><section id="demoPass" class="demoPass">
       <div>
         <b>🎟️ Free demo · 5 learning actions</b>
@@ -1230,8 +1290,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='5.4';
-const BH_SITE_UPDATED='2026-09-30T02:27:00+04:00';
+const BH_SITE_VERSION='5.5';
+const BH_SITE_UPDATED='2026-09-30T10:15:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -2590,6 +2650,69 @@ function openVnextAccountMenu(){
   if(window.matchMedia&&window.matchMedia('(max-width:720px)').matches&&typeof toggleMobileMenu==='function'){toggleMobileMenu(true);return}
   openAccount();
 }
+const BH_TOP_LANG_DEFAULT=['en','es','de','ru'];
+function getTopLanguageVisibility(){
+  let saved=[];try{saved=JSON.parse(localStorage.getItem('teq-top-languages')||'[]')}catch(e){}
+  saved=Array.isArray(saved)?saved.filter(x=>BH_TOP_LANG_DEFAULT.includes(x)):[];
+  if(!saved.length)saved=[...BH_TOP_LANG_DEFAULT];
+  if(!saved.includes('en'))saved.unshift('en');
+  let active=currentLearningLanguage();if(!saved.includes(active))saved.push(active);
+  return [...new Set(saved)];
+}
+function renderTopLanguageVisibility(){
+  let visible=getTopLanguageVisibility(),active=currentLearningLanguage();
+  document.querySelectorAll('#languageFlags button[data-lang]').forEach(btn=>{
+    let code=btn.dataset.lang;btn.classList.toggle('topLangHidden',!visible.includes(code)&&code!==active);
+  });
+  document.querySelectorAll('#vnextLanguageCustomize input[data-top-lang]').forEach(box=>{
+    box.checked=visible.includes(box.dataset.topLang);
+  });
+}
+function toggleTopLanguageCustomize(force){
+  let panel=document.getElementById('vnextLanguageCustomize'),btn=document.getElementById('vnextCustomizeLangBtn');if(!panel)return;
+  let open=force===undefined?!panel.classList.contains('open'):!!force;
+  panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',open?'false':'true');if(btn)btn.setAttribute('aria-expanded',open?'true':'false');
+  if(open)renderTopLanguageVisibility();
+}
+function setTopLanguageVisible(code,show){
+  if(!['es','de','ru'].includes(code))return;
+  let visible=getTopLanguageVisibility().filter(x=>x!=='en'),set=new Set(visible);
+  show?set.add(code):set.delete(code);
+  let active=currentLearningLanguage();if(active!=='en')set.add(active);
+  localStorage.setItem('teq-top-languages',JSON.stringify(['en',...set]));
+  renderTopLanguageVisibility();
+}
+function resetTopLanguageVisibility(){
+  localStorage.setItem('teq-top-languages',JSON.stringify(BH_TOP_LANG_DEFAULT));renderTopLanguageVisibility();
+}
+function renderDesktopHomeRail(){
+  let rail=document.getElementById('vnextDesktopRail');if(!rail)return;
+  let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),due=typeof dueWords==='function'?dueWords().length:0;
+  let title=document.getElementById('railContinueTitle'),text=document.getElementById('railContinueText'),meta=document.getElementById('railContinueMeta');
+  if(lang!=='en'){
+    if(title)title.textContent='Continue '+info.native;
+    if(text)text.textContent=level+' · open the next short '+info.name+' activity.';
+    if(meta)meta.textContent=level;
+  }else if(due>0){
+    if(title)title.textContent='Review '+due+' word'+(due===1?'':'s');
+    if(text)text.textContent='A short review is the highest-value next step for long-term memory.';
+    if(meta)meta.textContent='Due today';
+  }else{
+    let item=(typeof freshItems!=='undefined'&&freshItems.length)?(freshItems.find(i=>!((s.freshDone||[]).includes(i.key)))||freshItems[0]):null;
+    if(title)title.textContent=item?'Continue today’s English':'Continue learning';
+    if(text)text.textContent=item?(item.title+' · about 8–12 minutes.'):'Open one focused lesson instead of browsing everything.';
+    if(meta)meta.textContent=item?'Fresh':'Ready';
+  }
+  let leagueXp=document.getElementById('railLeagueXp');if(leagueXp)leagueXp.textContent=(typeof xp==='function'?xp():0)+' XP';
+  let wordTitle=document.getElementById('railWordTitle'),wordText=document.getElementById('railWordText');
+  if(lang==='en'&&typeof dailyWord==='function'){
+    let word=dailyWord();if(wordTitle)wordTitle.textContent=word;
+    let local=typeof localDictionaryEntry==='function'?localDictionaryEntry(word):null,sense=local&&local.senses&&local.senses[0];
+    if(wordText)wordText.textContent=sense?.definition||'Learn it in context and use it once today.';
+  }else if(typeof localizedDailyEntry==='function'){
+    let e=localizedDailyEntry();if(e){if(wordTitle)wordTitle.textContent=e[1];if(wordText)wordText.textContent=e[2]}
+  }
+}
 function showAppTab(name,btn){
   localStorage.setItem('teq-active-tab',name);
   document.body.dataset.appTab=name;
@@ -2606,7 +2729,7 @@ function showAppTab(name,btn){
   if(name==='Home'){
     freshShown=6;
     let homeIds=grade<=4?['heroHome','demoPass','learningLaunch','quickControls','personalWidgets','foundationHub']:grade<=8?['heroHome','demoPass','learningLaunch','quickControls','personalWidgets','foundationHub','fresh']:['heroHome','demoPass','learningLaunch','quickControls','personalWidgets','fresh'];
-    setVisible(homeIds);if(grade<=8)renderFoundation();renderWidgets();renderFresh();renderLearningLaunch();applyGradeExperience()
+    setVisible(homeIds);if(grade<=8)renderFoundation();renderWidgets();renderFresh();renderLearningLaunch();applyGradeExperience();renderDesktopHomeRail()
   }
   if(name==='Learn'){
     if(grade<=8){setVisible(['learnHub','foundationHub','learningGames','resourceLab']);renderFoundation()}
@@ -2753,12 +2876,17 @@ async function setTargetLanguageLevel(level){
 function renderLanguageSwitcher(){
   let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],levels=document.getElementById('languageLevelChips');
   document.querySelectorAll('#languageFlags button').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
-  if(levels){
-    let opts=lang==='en'?['auto','A1','A2','B1','B2','C1']:['A1','A2','B1','B2','C1'],cur=lang==='en'?storedEnglishLevel():currentLanguageLevel();
-    levels.innerHTML=opts.map(v=>'<button class="'+(v===cur?'on':'')+'" onclick="setTargetLanguageLevel(\''+v+'\')">'+(v==='auto'?'Auto':v)+'</button>').join('');
+  let opts=lang==='en'?['auto','A1','A2','B1','B2','C1']:['A1','A2','B1','B2','C1'],cur=lang==='en'?storedEnglishLevel():currentLanguageLevel();
+  if(levels){levels.innerHTML='';levels.dataset.current=cur}
+  let desktop=document.getElementById('desktopLevelSelect');
+  if(desktop){
+    desktop.innerHTML=opts.map(v=>'<option value="'+v+'">'+(v==='auto'?localeUI().auto:v)+'</option>').join('');
+    desktop.value=cur;
   }
   let bar=document.getElementById('languageBar');if(bar)bar.dataset.language=lang;
+  renderTopLanguageVisibility();
   applyLanguageExperience();
+  renderDesktopHomeRail();
 }
 function applyLanguageExperience(){
   let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),g=currentGrade();

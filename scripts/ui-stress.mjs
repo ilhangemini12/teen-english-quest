@@ -58,6 +58,20 @@ try{
   assert(/^v\d+\.\d+$/.test(version),'Visible version badge is invalid: '+version);score+=10;
   assert(pageErrors.length===0,'Startup page errors: '+pageErrors.join(' | '));score+=15;
 
+  const desktop55=await p.evaluate(()=>({
+    rail:getComputedStyle(document.getElementById('vnextDesktopRail')).display,
+    railWidth:Math.round(document.getElementById('vnextDesktopRail').getBoundingClientRect().width),
+    heroWidth:Math.round(document.querySelector('.vnextHeroCore').getBoundingClientRect().width),
+    level:[...document.getElementById('desktopLevelSelect').options].map(o=>o.value),
+    quick:getComputedStyle(document.getElementById('vnextQuickTestBtn')).display
+  }));
+  assert(desktop55.rail!=='none'&&desktop55.railWidth>250&&desktop55.heroWidth>600,'Desktop v5.5 layout failed: '+JSON.stringify(desktop55));
+  assert(desktop55.level.join('|')==='auto|A1|A2|B1|B2|C1'&&desktop55.quick!=='none','Desktop level/test controls failed: '+JSON.stringify(desktop55));
+  for(const value of ['A2','B1','auto']){
+    await p.$eval('#desktopLevelSelect',(el,v)=>{el.value=v;el.dispatchEvent(new Event('change',{bubbles:true}))},value);
+    await new Promise(r=>setTimeout(r,80));
+  }
+
   // 32 rapid language switches. This catches stale globals, TDZ regressions and routing loops.
   const seq=['es','de','ru','en'];
   for(let cycle=0;cycle<8;cycle++)for(const code of seq)await switchLang(p,code);

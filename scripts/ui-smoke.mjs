@@ -61,6 +61,28 @@ try {
   assert(shell.navDisplay!=='none'&&shell.navLabels.join('|')==='Home|Explore|AI Tutor|League','vNext bottom navigation invalid: '+JSON.stringify(shell));
   assert(shell.hero&&shell.questButtons===1&&shell.oldHomeHidden,'Home is not focused on one daily quest: '+JSON.stringify(shell));
 
+  const desktopV55=await page.evaluate(()=>({
+    levelVisible:getComputedStyle(document.getElementById('desktopLevelSelect')).display!=='none',
+    levelOptions:[...document.getElementById('desktopLevelSelect').options].map(o=>o.value),
+    testVisible:getComputedStyle(document.getElementById('vnextQuickTestBtn')).display!=='none',
+    railVisible:getComputedStyle(document.getElementById('vnextDesktopRail')).display!=='none',
+    railWidth:Math.round(document.getElementById('vnextDesktopRail').getBoundingClientRect().width),
+    heroWidth:Math.round(document.querySelector('.vnextHeroCore').getBoundingClientRect().width),
+    weatherColor:getComputedStyle(document.getElementById('bhWeather')).color
+  }));
+  assert(desktopV55.levelVisible&&desktopV55.levelOptions.join('|')==='auto|A1|A2|B1|B2|C1','Desktop level dropdown invalid: '+JSON.stringify(desktopV55));
+  assert(desktopV55.testVisible&&desktopV55.railVisible&&desktopV55.railWidth>250&&desktopV55.heroWidth>600,'Desktop v5.5 layout not using available space: '+JSON.stringify(desktopV55));
+  await page.$eval('#vnextQuickTestBtn',el=>el.click());
+  await page.waitForSelector('#placementModal.open',{timeout:3000});
+  await page.evaluate(()=>closePlacementTest());
+  await page.$eval('#vnextCustomizeLangBtn',el=>el.click());
+  await page.waitForSelector('#vnextLanguageCustomize.open',{timeout:3000});
+  await page.$eval('#vnextLanguageCustomize input[data-top-lang="ru"]',el=>{el.checked=false;el.dispatchEvent(new Event('change',{bubbles:true}))});
+  const ruHidden=await page.$eval('#languageFlags button[data-lang="ru"]',el=>getComputedStyle(el).display==='none');
+  assert(ruHidden,'Language customizer did not hide a selected top-bar language');
+  await page.evaluate(()=>resetTopLanguageVisibility());
+  await page.evaluate(()=>toggleTopLanguageCustomize(false));
+
   await page.$eval('#vnavExplore',el=>el.click());
   await page.waitForFunction(()=>document.body.dataset.appTab==='Explore'&&document.body.dataset.primaryNav==='Explore',{timeout:4000});
   await page.$eval('#vnavHome',el=>el.click());
