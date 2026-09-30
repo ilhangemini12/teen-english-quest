@@ -611,10 +611,14 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   .vnextHomePill span{display:none}.vnextHomePill{width:42px;padding:0;justify-content:center}
 }
 @media(max-width:720px){
-  .vnextHomePill{display:grid!important;place-items:center}
-  .brandHomeButton{padding:4px 0}
-  .brandnav{gap:6px!important}
+  .vnextHomePill{display:none!important}
+  .brandHomeButton{padding:4px 0;flex:1 1 auto;min-width:0}
+  .brandnav{gap:6px!important;flex-wrap:nowrap!important}
+  .focusHeaderButton,#vnextMessageButton,#eqAccountButton{flex:0 0 42px!important}
   .mobileMenuSheet .mobileField select{min-height:46px;border-radius:13px}
+}
+@media(max-width:720px){
+  #bhInstallButton{display:none!important}
 }
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
