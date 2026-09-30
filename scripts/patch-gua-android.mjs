@@ -139,7 +139,7 @@ public class GuaAudioService extends Service implements TextToSpeech.OnInitListe
   private void loadSegments(){
     try{
       String text=playlist.get(episodeIndex).optString("text","");
-      segments=Arrays.stream(text.split("(?<=[\\.!?])\\s+|\\n+")).map(String::trim).filter(x->!x.isEmpty()).toArray(String[]::new);
+      segments=Arrays.stream(text.split("(?<=[.!?])\\\\s+|\\\\n+")).map(String::trim).filter(x->!x.isEmpty()).toArray(String[]::new);
     }catch(Exception e){segments=new String[0];}
   }
 
