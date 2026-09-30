@@ -652,6 +652,59 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 @media(max-width:430px){.focusMiniTitle{display:none}.focusMiniSelect{flex:1;width:auto;max-width:none}}
 @media(prefers-reduced-motion:reduce){.focusMiniBar{transition:none!important}}
 
+
+/* ===== BATUMHUB v5.9 MINIMAL MOBILE SHELL ===== */
+@media(max-width:900px){
+  :root{--vnav-h:58px}
+  body{padding-bottom:calc(var(--vnav-h) + 18px + env(safe-area-inset-bottom))!important}
+  .top{height:56px!important;min-height:56px!important;max-height:56px!important;overflow:visible!important;background:color-mix(in srgb,var(--bg) 96%,transparent)!important}
+  .top>.wrap{height:56px!important;min-height:56px!important;max-height:56px!important;padding:0 12px!important}
+  .top .languageBarTop,.top .brandnav,.top .coreNav,.top .topStatusBar,.top .secondaryTabs{display:none!important}
+  .mobileCompactTop{height:56px!important;display:grid!important;grid-template-columns:auto minmax(0,1fr) 40px 40px!important;gap:7px!important;align-items:center!important}
+  .mobileBrand{width:auto!important;height:40px!important;padding:0 4px!important;border:0!important;background:transparent!important;color:var(--text)!important;font-size:17px!important;letter-spacing:.025em!important;text-align:left!important}
+  .mobileBrand span{color:var(--accent)}
+  .mobileHeaderSpacer{min-width:0}
+  .mobileIconBtn{width:40px!important;height:40px!important;border-radius:13px!important;background:var(--surface)!important;border:1px solid var(--line)!important;font-size:16px!important;display:grid!important;place-items:center!important}
+  .mobileSettingsBtn{font-size:17px!important}
+  #languageBar,.vnextLearningBar,#topStatusBar,.vnextWeatherMini,#focusPlayerButton,.focusPlayerPanel,.focusBackdrop,.focusMiniBar,#bhInstallButton,#eqAccountButton,.vnextHomePill{display:none!important}
+  .mobileMenuSheet{top:calc(env(safe-area-inset-top) + 62px)!important;left:10px!important;right:10px!important;max-height:calc(100dvh - 78px)!important;border-radius:20px!important;padding:14px!important}
+  .mobileMenuHead{margin-bottom:10px!important}
+  .mobileMenuHead b{font-size:17px!important}
+  .mobileLanguageJourney{gap:6px!important;padding:9px!important;border-radius:15px!important}
+  .mobileJourneyArrow{font-size:14px!important}
+  .mobileField{margin:8px 0!important}
+  .mobileField>span{font-size:10px!important}
+  .mobileField select{min-height:42px!important;border-radius:12px!important}
+  .mobileQuickTestAction{width:100%;min-height:42px;margin:8px 0 2px;border:1px solid #bdd9ff;border-radius:12px;background:#edf5ff;color:#294f7e;font:850 12px/1 system-ui;cursor:pointer}
+  .mobileQuickNav,.mobileAdvancedSection,.mobileStatus{display:none!important}
+  .mobileMenuActions{grid-template-columns:1fr 1fr!important;gap:7px!important;margin-top:10px!important}
+  .mobileMenuActions button{min-height:42px!important;padding:9px!important;text-align:center!important}
+  #heroHome.vnextHero{display:block!important;min-height:auto!important;padding:14px 0 calc(var(--vnav-h) + 24px)!important;margin:0 auto!important}
+  .vnextHeroCore{width:100%!important;min-height:0!important;border-radius:22px!important;padding:22px 18px 24px!important;box-shadow:0 14px 38px rgba(0,0,0,.22)!important}
+  .vnextProgressLine{margin-bottom:8px!important;font-size:11px!important}
+  .vnextStreak,.vnextXp{padding:5px 8px!important}
+  .vnextProgressTrack{height:7px!important;margin-bottom:22px!important}
+  .vnextEyebrow{font-size:10px!important;margin-bottom:8px!important}
+  #heroHome.vnextHero h1{font-size:clamp(34px,10vw,44px)!important;line-height:1.02!important;max-width:10.5ch!important;margin-bottom:14px!important}
+  .vnextHeroText{font-size:14px!important;line-height:1.45!important;margin-bottom:18px!important;max-width:34ch!important}
+  .vnextQuestButton{width:100%!important;max-width:360px!important;min-height:58px!important;border-radius:18px!important;font-size:16px!important}
+  .vnextExploreLink{margin-top:10px!important;font-size:12px!important}
+  .vnextMeta{display:none!important}
+  .vnextBottomNav{left:10px!important;right:10px!important;bottom:calc(8px + env(safe-area-inset-bottom))!important;height:58px!important;padding:4px!important;border-radius:17px!important;gap:2px!important;box-shadow:0 10px 28px rgba(0,0,0,.28)!important}
+  .vnextBottomNav button{border-radius:13px!important;font-size:9.5px!important;gap:1px!important}
+  .vnextBottomNav .vicon{font-size:18px!important}
+  body[data-primary-nav="Home"] #vnavHome,
+  body[data-primary-nav="Explore"] #vnavExplore,
+  body[data-primary-nav="Tutor"] #vnavTutor,
+  body[data-primary-nav="League"] #vnavLeague{box-shadow:inset 0 0 0 1px #344a69!important}
+}
+@media(max-width:430px){
+  .wrap{padding-left:10px!important;padding-right:10px!important}
+  .vnextHeroCore{padding:20px 15px 22px!important}
+  #heroHome.vnextHero h1{font-size:clamp(32px,10.5vw,40px)!important}
+  .vnextHeroText{font-size:13.5px!important}
+}
+
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
@@ -742,10 +795,10 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
     <div id="eqFriendRequests" style="margin-top:12px"></div>
   </div>
 </div></div><div class="top"><div class="wrap"><div class="mobileCompactTop" id="mobileCompactTop">
-  <button class="mobileBrand" onclick="mobileNavigate('Home')" aria-label="BatumHub home">BH</button>
-  <button class="mobileModePill" id="mobileModePill" onclick="toggleMobileMenu(true)">🇬🇧 English · B2 ▾</button>
-  <button class="mobileIconBtn" onclick="mobileNavigate('Messages')" aria-label="Messages">💬</button>
-  <button class="mobileIconBtn" onclick="toggleMobileMenu(true)" aria-label="Menu">☰</button>
+  <button class="mobileBrand" onclick="mobileNavigate('Home')" aria-label="BatumHub home">BATUM<span>HUB</span></button>
+  <span class="mobileHeaderSpacer" aria-hidden="true"></span>
+  <button class="mobileIconBtn" onclick="mobileNavigate('Messages')" aria-label="Messages" title="Messages">💬</button>
+  <button class="mobileIconBtn mobileSettingsBtn" onclick="toggleMobileMenu(true)" aria-label="Settings" title="Settings">⚙️</button>
 </div>
 <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
   <button class="mobileMenuBackdrop" onclick="toggleMobileMenu(false)" aria-label="Close menu"></button>
@@ -757,10 +810,14 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
       <label class="mobileField mobileTargetField"><span id="mobileLanguageLabel">🎯 I'm learning</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
     </div>
     <label class="mobileField"><span id="mobileLevelLabel">Level</span><select id="mobileLevelSelect" onchange="mobileSetLevel(this.value)"></select></label>
+    <button class="mobileQuickTestAction" onclick="toggleMobileMenu(false);openPlacementTest()">🧪 Quick level test</button>
     <div class="mobileQuickNav" id="mobileQuickNav"></div>
-    <label class="mobileField"><span id="mobileSectionLabel">More sections</span><select id="mobileSectionSelect" onchange="mobileOpenSection(this.value)"></select></label>
+    <label class="mobileField mobileAdvancedSection"><span id="mobileSectionLabel">More sections</span><select id="mobileSectionSelect" onchange="mobileOpenSection(this.value)"></select></label>
     <div class="mobileStatus" id="mobileStatus"></div>
-    <div class="mobileMenuActions"><button onclick="bhInstallApp()">📲 BatumHub</button><button onclick="openAccount();toggleMobileMenu(false)">👤 <span id="mobileAccountText">Account</span></button></div>
+    <div class="mobileMenuActions">
+      <button onclick="mobileNavigate('Settings')">⚙️ Personalize</button>
+      <button onclick="openAccount();toggleMobileMenu(false)">👤 <span id="mobileAccountText">Account</span></button>
+    </div>
   </div>
 </div>
 
@@ -1433,7 +1490,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='5.7';
+const BH_SITE_VERSION='5.9';
 const BH_SITE_UPDATED='2026-09-30T15:05:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
@@ -1448,6 +1505,7 @@ function bhRenderDate(){
 }
 async function bhLoadWeather(){
   let e=document.getElementById('bhWeather'),mini=document.getElementById('bhWeatherMini');if(!e&&!mini)return;
+  if(window.matchMedia&&window.matchMedia('(max-width:900px)').matches){if(e)e.textContent='';if(mini)mini.textContent='';return;}
   try{
     const url='https://api.open-meteo.com/v1/forecast?latitude=41.6168&longitude=41.6367&current=temperature_2m,weather_code&temperature_unit=celsius&timezone=Asia%2FTbilisi';
     const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('weather');
