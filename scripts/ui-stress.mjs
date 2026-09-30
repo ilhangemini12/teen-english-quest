@@ -67,6 +67,13 @@ try{
   }));
   assert(desktop55.rail!=='none'&&desktop55.railWidth>250&&desktop55.heroWidth>600,'Desktop v5.5 layout failed: '+JSON.stringify(desktop55));
   assert(desktop55.level.join('|')==='auto|A1|A2|B1|B2|C1'&&desktop55.quick!=='none','Desktop level/test controls failed: '+JSON.stringify(desktop55));
+  for(const native of ['tr','es','ka','ru','de','en','tr']){
+    await p.evaluate(n=>setNativeLanguage(n),native);
+    const saved=await p.evaluate(()=>localStorage.getItem('teq-native-language'));
+    assert(saved===native,'Native-language state mismatch: '+native+' -> '+saved);
+  }
+  const chunks57=await p.evaluate(()=>elifVoiceChunks(('Natural speech should stay smooth and within the local model limit. ').repeat(18)));
+  assert(chunks57.length>1&&chunks57.every(x=>x.length<=230),'Local voice chunks too long: '+JSON.stringify(chunks57));
   await p.evaluate(()=>openTab('ElifAI'));
   await p.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
   const voiceStress=await p.evaluate(()=>({
@@ -79,6 +86,14 @@ try{
   for(let i=0;i<12;i++){await p.evaluate(()=>{elifVoiceStopPractice(true);elifVoiceRenderSupport();elifVoicePrepareMode()})}
   await p.evaluate(()=>openTab('Home'));
   assert(pageErrors.length===0,'Voice Practice lifecycle caused page errors: '+pageErrors.join(' | '));
+  for(const mode of ['deep','rain','brown','ocean']){
+    await p.evaluate(m=>focusStartMode(m),mode);
+    const st=await p.evaluate(()=>({mode:focusMode,playing:focusPlaying}));
+    assert(st.mode===mode&&st.playing,'Focus mode failed '+mode+': '+JSON.stringify(st));
+    await p.evaluate(()=>focusStopAll());
+  }
+  const spotifyOk=await p.evaluate(()=>focusSpotifyEmbedUrl('https://open.spotify.com/album/1ATL5GLyefJaxhQzSPVrLX'));
+  assert(/\/embed\/album\//.test(spotifyOk),'Spotify embed URL sanitizer failed: '+spotifyOk);
   for(const value of ['A2','B1','auto']){
     await p.$eval('#desktopLevelSelect',(el,v)=>{el.value=v;el.dispatchEvent(new Event('change',{bubbles:true}))},value);
     await new Promise(r=>setTimeout(r,80));

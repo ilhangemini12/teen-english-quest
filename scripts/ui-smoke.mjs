@@ -72,6 +72,22 @@ try {
   }));
   assert(desktopV55.levelVisible&&desktopV55.levelOptions.join('|')==='auto|A1|A2|B1|B2|C1','Desktop level dropdown invalid: '+JSON.stringify(desktopV55));
   assert(desktopV55.testVisible&&desktopV55.railVisible&&desktopV55.railWidth>250&&desktopV55.heroWidth>600,'Desktop v5.5 layout not using available space: '+JSON.stringify(desktopV55));
+  const lang57=await page.evaluate(()=>({
+    native:document.getElementById('nativeLanguageSelect')?.value,
+    mobileNative:!!document.getElementById('mobileNativeLanguageSelect'),
+    homePill:!!document.getElementById('vnextHomePill'),
+    hasLocalVoice:typeof elifVoiceGetLocalTTS==='function',
+    chunks:elifVoiceChunks('This is a short natural voice sentence. '.repeat(12)),
+    focus:!!document.getElementById('focusPlayer'),
+    focusSpotify:focusSpotifyEmbedUrl('https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS')
+  }));
+  assert(lang57.native==='tr'&&lang57.mobileNative&&lang57.homePill,'v5.7 native-language/Home controls missing: '+JSON.stringify(lang57));
+  assert(lang57.hasLocalVoice,'Free local Kokoro voice engine missing');
+  assert(lang57.chunks.length>1&&lang57.chunks.every(x=>x.length<=230),'Local voice chunking exceeds safe size: '+JSON.stringify(lang57.chunks));
+  assert(lang57.focus&&/open\.spotify\.com\/embed\/playlist\//.test(lang57.focusSpotify),'Focus Player / Spotify embed sanitizer missing: '+JSON.stringify(lang57));
+  await page.$eval('#nativeLanguageSelect',(el)=>{el.value='ka';el.dispatchEvent(new Event('change',{bubbles:true}))});
+  await page.waitForFunction(()=>localStorage.getItem('teq-native-language')==='ka',{timeout:3000});
+  await page.evaluate(()=>setNativeLanguage('tr'));
   await page.$eval('#vnextQuickTestBtn',el=>el.click());
   await page.waitForSelector('#placementModal.open',{timeout:3000});
   await page.evaluate(()=>closePlacementTest());
@@ -85,6 +101,10 @@ try {
 
   await page.$eval('#vnavExplore',el=>el.click());
   await page.waitForFunction(()=>document.body.dataset.appTab==='Explore'&&document.body.dataset.primaryNav==='Explore',{timeout:4000});
+  await page.$eval('#vnextHomePill',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
+  await page.$eval('#vnavExplore',el=>el.click());
+  await page.waitForFunction(()=>document.body.dataset.appTab==='Explore',{timeout:4000});
   await page.$eval('#vnavHome',el=>el.click());
   await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
   await page.$eval('#vnextMessageButton',el=>el.click());
@@ -109,6 +129,12 @@ try {
   assert(voiceMode==='conversation','Voice Practice did not select Conversation mode: '+voiceMode);
   await page.evaluate(()=>openTab('Home'));
   await page.waitForFunction(()=>document.body.dataset.appTab==='Home',{timeout:4000});
+  await page.$eval('#focusFab',el=>el.click());
+  await page.waitForSelector('#focusPlayer.open',{timeout:3000});
+  await page.evaluate(()=>{focusStartMode('brown');focusSetVolume(22);focusSetTimer(25)});
+  const focusState=await page.evaluate(()=>({mode:focusMode,playing:focusPlaying,vol:localStorage.getItem('bh-focus-volume'),timer:focusTimerEnd>Date.now()}));
+  assert(focusState.mode==='brown'&&focusState.playing&&focusState.vol==='22'&&focusState.timer,'Focus Player state failed: '+JSON.stringify(focusState));
+  await page.evaluate(()=>{focusStopAll();focusSetTimer(0);toggleFocusPlayer(false)});
 
   // Spanish global mode. Use DOM click so the smoke test verifies the handler/state
   // without depending on headless Chrome's viewport hit-testing of the sticky header.

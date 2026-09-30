@@ -550,6 +550,69 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 }
 @media(max-width:1099px){.vnextDesktopRail{display:none}.vnextLearningBar{padding:9px 11px!important}.vnextControlLabel{display:none}}
 @media(max-width:720px){.vnextLearningBar{display:none!important}}
+
+/* ===== BATUMHUB v5.7 LANGUAGE JOURNEY + HOME ===== */
+.brandHomeButton{border:0;background:transparent;padding:7px 4px;cursor:pointer;font:inherit;text-align:left}
+.brandHomeButton:hover{transform:translateY(-1px)}
+.vnextHomePill{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 12px;border-radius:14px;border:1px solid #bcded8;background:linear-gradient(135deg,#f7fffd,#eef8ff);color:#293148;font-weight:900;cursor:pointer}
+.vnextHomePill:hover{border-color:#78c7bb;box-shadow:0 7px 18px rgba(50,93,116,.10)}
+
+.vnextLearningBar{isolation:isolate;position:relative;overflow:visible!important;background:
+  radial-gradient(circle at 5% 20%,rgba(90,208,190,.17),transparent 28%),
+  radial-gradient(circle at 73% 0%,rgba(127,133,255,.13),transparent 30%),
+  linear-gradient(135deg,#fbfbff 0%,#f5f2ff 44%,#effbf8 100%)!important;
+  border-color:#d8d6ec!important;box-shadow:0 10px 30px rgba(44,40,83,.075)!important}
+.vnextLearningBar:before,.vnextLearningBar:after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(.2px);pointer-events:none}
+.vnextLearningBar:before{width:10px;height:10px;left:18px;top:14px;background:#ffd76e;box-shadow:18px 16px 0 #8adfd0,36px -2px 0 #b9a7ff}
+.vnextLearningBar:after{width:7px;height:7px;right:24px;bottom:12px;background:#83d9ff;box-shadow:-17px -17px 0 #ffc987}
+
+.vnextLanguageControl{gap:12px!important}.vnextLanguageStory{display:flex;align-items:center;gap:11px;min-width:0;flex:1}
+.vnextNativeControl,.vnextTargetControl{display:flex;align-items:center;gap:8px;min-width:0}
+.vnextNativeControl{flex:0 0 auto;padding:6px 9px;border:1px solid #ded8eb;border-radius:14px;background:rgba(255,255,255,.76);box-shadow:0 5px 14px rgba(46,39,76,.05)}
+.vnextNativeControl>span,.vnextTargetControl>.vnextControlLabel{font-size:10px;font-weight:950;letter-spacing:.055em;text-transform:uppercase;color:#6f6881;white-space:nowrap}
+.vnextNativeControl select{height:34px;min-width:126px;border:0;background:#f5f2fa;color:#312c43;border-radius:10px;padding:0 28px 0 9px;font:850 12px/1 system-ui;cursor:pointer}
+.vnextJourneyArrow{font-size:20px;color:#8b84a3;font-weight:1000;filter:drop-shadow(0 3px 6px rgba(81,69,126,.12))}
+.vnextTargetControl{flex:1}.vnextTargetControl .languageFlags{flex:1}
+.vnextLearningBar .languageFlags button[data-lang="en"]{background:linear-gradient(135deg,#eef7ff,#ffffff)!important}
+.vnextLearningBar .languageFlags button[data-lang="es"]{background:linear-gradient(135deg,#fff4e8,#ffffff)!important}
+.vnextLearningBar .languageFlags button[data-lang="de"]{background:linear-gradient(135deg,#fff9de,#ffffff)!important}
+.vnextLearningBar .languageFlags button[data-lang="ru"]{background:linear-gradient(135deg,#f3efff,#ffffff)!important}
+.vnextLearningBar .languageFlags button.on{transform:translateY(-2px);border-color:#59cbbb!important;box-shadow:0 7px 18px rgba(39,91,98,.13)!important}
+.vnextCustomizeLangBtn{background:linear-gradient(135deg,#fff,#f4f0ff)!important;border-color:#d3cbea!important;color:#665c81!important}
+.vnextLevelControl{padding-left:4px;border-left:1px dashed #ddd6e9}
+.vnextQuickTestBtn{background:linear-gradient(135deg,#ecf7ff,#eef1ff)!important}
+.vnextLanguageCustomize{left:auto!important;right:12px!important}
+
+.mobileLanguageJourney{display:grid;grid-template-columns:1fr;gap:7px;padding:10px;border-radius:18px;background:linear-gradient(145deg,#f9f7ff,#eef9f6);border:1px solid #ddd8ea}
+.mobileJourneyArrow{text-align:center;font-size:17px;line-height:1;color:#8d84a2;font-weight:1000}
+.mobileNativeField,.mobileTargetField{margin:0!important}
+.mobileNativeField select,.mobileTargetField select{font-weight:850}
+#mobileModePill{background:linear-gradient(135deg,#f5fbff,#f6f0ff)!important;border-color:#b8d9df!important;color:#2d2b43!important;font-weight:900!important}
+.mobileMenuSheet{background:linear-gradient(180deg,#fbfaff 0%,#f7f5fb 60%,#eef9f7 100%)!important}
+.mobileQuickNav button.on{background:linear-gradient(135deg,#5dc8b1,#6e8cf6)!important;color:#fff!important;border-color:transparent!important}
+
+@media(max-width:1180px){
+  .vnextLearningBar{gap:10px!important}.vnextLanguageStory{gap:7px}.vnextNativeControl>span,.vnextTargetControl>.vnextControlLabel{display:none}.vnextNativeControl select{min-width:116px}.vnextCustomizeLangBtn{font-size:0!important;width:38px;padding:0!important}.vnextCustomizeLangBtn:before{content:"✨";font-size:15px}.vnextHomePill span{display:none}.vnextHomePill{width:42px;padding:0;justify-content:center}
+}
+@media(max-width:720px){
+  .vnextHomePill{display:grid!important;place-items:center}
+  .brandHomeButton{padding:4px 0}
+  .brandnav{gap:6px!important}
+  .mobileMenuSheet .mobileField select{min-height:46px;border-radius:13px}
+}
+
+/* ===== BATUMHUB FOCUS PLAYER ===== */
+.focusFab{position:fixed;z-index:89;right:18px;bottom:98px;display:flex;align-items:center;gap:7px;min-height:44px;padding:0 13px;border:1px solid #bfd7df;border-radius:999px;background:linear-gradient(135deg,#0d1d35,#17324f);color:#fff;font-weight:900;box-shadow:0 12px 30px rgba(8,20,40,.22);cursor:pointer}.focusFab:hover{transform:translateY(-1px)}.focusFab.playing{background:linear-gradient(135deg,#17634f,#2b6f91)}
+.focusPlayer{position:fixed;z-index:110;right:18px;bottom:154px;width:min(390px,calc(100vw - 28px));max-height:min(680px,calc(100dvh - 190px));overflow:auto;display:none;padding:14px;border:1px solid #d9d5e5;border-radius:22px;background:linear-gradient(165deg,#fff,#f7f5fb 58%,#eef9f7);color:#29263b;box-shadow:0 24px 70px rgba(24,20,45,.22);backdrop-filter:blur(18px)}.focusPlayer.open{display:block}
+.focusPlayerHead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.focusPlayerHead>div{display:flex;gap:9px}.focusPlayerHead b{display:block;font-size:15px}.focusPlayerHead small{display:block;margin-top:2px;color:#766f88;font-size:11px}.focusNowIcon{font-size:22px}.focusPlayerHead>button{width:34px;height:34px;border:1px solid #ddd8e7;border-radius:11px;background:#fff;color:#5a536d;cursor:pointer}
+.focusModes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.focusModes button{min-height:44px;border:1px solid #ddd7e7;border-radius:13px;background:#fff;color:#3a354b;font-weight:850;cursor:pointer}.focusModes button.on{background:linear-gradient(135deg,#dff7f0,#e7ecff);border-color:#70cbbb;color:#244c49}
+.focusTransport{display:grid;grid-template-columns:40px 54px 40px 1fr;align-items:center;gap:8px;margin-top:12px;padding:10px;border:1px solid #e0dbea;border-radius:15px;background:rgba(255,255,255,.72)}.focusTransport button{height:38px;border:1px solid #ddd8e7;border-radius:11px;background:#fff;cursor:pointer}.focusPlayBtn{font-size:18px!important;background:#182842!important;color:#fff!important;border-color:#182842!important}.focusTransport label{display:flex;align-items:center;gap:6px;font-size:11px}.focusTransport input[type="range"]{width:100%}
+.focusTimerRow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:#6f687f}.focusTimerRow>span{font-weight:900;color:#3b354c}.focusTimerRow button{border:1px solid #ddd7e6;border-radius:999px;background:#fff;padding:6px 8px;cursor:pointer;font-weight:800}.focusTimerRow b{margin-left:auto;color:#4b4560}
+.focusLocal{margin-top:12px;padding:11px;border:1px dashed #cfc7dd;border-radius:15px;background:rgba(255,255,255,.62)}.focusLocal>button{border:1px solid #c7d7f1;background:#eef5ff;color:#315477;border-radius:11px;padding:8px 10px;font-weight:850;cursor:pointer}.focusLocal small{display:block;margin-top:6px;color:#797187;font-size:9.5px}.focusLocalList{display:grid;gap:5px;margin-top:8px}.focusTrack{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 8px;border-radius:10px;background:#fff;border:1px solid #e3deea;font-size:11px;cursor:pointer}.focusTrack.on{border-color:#6ecab9;background:#edfaf6}.focusTrack span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.focusSpotify{margin-top:12px;border-top:1px solid #e3ddea;padding-top:10px}.focusSpotify summary{cursor:pointer;font-weight:900;font-size:12px}.focusSpotify p{font-size:9.5px;color:#776f86}.focusSpotify>div{display:flex;gap:6px}.focusSpotify input{min-width:0;flex:1;height:36px;border:1px solid #ddd7e6;border-radius:10px;padding:0 9px}.focusSpotify button{border:1px solid #b9d7c8;background:#eaf8f0;border-radius:10px;padding:0 10px;font-weight:850;cursor:pointer}.focusSpotify iframe{width:100%;height:152px;border:0;border-radius:12px;margin-top:8px}
+@media(max-width:720px){.focusFab{right:12px;bottom:94px;width:46px;height:46px;padding:0;justify-content:center}.focusFab span{display:none}.focusPlayer{left:10px;right:10px;bottom:152px;width:auto;max-height:64dvh;border-radius:20px}.focusModes{grid-template-columns:1fr 1fr}.focusTransport{grid-template-columns:38px 50px 38px 1fr}}
+
+.elifStudyTools{display:grid;gap:7px}.elifStudyTools p{margin:0;color:var(--muted);font-size:10px;line-height:1.4}.elifStudyTools button{min-height:36px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font-weight:850;cursor:pointer}.elifStudyTools button:first-of-type{background:linear-gradient(135deg,#eaf9f4,#eef1ff)}.elifStudyTools input{width:100%;height:36px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);padding:0 9px;font-size:10px}.elifStudyTools small{color:var(--muted);font-size:9px;line-height:1.35}
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
@@ -649,7 +712,11 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <button class="mobileMenuBackdrop" onclick="toggleMobileMenu(false)" aria-label="Close menu"></button>
   <div class="mobileMenuSheet">
     <div class="mobileMenuHead"><b id="mobileMenuTitle">BatumHub</b><button onclick="toggleMobileMenu(false)">✕</button></div>
-    <label class="mobileField"><span id="mobileLanguageLabel">Language</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
+    <div class="mobileLanguageJourney">
+      <label class="mobileField mobileNativeField"><span id="mobileNativeLabel">🌍 My language</span><select id="mobileNativeLanguageSelect" onchange="mobileSetNativeLanguage(this.value)"><option value="tr">🇹🇷 Türkçe</option><option value="es">🇪🇸 Español</option><option value="ka">🇬🇪 ქართული</option><option value="ru">🇷🇺 Русский</option><option value="de">🇩🇪 Deutsch</option><option value="en">🇬🇧 English</option></select></label>
+      <div class="mobileJourneyArrow">↓</div>
+      <label class="mobileField mobileTargetField"><span id="mobileLanguageLabel">🎯 I'm learning</span><select id="mobileLanguageSelect" onchange="mobileSetLanguage(this.value)"><option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option><option value="ru">🇷🇺 Русский</option></select></label>
+    </div>
     <label class="mobileField"><span id="mobileLevelLabel">Level</span><select id="mobileLevelSelect" onchange="mobileSetLevel(this.value)"></select></label>
     <div class="mobileQuickNav" id="mobileQuickNav"></div>
     <label class="mobileField"><span id="mobileSectionLabel">More sections</span><select id="mobileSectionSelect" onchange="mobileOpenSection(this.value)"></select></label>
@@ -660,16 +727,32 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 
 <div class="languageBar languageBarTop vnextLearningBar" id="languageBar">
   <div class="vnextLanguageControl">
-    <span class="vnextControlLabel">Learning language</span>
-    <div class="languageFlags" id="languageFlags">
-      <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
-      <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
-      <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
-      <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+    <div class="vnextLanguageStory">
+      <label class="vnextNativeControl">
+        <span>🌍 I speak</span>
+        <select id="nativeLanguageSelect" onchange="setNativeLanguage(this.value)" aria-label="My language">
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="ka">🇬🇪 ქართული</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </label>
+      <span class="vnextJourneyArrow" aria-hidden="true">→</span>
+      <div class="vnextTargetControl">
+        <span class="vnextControlLabel">🎯 I'm learning</span>
+        <div class="languageFlags" id="languageFlags">
+          <button data-lang="en" onclick="setLearningLanguage('en')" aria-label="English">🇬🇧 <span>English</span></button>
+          <button data-lang="es" onclick="setLearningLanguage('es')" aria-label="Español">🇪🇸 <span>Español</span></button>
+          <button data-lang="de" onclick="setLearningLanguage('de')" aria-label="Deutsch">🇩🇪 <span>Deutsch</span></button>
+          <button data-lang="ru" onclick="setLearningLanguage('ru')" aria-label="Русский">🇷🇺 <span>Русский</span></button>
+        </div>
+      </div>
     </div>
-    <button class="vnextCustomizeLangBtn" id="vnextCustomizeLangBtn" onclick="toggleTopLanguageCustomize()" aria-expanded="false" title="Customize visible languages">⚙ Customize</button>
+    <button class="vnextCustomizeLangBtn" id="vnextCustomizeLangBtn" onclick="toggleTopLanguageCustomize()" aria-expanded="false" title="Customize visible languages">✨ Customize</button>
     <div class="vnextLanguageCustomize" id="vnextLanguageCustomize" aria-hidden="true">
-      <b>Show in the top bar</b>
+      <b>Show learning languages</b>
       <label><input type="checkbox" data-top-lang="es" onchange="setTopLanguageVisible('es',this.checked)"> Español</label>
       <label><input type="checkbox" data-top-lang="de" onchange="setTopLanguageVisible('de',this.checked)"> Deutsch</label>
       <label><input type="checkbox" data-top-lang="ru" onchange="setTopLanguageVisible('ru',this.checked)"> Русский</label>
@@ -685,7 +768,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <div class="languageLevels vnextLegacyLevelChips" id="languageLevelChips" aria-hidden="true"></div>
 </div>
 <nav class="brandnav">
-  <b class="brandWord">BATUM<span>HUB</span></b>
+  <button class="brandWord brandHomeButton" onclick="navigateAppTab('Home',null,'push')" aria-label="BatumHub home">BATUM<span>HUB</span></button>
+  <button class="profilebtn vnextHomePill" id="vnextHomePill" onclick="navigateAppTab('Home',null,'push')" title="Home">🏠 <span>BatumHub</span></button>
   <button class="vnextHeaderIcon" id="vnextMessageButton" onclick="navigateAppTab(document.body.dataset.appTab==='Messages'?'Home':'Messages',null,'push')" title="Messages" aria-label="Messages">💬</button>
   <button class="profilebtn installAppBtn" id="bhInstallButton" style="display:none" onclick="bhInstallApp()" title="Install BatumHub">📲 <span>Install</span></button>
   <button class="profilebtn vnextAccountBtn" id="eqAccountButton" onclick="openVnextAccountMenu()" aria-label="Account">👤 <span>Account</span></button>
@@ -700,7 +784,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
   <button class="profileStatusPill" id="bhLearningProfile" onclick="openTab('Settings')" title="Learning profile">🎓 <b>Learning profile</b></button>
-  <span class="versionTop">⚙️ <b id="bhVersion">v5.6</b></span>
+  <span class="versionTop">⚙️ <b id="bhVersion">v5.7</b></span>
   <span>🕒 <b id="bhUpdated">—</b></span>
 </div>
 <div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero vnextHero" id="heroHome">
@@ -1036,11 +1120,12 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
         <button type="button" class="elifVoiceStop" id="elifVoiceStop" onclick="elifVoiceStopPractice()" disabled>■ Stop</button>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceHandsFree" checked onchange="elifVoiceSaveSettings()"> Hands-free</label>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceAutoSpeak" checked onchange="elifVoiceSaveSettings()"> Read replies aloud</label>
-        <label class="elifVoiceRate">Voice speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.82">Slow</option><option value="0.94" selected>Natural</option><option value="1.04">Fast</option></select></label>
+        <label class="elifVoiceRate">Voice <select id="elifVoicePersona" onchange="elifVoiceSaveSettings()"><option value="af_heart" selected>Heart · US</option><option value="af_bella">Bella · US</option><option value="af_sarah">Sarah · US</option><option value="bf_emma">Emma · UK</option><option value="bm_fable">Fable · UK</option></select></label>
+        <label class="elifVoiceRate">Speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.88">Calm</option><option value="0.96" selected>Natural</option><option value="1.05">Fast</option></select></label>
       </div>
       <div class="elifVoiceLive" id="elifVoiceLive"><span class="elifVoiceDot"></span><span id="elifVoiceState">Ready for an English conversation.</span></div>
       <div class="elifVoiceTranscript" id="elifVoiceTranscript" aria-live="polite">Your speech transcript will appear here before it is sent.</div>
-      <small class="elifVoicePrivacy">Microphone audio is handled by your browser's speech service. BatumHub does not save the audio recording; only the resulting text can enter this browser-session AI chat.</small>
+      <small class="elifVoicePrivacy">Speech recognition is handled by your browser. Natural reply audio uses a local Kokoro model after a one-time model download (about 90 MB) and then runs on your device. BatumHub does not save microphone audio.</small>
     </section>
     <div class="elifAiChat" id="elifAiChat" aria-live="polite"></div>
     <div class="elifAiActions" aria-label="Quick learning actions">
@@ -1048,7 +1133,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
       <button type="button" onclick="elifAiAction('correct')">Correct my English</button>
       <button type="button" onclick="elifAiAction('examples')">Give 3 examples</button>
       <button type="button" onclick="elifAiAction('quiz')">Quiz me</button>
-      <button type="button" onclick="elifAiAction('turkish')">Translate to Turkish</button>
+      <button type="button" onclick="elifAiAction('native')">Explain in my language</button>
     </div>
     <div class="elifAiComposer">
       <textarea id="elifAiInput" maxlength="2500" placeholder="Write in English… Ask a question, practice a conversation, or paste a short paragraph to improve." onkeydown="elifAiKey(event)"></textarea>
@@ -1077,6 +1162,15 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
     <div class="elifAiQuota" id="elifAiQuota">Free allowance: up to 40 AI requests per day.</div>
     <div class="elifAiTip"><b>Best results</b><br>Try: “Correct this paragraph and explain my 3 biggest mistakes.”<br><br>Or: “Talk with me in B2 English about movies. Correct only important mistakes.”</div>
     <div class="elifAiTip"><b>Privacy</b><br>This first version keeps the conversation only for the current browser session. Do not share passwords, addresses, phone numbers or other sensitive personal information with AI.</div>
+    <div class="elifAiTip elifStudyTools">
+      <b>📚 Study tools</b>
+      <p>Keep BatumHub as the home base while using your favorite study tools.</p>
+      <button type="button" onclick="toggleFocusPlayer(true)">🎵 Open Focus Player</button>
+      <button type="button" onclick="openGeminiNotebook()">🧠 Open Gemini Notebook</button>
+      <input id="geminiNotebookUrl" placeholder="Optional: paste your notebook link" autocomplete="off">
+      <button type="button" onclick="saveGeminiNotebookLink()">Save notebook link</button>
+      <small>Gemini Notebook opens separately because Google does not provide a general embeddable Notebook web API for this page.</small>
+    </div>
   </aside>
 </div>
 </section>
@@ -1315,8 +1409,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='5.6';
-const BH_SITE_UPDATED='2026-09-30T11:10:00+04:00';
+const BH_SITE_VERSION='5.7';
+const BH_SITE_UPDATED='2026-09-30T12:20:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -1600,7 +1694,7 @@ async function eqLoadCloudPrefs(){
   if(!eqUser)return;
   const {data}=await eqSupa.from('user_preferences').select('*').eq('user_id',eqUser.id).single();
   if(!data)return;
-  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);if(data.grade_level)localStorage.setItem('teq-grade',String(data.grade_level));if(data.english_level)localStorage.setItem('teq-english-level',data.english_level);if(data.ui_preset)localStorage.setItem('teq-ui-preset',data.ui_preset);if(data.device_presets&&typeof data.device_presets==='object')localStorage.setItem('teq-device-presets',JSON.stringify(data.device_presets));if(typeof data.kid_hints==='boolean')localStorage.setItem('teq-kid-hints',data.kid_hints?'1':'0');if(data.active_language)localStorage.setItem('teq-active-language',data.active_language);if(data.language_levels&&typeof data.language_levels==='object')localStorage.setItem('teq-language-levels',JSON.stringify(data.language_levels));localStorage.setItem('teq-presence',data.presence_mode||'online');if(Array.isArray(data.widgets)&&data.widgets.length)localStorage.setItem('teq-widgets',JSON.stringify(data.widgets));if(!localStorage.getItem('teq-ui-v4-clean')){
+  localStorage.setItem('teq-theme',data.theme||'dark');localStorage.setItem('teq-font',data.font||'system');localStorage.setItem('teq-density',data.density||'comfortable');localStorage.setItem('teq-nav',data.nav_mode||'both');localStorage.setItem('teq-interests',JSON.stringify(data.interests||[]));if(Array.isArray(data.pinned_tabs)&&data.pinned_tabs.length)localStorage.setItem('teq-pinned-tabs',JSON.stringify(data.pinned_tabs));if(data.home_focus)localStorage.setItem('teq-home-focus',data.home_focus);if(data.grade_level)localStorage.setItem('teq-grade',String(data.grade_level));if(data.english_level)localStorage.setItem('teq-english-level',data.english_level);if(data.ui_preset)localStorage.setItem('teq-ui-preset',data.ui_preset);if(data.device_presets&&typeof data.device_presets==='object')localStorage.setItem('teq-device-presets',JSON.stringify(data.device_presets));if(typeof data.kid_hints==='boolean')localStorage.setItem('teq-kid-hints',data.kid_hints?'1':'0');if(data.active_language)localStorage.setItem('teq-active-language',data.active_language);if(data.native_language&&NATIVE_LANGUAGES[data.native_language])localStorage.setItem('teq-native-language',data.native_language);if(data.language_levels&&typeof data.language_levels==='object')localStorage.setItem('teq-language-levels',JSON.stringify(data.language_levels));localStorage.setItem('teq-presence',data.presence_mode||'online');if(Array.isArray(data.widgets)&&data.widgets.length)localStorage.setItem('teq-widgets',JSON.stringify(data.widgets));if(!localStorage.getItem('teq-ui-v4-clean')){
   localStorage.setItem('teq-theme','dark');
   localStorage.setItem('teq-density','compact');
   localStorage.setItem('teq-font','system');
@@ -1609,12 +1703,13 @@ async function eqLoadCloudPrefs(){
   localStorage.setItem('teq-home-focus','balanced');
   localStorage.setItem('teq-ui-v4-clean','1');
 }
+
 renderSettings();renderAppTabs();renderWidgets();applyGradeExperience();
 }
 async function eqSaveCloudPrefs(){
   if(!eqUser||!eqSupa)return;
-  let interests=JSON.parse(localStorage.getItem('teq-interests')||'[]'),grade=Number(localStorage.getItem('teq-grade')||0)||null,widgets=getWidgets(),presence=localStorage.getItem('teq-presence')||'online',english_level=storedEnglishLevel(),ui_preset=currentSpacePreset(),device_presets=getDevicePresets(),kid_hints=kidHintsEnabled(),active_language=currentLearningLanguage(),language_levels=getLanguageLevels();
-  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','compact'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',grade_level:grade,english_level,ui_preset,device_presets,kid_hints,active_language,language_levels,presence_mode:presence,widgets,updated_at:new Date().toISOString()});
+  let interests=JSON.parse(localStorage.getItem('teq-interests')||'[]'),grade=Number(localStorage.getItem('teq-grade')||0)||null,widgets=getWidgets(),presence=localStorage.getItem('teq-presence')||'online',english_level=storedEnglishLevel(),ui_preset=currentSpacePreset(),device_presets=getDevicePresets(),kid_hints=kidHintsEnabled(),active_language=currentLearningLanguage(),native_language=currentNativeLanguage(),language_levels=getLanguageLevels();
+  await eqSupa.from('user_preferences').upsert({user_id:eqUser.id,theme:pref('theme','dark'),font:pref('font','system'),density:pref('density','compact'),nav_mode:pref('nav','both'),interests,pinned_tabs:getPinnedTabs(),home_focus:localStorage.getItem('teq-home-focus')||'balanced',grade_level:grade,english_level,ui_preset,device_presets,kid_hints,active_language,native_language,language_levels,presence_mode:presence,widgets,updated_at:new Date().toISOString()});
 }
 async function eqRefreshLeague(){
   let list=document.getElementById('rankList');if(!list)return;
@@ -2827,6 +2922,33 @@ const LEARNING_LANGUAGES={
   de:{flag:'🇩🇪',name:'German',native:'Deutsch',speak:'Deutsch'},
   ru:{flag:'🇷🇺',name:'Russian',native:'Русский',speak:'русский'}
 };
+const NATIVE_LANGUAGES={
+  tr:{flag:'🇹🇷',name:'Turkish',native:'Türkçe'},
+  es:{flag:'🇪🇸',name:'Spanish',native:'Español'},
+  ka:{flag:'🇬🇪',name:'Georgian',native:'ქართული'},
+  ru:{flag:'🇷🇺',name:'Russian',native:'Русский'},
+  de:{flag:'🇩🇪',name:'German',native:'Deutsch'},
+  en:{flag:'🇬🇧',name:'English',native:'English'}
+};
+function currentNativeLanguage(){
+  let v=localStorage.getItem('teq-native-language')||'tr';
+  return NATIVE_LANGUAGES[v]?v:'tr';
+}
+function currentNativeLanguageInfo(){return NATIVE_LANGUAGES[currentNativeLanguage()]||NATIVE_LANGUAGES.tr}
+async function setNativeLanguage(code){
+  if(!NATIVE_LANGUAGES[code])return;
+  localStorage.setItem('teq-native-language',code);
+  renderNativeLanguageControls();
+  renderMobileChrome();
+  if(typeof renderSettings==='function')renderSettings();
+  await eqSaveCloudPrefs();
+}
+function renderNativeLanguageControls(){
+  let code=currentNativeLanguage();
+  let desktop=document.getElementById('nativeLanguageSelect'),mobile=document.getElementById('mobileNativeLanguageSelect');
+  if(desktop)desktop.value=code;
+  if(mobile)mobile.value=code;
+}
 const LANGUAGE_RESOURCES={
   es:[
     {icon:'🏛️',name:'Instituto Cervantes · AVE',url:'https://cvc.cervantes.es/ensenanza/actividades_ave/',desc:'Official CEFR-organized Spanish activities from A1 through C1.',tags:'grammar · pronunciation · interactive'},
@@ -2910,9 +3032,11 @@ function renderLanguageSwitcher(){
     desktop.value=cur;
   }
   let bar=document.getElementById('languageBar');if(bar)bar.dataset.language=lang;
+  renderNativeLanguageControls();
   renderTopLanguageVisibility();
   applyLanguageExperience();
   renderDesktopHomeRail();
+  renderMobileChrome();
 }
 function applyLanguageExperience(){
   let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),g=currentGrade();
@@ -3117,7 +3241,7 @@ function applyGlobalLocale(){
   let ui=localeUI(),lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang];
   document.documentElement.lang=lang;
   let acc=document.getElementById('eqAccountButton');if(acc)acc.textContent='👤 '+(eqProfile?eqProfile.nickname:ui.account);
-  let install=document.getElementById('bhInstallButton');if(install)install.textContent='📲 '+ui.install;
+  let install=document.getElementById('bhInstallButton');if(install)install.innerHTML='📲 <span>Install</span>';
   renderCoreNav();renderAppTabs();bhRenderDate();bhLoadWeather();
   let live=document.querySelector('#heroHome .livepill');if(live)live.innerHTML='<i></i> '+ui.live;
   let title=document.querySelector('#heroHome h1'),lead=document.querySelector('#heroHome .lead');
@@ -3282,23 +3406,24 @@ showAppTab=function(name,btn){
 /* ===== V5.2 MOBILE COMPACT NAV ===== */
 function mobileLabels(){
   let l=currentLearningLanguage();
-  if(l==='es')return {language:'Idioma',level:'Nivel',sections:'Más secciones',account:'Cuenta'};
-  if(l==='de')return {language:'Sprache',level:'Niveau',sections:'Weitere Bereiche',account:'Konto'};
-  if(l==='ru')return {language:'Язык',level:'Уровень',sections:'Другие разделы',account:'Аккаунт'};
-  return {language:'Language',level:'Level',sections:'More sections',account:'Account'};
+  if(l==='es')return {native:'Mi idioma',language:'Estoy aprendiendo',level:'Nivel',sections:'Más secciones',account:'Cuenta'};
+  if(l==='de')return {native:'Meine Sprache',language:'Ich lerne',level:'Niveau',sections:'Weitere Bereiche',account:'Konto'};
+  if(l==='ru')return {native:'Мой язык',language:'Я изучаю',level:'Уровень',sections:'Другие разделы',account:'Аккаунт'};
+  return {native:'My language',language:"I'm learning",level:'Level',sections:'More sections',account:'Account'};
 }
 function renderMobileChrome(){
   let pill=document.getElementById('mobileModePill');if(!pill)return;
-  let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),labels=mobileLabels();
-  pill.textContent=info.flag+' '+info.native+' · '+level+' ▾';
+  let lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang],level=currentLanguageLevel(),labels=mobileLabels(),nativeInfo=currentNativeLanguageInfo();
+  pill.textContent='🌍 '+nativeInfo.flag+' → 🎯 '+info.flag+' '+info.native+' · '+level+' ▾';
+  let ns=document.getElementById('mobileNativeLanguageSelect');if(ns)ns.value=currentNativeLanguage();
   let ls=document.getElementById('mobileLanguageSelect');if(ls)ls.value=lang;
   let levelBox=document.getElementById('mobileLevelSelect');if(levelBox){
     let opts=lang==='en'?['auto','A1','A2','B1','B2','C1']:['A1','A2','B1','B2','C1'];
     levelBox.innerHTML=opts.map(v=>'<option value="'+v+'">'+(v==='auto'?localeUI().auto:v)+'</option>').join('');
     levelBox.value=lang==='en'?storedEnglishLevel():level;
   }
-  let l1=document.getElementById('mobileLanguageLabel'),l2=document.getElementById('mobileLevelLabel'),l3=document.getElementById('mobileSectionLabel'),acct=document.getElementById('mobileAccountText');
-  if(l1)l1.textContent=labels.language;if(l2)l2.textContent=labels.level;if(l3)l3.textContent=labels.sections;if(acct)acct.textContent=labels.account;
+  let ln=document.getElementById('mobileNativeLabel'),l1=document.getElementById('mobileLanguageLabel'),l2=document.getElementById('mobileLevelLabel'),l3=document.getElementById('mobileSectionLabel'),acct=document.getElementById('mobileAccountText');
+  if(ln)ln.textContent='🌍 '+labels.native;if(l1)l1.textContent='🎯 '+labels.language;if(l2)l2.textContent=labels.level;if(l3)l3.textContent=labels.sections;if(acct)acct.textContent=labels.account;
   let ui=localeUI(),active=localStorage.getItem('teq-active-tab')||'Home',quick=document.getElementById('mobileQuickNav');
   if(quick)quick.innerHTML=[['Home','🏠',ui.home],['Learn','📘',ui.learn],['Messages','💬',ui.messages],['Settings','🎛️',ui.personalize]].map(r=>'<button class="'+(active===r[0]?'on':'')+'" onclick="mobileNavigate(\''+r[0]+'\')">'+r[1]+' '+r[2]+'</button>').join('');
   let sec=document.getElementById('mobileSectionSelect');if(sec){
@@ -3313,6 +3438,7 @@ function toggleMobileMenu(on){
   let m=document.getElementById('mobileMenu');if(!m)return;let open=on===undefined?!m.classList.contains('open'):!!on;
   m.classList.toggle('open',open);m.setAttribute('aria-hidden',open?'false':'true');document.body.classList.toggle('mobileMenuOpen',open);if(open)renderMobileChrome();
 }
+async function mobileSetNativeLanguage(code){await setNativeLanguage(code);renderMobileChrome()}
 async function mobileSetLanguage(code){await setLearningLanguage(code);renderMobileChrome()}
 async function mobileSetLevel(level){await setTargetLanguageLevel(level);renderMobileChrome()}
 function mobileNavigate(tab){toggleMobileMenu(false);navigateAppTab(tab,null,'push');renderMobileChrome()}
@@ -3867,7 +3993,7 @@ function elifAiAction(type){
     correct:'Please correct my most recent English message. Show the improved version first, then explain the 1–3 most useful corrections.',
     examples:'Please give me 3 short, natural English examples related to what we were just discussing.',
     quiz:'Quiz me on what we were just discussing. Ask one question at a time and wait for my answer before revealing the answer.',
-    turkish:'Please translate or explain the key point from your last answer in concise Turkish, then give the most important English phrase again.'
+    native:'Please explain the key point from your last answer briefly in '+currentNativeLanguageInfo().name+', then give the most important English phrase again.'
   };
   elifAiSend(prompts[type]||prompts.simple);
 }
@@ -3879,21 +4005,23 @@ function elifAiKey(event){
 
 /* ===== ELIF AI VOICE PRACTICE ===== */
 const ELIF_VOICE_SETTINGS='batumhub-elif-voice-settings-v1';
-let elifVoiceRecognition=null,elifVoiceActive=false,elifVoiceListening=false,elifVoiceSpeaking=false,elifVoiceFinalCaptured=false;
+let elifVoiceRecognition=null,elifVoiceActive=false,elifVoiceListening=false,elifVoiceSpeaking=false,elifVoiceFinalCaptured=false,elifVoiceAudio=null,elifVoiceSpeakSeq=0,elifLocalTTS=null,elifLocalTTSLoading=null;
 function elifVoiceRecognitionCtor(){return window.SpeechRecognition||window.webkitSpeechRecognition||null}
 function elifVoiceCapabilities(){return {recognition:!!elifVoiceRecognitionCtor(),synthesis:!!(window.speechSynthesis&&window.SpeechSynthesisUtterance),secure:!!window.isSecureContext}}
 function elifVoiceHandsFreeEnabled(){let e=document.getElementById('elifVoiceHandsFree');return !e||e.checked}
 function elifVoiceAutoSpeakEnabled(){let e=document.getElementById('elifVoiceAutoSpeak');return !e||e.checked}
-function elifVoiceRateValue(){let e=document.getElementById('elifVoiceRate'),n=Number(e&&e.value);return Number.isFinite(n)?Math.min(1.12,Math.max(.72,n)):.94}
+function elifVoiceRateValue(){let e=document.getElementById('elifVoiceRate'),n=Number(e&&e.value);return Number.isFinite(n)?Math.min(1.15,Math.max(.8,n)):.96}
+function elifVoicePersonaValue(){let e=document.getElementById('elifVoicePersona'),v=e?e.value:'af_heart';return ['af_heart','af_bella','af_sarah','bf_emma','bm_fable'].includes(v)?v:'af_heart'}
 function elifVoiceSaveSettings(){
-  try{localStorage.setItem(ELIF_VOICE_SETTINGS,JSON.stringify({handsFree:elifVoiceHandsFreeEnabled(),autoSpeak:elifVoiceAutoSpeakEnabled(),rate:elifVoiceRateValue()}))}catch(e){}
+  try{localStorage.setItem(ELIF_VOICE_SETTINGS,JSON.stringify({handsFree:elifVoiceHandsFreeEnabled(),autoSpeak:elifVoiceAutoSpeakEnabled(),rate:elifVoiceRateValue(),voice:elifVoicePersonaValue()}))}catch(e){}
 }
 function elifVoiceLoadSettings(){
   try{
-    let x=JSON.parse(localStorage.getItem(ELIF_VOICE_SETTINGS)||'{}'),h=document.getElementById('elifVoiceHandsFree'),a=document.getElementById('elifVoiceAutoSpeak'),r=document.getElementById('elifVoiceRate');
+    let x=JSON.parse(localStorage.getItem(ELIF_VOICE_SETTINGS)||'{}'),h=document.getElementById('elifVoiceHandsFree'),a=document.getElementById('elifVoiceAutoSpeak'),r=document.getElementById('elifVoiceRate'),v=document.getElementById('elifVoicePersona');
     if(h&&typeof x.handsFree==='boolean')h.checked=x.handsFree;
     if(a&&typeof x.autoSpeak==='boolean')a.checked=x.autoSpeak;
     if(r&&Number.isFinite(Number(x.rate)))r.value=String(x.rate);
+    if(v&&['af_heart','af_bella','af_sarah','bf_emma','bm_fable'].includes(x.voice))v.value=x.voice;
   }catch(e){}
 }
 function elifVoiceSetState(state,text){
@@ -3911,9 +4039,8 @@ function elifVoiceRenderSupport(){
   let e=document.getElementById('elifVoiceSupport');if(!e)return;
   let c=elifVoiceCapabilities(),start=document.getElementById('elifVoiceStart');
   if(!c.secure){e.textContent='HTTPS required';e.title='Microphone recognition requires a secure page.'}
-  else if(!c.recognition){e.textContent=c.synthesis?'Listen only':'Voice unavailable';e.title='This browser does not expose speech recognition. You can still use the speaker buttons on AI replies.'}
-  else if(!c.synthesis){e.textContent='Mic only';e.title='Speech recognition is available, but spoken AI replies are not supported here.'}
-  else{e.textContent='Mic + voice ready';e.title='Voice conversation is supported in this browser.'}
+  else if(!c.recognition){e.textContent='Local voice · listen only';e.title='This browser does not expose speech recognition. Local Kokoro reply audio can still be used.'}
+  else{e.textContent=elifLocalTTS?'✨ Local natural voice ready':'⬇ Local voice on first use';e.title='Kokoro runs on your device. The first natural-voice use downloads the model once; no per-call API fee.'}
   if(start&&!elifVoiceListening&&!elifAiBusy&&!elifVoiceSpeaking)start.disabled=!c.recognition;
 }
 function elifVoicePrepareMode(){
@@ -3986,7 +4113,8 @@ function elifVoiceAbortRecognition(){
   elifVoiceListening=false;
 }
 function elifVoiceStopPractice(silent=false){
-  elifVoiceActive=false;elifVoiceAbortRecognition();
+  elifVoiceActive=false;elifVoiceAbortRecognition();elifVoiceSpeakSeq++;
+  if(elifVoiceAudio){try{elifVoiceAudio.pause();elifVoiceAudio.src=''}catch(e){}elifVoiceAudio=null}
   if(window.speechSynthesis){try{window.speechSynthesis.cancel()}catch(e){}}
   elifVoiceSpeaking=false;elifVoiceFinalCaptured=false;
   if(!silent)elifVoiceTranscript('',false);
@@ -3997,34 +4125,167 @@ function elifVoicePickVoice(){
   let voices=window.speechSynthesis.getVoices()||[];
   return voices.find(v=>String(v.lang).toLowerCase()==='en-us')||voices.find(v=>String(v.lang).toLowerCase().startsWith('en-'))||null;
 }
-function elifVoiceSpeak(text,resumeListening=false){
-  let clean=elifVoicePlainText(text);if(!clean)return;
-  let c=elifVoiceCapabilities();
-  if(!c.synthesis){
-    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),300);
-    return;
+function elifVoiceChunks(text,max=230){
+  let clean=elifVoicePlainText(text),sentences=clean.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[clean],out=[],buf='';
+  for(let sentence of sentences){
+    sentence=sentence.trim();if(!sentence)continue;
+    if(sentence.length<=max&&(!buf||buf.length+1+sentence.length<=max)){buf+=(buf?' ':'')+sentence;continue}
+    if(buf){out.push(buf);buf=''}
+    if(sentence.length<=max){buf=sentence;continue}
+    let words=sentence.split(/\s+/),part='';
+    for(let word of words){
+      if(part&&part.length+1+word.length>max){out.push(part);part=word}else part+=(part?' ':'')+word;
+    }
+    if(part)buf=part;
   }
-  elifVoiceAbortRecognition();
-  try{window.speechSynthesis.cancel()}catch(e){}
-  let u=new window.SpeechSynthesisUtterance(clean);u.lang='en-US';u.rate=elifVoiceRateValue();u.pitch=1;
-  let v=elifVoicePickVoice();if(v)u.voice=v;
-  u.onstart=()=>{elifVoiceSpeaking=true;elifVoiceSetState('speaking','Elif is speaking…')};
-  u.onend=()=>{
-    elifVoiceSpeaking=false;
-    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
-    else elifVoiceSetState('ready',elifVoiceActive?'Your turn. Tap Speak when ready.':'Ready for an English conversation.');
-  };
-  u.onerror=()=>{
-    elifVoiceSpeaking=false;
-    if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
-    else elifVoiceSetState('ready','Voice playback stopped. You can continue by text or microphone.');
-  };
-  window.speechSynthesis.speak(u);
+  if(buf)out.push(buf);
+  return out.filter(Boolean).slice(0,10);
+}
+function elifVoiceProgressText(p){
+  let support=document.getElementById('elifVoiceSupport');if(!support)return;
+  let n=Number(p&&p.progress);
+  if(Number.isFinite(n))support.textContent='⬇ Local voice '+Math.max(0,Math.min(100,Math.round(n)))+'%';
+  else support.textContent='⬇ Loading local voice…';
+}
+async function elifVoiceGetLocalTTS(){
+  if(elifLocalTTS)return elifLocalTTS;
+  if(elifLocalTTSLoading)return elifLocalTTSLoading;
+  elifLocalTTSLoading=(async()=>{
+    elifVoiceSetState('speaking','Preparing local natural voice…');
+    const mod=await import('https://cdn.jsdelivr.net/npm/kokoro-js@1.2.1/dist/kokoro.web.js');
+    const model='onnx-community/Kokoro-82M-v1.0-ONNX';
+    const tts=await mod.KokoroTTS.from_pretrained(model,{
+      dtype:'q8',
+      device:'wasm',
+      progress_callback:elifVoiceProgressText
+    });
+    elifLocalTTS=tts;
+    let support=document.getElementById('elifVoiceSupport');if(support){support.textContent='✨ Local natural voice ready';support.title='Kokoro is loaded and runs on this device.'}
+    return tts;
+  })().catch(err=>{elifLocalTTSLoading=null;throw err});
+  return elifLocalTTSLoading;
+}
+function elifVoiceBlobAudio(blob){
+  return new Promise((resolve,reject)=>{
+    let url=URL.createObjectURL(blob),audio=new Audio(url);elifVoiceAudio=audio;
+    audio.onended=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;URL.revokeObjectURL(url);resolve()};
+    audio.onerror=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;URL.revokeObjectURL(url);reject(new Error('local audio playback'))};
+    audio.play().catch(err=>{URL.revokeObjectURL(url);reject(err)});
+  });
+}
+async function elifVoiceLocalSpeak(clean,seq){
+  let tts=await elifVoiceGetLocalTTS(),chunks=elifVoiceChunks(clean);if(!chunks.length)throw new Error('empty voice text');
+  for(let chunk of chunks){
+    if(seq!==elifVoiceSpeakSeq)throw new Error('voice cancelled');
+    let audio=await tts.generate(chunk,{voice:elifVoicePersonaValue(),speed:elifVoiceRateValue()});
+    if(seq!==elifVoiceSpeakSeq)throw new Error('voice cancelled');
+    await elifVoiceBlobAudio(await audio.toBlob());
+  }
+}
+function elifVoiceBrowserSpeak(clean){
+  return new Promise((resolve,reject)=>{
+    let c=elifVoiceCapabilities();if(!c.synthesis)return reject(new Error('device voice unavailable'));
+    try{window.speechSynthesis.cancel()}catch(e){}
+    let u=new window.SpeechSynthesisUtterance(clean);u.lang='en-US';u.rate=elifVoiceRateValue();u.pitch=.98;
+    let v=elifVoicePickVoice();if(v)u.voice=v;
+    u.onend=()=>resolve();u.onerror=()=>reject(new Error('device voice failed'));window.speechSynthesis.speak(u);
+  });
+}
+async function elifVoiceSpeak(text,resumeListening=false){
+  let clean=elifVoicePlainText(text);if(!clean)return;
+  elifVoiceAbortRecognition();let seq=++elifVoiceSpeakSeq;elifVoiceSpeaking=true;
+  elifVoiceSetState('speaking',elifLocalTTS?'Elif is speaking locally…':'Preparing local natural voice…');
+  let usedLocal=false;
+  try{
+    await elifVoiceLocalSpeak(clean,seq);usedLocal=true;
+  }catch(e){
+    if(seq!==elifVoiceSpeakSeq)return;
+    try{
+      elifVoiceSetState('speaking','Local natural voice unavailable — using device voice…');
+      await elifVoiceBrowserSpeak(clean);
+    }catch(e2){}
+  }
+  if(seq!==elifVoiceSpeakSeq)return;
+  elifVoiceSpeaking=false;
+  let support=document.getElementById('elifVoiceSupport');
+  if(support&&usedLocal){support.textContent='✨ Local natural voice ready';support.title='Kokoro runs locally on this device.'}
+  if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
+  else elifVoiceSetState('ready',elifVoiceActive?'Your turn. Tap Speak when ready.':'Ready for an English conversation.');
 }
 function elifVoiceInit(){elifVoiceLoadSettings();elifVoiceRenderSupport();elifVoiceSetState('ready','Ready for an English conversation.')}
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&elifVoiceActive)elifVoiceStopPractice(true)});
 window.addEventListener('beforeunload',()=>elifVoiceStopPractice(true));
 elifAiLoad();elifVoiceInit();
+
+/* ===== STUDY TOOLS ===== */
+function geminiNotebookSavedUrl(){
+  let u=localStorage.getItem('bh-gemini-notebook-url')||'';
+  try{let x=new URL(u);return /^https:\/\/(notebooklm\.google\.com|gemini\.google\.com)\//.test(x.href)?x.href:''}catch(e){return''}
+}
+function saveGeminiNotebookLink(){
+  let input=document.getElementById('geminiNotebookUrl');if(!input)return;
+  let raw=input.value.trim();if(!raw){localStorage.removeItem('bh-gemini-notebook-url');return}
+  try{
+    let u=new URL(raw);
+    if(!['notebooklm.google.com','gemini.google.com'].includes(u.hostname)){alert('Please paste a Gemini Notebook / NotebookLM link.');return}
+    localStorage.setItem('bh-gemini-notebook-url',u.href);
+  }catch(e){alert('That notebook link is not valid.')}
+}
+function openGeminiNotebook(){
+  let u=geminiNotebookSavedUrl()||'https://notebooklm.google.com/';
+  window.open(u,'_blank','noopener');
+}
+function renderStudyToolLinks(){
+  let input=document.getElementById('geminiNotebookUrl');if(input)input.value=geminiNotebookSavedUrl();
+}
+document.addEventListener('DOMContentLoaded',renderStudyToolLinks);
+
+/* ===== BATUMHUB FOCUS PLAYER ===== */
+let focusCtx=null,focusNodes=[],focusMode='',focusPlaying=false,focusGain=null,focusTimerEnd=0,focusTimerHandle=null,focusLocalTracks=[],focusTrackIndex=-1,focusAudio=null;
+function focusEnsureCtx(){
+  if(!focusCtx)focusCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(focusCtx.state==='suspended')focusCtx.resume();
+  if(!focusGain){focusGain=focusCtx.createGain();focusGain.gain.value=(Number(localStorage.getItem('bh-focus-volume'))||38)/100*.55;focusGain.connect(focusCtx.destination)}
+  return focusCtx;
+}
+function focusNoiseBuffer(kind='white',seconds=3){
+  let ctx=focusEnsureCtx(),length=Math.floor(ctx.sampleRate*seconds),buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0),last=0;
+  for(let i=0;i<length;i++){let white=Math.random()*2-1;if(kind==='brown'){last=(last+.02*white)/1.02;data[i]=last*3.5}else data[i]=white}
+  return buffer;
+}
+function focusNodeCleanup(){for(let n of focusNodes){try{n.stop&&n.stop()}catch(e){}try{n.disconnect&&n.disconnect()}catch(e){}}focusNodes=[]}
+function focusStopGenerated(){focusNodeCleanup();focusPlaying=false;focusRenderState()}
+function focusBuildMode(mode){
+  focusNodeCleanup();let ctx=focusEnsureCtx();
+  if(mode==='deep'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=650;let g=ctx.createGain();g.gain.value=.15;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
+    for(const [hz,vol] of [[110,.022],[164.81,.014],[220,.009]]){let o=ctx.createOscillator(),og=ctx.createGain();o.type='sine';o.frequency.value=hz;og.gain.value=vol;o.connect(og).connect(focusGain);o.start();focusNodes.push(o,og)}
+  }else if(mode==='rain'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',3);src.loop=true;let bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=4200;bp.Q.value=.45;let g=ctx.createGain();g.gain.value=.13;src.connect(bp).connect(g).connect(focusGain);src.start();focusNodes.push(src,bp,g);
+  }else if(mode==='brown'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('brown',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=700;let g=ctx.createGain();g.gain.value=.21;src.connect(lp).connect(g).connect(focusGain);src.start();focusNodes.push(src,lp,g);
+  }else if(mode==='ocean'){
+    let src=ctx.createBufferSource();src.buffer=focusNoiseBuffer('white',4);src.loop=true;let lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=900;let g=ctx.createGain();g.gain.value=.11;let lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=.09;lg.gain.value=.07;lfo.connect(lg).connect(g.gain);src.connect(lp).connect(g).connect(focusGain);src.start();lfo.start();focusNodes.push(src,lp,g,lfo,lg);
+  }
+}
+function focusModeLabel(mode){return ({deep:'Deep Focus ambience',rain:'Soft rain',brown:'Brown noise',ocean:'Ocean ambience'})[mode]||'Focus sound'}
+function focusStartMode(mode){focusStopLocalAudio();focusMode=mode;focusPlaying=true;focusBuildMode(mode);let label=document.getElementById('focusNowLabel');if(label)label.textContent=focusModeLabel(mode);document.querySelectorAll('[data-focus-mode]').forEach(x=>x.classList.toggle('on',x.dataset.focusMode===mode));focusRenderState()}
+function focusTogglePlay(){if(focusAudio){focusAudio.paused?focusAudio.play():focusAudio.pause();return}if(focusPlaying){focusStopGenerated();return}if(focusMode){focusPlaying=true;focusBuildMode(focusMode);focusRenderState();return}focusStartMode('deep')}
+function focusSetVolume(value){let v=Math.max(0,Math.min(100,Number(value)||0));localStorage.setItem('bh-focus-volume',String(v));if(focusGain)focusGain.gain.value=v/100*.55;if(focusAudio)focusAudio.volume=v/100}
+function toggleFocusPlayer(force){let p=document.getElementById('focusPlayer');if(!p)return;let open=force===undefined?!p.classList.contains('open'):!!force;p.classList.toggle('open',open);p.setAttribute('aria-hidden',open?'false':'true')}
+function focusRenderState(){let play=document.getElementById('focusPlayBtn'),fab=document.getElementById('focusFab');if(play)play.textContent=focusPlaying?'⏸':'▶';if(fab)fab.classList.toggle('playing',focusPlaying)}
+function focusSetTimer(minutes){clearInterval(focusTimerHandle);focusTimerHandle=null;focusTimerEnd=minutes?Date.now()+minutes*60000:0;focusRenderTimer();if(minutes){focusTimerHandle=setInterval(()=>{if(Date.now()>=focusTimerEnd){focusStopAll();focusSetTimer(0)}else focusRenderTimer()},1000)}}
+function focusRenderTimer(){let e=document.getElementById('focusTimerLabel');if(!e)return;if(!focusTimerEnd){e.textContent='Off';return}let ms=Math.max(0,focusTimerEnd-Date.now()),m=Math.floor(ms/60000),sec=Math.floor(ms%60000/1000);e.textContent=m+':'+String(sec).padStart(2,'0')}
+function focusLoadFiles(fileList){focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}focusLocalTracks=[...fileList].filter(f=>f.type.startsWith('audio/')).map(f=>({name:f.name,url:URL.createObjectURL(f)}));focusTrackIndex=-1;focusRenderTracks();if(focusLocalTracks.length)focusPlayTrack(0)}
+function focusRenderTracks(){let root=document.getElementById('focusLocalList');if(!root)return;root.innerHTML='';focusLocalTracks.forEach((t,i)=>{let d=document.createElement('button');d.type='button';d.className='focusTrack'+(i===focusTrackIndex?' on':'');d.onclick=()=>focusPlayTrack(i);d.innerHTML='<span>🎵 '+liveEsc(t.name)+'</span><b>Play</b>';root.appendChild(d)})}
+function focusStopLocalAudio(){if(focusAudio){try{focusAudio.pause();focusAudio.src=''}catch(e){}focusAudio=null}}
+function focusPlayTrack(index){if(!focusLocalTracks.length)return;focusStopGenerated();focusStopLocalAudio();focusTrackIndex=(index+focusLocalTracks.length)%focusLocalTracks.length;let t=focusLocalTracks[focusTrackIndex];focusAudio=new Audio(t.url);focusAudio.volume=(Number(localStorage.getItem('bh-focus-volume'))||38)/100;focusAudio.onplay=()=>{focusPlaying=true;focusRenderState()};focusAudio.onpause=()=>{focusPlaying=false;focusRenderState()};focusAudio.onended=()=>focusNextTrack();focusAudio.play().catch(()=>{});let label=document.getElementById('focusNowLabel');if(label)label.textContent=t.name;focusRenderTracks()}
+function focusPrevTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex-1)}
+function focusNextTrack(){if(focusLocalTracks.length)focusPlayTrack(focusTrackIndex+1)}
+function focusStopAll(){focusStopGenerated();focusStopLocalAudio();focusPlaying=false;focusRenderState()}
+function focusSpotifyEmbedUrl(url){try{let u=new URL(url.trim());if(u.hostname!=='open.spotify.com')return'';let parts=u.pathname.split('/').filter(Boolean);if(parts[0]==='embed')parts.shift();if(!['track','album','playlist','show','episode','artist'].includes(parts[0])||!parts[1])return'';return'https://open.spotify.com/embed/'+parts[0]+'/'+encodeURIComponent(parts[1])+'?utm_source=generator'}catch(e){return''}}
+function focusLoadSpotify(){let input=document.getElementById('focusSpotifyUrl'),root=document.getElementById('focusSpotifyEmbed'),url=focusSpotifyEmbedUrl(input?input.value:'');if(!root)return;root.innerHTML=url?'<iframe src="'+liveEsc(url)+'" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>':'<small style="color:#a44">Paste a valid open.spotify.com track, album or playlist link.</small>'}
+window.addEventListener('beforeunload',()=>{focusStopAll();for(let t of focusLocalTracks){try{URL.revokeObjectURL(t.url)}catch(e){}}});
 
 renderSettings();renderAppTabs();
 handleExternalLaunch();
@@ -4189,10 +4450,50 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
 
 
 <div class="socialToastHost" id="socialToastHost" aria-live="polite" aria-atomic="true"></div>
+<button class="focusFab" id="focusFab" onclick="toggleFocusPlayer()" aria-label="Open Focus Player" title="Study music">🎵 <span>Focus</span></button>
+<section class="focusPlayer" id="focusPlayer" aria-hidden="true">
+  <div class="focusPlayerHead">
+    <div><span class="focusNowIcon">🎧</span><div><b>BatumHub Focus</b><small id="focusNowLabel">Choose a focus sound</small></div></div>
+    <button onclick="toggleFocusPlayer(false)" aria-label="Close music player">✕</button>
+  </div>
+  <div class="focusModes" id="focusModes">
+    <button data-focus-mode="deep" onclick="focusStartMode('deep',this)">🧠 Deep Focus</button>
+    <button data-focus-mode="rain" onclick="focusStartMode('rain',this)">🌧 Rain</button>
+    <button data-focus-mode="brown" onclick="focusStartMode('brown',this)">🟤 Brown Noise</button>
+    <button data-focus-mode="ocean" onclick="focusStartMode('ocean',this)">🌊 Ocean</button>
+  </div>
+  <div class="focusTransport">
+    <button id="focusPrevBtn" onclick="focusPrevTrack()" title="Previous">⏮</button>
+    <button class="focusPlayBtn" id="focusPlayBtn" onclick="focusTogglePlay()">▶</button>
+    <button id="focusNextBtn" onclick="focusNextTrack()" title="Next">⏭</button>
+    <label>🔊 <input id="focusVolume" type="range" min="0" max="100" value="38" oninput="focusSetVolume(this.value)"></label>
+  </div>
+  <div class="focusTimerRow">
+    <span>⏱ Focus timer</span>
+    <button onclick="focusSetTimer(25)">25m</button>
+    <button onclick="focusSetTimer(45)">45m</button>
+    <button onclick="focusSetTimer(60)">60m</button>
+    <button onclick="focusSetTimer(0)">Off</button>
+    <b id="focusTimerLabel">Off</b>
+  </div>
+  <div class="focusLocal">
+    <input id="focusFileInput" type="file" accept="audio/*" multiple hidden onchange="focusLoadFiles(this.files)">
+    <button onclick="document.getElementById('focusFileInput').click()">📁 Add my music</button>
+    <small>Files stay on this device/browser session. BatumHub does not upload them.</small>
+    <div class="focusLocalList" id="focusLocalList"></div>
+  </div>
+  <details class="focusSpotify">
+    <summary>🟢 Spotify playlist (optional)</summary>
+    <p>Paste a Spotify track/album/playlist link. Spotify account rules and ads still apply.</p>
+    <div><input id="focusSpotifyUrl" placeholder="https://open.spotify.com/playlist/…" autocomplete="off"><button onclick="focusLoadSpotify()">Load</button></div>
+    <div id="focusSpotifyEmbed"></div>
+  </details>
+</section>
 <nav class="vnextBottomNav" id="vnextBottomNav" aria-label="Primary navigation">
   <button id="vnavHome" data-vtab="Home" onclick="navigateAppTab('Home',null,'push')"><span class="vicon">🏠</span><span>Home</span></button>
   <button id="vnavExplore" data-vtab="Explore" onclick="navigateAppTab('Explore',null,'push')"><span class="vicon">🧭</span><span>Explore</span></button>
   <button id="vnavTutor" data-vtab="ElifAI" onclick="navigateAppTab('ElifAI',null,'push')"><span class="vicon">✨</span><span>AI Tutor</span></button>
   <button id="vnavLeague" data-vtab="League" onclick="navigateAppTab('League',null,'push')"><span class="vicon">🏆</span><span>League</span></button>
 </nav>
+<!-- v5.7 unified RC: local voice + language journey + focus player -->
 </body></html>

@@ -1,7 +1,7 @@
 name: JS Syntax Check
 on:
   push:
-    branches: [main, vnext-v5.4-refactor, vnext-v5.5-desktop, vnext-v5.6-voice]
+    branches: [main, vnext-v5.4-refactor, vnext-v5.5-desktop, vnext-v5.6-voice, vnext-v5.7-language-voice]
 permissions:
   contents: read
 jobs:
