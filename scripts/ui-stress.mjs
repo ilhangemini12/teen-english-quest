@@ -67,6 +67,18 @@ try{
   }));
   assert(desktop55.rail!=='none'&&desktop55.railWidth>250&&desktop55.heroWidth>600,'Desktop v5.5 layout failed: '+JSON.stringify(desktop55));
   assert(desktop55.level.join('|')==='auto|A1|A2|B1|B2|C1'&&desktop55.quick!=='none','Desktop level/test controls failed: '+JSON.stringify(desktop55));
+  await p.evaluate(()=>openTab('ElifAI'));
+  await p.waitForSelector('#elifAI:not(.appHidden) #elifVoicePanel',{timeout:4000});
+  const voiceStress=await p.evaluate(()=>({
+    caps:elifVoiceCapabilities(),
+    speakerButtons:document.querySelectorAll('.elifVoiceReplay').length,
+    panel:!!document.getElementById('elifVoicePanel'),
+    plain:elifVoicePlainText('**Voice** practice')
+  }));
+  assert(voiceStress.panel&&voiceStress.speakerButtons>=1&&voiceStress.plain==='Voice practice','Voice Practice shell failed: '+JSON.stringify(voiceStress));
+  for(let i=0;i<12;i++){await p.evaluate(()=>{elifVoiceStopPractice(true);elifVoiceRenderSupport();elifVoicePrepareMode()})}
+  await p.evaluate(()=>openTab('Home'));
+  assert(pageErrors.length===0,'Voice Practice lifecycle caused page errors: '+pageErrors.join(' | '));
   for(const value of ['A2','B1','auto']){
     await p.$eval('#desktopLevelSelect',(el,v)=>{el.value=v;el.dispatchEvent(new Event('change',{bubbles:true}))},value);
     await new Promise(r=>setTimeout(r,80));
