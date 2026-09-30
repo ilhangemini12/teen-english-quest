@@ -460,12 +460,14 @@ body{padding-bottom:calc(var(--vnav-h) + 24px + env(safe-area-inset-bottom))}
 #topStatusBar>span:nth-child(2){display:inline-flex!important;margin-left:auto;font-size:12px;padding:4px 8px;border-radius:999px;background:#0e1b2e;border:1px solid #223854}
 @media(max-width:720px){
   .mobileCompactTop{display:none!important}
+  .top{min-height:62px!important}
+  .top>.wrap{position:relative;padding:0 10px!important}
   .top .brandnav{display:flex!important}
   .top .topStatusBar{display:flex!important}
   .top .languageBarTop,.top .coreNav,.top .secondaryTabs{display:none!important}
-  .top>.wrap{padding:0 14px}
-  .brandnav{height:54px}
-  #topStatusBar{min-height:24px;padding-bottom:6px}
+  .brandnav{height:62px;min-height:62px;padding:4px 0!important}
+  #topStatusBar{position:absolute;z-index:2;right:142px;top:17px;width:auto;min-height:0!important;padding:0!important;margin:0!important;pointer-events:none}
+  #topStatusBar>span:nth-child(2){max-width:78px;min-height:28px;margin:0!important;padding:4px 7px!important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px!important}
 }
 body[data-app-tab="Home"] #demoPass,
 body[data-app-tab="Home"] #learningLaunch,
@@ -1419,7 +1421,7 @@ async function bhLoadWeather(){
     const url='https://api.open-meteo.com/v1/forecast?latitude=41.6168&longitude=41.6367&current=temperature_2m,weather_code&temperature_unit=celsius&timezone=Asia%2FTbilisi';
     const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('weather');
     const j=await r.json(),cur=j.current||{},temp=Math.round(Number(cur.temperature_2m));
-    e.textContent='Batumi '+(Number.isFinite(temp)?temp+'°C · ':'')+bhWeatherText(cur.weather_code);
+    e.textContent=window.innerWidth<=720?((Number.isFinite(temp)?temp+'°C ':'')+bhWeatherText(cur.weather_code)):('Batumi '+(Number.isFinite(temp)?temp+'°C · ':'')+bhWeatherText(cur.weather_code));
   }catch(err){e.textContent='Batumi · weather unavailable'}
 }
 bhRenderDate();bhLoadWeather();setInterval(bhLoadWeather,15*60*1000);
