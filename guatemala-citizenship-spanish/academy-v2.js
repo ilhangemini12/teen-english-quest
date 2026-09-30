@@ -21,6 +21,29 @@
     if(!Array.isArray(S.errors))S.errors=[];
     if(!Array.isArray(S.mockHistory))S.mockHistory=[];
     if(!S.coach||typeof S.coach!=='object')S.coach={};
+    if(!S.onboarding||S.onboarding.version!==1){
+      S.onboarding={
+        version:1,
+        startedAt:todayLocal(),
+        srsDone:0,
+        civicsDone:0,
+        interviewDone:0,
+        baselineCompleted:false,
+        completedAt:null,
+        srsRatings:{again:0,hard:0,good:0,easy:0},
+        civicsCorrect:0,
+        civicsTotal:0,
+        interviewWords:0
+      };
+    }else{
+      S.onboarding.srsRatings=S.onboarding.srsRatings||{again:0,hard:0,good:0,easy:0};
+      S.onboarding.srsDone=Number(S.onboarding.srsDone||0);
+      S.onboarding.civicsDone=Number(S.onboarding.civicsDone||0);
+      S.onboarding.interviewDone=Number(S.onboarding.interviewDone||0);
+      S.onboarding.civicsCorrect=Number(S.onboarding.civicsCorrect||0);
+      S.onboarding.civicsTotal=Number(S.onboarding.civicsTotal||0);
+      S.onboarding.interviewWords=Number(S.onboarding.interviewWords||0);
+    }
     if(!S.updatedAt)S.updatedAt=nowStamp();
     if(!S.appSettings)S.appSettings={busuuLevel:'B1',busuuFocus:'Grammar Review',dropsVariant:'Spanish (Mexican) — önerilen',dropsFocus:'Review Dojo / tekrar'};
     if(!Array.isArray(S.words))S.words=[];
@@ -65,6 +88,89 @@
     }
     S.errors=S.errors.slice(0,250);
   }
+  function baselineComplete(){
+    return !!(S.onboarding&&S.onboarding.baselineCompleted);
+  }
+  function maybeFinishBaseline(){
+    if(!S.onboarding)return false;
+    const done=S.onboarding.srsDone>=10&&S.onboarding.civicsDone>=5&&S.onboarding.interviewDone>=1;
+    if(done&&!S.onboarding.baselineCompleted){
+      S.onboarding.baselineCompleted=true;
+      S.onboarding.completedAt=new Date().toISOString();
+      S.onboarding.baselineSnapshot={
+        srsRatings:{...S.onboarding.srsRatings},
+        civicsCorrect:S.onboarding.civicsCorrect,
+        civicsTotal:S.onboarding.civicsTotal,
+        interviewWords:S.onboarding.interviewWords
+      };
+      persistNoTouch();
+    }
+    return done;
+  }
+  function baselineProgressPct(){
+    if(!S.onboarding)return 0;
+    const units=Math.min(10,S.onboarding.srsDone)+Math.min(5,S.onboarding.civicsDone)+Math.min(1,S.onboarding.interviewDone);
+    return Math.round(units/16*100);
+  }
+  function nextBaselineStep(){
+    if(!gtUser)return 'cloud';
+    if((S.onboarding?.srsDone||0)<10)return 'vocab';
+    if((S.onboarding?.civicsDone||0)<5)return 'civics';
+    if((S.onboarding?.interviewDone||0)<1)return 'interview';
+    return 'done';
+  }
+  function baselineStepClass(done,active){return done?'baselineDone':active?'baselineActive':'baselineLocked'}
+  function renderOnboarding(){
+    const box=document.getElementById('academyOnboarding');if(!box||!S.onboarding)return;
+    const o=S.onboarding,step=nextBaselineStep(),pct=baselineProgressPct();
+    if(o.baselineCompleted){
+      const c=o.civicsTotal?Math.round(o.civicsCorrect/o.civicsTotal*100):0;
+      box.innerHTML='<div class="academyHead"><div><span class="pill">BAŞLANGIÇ ÖLÇÜMÜ TAMAMLANDI</span><h3>Koç artık gerçek verinle çalışıyor.</h3></div><b>'+pct+'%</b></div>'+
+        '<div class="baselineSummary"><span>SRS: 10/10</span><span>Civics: '+o.civicsCorrect+'/'+o.civicsTotal+' · '+c+'%</span><span>Mülakat: '+o.interviewWords+' kelime</span></div>'+
+        '<p class="small muted">Bundan sonra günlük plan ve Koç önerileri bu başlangıç ölçümünün üzerine yeni performansını ekler.</p>';
+      return;
+    }
+    const cloudDone=!!gtUser,srsDone=o.srsDone>=10,civDone=o.civicsDone>=5,intDone=o.interviewDone>=1;
+    box.innerHTML=
+      '<div class="academyHead"><div><span class="pill">İLK KULLANIM · BASELINE</span><h3>Hazırlanmadan gerçek seviyeni ölç.</h3><p class="muted">İlk gün yalnızca bu 3 görevi tamamla. Sonuçları düzeltmeye çalışma; amaç nereden başladığını görmek.</p></div><b>'+pct+'%</b></div>'+
+      '<div class="progress baselineProgress"><i style="width:'+pct+'%"></i></div>'+
+      '<div class="baselineSteps">'+
+        '<button class="'+baselineStepClass(cloudDone,step==='cloud')+'" onclick="gtBaselineGo(\'cloud\')"><b>0 · Bulut hesabı</b><span>'+(cloudDone?'✓ Supabase bağlı': 'Önce Veri bölümünde BatumHub/Supabase hesabına giriş yap')+'</span></button>'+
+        '<button class="'+baselineStepClass(srsDone,step==='vocab')+'" onclick="gtBaselineGo(\'vocab\')"><b>1 · SRS '+Math.min(10,o.srsDone)+'/10</b><span>10 kelimeyi cevapla; Tekrar/Zor/İyi/Kolay sonuçlarını kaydet.</span></button>'+
+        '<button class="'+baselineStepClass(civDone,step==='civics')+'" onclick="gtBaselineGo(\'civics\')"><b>2 · Civics '+Math.min(5,o.civicsDone)+'/5</b><span>Hazırlanmadan tek 5 soruluk seti çöz.</span></button>'+
+        '<button class="'+baselineStepClass(intDone,step==='interview')+'" onclick="gtBaselineGo(\'interview\')"><b>3 · Mülakat '+Math.min(1,o.interviewDone)+'/1</b><span>İspanyolca 35–80 kelimelik doğal bir cevap kaydet.</span></button>'+
+      '</div>';
+  }
+  window.gtBaselineGo=function(target){
+    const step=nextBaselineStep();
+    if(target==='cloud'){go('data');setTimeout(()=>document.getElementById('cloudCard')?.scrollIntoView({behavior:'smooth',block:'start'}),80);return}
+    if(!gtUser){go('data');setCloudStatus('Baseline başlamadan önce Supabase hesabına giriş yap.',false);return}
+    if(target==='vocab'){
+      if(step!=='vocab'&&step!=='done')return;
+      go('vocab');renderFlash();return;
+    }
+    if(target==='civics'){
+      if(step!=='civics'&&step!=='done')return;
+      go('civics');newQuiz();return;
+    }
+    if(target==='interview'){
+      if(step!=='interview'&&step!=='done')return;
+      go('interview');renderInterview();return;
+    }
+  };
+  function maybeRouteFirstUse(){
+    if(baselineComplete())return;
+    const k='gtAcademyBaselineRouted.v1';
+    if(!gtUser&&!sessionStorage.getItem(k)){
+      sessionStorage.setItem(k,'1');
+      go('data');
+      setTimeout(()=>document.getElementById('cloudCard')?.scrollIntoView({behavior:'smooth',block:'start'}),120);
+    }else if(gtUser){
+      go('home');
+      setTimeout(()=>document.getElementById('academyOnboarding')?.scrollIntoView({behavior:'smooth',block:'start'}),120);
+    }
+  }
+
   function weakTopic(){
     const labels={geography:'Coğrafya',history:'Tarih',constitution:'Anayasa',state:'Devlet yapısı',citizenship:'Mülakat / işlem dili'};
     let best=null;
@@ -221,8 +327,12 @@
       main.appendChild(mock);
     }
     const home=document.querySelector('#home .card:last-child');
-    if(home&&!document.getElementById('academyCoachBox')){
-      const box=document.createElement('div');box.id='academyCoachBox';box.className='card academyCoach';box.style.marginTop='12px';home.insertAdjacentElement('afterend',box);
+    if(home&&!document.getElementById('academyOnboarding')){
+      const onboard=document.createElement('div');onboard.id='academyOnboarding';onboard.className='card academyOnboarding';onboard.style.marginTop='12px';home.insertAdjacentElement('afterend',onboard);
+    }
+    const onboarding=document.getElementById('academyOnboarding');
+    if(onboarding&&!document.getElementById('academyCoachBox')){
+      const box=document.createElement('div');box.id='academyCoachBox';box.className='card academyCoach';box.style.marginTop='12px';onboarding.insertAdjacentElement('afterend',box);
     }
     const dataSec=document.getElementById('data');
     if(dataSec&&!document.getElementById('cloudCard')){
@@ -233,41 +343,77 @@
     }
     if(!document.getElementById('academyV2Style')){
       const st=document.createElement('style');st.id='academyV2Style';st.textContent=
-        '.academyCoach{border-color:#397c71}.academyHead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.academyPlanGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.academyPlanGrid button{border:1px solid var(--line);background:#0b1b28;color:var(--text);border-radius:13px;padding:12px;text-align:left;cursor:pointer}.academyPlanGrid b,.academyPlanGrid span{display:block}.academyPlanGrid span{color:var(--muted);font-size:12px;margin-top:5px}.academyStats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0}.academyStats>div{background:#0b1b28;border:1px solid var(--line);border-radius:13px;padding:12px}.academyStats b,.academyStats span{display:block}.academyStats b{font-size:22px}.academyStats span{font-size:11px;color:var(--muted)}.errorRow{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-top:1px solid var(--line);padding:10px 0}.errorRow small{display:block;color:var(--muted);margin-top:4px}.errorRow button{border:1px solid var(--line);background:#173044;color:#fff;border-radius:9px;padding:6px 8px;cursor:pointer}.mockOralItem{border:1px solid var(--line);border-radius:13px;padding:12px;margin:10px 0;background:#0b1b28}.mockOralItem textarea{margin:10px 0}.mockScore{display:inline-flex;align-items:baseline;gap:8px;padding:12px 16px;background:#13392f;border:1px solid #2f6f5d;border-radius:14px;margin:12px 0}.mockScore b{font-size:32px}.mockScore span{color:#aef2dc}@media(max-width:900px){.academyPlanGrid{grid-template-columns:1fr 1fr}.academyStats{grid-template-columns:repeat(3,1fr)}}@media(max-width:560px){.academyPlanGrid,.academyStats{grid-template-columns:1fr 1fr}}';
+        '.academyCoach{border-color:#397c71}.academyHead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.academyPlanGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.academyPlanGrid button{border:1px solid var(--line);background:#0b1b28;color:var(--text);border-radius:13px;padding:12px;text-align:left;cursor:pointer}.academyPlanGrid b,.academyPlanGrid span{display:block}.academyPlanGrid span{color:var(--muted);font-size:12px;margin-top:5px}.academyStats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0}.academyStats>div{background:#0b1b28;border:1px solid var(--line);border-radius:13px;padding:12px}.academyStats b,.academyStats span{display:block}.academyStats b{font-size:22px}.academyStats span{font-size:11px;color:var(--muted)}.errorRow{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-top:1px solid var(--line);padding:10px 0}.errorRow small{display:block;color:var(--muted);margin-top:4px}.errorRow button{border:1px solid var(--line);background:#173044;color:#fff;border-radius:9px;padding:6px 8px;cursor:pointer}.mockOralItem{border:1px solid var(--line);border-radius:13px;padding:12px;margin:10px 0;background:#0b1b28}.mockOralItem textarea{margin:10px 0}.mockScore{display:inline-flex;align-items:baseline;gap:8px;padding:12px 16px;background:#13392f;border:1px solid #2f6f5d;border-radius:14px;margin:12px 0}.mockScore b{font-size:32px}.mockScore span{color:#aef2dc}.academyOnboarding{border-color:#4d78a0;background:linear-gradient(145deg,#102638,#0d1d2a)}.baselineProgress{margin:12px 0 14px}.baselineSteps{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.baselineSteps button{border:1px solid var(--line);border-radius:13px;padding:12px;text-align:left;background:#0b1b28;color:var(--text);cursor:pointer}.baselineSteps button b,.baselineSteps button span{display:block}.baselineSteps button span{font-size:12px;color:var(--muted);margin-top:5px}.baselineSteps .baselineActive{border-color:var(--accent2);box-shadow:0 0 0 2px #76bdf222}.baselineSteps .baselineDone{border-color:#2f7d68;background:#11382f}.baselineSteps .baselineLocked{opacity:.52;cursor:not-allowed}.baselineSummary{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.baselineSummary span{border:1px solid var(--line);background:#0b1b28;border-radius:999px;padding:6px 9px;font-size:12px}@media(max-width:900px){.academyPlanGrid{grid-template-columns:1fr 1fr}.academyStats{grid-template-columns:repeat(3,1fr)}.baselineSteps{grid-template-columns:1fr 1fr}}@media(max-width:560px){.academyPlanGrid,.academyStats,.baselineSteps{grid-template-columns:1fr}}';
       document.head.appendChild(st);
     }
   }
 
   const originalRenderAll=renderAll;
-  renderAll=function(){originalRenderAll();renderSmartPlan();renderCoach();renderMockHistory();renderCloudUI()};
+  renderAll=function(){originalRenderAll();renderOnboarding();renderSmartPlan();renderCoach();renderMockHistory();renderCloudUI()};
 
   const originalSave=save;
   save=function(){S.updatedAt=nowStamp();originalSave();scheduleCloudSync()};
 
   const originalGradeWord=gradeWord;
   gradeWord=function(q){
+    const baselineEligible=!!(gtUser&&S.onboarding&&!S.onboarding.baselineCompleted&&S.onboarding.srsDone<10);
     if(currentWord&&q<4)addError('srs',currentWord.es,q<3?'Tekrar':'Zor',currentWord.tr,{cat:currentWord.cat});
     if(currentWord)currentWord.lastReviewedAt=nowStamp();
-    return originalGradeWord(q);
+    const result=originalGradeWord(q);
+    if(baselineEligible){
+      S.onboarding.srsDone=Math.min(10,S.onboarding.srsDone+1);
+      const bucket=q<3?'again':q===3?'hard':q===4?'good':'easy';
+      S.onboarding.srsRatings[bucket]=(S.onboarding.srsRatings[bucket]||0)+1;
+      persistNoTouch();
+      renderAll();
+      if(S.onboarding.srsDone>=10&&S.onboarding.civicsDone<5){go('civics');newQuiz()}
+    }
+    return result;
   };
 
   const originalGradeQuiz=gradeQuiz;
   gradeQuiz=function(){
+    const baselineEligible=!!(gtUser&&S.onboarding&&!S.onboarding.baselineCompleted&&S.onboarding.srsDone>=10&&S.onboarding.civicsDone<5);
+    let baselineCorrect=0,baselineAnswered=0;
     quizNow.forEach((q,i)=>{
       const el=document.querySelector('input[name="q'+i+'"]:checked');
       const v=el?Number(el.value):-1;
+      if(v>=0)baselineAnswered++;
+      if(v===q.c)baselineCorrect++;
       if(v!==q.c)addError('civics',q.q,v>=0?q.a[v]:'Cevap yok',q.a[q.c],{topic:q.t});
     });
     originalGradeQuiz();
-    S.updatedAt=nowStamp();localStorage.setItem(KEY,JSON.stringify(S));scheduleCloudSync();renderCoach();
+    if(baselineEligible){
+      const count=Math.min(5-S.onboarding.civicsDone,quizNow.length);
+      S.onboarding.civicsDone+=count;
+      S.onboarding.civicsCorrect+=baselineCorrect;
+      S.onboarding.civicsTotal+=quizNow.length;
+      persistNoTouch();
+      renderAll();
+      if(S.onboarding.civicsDone>=5&&S.onboarding.interviewDone<1){go('interview');renderInterview()}
+    }else{
+      S.updatedAt=nowStamp();localStorage.setItem(KEY,JSON.stringify(S));scheduleCloudSync();renderCoach();
+    }
   };
 
   const originalSaveInterview=saveInterview;
   saveInterview=function(){
     const txt=document.getElementById('interviewAnswer')?.value.trim()||'';
-    if(txt&&txt.split(/\s+/).length<35)addError('speaking',interview[intIdx].q,txt,'35–80 kelimelik açık ve bağlı cevap',{});
+    const words=txt?txt.split(/\s+/).filter(Boolean).length:0;
+    const baselineEligible=!!(gtUser&&txt&&S.onboarding&&!S.onboarding.baselineCompleted&&S.onboarding.srsDone>=10&&S.onboarding.civicsDone>=5&&S.onboarding.interviewDone<1);
+    if(txt&&words<35)addError('speaking',interview[intIdx].q,txt,'35–80 kelimelik açık ve bağlı cevap',{});
     originalSaveInterview();
-    S.updatedAt=nowStamp();localStorage.setItem(KEY,JSON.stringify(S));scheduleCloudSync();renderCoach();
+    if(baselineEligible){
+      S.onboarding.interviewDone=1;
+      S.onboarding.interviewWords=words;
+      maybeFinishBaseline();
+      persistNoTouch();
+      renderAll();
+      go('home');
+      setTimeout(()=>document.getElementById('academyOnboarding')?.scrollIntoView({behavior:'smooth',block:'start'}),100);
+    }else{
+      S.updatedAt=nowStamp();localStorage.setItem(KEY,JSON.stringify(S));scheduleCloudSync();renderCoach();
+    }
   };
 
   const originalLogApp=logApp;
@@ -300,7 +446,13 @@
   async function handleCloudSession(session){
     gtUser=session&&session.user?session.user:null;
     renderCloudUI();
-    if(gtUser)await mergeFromCloud();
+    if(gtUser){
+      await mergeFromCloud();
+      ensureAcademyState();
+      renderAll();
+      if(!baselineComplete())setCloudStatus('Bulut bağlı. Şimdi başlangıç ölçümünü tamamla: 10 SRS + 5 civics + 1 mülakat.',true);
+    }
+    maybeRouteFirstUse();
   }
   async function mergeFromCloud(){
     if(!gtUser||!gtSupa)return;
