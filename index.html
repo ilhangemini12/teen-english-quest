@@ -1107,12 +1107,12 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
         <button type="button" class="elifVoiceStop" id="elifVoiceStop" onclick="elifVoiceStopPractice()" disabled>■ Stop</button>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceHandsFree" checked onchange="elifVoiceSaveSettings()"> Hands-free</label>
         <label class="elifVoiceToggle"><input type="checkbox" id="elifVoiceAutoSpeak" checked onchange="elifVoiceSaveSettings()"> Read replies aloud</label>
-        <label class="elifVoiceRate">Voice <select id="elifVoicePersona" onchange="elifVoiceSaveSettings()"><option value="hannah" selected>Hannah</option><option value="diana">Diana</option><option value="autumn">Autumn</option><option value="austin">Austin</option><option value="daniel">Daniel</option><option value="troy">Troy</option></select></label>
+        <label class="elifVoiceRate">Voice <select id="elifVoicePersona" onchange="elifVoiceSaveSettings()"><option value="af_heart" selected>Heart · US</option><option value="af_bella">Bella · US</option><option value="af_sarah">Sarah · US</option><option value="bf_emma">Emma · UK</option><option value="bm_fable">Fable · UK</option></select></label>
         <label class="elifVoiceRate">Speed <select id="elifVoiceRate" onchange="elifVoiceSaveSettings()"><option value="0.88">Calm</option><option value="0.96" selected>Natural</option><option value="1.05">Fast</option></select></label>
       </div>
       <div class="elifVoiceLive" id="elifVoiceLive"><span class="elifVoiceDot"></span><span id="elifVoiceState">Ready for an English conversation.</span></div>
       <div class="elifVoiceTranscript" id="elifVoiceTranscript" aria-live="polite">Your speech transcript will appear here before it is sent.</div>
-      <small class="elifVoicePrivacy">Microphone audio is handled by your browser's speech service. BatumHub does not save the audio recording; only the resulting text can enter this browser-session AI chat.</small>
+      <small class="elifVoicePrivacy">Speech recognition is handled by your browser. Natural reply audio uses a local Kokoro model after a one-time model download (about 90 MB) and then runs on your device. BatumHub does not save microphone audio.</small>
     </section>
     <div class="elifAiChat" id="elifAiChat" aria-live="polite"></div>
     <div class="elifAiActions" aria-label="Quick learning actions">
@@ -3982,13 +3982,13 @@ function elifAiKey(event){
 
 /* ===== ELIF AI VOICE PRACTICE ===== */
 const ELIF_VOICE_SETTINGS='batumhub-elif-voice-settings-v1';
-let elifVoiceRecognition=null,elifVoiceActive=false,elifVoiceListening=false,elifVoiceSpeaking=false,elifVoiceFinalCaptured=false,elifVoiceAudio=null,elifVoiceSpeakSeq=0;
+let elifVoiceRecognition=null,elifVoiceActive=false,elifVoiceListening=false,elifVoiceSpeaking=false,elifVoiceFinalCaptured=false,elifVoiceAudio=null,elifVoiceSpeakSeq=0,elifLocalTTS=null,elifLocalTTSLoading=null;
 function elifVoiceRecognitionCtor(){return window.SpeechRecognition||window.webkitSpeechRecognition||null}
 function elifVoiceCapabilities(){return {recognition:!!elifVoiceRecognitionCtor(),synthesis:!!(window.speechSynthesis&&window.SpeechSynthesisUtterance),secure:!!window.isSecureContext}}
 function elifVoiceHandsFreeEnabled(){let e=document.getElementById('elifVoiceHandsFree');return !e||e.checked}
 function elifVoiceAutoSpeakEnabled(){let e=document.getElementById('elifVoiceAutoSpeak');return !e||e.checked}
 function elifVoiceRateValue(){let e=document.getElementById('elifVoiceRate'),n=Number(e&&e.value);return Number.isFinite(n)?Math.min(1.15,Math.max(.8,n)):.96}
-function elifVoicePersonaValue(){let e=document.getElementById('elifVoicePersona'),v=e?e.value:'hannah';return ['autumn','diana','hannah','austin','daniel','troy'].includes(v)?v:'hannah'}
+function elifVoicePersonaValue(){let e=document.getElementById('elifVoicePersona'),v=e?e.value:'af_heart';return ['af_heart','af_bella','af_sarah','bf_emma','bm_fable'].includes(v)?v:'af_heart'}
 function elifVoiceSaveSettings(){
   try{localStorage.setItem(ELIF_VOICE_SETTINGS,JSON.stringify({handsFree:elifVoiceHandsFreeEnabled(),autoSpeak:elifVoiceAutoSpeakEnabled(),rate:elifVoiceRateValue(),voice:elifVoicePersonaValue()}))}catch(e){}
 }
@@ -3998,7 +3998,7 @@ function elifVoiceLoadSettings(){
     if(h&&typeof x.handsFree==='boolean')h.checked=x.handsFree;
     if(a&&typeof x.autoSpeak==='boolean')a.checked=x.autoSpeak;
     if(r&&Number.isFinite(Number(x.rate)))r.value=String(x.rate);
-    if(v&&['autumn','diana','hannah','austin','daniel','troy'].includes(x.voice))v.value=x.voice;
+    if(v&&['af_heart','af_bella','af_sarah','bf_emma','bm_fable'].includes(x.voice))v.value=x.voice;
   }catch(e){}
 }
 function elifVoiceSetState(state,text){
@@ -4016,10 +4016,8 @@ function elifVoiceRenderSupport(){
   let e=document.getElementById('elifVoiceSupport');if(!e)return;
   let c=elifVoiceCapabilities(),start=document.getElementById('elifVoiceStart');
   if(!c.secure){e.textContent='HTTPS required';e.title='Microphone recognition requires a secure page.'}
-  else if(!c.recognition){e.textContent=eqUser?'Natural voice · listen only':'Listen only';e.title='This browser does not expose speech recognition. Natural AI reply audio can still work when signed in.'}
-  else if(eqUser&&eqSupa){e.textContent='✨ Natural AI voice';e.title='Groq Orpheus natural voice is primary; your device voice is fallback only.'}
-  else if(c.synthesis){e.textContent='Mic + device voice';e.title='Sign in to use the natural AI voice. Device speech is available as fallback.'}
-  else{e.textContent='Mic ready';e.title='Speech recognition is available.'}
+  else if(!c.recognition){e.textContent='Local voice · listen only';e.title='This browser does not expose speech recognition. Local Kokoro reply audio can still be used.'}
+  else{e.textContent=elifLocalTTS?'✨ Local natural voice ready':'⬇ Local voice on first use';e.title='Kokoro runs on your device. The first natural-voice use downloads the model once; no per-call API fee.'}
   if(start&&!elifVoiceListening&&!elifAiBusy&&!elifVoiceSpeaking)start.disabled=!c.recognition;
 }
 function elifVoicePrepareMode(){
@@ -4104,7 +4102,7 @@ function elifVoicePickVoice(){
   let voices=window.speechSynthesis.getVoices()||[];
   return voices.find(v=>String(v.lang).toLowerCase()==='en-us')||voices.find(v=>String(v.lang).toLowerCase().startsWith('en-'))||null;
 }
-function elifVoiceChunks(text,max=185){
+function elifVoiceChunks(text,max=230){
   let clean=elifVoicePlainText(text),sentences=clean.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[clean],out=[],buf='';
   for(let sentence of sentences){
     sentence=sentence.trim();if(!sentence)continue;
@@ -4118,25 +4116,47 @@ function elifVoiceChunks(text,max=185){
     if(part)buf=part;
   }
   if(buf)out.push(buf);
-  return out.filter(Boolean).slice(0,8);
+  return out.filter(Boolean).slice(0,10);
 }
-function elifVoiceBase64Audio(data){
+function elifVoiceProgressText(p){
+  let support=document.getElementById('elifVoiceSupport');if(!support)return;
+  let n=Number(p&&p.progress);
+  if(Number.isFinite(n))support.textContent='⬇ Local voice '+Math.max(0,Math.min(100,Math.round(n)))+'%';
+  else support.textContent='⬇ Loading local voice…';
+}
+async function elifVoiceGetLocalTTS(){
+  if(elifLocalTTS)return elifLocalTTS;
+  if(elifLocalTTSLoading)return elifLocalTTSLoading;
+  elifLocalTTSLoading=(async()=>{
+    elifVoiceSetState('speaking','Preparing local natural voice…');
+    const mod=await import('https://cdn.jsdelivr.net/npm/kokoro-js@1.2.1/dist/kokoro.web.js');
+    const model='onnx-community/Kokoro-82M-v1.0-ONNX';
+    const tts=await mod.KokoroTTS.from_pretrained(model,{
+      dtype:'q8',
+      device:'wasm',
+      progress_callback:elifVoiceProgressText
+    });
+    elifLocalTTS=tts;
+    let support=document.getElementById('elifVoiceSupport');if(support){support.textContent='✨ Local natural voice ready';support.title='Kokoro is loaded and runs on this device.'}
+    return tts;
+  })().catch(err=>{elifLocalTTSLoading=null;throw err});
+  return elifLocalTTSLoading;
+}
+function elifVoiceBlobAudio(blob){
   return new Promise((resolve,reject)=>{
-    let audio=new Audio('data:'+(data.mime||'audio/wav')+';base64,'+data.audio_base64);elifVoiceAudio=audio;
-    audio.onended=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;resolve()};
-    audio.onerror=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;reject(new Error('audio playback'))};
-    audio.play().catch(reject);
+    let url=URL.createObjectURL(blob),audio=new Audio(url);elifVoiceAudio=audio;
+    audio.onended=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;URL.revokeObjectURL(url);resolve()};
+    audio.onerror=()=>{if(elifVoiceAudio===audio)elifVoiceAudio=null;URL.revokeObjectURL(url);reject(new Error('local audio playback'))};
+    audio.play().catch(err=>{URL.revokeObjectURL(url);reject(err)});
   });
 }
-async function elifVoiceCloudSpeak(clean,seq){
-  if(!eqUser||!eqSupa)throw new Error('cloud voice unavailable');
-  let chunks=elifVoiceChunks(clean);if(!chunks.length)throw new Error('empty voice text');
+async function elifVoiceLocalSpeak(clean,seq){
+  let tts=await elifVoiceGetLocalTTS(),chunks=elifVoiceChunks(clean);if(!chunks.length)throw new Error('empty voice text');
   for(let chunk of chunks){
     if(seq!==elifVoiceSpeakSeq)throw new Error('voice cancelled');
-    const {data,error}=await eqSupa.functions.invoke('elif-voice',{body:{text:chunk,voice:elifVoicePersonaValue(),speed:elifVoiceRateValue()}});
-    if(error||!data?.audio_base64)throw new Error('natural voice request failed');
+    let audio=await tts.generate(chunk,{voice:elifVoicePersonaValue(),speed:elifVoiceRateValue()});
     if(seq!==elifVoiceSpeakSeq)throw new Error('voice cancelled');
-    await elifVoiceBase64Audio(data);
+    await elifVoiceBlobAudio(await audio.toBlob());
   }
 }
 function elifVoiceBrowserSpeak(clean){
@@ -4151,21 +4171,21 @@ function elifVoiceBrowserSpeak(clean){
 async function elifVoiceSpeak(text,resumeListening=false){
   let clean=elifVoicePlainText(text);if(!clean)return;
   elifVoiceAbortRecognition();let seq=++elifVoiceSpeakSeq;elifVoiceSpeaking=true;
-  elifVoiceSetState('speaking',eqUser&&eqSupa?'Elif is speaking naturally…':'Elif is speaking…');
-  let usedNatural=false;
+  elifVoiceSetState('speaking',elifLocalTTS?'Elif is speaking locally…':'Preparing local natural voice…');
+  let usedLocal=false;
   try{
-    await elifVoiceCloudSpeak(clean,seq);usedNatural=true;
+    await elifVoiceLocalSpeak(clean,seq);usedLocal=true;
   }catch(e){
     if(seq!==elifVoiceSpeakSeq)return;
     try{
-      elifVoiceSetState('speaking','Natural voice unavailable — using device voice…');
+      elifVoiceSetState('speaking','Local natural voice unavailable — using device voice…');
       await elifVoiceBrowserSpeak(clean);
     }catch(e2){}
   }
   if(seq!==elifVoiceSpeakSeq)return;
   elifVoiceSpeaking=false;
   let support=document.getElementById('elifVoiceSupport');
-  if(support&&usedNatural){support.textContent='✨ Natural AI voice';support.title='Groq Orpheus natural voice is active.'}
+  if(support&&usedLocal){support.textContent='✨ Local natural voice ready';support.title='Kokoro runs locally on this device.'}
   if(resumeListening&&elifVoiceActive&&elifVoiceHandsFreeEnabled())setTimeout(()=>elifVoiceStartListening(),380);
   else elifVoiceSetState('ready',elifVoiceActive?'Your turn. Tap Speak when ready.':'Ready for an English conversation.');
 }
