@@ -65,6 +65,7 @@ import android.media.session.MediaSession;
 import android.os.*;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
+import android.speech.tts.Voice;
 import androidx.annotation.Nullable;
 import org.json.*;
 import java.util.*;
@@ -86,6 +87,7 @@ public class GuaAudioService extends Service implements TextToSpeech.OnInitListe
   private float rate=1.0f;
   private String[] segments=new String[0];
   private MediaSession mediaSession;
+  private final Handler handler=new Handler(Looper.getMainLooper());
 
   @Override public void onCreate(){
     super.onCreate();
@@ -118,14 +120,16 @@ public class GuaAudioService extends Service implements TextToSpeech.OnInitListe
       startForeground(NOTIFY_ID,buildNotification(false));
       if(ready)speakCurrent();
     } else if(ACTION_PAUSE.equals(action)){
-      paused=true;if(tts!=null)tts.stop();updateNotification();
+      paused=true;handler.removeCallbacksAndMessages(null);if(tts!=null)tts.stop();updateNotification();
     } else if(ACTION_RESUME.equals(action)){
       paused=false;updateNotification();if(ready)speakCurrent();
     } else if(ACTION_STOP.equals(action)){
-      if(tts!=null)tts.stop();stopForeground(true);stopSelf();
+      handler.removeCallbacksAndMessages(null);if(tts!=null)tts.stop();stopForeground(true);stopSelf();
     } else if(ACTION_NEXT.equals(action)){
+      handler.removeCallbacksAndMessages(null);
       if(!playlist.isEmpty()){episodeIndex=(episodeIndex+1)%playlist.size();segmentIndex=0;paused=false;loadSegments();updateNotification();if(ready)speakCurrent();}
     } else if(ACTION_PREV.equals(action)){
+      handler.removeCallbacksAndMessages(null);
       if(!playlist.isEmpty()){episodeIndex=(episodeIndex-1+playlist.size())%playlist.size();segmentIndex=0;paused=false;loadSegments();updateNotification();if(ready)speakCurrent();}
     }
     return START_STICKY;
@@ -146,10 +150,41 @@ public class GuaAudioService extends Service implements TextToSpeech.OnInitListe
   private void speakCurrent(){
     if(!ready||paused||segments.length==0||segmentIndex>=segments.length)return;
     try{
+      String current=segments[segmentIndex].trim();
+      if(current.equalsIgnoreCase("Pausa.")||current.equalsIgnoreCase("Pausa")){
+        handler.postDelayed(() -> {
+          if(!paused){
+            segmentIndex++;
+            if(segmentIndex>=segments.length){
+              if(episodeIndex<playlist.size()-1){episodeIndex++;segmentIndex=0;loadSegments();updateNotification();speakCurrent();}
+              else stopSelf();
+            } else speakCurrent();
+          }
+        },4500);
+        return;
+      }
       tts.setSpeechRate(rate);
       Bundle b=new Bundle();
       b.putString(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,"gua_"+episodeIndex+"_"+segmentIndex);
-      tts.speak(segments[segmentIndex],TextToSpeech.QUEUE_FLUSH,b,"gua_"+episodeIndex+"_"+segmentIndex);
+      tts.speak(current,TextToSpeech.QUEUE_FLUSH,b,"gua_"+episodeIndex+"_"+segmentIndex);
+    }catch(Exception ignored){}
+  }
+
+  private void chooseBestSpanishVoice(){
+    try{
+      Set<Voice> voices=tts.getVoices();
+      if(voices==null||voices.isEmpty())return;
+      Voice best=null;
+      int bestScore=Integer.MIN_VALUE;
+      for(Voice v:voices){
+        Locale l=v.getLocale();
+        if(l==null||!"es".equalsIgnoreCase(l.getLanguage()))continue;
+        String country=l.getCountry()==null?"":l.getCountry();
+        int localeScore="GT".equalsIgnoreCase(country)?500:"MX".equalsIgnoreCase(country)?450:"US".equalsIgnoreCase(country)?400:"ES".equalsIgnoreCase(country)?350:250;
+        int score=localeScore+(v.getQuality()*10)+(v.getLatency()==Voice.LATENCY_LOW?20:0);
+        if(score>bestScore){best=v;bestScore=score;}
+      }
+      if(best!=null)tts.setVoice(best);
     }catch(Exception ignored){}
   }
 
@@ -158,6 +193,7 @@ public class GuaAudioService extends Service implements TextToSpeech.OnInitListe
       ready=true;
       int r=tts.setLanguage(new Locale("es","GT"));
       if(r==TextToSpeech.LANG_MISSING_DATA||r==TextToSpeech.LANG_NOT_SUPPORTED)tts.setLanguage(new Locale("es","MX"));
+      chooseBestSpanishVoice();
       tts.setAudioAttributes(new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
       if(!paused)speakCurrent();
     }
@@ -202,6 +238,7 @@ public class GuaAudioService extends Service implements TextToSpeech.OnInitListe
   }
 
   @Override public void onDestroy(){
+    handler.removeCallbacksAndMessages(null);
     if(tts!=null){tts.stop();tts.shutdown();}
     if(mediaSession!=null){mediaSession.setActive(false);mediaSession.release();}
     super.onDestroy();
