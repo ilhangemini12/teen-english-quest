@@ -550,6 +550,56 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 }
 @media(max-width:1099px){.vnextDesktopRail{display:none}.vnextLearningBar{padding:9px 11px!important}.vnextControlLabel{display:none}}
 @media(max-width:720px){.vnextLearningBar{display:none!important}}
+
+/* ===== BATUMHUB v5.7 LANGUAGE JOURNEY + HOME ===== */
+.brandHomeButton{border:0;background:transparent;padding:7px 4px;cursor:pointer;font:inherit;text-align:left}
+.brandHomeButton:hover{transform:translateY(-1px)}
+.vnextHomePill{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 12px;border-radius:14px;border:1px solid #bcded8;background:linear-gradient(135deg,#f7fffd,#eef8ff);color:#293148;font-weight:900;cursor:pointer}
+.vnextHomePill:hover{border-color:#78c7bb;box-shadow:0 7px 18px rgba(50,93,116,.10)}
+
+.vnextLearningBar{isolation:isolate;position:relative;overflow:visible!important;background:
+  radial-gradient(circle at 5% 20%,rgba(90,208,190,.17),transparent 28%),
+  radial-gradient(circle at 73% 0%,rgba(127,133,255,.13),transparent 30%),
+  linear-gradient(135deg,#fbfbff 0%,#f5f2ff 44%,#effbf8 100%)!important;
+  border-color:#d8d6ec!important;box-shadow:0 10px 30px rgba(44,40,83,.075)!important}
+.vnextLearningBar:before,.vnextLearningBar:after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(.2px);pointer-events:none}
+.vnextLearningBar:before{width:10px;height:10px;left:18px;top:14px;background:#ffd76e;box-shadow:18px 16px 0 #8adfd0,36px -2px 0 #b9a7ff}
+.vnextLearningBar:after{width:7px;height:7px;right:24px;bottom:12px;background:#83d9ff;box-shadow:-17px -17px 0 #ffc987}
+
+.vnextLanguageControl{gap:12px!important}.vnextLanguageStory{display:flex;align-items:center;gap:11px;min-width:0;flex:1}
+.vnextNativeControl,.vnextTargetControl{display:flex;align-items:center;gap:8px;min-width:0}
+.vnextNativeControl{flex:0 0 auto;padding:6px 9px;border:1px solid #ded8eb;border-radius:14px;background:rgba(255,255,255,.76);box-shadow:0 5px 14px rgba(46,39,76,.05)}
+.vnextNativeControl>span,.vnextTargetControl>.vnextControlLabel{font-size:10px;font-weight:950;letter-spacing:.055em;text-transform:uppercase;color:#6f6881;white-space:nowrap}
+.vnextNativeControl select{height:34px;min-width:126px;border:0;background:#f5f2fa;color:#312c43;border-radius:10px;padding:0 28px 0 9px;font:850 12px/1 system-ui;cursor:pointer}
+.vnextJourneyArrow{font-size:20px;color:#8b84a3;font-weight:1000;filter:drop-shadow(0 3px 6px rgba(81,69,126,.12))}
+.vnextTargetControl{flex:1}.vnextTargetControl .languageFlags{flex:1}
+.vnextLearningBar .languageFlags button[data-lang="en"]{background:linear-gradient(135deg,#eef7ff,#ffffff)!important}
+.vnextLearningBar .languageFlags button[data-lang="es"]{background:linear-gradient(135deg,#fff4e8,#ffffff)!important}
+.vnextLearningBar .languageFlags button[data-lang="de"]{background:linear-gradient(135deg,#fff9de,#ffffff)!important}
+.vnextLearningBar .languageFlags button[data-lang="ru"]{background:linear-gradient(135deg,#f3efff,#ffffff)!important}
+.vnextLearningBar .languageFlags button.on{transform:translateY(-2px);border-color:#59cbbb!important;box-shadow:0 7px 18px rgba(39,91,98,.13)!important}
+.vnextCustomizeLangBtn{background:linear-gradient(135deg,#fff,#f4f0ff)!important;border-color:#d3cbea!important;color:#665c81!important}
+.vnextLevelControl{padding-left:4px;border-left:1px dashed #ddd6e9}
+.vnextQuickTestBtn{background:linear-gradient(135deg,#ecf7ff,#eef1ff)!important}
+.vnextLanguageCustomize{left:auto!important;right:12px!important}
+
+.mobileLanguageJourney{display:grid;grid-template-columns:1fr;gap:7px;padding:10px;border-radius:18px;background:linear-gradient(145deg,#f9f7ff,#eef9f6);border:1px solid #ddd8ea}
+.mobileJourneyArrow{text-align:center;font-size:17px;line-height:1;color:#8d84a2;font-weight:1000}
+.mobileNativeField,.mobileTargetField{margin:0!important}
+.mobileNativeField select,.mobileTargetField select{font-weight:850}
+#mobileModePill{background:linear-gradient(135deg,#f5fbff,#f6f0ff)!important;border-color:#b8d9df!important;color:#2d2b43!important;font-weight:900!important}
+.mobileMenuSheet{background:linear-gradient(180deg,#fbfaff 0%,#f7f5fb 60%,#eef9f7 100%)!important}
+.mobileQuickNav button.on{background:linear-gradient(135deg,#5dc8b1,#6e8cf6)!important;color:#fff!important;border-color:transparent!important}
+
+@media(max-width:1180px){
+  .vnextLearningBar{gap:10px!important}.vnextLanguageStory{gap:7px}.vnextNativeControl>span,.vnextTargetControl>.vnextControlLabel{display:none}.vnextNativeControl select{min-width:116px}.vnextCustomizeLangBtn{font-size:0!important;width:38px;padding:0!important}.vnextCustomizeLangBtn:before{content:"✨";font-size:15px}.vnextHomePill span{display:none}.vnextHomePill{width:42px;padding:0;justify-content:center}
+}
+@media(max-width:720px){
+  .vnextHomePill{display:grid!important;place-items:center}
+  .brandHomeButton{padding:4px 0}
+  .brandnav{gap:6px!important}
+  .mobileMenuSheet .mobileField select{min-height:46px;border-radius:13px}
+}
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
