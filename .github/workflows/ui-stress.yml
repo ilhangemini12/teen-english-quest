@@ -2,7 +2,7 @@ name: UI Stress Test
 on:
   workflow_dispatch:
   push:
-    branches: [main, vnext-v5.4-refactor, vnext-v5.5-desktop]
+    branches: [main, vnext-v5.4-refactor, vnext-v5.5-desktop, vnext-v5.6-voice]
     paths:
       - "index.html"
       - "feed.json"
