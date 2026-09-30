@@ -622,6 +622,36 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 @media(max-width:720px){
   #bhInstallButton{display:none!important}
 }
+
+/* ===== BATUMHUB v5.8 DESKTOP ALIGNMENT + FOCUS MINI CONTROLS ===== */
+@media(min-width:1100px){
+  .top>.wrap{max-width:1360px!important;padding-left:20px!important;padding-right:20px!important}
+  .vnextLearningBar,.brandnav,#heroHome.vnextHero{width:calc(100% - 40px)!important;max-width:1180px!important;margin-left:auto!important;margin-right:auto!important}
+  .vnextLearningBar{margin-top:12px!important;margin-bottom:10px!important}
+  .brandnav{min-height:60px!important;padding:5px 0!important;justify-content:flex-start!important}
+  .brandnav .brandWord{margin-right:0!important}
+  .vnextWeatherMini{display:inline-flex!important;align-items:center;justify-content:center;min-height:32px;max-width:118px;margin-left:auto;padding:5px 9px;border:1px solid #223854;border-radius:999px;background:#0e1b2e;color:#fff;font-size:11px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #topStatusBar{display:none!important}
+  #heroHome.vnextHero{padding-top:12px!important}
+}
+.focusMoodNote{margin:0 0 11px;color:#8298b4;font-size:10px;font-weight:850;letter-spacing:.04em;text-transform:uppercase}
+.focusSoundGrid button small b{display:inline;color:#9fd8cf;font-size:9px;margin:0 5px 0 0;letter-spacing:.05em;text-transform:uppercase}
+.focusMiniBar{position:fixed;z-index:118;left:50%;bottom:calc(var(--vnav-h) + 30px + env(safe-area-inset-bottom));width:min(760px,calc(100vw - 32px));min-height:58px;display:flex;align-items:center;gap:9px;padding:8px 10px;border:1px solid #304969;border-radius:18px;background:#091528f2;color:#f6f9ff;box-shadow:0 18px 46px rgba(0,9,24,.38);backdrop-filter:blur(16px);transform:translate(-50%,18px);opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}
+.focusMiniBar.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.focusMiniTitle{min-width:0;flex:1;display:grid;gap:1px}.focusMiniTitle small{font-size:9px;font-weight:950;letter-spacing:.08em;color:#7890ad}.focusMiniTitle b{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:12px}
+.focusMiniButton{width:38px;height:38px;flex:0 0 38px;border:1px solid #365171;border-radius:12px;background:#12233d;color:#fff;font:900 14px/1 system-ui;cursor:pointer}
+.focusMiniButton.stop{color:#ffb5bb;border-color:#68404b;background:#291923}
+.focusMiniSelect{height:38px;min-width:165px;max-width:220px;border:1px solid #365171;border-radius:12px;background:#10213a;color:#e9f1fb;padding:0 30px 0 9px;font:800 10px/1 system-ui}
+@media(max-width:720px){
+  .focusMiniBar{left:8px;right:8px;bottom:calc(var(--vnav-h) + 20px + env(safe-area-inset-bottom));width:auto;min-height:54px;transform:translateY(18px);gap:6px;padding:7px 8px}
+  .focusMiniBar.show{transform:translateY(0)}
+  .focusMiniTitle small{display:none}.focusMiniTitle b{font-size:11px}
+  .focusMiniButton{width:36px;height:36px;flex-basis:36px;border-radius:11px}
+  .focusMiniSelect{min-width:0;width:126px;max-width:126px;height:36px}
+}
+@media(max-width:430px){.focusMiniTitle{display:none}.focusMiniSelect{flex:1;width:auto;max-width:none}}
+@media(prefers-reduced-motion:reduce){.focusMiniBar{transition:none!important}}
+
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
@@ -4322,12 +4352,24 @@ sourcePreviewHtml=function(url,title,meta,item){
 
 /* ===== BATUMHUB FOCUS PLAYER ===== */
 const FOCUS_PREFS_KEY='batumhub-focus-player-v1';
-let focusAudioCtx=null,focusNodes=[],focusMaster=null,focusCurrentSound='',focusPaused=true,focusLocalUrls=[],focusSleepTimer=null,focusPomodoroTimer=null,focusPomodoroSeconds=25*60,focusPomodoroRunning=false;
+const FOCUS_PRESETS={
+  rain:{name:'Rain',mood:'Nature',icon:'🌧️'},
+  brown:{name:'Brown noise',mood:'Deep focus',icon:'🟤'},
+  pink:{name:'Pink noise',mood:'Calm',icon:'🌸'},
+  ambient:{name:'Soft ambient',mood:'Calm',icon:'🌌'},
+  ocean:{name:'Ocean drift',mood:'Reset',icon:'🌊'},
+  fireplace:{name:'Fireplace',mood:'Cozy',icon:'🔥'},
+  forest:{name:'Forest hush',mood:'Nature',icon:'🌲'},
+  night:{name:'Night calm',mood:'Sleep',icon:'🌙'},
+  deep:{name:'Deep focus',mood:'Focus',icon:'🧠'}
+};
+let focusAudioCtx=null,focusNodes=[],focusMaster=null,focusCurrentSound='',focusPaused=true,focusLocalUrls=[],focusCurrentLocalIndex=-1,focusSleepTimer=null,focusPomodoroTimer=null,focusPomodoroSeconds=25*60,focusPomodoroRunning=false,focusMiniHideTimer=null,focusLastAudibleVolume=.32;
+
 function focusPrefs(){
   try{return JSON.parse(localStorage.getItem(FOCUS_PREFS_KEY)||'{}')||{}}catch(e){return {}}
 }
 function focusSavePrefs(extra={}){
-  let p={...focusPrefs(),volume:Number(document.getElementById('focusVolume')?.value||.32),sound:focusCurrentSound,...extra};
+  let p={...focusPrefs(),volume:Number(document.getElementById('focusVolume')?.value||focusLastAudibleVolume||.32),sound:focusCurrentSound,...extra};
   try{localStorage.setItem(FOCUS_PREFS_KEY,JSON.stringify(p))}catch(e){}
 }
 function toggleFocusPlayer(force){
@@ -4355,74 +4397,122 @@ function focusClearGenerated(){
 }
 function focusNoiseBuffer(kind){
   let ctx=focusEnsureCtx();if(!ctx)return null;
-  let len=ctx.sampleRate*3,buf=ctx.createBuffer(1,len,ctx.sampleRate),data=buf.getChannelData(0),last=0,b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+  let len=ctx.sampleRate*4,buf=ctx.createBuffer(1,len,ctx.sampleRate),data=buf.getChannelData(0),last=0,b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
   for(let i=0;i<len;i++){
     let white=Math.random()*2-1;
     if(kind==='brown'){last=(last+.02*white)/1.02;data[i]=last*3.5}
-    else if(kind==='pink'){
+    else if(kind==='crackle'){let spike=Math.random()>.9985?(Math.random()*2-1)*1.8:0;data[i]=white*.08+spike}
+    else{
       b0=.99886*b0+white*.0555179;b1=.99332*b1+white*.0750759;b2=.969*b2+white*.153852;b3=.8665*b3+white*.3104856;b4=.55*b4+white*.5329522;b5=-.7616*b5-white*.016898;data[i]=(b0+b1+b2+b3+b4+b5+b6+white*.5362)*.11;b6=white*.115926;
-    }else data[i]=white*.42;
+    }
   }
   return buf;
 }
-function focusBuildNoise(kind){
+function focusNoiseLayer(kind,{filter='lowpass',frequency=1400,q=.5,gain=.45,lfo=.0,lfoDepth=.0}={}){
   let ctx=focusEnsureCtx();if(!ctx)return false;
-  let src=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),gain=ctx.createGain();src.buffer=focusNoiseBuffer(kind);src.loop=true;
-  if(kind==='rain'){filter.type='bandpass';filter.frequency.value=2600;filter.Q.value=.45;gain.gain.value=.42}
-  else if(kind==='pink'){filter.type='lowpass';filter.frequency.value=5000;gain.gain.value=.55}
-  else{filter.type='lowpass';filter.frequency.value=1100;gain.gain.value=.65}
-  src.connect(filter);filter.connect(gain);gain.connect(focusMaster);src.start();focusNodes.push(src,filter,gain);return true;
-}
-function focusBuildAmbient(){
-  let ctx=focusEnsureCtx();if(!ctx)return false;
-  let freqs=[130.81,164.81,196,261.63],gains=[.055,.035,.028,.018];
-  freqs.forEach((f,i)=>{let o=ctx.createOscillator(),g=ctx.createGain(),lfo=ctx.createOscillator(),lg=ctx.createGain();o.type='sine';o.frequency.value=f;g.gain.value=gains[i];lfo.frequency.value=.035+i*.013;lg.gain.value=gains[i]*.35;lfo.connect(lg);lg.connect(g.gain);o.connect(g);g.connect(focusMaster);o.start();lfo.start();focusNodes.push(o,g,lfo,lg)});
+  let src=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g=ctx.createGain();src.buffer=focusNoiseBuffer(kind);src.loop=true;f.type=filter;f.frequency.value=frequency;f.Q.value=q;g.gain.value=gain;src.connect(f);f.connect(g);g.connect(focusMaster);src.start();focusNodes.push(src,f,g);
+  if(lfo>0&&lfoDepth>0){let o=ctx.createOscillator(),lg=ctx.createGain();o.frequency.value=lfo;lg.gain.value=lfoDepth;o.connect(lg);lg.connect(g.gain);o.start();focusNodes.push(o,lg)}
   return true;
+}
+function focusToneLayer(freq,gain=.025,type='sine',lfo=.03){
+  let ctx=focusEnsureCtx();if(!ctx)return false;
+  let o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.value=freq;g.gain.value=gain;o.connect(g);g.connect(focusMaster);o.start();focusNodes.push(o,g);
+  if(lfo){let m=ctx.createOscillator(),mg=ctx.createGain();m.frequency.value=lfo;mg.gain.value=gain*.3;m.connect(mg);mg.connect(g.gain);m.start();focusNodes.push(m,mg)}
+  return true;
+}
+function focusBuildPreset(kind){
+  if(kind==='rain')return focusNoiseLayer('pink',{filter:'bandpass',frequency:2600,q:.45,gain:.42});
+  if(kind==='brown')return focusNoiseLayer('brown',{frequency:1100,gain:.65});
+  if(kind==='pink')return focusNoiseLayer('pink',{frequency:5000,gain:.55});
+  if(kind==='ambient'){[130.81,164.81,196,261.63].forEach((f,i)=>focusToneLayer(f,[.055,.035,.028,.018][i],'sine',.035+i*.013));return true}
+  if(kind==='ocean'){focusNoiseLayer('brown',{frequency:900,gain:.42,lfo:.085,lfoDepth:.18});focusNoiseLayer('pink',{filter:'bandpass',frequency:1800,q:.35,gain:.13,lfo:.12,lfoDepth:.05});return true}
+  if(kind==='fireplace'){focusNoiseLayer('brown',{frequency:1500,gain:.28});focusNoiseLayer('crackle',{filter:'highpass',frequency:700,q:.35,gain:.24});return true}
+  if(kind==='forest'){focusNoiseLayer('pink',{frequency:3100,gain:.25,lfo:.05,lfoDepth:.04});focusToneLayer(523.25,.010,'sine',.07);focusToneLayer(659.25,.007,'sine',.09);return true}
+  if(kind==='night'){focusNoiseLayer('brown',{frequency:650,gain:.32,lfo:.035,lfoDepth:.04});focusToneLayer(110,.018,'sine',.02);return true}
+  if(kind==='deep'){focusNoiseLayer('brown',{frequency:900,gain:.38});[110,146.83,220].forEach((f,i)=>focusToneLayer(f,[.02,.014,.010][i],'sine',.025+i*.01));return true}
+  return false;
+}
+function focusMiniPopulate(){
+  let select=document.getElementById('focusMiniSelect');if(!select)return;
+  let current=select.value,opts=Object.entries(FOCUS_PRESETS).map(([k,p])=>'<option value="sound:'+k+'">'+p.icon+' '+p.name+' · '+p.mood+'</option>');
+  if(focusLocalUrls.length){opts.push('<optgroup label="Local audio">');focusLocalUrls.forEach((x,i)=>opts.push('<option value="local:'+i+'">🎵 '+liveEsc(x.name)+'</option>'));opts.push('</optgroup>')}
+  select.innerHTML=opts.join('');
+  let desired=focusCurrentLocalIndex>=0?'local:'+focusCurrentLocalIndex:(focusCurrentSound?'sound:'+focusCurrentSound:current);
+  if(desired&&[...select.options].some(o=>o.value===desired))select.value=desired;
+}
+function focusMiniShow(title,playing){
+  clearTimeout(focusMiniHideTimer);focusMiniHideTimer=null;
+  let bar=document.getElementById('focusMiniBar'),t=document.getElementById('focusMiniTitle'),play=document.getElementById('focusMiniPlay');
+  if(t&&title)t.textContent=title;if(play)play.textContent=playing?'Ⅱ':'▶';focusMiniPopulate();bar?.classList.add('show');
+}
+function focusMiniHide(delay=0){
+  clearTimeout(focusMiniHideTimer);focusMiniHideTimer=setTimeout(()=>document.getElementById('focusMiniBar')?.classList.remove('show'),Math.max(0,delay));
+}
+function focusMiniChange(value){
+  if(value.startsWith('sound:')){let kind=value.slice(6);focusPlaySound(kind,document.querySelector('[data-focus-sound="'+kind+'"]'));return}
+  if(value.startsWith('local:')){let i=Number(value.slice(6));focusPlayLocal(i,document.querySelector('#focusLocalList button:nth-child('+(i+1)+')'))}
 }
 function focusSetPlayingUi(title,playing){
   let panel=document.getElementById('focusPlayerPanel'),now=document.getElementById('focusNowTitle'),toggle=document.getElementById('focusPlayToggle');
   panel?.classList.toggle('playing',!!playing);if(now&&title)now.textContent=title;if(toggle)toggle.textContent=playing?'Ⅱ':'▶';
+  if((focusCurrentSound||focusCurrentLocalIndex>=0)&&title)focusMiniShow(title,playing);
 }
 function focusPlaySound(kind,btn){
-  focusStopAudio(false);let ok=kind==='ambient'?focusBuildAmbient():focusBuildNoise(kind);if(!ok){focusStatus('Web Audio is not available in this browser.');return}
-  focusCurrentSound=kind;focusPaused=false;let names={rain:'Rain',brown:'Brown noise',pink:'Pink noise',ambient:'Soft ambient'};
+  let preset=FOCUS_PRESETS[kind];if(!preset)return;
+  focusClearGenerated();let a=document.getElementById('focusLocalAudio');if(a){try{a.pause()}catch(e){}a.dataset.active='0'}focusCurrentLocalIndex=-1;
+  let ok=focusBuildPreset(kind);if(!ok){focusStatus('Web Audio is not available in this browser.');return}
+  focusCurrentSound=kind;focusPaused=false;
   document.querySelectorAll('[data-focus-sound]').forEach(x=>x.classList.toggle('on',x.dataset.focusSound===kind));
-  focusSetPlayingUi(names[kind],true);focusStatus(names[kind]+' is generated on this device — no ads or API.');focusSavePrefs();
-  if('mediaSession' in navigator){try{navigator.mediaSession.metadata=new MediaMetadata({title:names[kind],artist:'BatumHub Focus',album:'Focus Player'})}catch(e){}}
+  focusSetPlayingUi(preset.name,true);focusStatus(preset.name+' · '+preset.mood+' — generated on this device, no ads or API.');focusSavePrefs();
+  if('mediaSession' in navigator){try{navigator.mediaSession.metadata=new MediaMetadata({title:preset.name,artist:'BatumHub Focus · '+preset.mood,album:'Focus Player'})}catch(e){}}
 }
-function focusStopAudio(reset=true){
-  focusClearGenerated();let a=document.getElementById('focusLocalAudio');if(a){try{a.pause()}catch(e){}}
-  focusPaused=true;if(reset){focusCurrentSound='';document.querySelectorAll('[data-focus-sound]').forEach(x=>x.classList.remove('on'));focusSetPlayingUi('Choose a focus sound',false)}else focusSetPlayingUi('',false);
+function focusStopAudio(reset=true,scheduleHide=true){
+  focusClearGenerated();let a=document.getElementById('focusLocalAudio');if(a){try{a.pause()}catch(e){}if(reset)a.dataset.active='0'}
+  focusPaused=true;
+  if(reset){
+    focusCurrentSound='';focusCurrentLocalIndex=-1;document.querySelectorAll('[data-focus-sound]').forEach(x=>x.classList.remove('on'));document.querySelectorAll('#focusLocalList button').forEach(x=>x.classList.remove('on'));
+    focusSetPlayingUi('Choose a focus sound',false);focusStatus('Stopped. Choose a sound when you want to focus again.');
+    if(scheduleHide)focusMiniHide(2800);
+  }
 }
 function focusTogglePlayback(){
   let a=document.getElementById('focusLocalAudio');
-  if(a&&a.dataset.active==='1'){
-    if(a.paused){a.play().catch(()=>{});focusPaused=false;focusSetPlayingUi(a.dataset.title||'My music',true)}else{a.pause();focusPaused=true;focusSetPlayingUi(a.dataset.title||'My music',false)}
+  if(focusCurrentLocalIndex>=0&&a&&a.dataset.active==='1'){
+    if(a.paused){a.play().catch(()=>{});focusPaused=false;focusSetPlayingUi(a.dataset.title||'Local audio',true)}
+    else{a.pause();focusPaused=true;focusSetPlayingUi(a.dataset.title||'Local audio',false)}
     return;
   }
-  if(!focusCurrentSound){let last=focusPrefs().sound||'rain';focusPlaySound(last,document.querySelector('[data-focus-sound="'+last+'"]'));return}
-  if(focusPaused){focusPlaySound(focusCurrentSound,document.querySelector('[data-focus-sound="'+focusCurrentSound+'"]'))}else focusStopAudio(false);
+  if(!focusCurrentSound){let last=focusPrefs().sound;focusPlaySound(FOCUS_PRESETS[last]?last:'rain',document.querySelector('[data-focus-sound="'+(FOCUS_PRESETS[last]?last:'rain')+'"]'));return}
+  if(focusPaused){focusPlaySound(focusCurrentSound,document.querySelector('[data-focus-sound="'+focusCurrentSound+'"]'))}
+  else{focusClearGenerated();focusPaused=true;focusSetPlayingUi(FOCUS_PRESETS[focusCurrentSound]?.name||'Focus sound',false)}
 }
 function focusSetVolume(v){
-  v=Math.max(0,Math.min(1,Number(v)));if(focusMaster)focusMaster.gain.value=v;let a=document.getElementById('focusLocalAudio');if(a)a.volume=v;focusSavePrefs({volume:v});
+  v=Math.max(0,Math.min(1,Number(v)));if(v>0)focusLastAudibleVolume=v;if(focusMaster)focusMaster.gain.value=v;let a=document.getElementById('focusLocalAudio');if(a)a.volume=v;
+  let main=document.getElementById('focusVolume');if(main&&Number(main.value)!==v)main.value=String(v);
+  let mute=document.getElementById('focusMiniMute');if(mute)mute.textContent=v<=.001?'🔇':'🔊';focusSavePrefs({volume:v});
+}
+function focusToggleMute(){
+  let v=Number(document.getElementById('focusVolume')?.value||0);
+  focusSetVolume(v>.001?0:(focusLastAudibleVolume||.32));
 }
 function focusLoadLocalFiles(files){
   focusLocalUrls.forEach(x=>{try{URL.revokeObjectURL(x.url)}catch(e){}});focusLocalUrls=[];
   let list=document.getElementById('focusLocalList');if(!list)return;
   [...(files||[])].filter(f=>String(f.type||'').startsWith('audio/')).forEach((file,i)=>focusLocalUrls.push({name:file.name,url:URL.createObjectURL(file),index:i}));
   list.innerHTML=focusLocalUrls.length?focusLocalUrls.map((x,i)=>'<button onclick="focusPlayLocal('+i+',this)"><span>🎵 '+liveEsc(x.name)+'</span><small>Play</small></button>').join(''):'<small>No compatible audio files selected.</small>';
+  focusMiniPopulate();
 }
 function focusPlayLocal(i,btn){
   let x=focusLocalUrls[i],a=document.getElementById('focusLocalAudio');if(!x||!a)return;
-  focusClearGenerated();focusCurrentSound='';document.querySelectorAll('[data-focus-sound]').forEach(y=>y.classList.remove('on'));document.querySelectorAll('#focusLocalList button').forEach(y=>y.classList.toggle('on',y===btn));
+  focusClearGenerated();focusCurrentSound='';focusCurrentLocalIndex=i;document.querySelectorAll('[data-focus-sound]').forEach(y=>y.classList.remove('on'));document.querySelectorAll('#focusLocalList button').forEach(y=>y.classList.toggle('on',y===btn));
   a.src=x.url;a.dataset.active='1';a.dataset.title=x.name;a.volume=Number(document.getElementById('focusVolume')?.value||.32);
   a.onplay=()=>{focusPaused=false;focusSetPlayingUi(x.name,true);focusStatus('Playing from this device only — nothing is uploaded.')};
-  a.onpause=()=>{focusPaused=true;focusSetPlayingUi(x.name,false)};a.onended=()=>{focusPaused=true;focusSetPlayingUi(x.name,false)};
+  a.onpause=()=>{focusPaused=true;if(a.dataset.active==='1')focusSetPlayingUi(x.name,false)};a.onended=()=>focusStopAudio(true,true);
   a.play().catch(()=>focusStatus('Tap play again if your browser blocked autoplay.'));
 }
 function focusSetSleepTimer(minutes){
   clearTimeout(focusSleepTimer);focusSleepTimer=null;let n=Number(minutes);
-  if(n>0){focusSleepTimer=setTimeout(()=>{focusStopAudio();let s=document.getElementById('focusSleepSelect');if(s)s.value='0';focusStatus('Sleep timer finished — audio stopped.')},n*60*1000);focusStatus('Sleep timer set for '+n+' minutes.')}
+  if(n>0){focusSleepTimer=setTimeout(()=>{focusStopAudio(true,true);let s=document.getElementById('focusSleepSelect');if(s)s.value='0';focusStatus('Sleep timer finished — audio stopped.')},n*60*1000);focusStatus('Sleep timer set for '+n+' minutes.')}
 }
 function focusPomodoroRender(){
   let b=document.getElementById('focusPomodoro'),m=Math.floor(focusPomodoroSeconds/60),sec=focusPomodoroSeconds%60;if(b)b.textContent='⏱ '+String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');
@@ -4434,11 +4524,12 @@ function focusTogglePomodoro(){
   focusPomodoroTimer=setInterval(()=>{focusPomodoroSeconds--;if(focusPomodoroSeconds<=0){clearInterval(focusPomodoroTimer);focusPomodoroRunning=false;focusPomodoroSeconds=25*60;b?.classList.remove('on');focusPomodoroRender();focusStatus('25-minute focus session complete. Nice work.');return}focusPomodoroRender()},1000);
 }
 function focusInit(){
-  let p=focusPrefs(),vol=Number.isFinite(Number(p.volume))?Number(p.volume):.32,v=document.getElementById('focusVolume');if(v)v.value=String(vol);
-  let audio=document.getElementById('focusLocalAudio');if(audio)audio.volume=vol;focusPomodoroRender();
+  let p=focusPrefs(),vol=Number.isFinite(Number(p.volume))?Number(p.volume):.32;if(vol>0)focusLastAudibleVolume=vol;
+  let v=document.getElementById('focusVolume');if(v)v.value=String(vol);let audio=document.getElementById('focusLocalAudio');if(audio)audio.volume=vol;
+  focusPomodoroRender();focusMiniPopulate();focusSetVolume(vol);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('focusPlayerPanel')?.classList.contains('open'))toggleFocusPlayer(false)});
 }
-focusInit();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',focusInit,{once:true});else focusInit();
 
 renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installCardSizeControls(document);installSourceCards();decorateDictionary(document);applyDeviceLayout();renderLanguageSwitcher();renderWidgets();renderClipSprint();renderResourceLab();renderWordBank();renderLearningLaunch();loadFresh();eqInit();navigateAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'),'replace');updateLeaguePreview();renderSettings();updateMediaTopOffset();
 </script>
@@ -4455,11 +4546,17 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
     <button data-focus-tab="local" onclick="focusShowTab('local',this)">🎵 Local audio · optional</button>
   </div>
   <div class="focusPane on" id="focusPaneAmbient">
+    <div class="focusMoodNote">Choose by sound or mood — all generated locally</div>
     <div class="focusSoundGrid">
-      <button data-focus-sound="rain" onclick="focusPlaySound('rain',this)"><span>🌧️</span><b>Rain</b><small>soft rainfall texture</small></button>
-      <button data-focus-sound="brown" onclick="focusPlaySound('brown',this)"><span>🟤</span><b>Brown noise</b><small>deep steady sound</small></button>
-      <button data-focus-sound="pink" onclick="focusPlaySound('pink',this)"><span>🌸</span><b>Pink noise</b><small>softer high frequencies</small></button>
-      <button data-focus-sound="ambient" onclick="focusPlaySound('ambient',this)"><span>🌌</span><b>Soft ambient</b><small>generated calm tones</small></button>
+      <button data-focus-sound="rain" onclick="focusPlaySound('rain',this)"><span>🌧️</span><b>Rain</b><small><b>Nature</b> soft rainfall texture</small></button>
+      <button data-focus-sound="brown" onclick="focusPlaySound('brown',this)"><span>🟤</span><b>Brown noise</b><small><b>Deep focus</b> steady low sound</small></button>
+      <button data-focus-sound="pink" onclick="focusPlaySound('pink',this)"><span>🌸</span><b>Pink noise</b><small><b>Calm</b> softer high frequencies</small></button>
+      <button data-focus-sound="ambient" onclick="focusPlaySound('ambient',this)"><span>🌌</span><b>Soft ambient</b><small><b>Calm</b> slow generated tones</small></button>
+      <button data-focus-sound="ocean" onclick="focusPlaySound('ocean',this)"><span>🌊</span><b>Ocean drift</b><small><b>Reset</b> slow rolling texture</small></button>
+      <button data-focus-sound="fireplace" onclick="focusPlaySound('fireplace',this)"><span>🔥</span><b>Fireplace</b><small><b>Cozy</b> warm crackle texture</small></button>
+      <button data-focus-sound="forest" onclick="focusPlaySound('forest',this)"><span>🌲</span><b>Forest hush</b><small><b>Nature</b> soft airy background</small></button>
+      <button data-focus-sound="night" onclick="focusPlaySound('night',this)"><span>🌙</span><b>Night calm</b><small><b>Sleep</b> low quiet wash</small></button>
+      <button data-focus-sound="deep" onclick="focusPlaySound('deep',this)"><span>🧠</span><b>Deep focus</b><small><b>Focus</b> low steady bed</small></button>
     </div>
     <div class="focusNow"><span class="focusPulse"></span><div><small>NOW PLAYING</small><b id="focusNowTitle">Choose a focus sound</b></div></div>
   </div>
@@ -4485,6 +4582,13 @@ renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionToo
   <div class="focusStatus" id="focusStatus">Focus sounds are generated locally — no ads, no account, no API.</div>
 </aside>
 <div class="focusBackdrop" id="focusBackdrop" onclick="toggleFocusPlayer(false)"></div>
+<div class="focusMiniBar" id="focusMiniBar" aria-label="Focus Player quick controls">
+  <button class="focusMiniButton" id="focusMiniMute" onclick="focusToggleMute()" title="Mute / unmute" aria-label="Mute or unmute">🔊</button>
+  <button class="focusMiniButton" id="focusMiniPlay" onclick="focusTogglePlayback()" title="Play / pause" aria-label="Play or pause">Ⅱ</button>
+  <button class="focusMiniButton stop" onclick="focusStopAudio(true,true)" title="Stop" aria-label="Stop">■</button>
+  <div class="focusMiniTitle"><small>FOCUS PLAYER</small><b id="focusMiniTitle">Focus sound</b></div>
+  <select class="focusMiniSelect" id="focusMiniSelect" onchange="focusMiniChange(this.value)" aria-label="Change focus sound"></select>
+</div>
 <div class="socialToastHost" id="socialToastHost" aria-live="polite" aria-atomic="true"></div>
 <nav class="vnextBottomNav" id="vnextBottomNav" aria-label="Primary navigation">
   <button id="vnavHome" data-vtab="Home" onclick="navigateAppTab('Home',null,'push')"><span class="vicon">🏠</span><span>Home</span></button>
