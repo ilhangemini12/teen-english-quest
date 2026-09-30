@@ -2739,6 +2739,7 @@ function renderDesktopHomeRail(){
   }
 }
 function showAppTab(name,btn){
+  if(name!=='ElifAI'&&typeof elifVoiceStopPractice==='function')elifVoiceStopPractice(true);
   localStorage.setItem('teq-active-tab',name);
   document.body.dataset.appTab=name;
   document.body.dataset.primaryNav=name==='Home'?'Home':name==='ElifAI'?'Tutor':name==='League'?'League':(name==='Messages'||name==='Settings'||name==='Personalize')?'':'Explore';
@@ -3767,11 +3768,16 @@ function elifAiRender(){
   elifAiMessages.forEach(m=>{
     let row=document.createElement('div');row.className='elifMsg '+m.role;
     let bubble=document.createElement('div');bubble.className='elifBubble';bubble.textContent=m.content;
-    row.appendChild(bubble);box.appendChild(row);
+    row.appendChild(bubble);
+    if(m.role==='assistant'){
+      let replay=document.createElement('button');replay.type='button';replay.className='elifVoiceReplay';replay.title='Read this reply aloud';replay.setAttribute('aria-label','Read this reply aloud');replay.textContent='🔊';replay.onclick=()=>elifVoiceSpeak(m.content,false);row.appendChild(replay);
+    }
+    box.appendChild(row);
   });
   box.scrollTop=box.scrollHeight;
   let st=document.getElementById('elifAiStatus');
   if(st&&!elifAiBusy)st.textContent=eqUser?'Ready · Enter sends, Shift+Enter adds a line.':'Sign in to use the free AI tutor.';
+  if(typeof elifVoiceRenderSupport==='function')elifVoiceRenderSupport();
 }
 function elifAiSetBusy(on,msg){
   elifAiBusy=on;
