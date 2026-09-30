@@ -4201,6 +4201,138 @@ sourcePreviewHtml=function(url,title,meta,item){
   return '<div class="sourceReader"><div class="sourceReaderHero '+(image?'':'noImage')+'"><div><div class="sourceReaderMeta">'+liveEsc(detail)+'</div><h2>'+liveEsc(title||x?.title||'Source')+'</h2>'+(summary?'<p class="sourceReaderSummary">'+liveEsc(summary)+'</p>':'')+'<div class="sourceReaderNotice"><b>BatumHub Reader Preview</b><br>This publisher does not expose an embeddable full reader here, so BatumHub keeps a compact study preview instead of a broken frame.</div><div class="sourceReaderActions"><a href="'+liveEsc(url)+'" target="_blank" rel="noopener">Read full original ↗</a></div></div>'+image+'</div></div>';
 };
 
+
+/* ===== BATUMHUB FOCUS PLAYER ===== */
+const FOCUS_PREFS_KEY='batumhub-focus-player-v1';
+let focusAudioCtx=null,focusNodes=[],focusMaster=null,focusCurrentSound='',focusPaused=true,focusLocalUrls=[],focusSleepTimer=null,focusPomodoroTimer=null,focusPomodoroSeconds=25*60,focusPomodoroRunning=false;
+function focusPrefs(){
+  try{return JSON.parse(localStorage.getItem(FOCUS_PREFS_KEY)||'{}')||{}}catch(e){return {}}
+}
+function focusSavePrefs(extra={}){
+  let p={...focusPrefs(),volume:Number(document.getElementById('focusVolume')?.value||.32),sound:focusCurrentSound,...extra};
+  try{localStorage.setItem(FOCUS_PREFS_KEY,JSON.stringify(p))}catch(e){}
+}
+function toggleFocusPlayer(force){
+  let panel=document.getElementById('focusPlayerPanel'),back=document.getElementById('focusBackdrop'),btn=document.getElementById('focusPlayerButton');if(!panel)return;
+  let open=force===undefined?!panel.classList.contains('open'):!!force;
+  panel.classList.toggle('open',open);panel.setAttribute('aria-hidden',open?'false':'true');if(back)back.classList.toggle('open',open);if(btn)btn.classList.toggle('on',open);
+}
+function focusShowTab(name,btn){
+  document.querySelectorAll('.focusTabs button').forEach(x=>x.classList.toggle('on',x===btn));
+  document.querySelectorAll('.focusPane').forEach(x=>x.classList.remove('on'));
+  let id=name==='local'?'focusPaneLocal':name==='spotify'?'focusPaneSpotify':'focusPaneAmbient';
+  document.getElementById(id)?.classList.add('on');
+}
+function focusStatus(text){let e=document.getElementById('focusStatus');if(e)e.textContent=text}
+function focusEnsureCtx(){
+  if(!focusAudioCtx){
+    const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return null;
+    focusAudioCtx=new Ctx();focusMaster=focusAudioCtx.createGain();focusMaster.gain.value=Number(document.getElementById('focusVolume')?.value||.32);focusMaster.connect(focusAudioCtx.destination);
+  }
+  if(focusAudioCtx.state==='suspended')focusAudioCtx.resume().catch(()=>{});
+  return focusAudioCtx;
+}
+function focusClearGenerated(){
+  focusNodes.forEach(n=>{try{if(n.stop)n.stop()}catch(e){}try{n.disconnect()}catch(e){}});focusNodes=[];
+}
+function focusNoiseBuffer(kind){
+  let ctx=focusEnsureCtx();if(!ctx)return null;
+  let len=ctx.sampleRate*3,buf=ctx.createBuffer(1,len,ctx.sampleRate),data=buf.getChannelData(0),last=0,b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+  for(let i=0;i<len;i++){
+    let white=Math.random()*2-1;
+    if(kind==='brown'){last=(last+.02*white)/1.02;data[i]=last*3.5}
+    else if(kind==='pink'){
+      b0=.99886*b0+white*.0555179;b1=.99332*b1+white*.0750759;b2=.969*b2+white*.153852;b3=.8665*b3+white*.3104856;b4=.55*b4+white*.5329522;b5=-.7616*b5-white*.016898;data[i]=(b0+b1+b2+b3+b4+b5+b6+white*.5362)*.11;b6=white*.115926;
+    }else data[i]=white*.42;
+  }
+  return buf;
+}
+function focusBuildNoise(kind){
+  let ctx=focusEnsureCtx();if(!ctx)return false;
+  let src=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),gain=ctx.createGain();src.buffer=focusNoiseBuffer(kind);src.loop=true;
+  if(kind==='rain'){filter.type='bandpass';filter.frequency.value=2600;filter.Q.value=.45;gain.gain.value=.42}
+  else if(kind==='pink'){filter.type='lowpass';filter.frequency.value=5000;gain.gain.value=.55}
+  else{filter.type='lowpass';filter.frequency.value=1100;gain.gain.value=.65}
+  src.connect(filter);filter.connect(gain);gain.connect(focusMaster);src.start();focusNodes.push(src,filter,gain);return true;
+}
+function focusBuildAmbient(){
+  let ctx=focusEnsureCtx();if(!ctx)return false;
+  let freqs=[130.81,164.81,196,261.63],gains=[.055,.035,.028,.018];
+  freqs.forEach((f,i)=>{let o=ctx.createOscillator(),g=ctx.createGain(),lfo=ctx.createOscillator(),lg=ctx.createGain();o.type='sine';o.frequency.value=f;g.gain.value=gains[i];lfo.frequency.value=.035+i*.013;lg.gain.value=gains[i]*.35;lfo.connect(lg);lg.connect(g.gain);o.connect(g);g.connect(focusMaster);o.start();lfo.start();focusNodes.push(o,g,lfo,lg)});
+  return true;
+}
+function focusSetPlayingUi(title,playing){
+  let panel=document.getElementById('focusPlayerPanel'),now=document.getElementById('focusNowTitle'),toggle=document.getElementById('focusPlayToggle');
+  panel?.classList.toggle('playing',!!playing);if(now&&title)now.textContent=title;if(toggle)toggle.textContent=playing?'Ⅱ':'▶';
+}
+function focusPlaySound(kind,btn){
+  focusStopAudio(false);let ok=kind==='ambient'?focusBuildAmbient():focusBuildNoise(kind);if(!ok){focusStatus('Web Audio is not available in this browser.');return}
+  focusCurrentSound=kind;focusPaused=false;let names={rain:'Rain',brown:'Brown noise',pink:'Pink noise',ambient:'Soft ambient'};
+  document.querySelectorAll('[data-focus-sound]').forEach(x=>x.classList.toggle('on',x.dataset.focusSound===kind));
+  focusSetPlayingUi(names[kind],true);focusStatus(names[kind]+' is generated on this device — no ads or API.');focusSavePrefs();
+  if('mediaSession' in navigator){try{navigator.mediaSession.metadata=new MediaMetadata({title:names[kind],artist:'BatumHub Focus',album:'Focus Player'})}catch(e){}}
+}
+function focusStopAudio(reset=true){
+  focusClearGenerated();let a=document.getElementById('focusLocalAudio');if(a){try{a.pause()}catch(e){}}
+  focusPaused=true;if(reset){focusCurrentSound='';document.querySelectorAll('[data-focus-sound]').forEach(x=>x.classList.remove('on'));focusSetPlayingUi('Choose a focus sound',false)}else focusSetPlayingUi('',false);
+}
+function focusTogglePlayback(){
+  let a=document.getElementById('focusLocalAudio');
+  if(a&&a.dataset.active==='1'){
+    if(a.paused){a.play().catch(()=>{});focusPaused=false;focusSetPlayingUi(a.dataset.title||'My music',true)}else{a.pause();focusPaused=true;focusSetPlayingUi(a.dataset.title||'My music',false)}
+    return;
+  }
+  if(!focusCurrentSound){let last=focusPrefs().sound||'rain';focusPlaySound(last,document.querySelector('[data-focus-sound="'+last+'"]'));return}
+  if(focusPaused){focusPlaySound(focusCurrentSound,document.querySelector('[data-focus-sound="'+focusCurrentSound+'"]'))}else focusStopAudio(false);
+}
+function focusSetVolume(v){
+  v=Math.max(0,Math.min(1,Number(v)));if(focusMaster)focusMaster.gain.value=v;let a=document.getElementById('focusLocalAudio');if(a)a.volume=v;focusSavePrefs({volume:v});
+}
+function focusLoadLocalFiles(files){
+  focusLocalUrls.forEach(x=>{try{URL.revokeObjectURL(x.url)}catch(e){}});focusLocalUrls=[];
+  let list=document.getElementById('focusLocalList');if(!list)return;
+  [...(files||[])].filter(f=>String(f.type||'').startsWith('audio/')).forEach((file,i)=>focusLocalUrls.push({name:file.name,url:URL.createObjectURL(file),index:i}));
+  list.innerHTML=focusLocalUrls.length?focusLocalUrls.map((x,i)=>'<button onclick="focusPlayLocal('+i+',this)"><span>🎵 '+liveEsc(x.name)+'</span><small>Play</small></button>').join(''):'<small>No compatible audio files selected.</small>';
+}
+function focusPlayLocal(i,btn){
+  let x=focusLocalUrls[i],a=document.getElementById('focusLocalAudio');if(!x||!a)return;
+  focusClearGenerated();focusCurrentSound='';document.querySelectorAll('[data-focus-sound]').forEach(y=>y.classList.remove('on'));document.querySelectorAll('#focusLocalList button').forEach(y=>y.classList.toggle('on',y===btn));
+  a.src=x.url;a.dataset.active='1';a.dataset.title=x.name;a.volume=Number(document.getElementById('focusVolume')?.value||.32);
+  a.onplay=()=>{focusPaused=false;focusSetPlayingUi(x.name,true);focusStatus('Playing from this device only — nothing is uploaded.')};
+  a.onpause=()=>{focusPaused=true;focusSetPlayingUi(x.name,false)};a.onended=()=>{focusPaused=true;focusSetPlayingUi(x.name,false)};
+  a.play().catch(()=>focusStatus('Tap play again if your browser blocked autoplay.'));
+}
+function focusSpotifyEmbedURL(input){
+  let raw=String(input||'').trim(),type='',id='';
+  if(/^spotify:(track|album|playlist):[A-Za-z0-9]+$/i.test(raw)){let p=raw.split(':');type=p[1];id=p[2]}
+  else{try{let u=new URL(raw);if(!/(^|\\.)spotify\\.com$/i.test(u.hostname))return '';let p=u.pathname.split('/').filter(Boolean);if(p[0]==='embed')p.shift();if(['track','album','playlist'].includes(p[0])&&p[1]){type=p[0];id=p[1].split('?')[0]}}catch(e){return ''}}
+  return type&&id?'https://open.spotify.com/embed/'+type+'/'+encodeURIComponent(id)+'?utm_source=generator':'';
+}
+function focusLoadSpotify(){
+  let input=document.getElementById('focusSpotifyUrl'),frame=document.getElementById('focusSpotifyFrame'),src=focusSpotifyEmbedURL(input?.value);if(!frame)return;
+  if(!src){frame.innerHTML='<small>Paste a valid Spotify track, album or playlist link.</small>';return}
+  frame.innerHTML='<iframe src="'+src+'" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify"></iframe>';
+}
+function focusSetSleepTimer(minutes){
+  clearTimeout(focusSleepTimer);focusSleepTimer=null;let n=Number(minutes);
+  if(n>0){focusSleepTimer=setTimeout(()=>{focusStopAudio();let s=document.getElementById('focusSleepSelect');if(s)s.value='0';focusStatus('Sleep timer finished — audio stopped.')},n*60*1000);focusStatus('Sleep timer set for '+n+' minutes.')}
+}
+function focusPomodoroRender(){
+  let b=document.getElementById('focusPomodoro'),m=Math.floor(focusPomodoroSeconds/60),sec=focusPomodoroSeconds%60;if(b)b.textContent='⏱ '+String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');
+}
+function focusTogglePomodoro(){
+  let b=document.getElementById('focusPomodoro');focusPomodoroRunning=!focusPomodoroRunning;b?.classList.toggle('on',focusPomodoroRunning);
+  clearInterval(focusPomodoroTimer);focusPomodoroTimer=null;
+  if(!focusPomodoroRunning){focusPomodoroRender();return}
+  focusPomodoroTimer=setInterval(()=>{focusPomodoroSeconds--;if(focusPomodoroSeconds<=0){clearInterval(focusPomodoroTimer);focusPomodoroRunning=false;focusPomodoroSeconds=25*60;b?.classList.remove('on');focusPomodoroRender();focusStatus('25-minute focus session complete. Nice work.');return}focusPomodoroRender()},1000);
+}
+function focusInit(){
+  let p=focusPrefs(),vol=Number.isFinite(Number(p.volume))?Number(p.volume):.32,v=document.getElementById('focusVolume');if(v)v.value=String(vol);
+  let audio=document.getElementById('focusLocalAudio');if(audio)audio.volume=vol;focusPomodoroRender();
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('focusPlayerPanel')?.classList.contains('open'))toggleFocusPlayer(false)});
+}
+focusInit();
+
 renderQuiz();render();renderDemoPass();installThumbFallbacks();installMissionTools();installCardSizeControls(document);installSourceCards();decorateDictionary(document);applyDeviceLayout();renderLanguageSwitcher();renderWidgets();renderClipSprint();renderResourceLab();renderWordBank();renderLearningLaunch();loadFresh();eqInit();navigateAppTab('Home',document.querySelector('#appTabs button[data-tab="Home"]'),'replace');updateLeaguePreview();renderSettings();updateMediaTopOffset();
 </script>
 
