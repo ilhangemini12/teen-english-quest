@@ -1,10 +1,12 @@
 # BatumHub vNext — Component Map, Wireframes, React/Tailwind Target Architecture
 
-> Branch target: `vnext-v5.4-refactor`
+> Branch target: `vnext-v5.7-focus`
 >
 > Production safety rule: `main` stays on the last fully verified stable release until all vNext gates pass.
 >
 > Product rule: **Do not delete working features to simplify the UI. Move them to the correct layer.**
+>
+> Focus/audio rule: **Do not integrate Spotify into BatumHub.** Keep the Focus Player distraction-free: locally generated focus sounds are the default; user-selected local audio is optional, session-local, and never uploaded. No music feeds, recommendations, social discovery, ad bypass, or streaming-account coupling.
 
 ---
 
