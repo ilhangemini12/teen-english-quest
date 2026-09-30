@@ -771,7 +771,7 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <span>📅 <b id="bhToday">—</b></span>
   <span>🌦️ <b id="bhWeather">Batumi —</b></span>
   <button class="profileStatusPill" id="bhLearningProfile" onclick="openTab('Settings')" title="Learning profile">🎓 <b>Learning profile</b></button>
-  <span class="versionTop">⚙️ <b id="bhVersion">v5.6</b></span>
+  <span class="versionTop">⚙️ <b id="bhVersion">v5.7</b></span>
   <span>🕒 <b id="bhUpdated">—</b></span>
 </div>
 <div class="apptabs secondaryTabs" id="appTabs"></div></div></div><div class="wrap"><section class="hero vnextHero" id="heroHome">
@@ -1387,8 +1387,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   <div id="dictBody"><small>Hold your cursor over an English word for about 2 seconds — or tap it on mobile.</small></div>
 </div><footer><p>This ESL platform links to original sources instead of copying full articles or videos. Progress syncs across devices when signed in. The learning core combines American-English pronunciation, global listening, SAT Reading & Writing, real-world media, university exploration and career discovery.</p></footer></div><script>
 
-const BH_SITE_VERSION='5.6';
-const BH_SITE_UPDATED='2026-09-30T11:10:00+04:00';
+const BH_SITE_VERSION='5.7';
+const BH_SITE_UPDATED='2026-09-30T12:20:00+04:00';
 function bhWeatherText(code){
   const map={0:'☀️ Clear',1:'🌤️ Mostly clear',2:'⛅ Partly cloudy',3:'☁️ Cloudy',45:'🌫️ Fog',48:'🌫️ Fog',51:'🌦️ Drizzle',53:'🌦️ Drizzle',55:'🌧️ Drizzle',61:'🌦️ Rain',63:'🌧️ Rain',65:'🌧️ Heavy rain',71:'🌨️ Snow',73:'🌨️ Snow',75:'❄️ Heavy snow',80:'🌦️ Showers',81:'🌧️ Showers',82:'⛈️ Heavy showers',95:'⛈️ Thunderstorm',96:'⛈️ Thunderstorm',99:'⛈️ Thunderstorm'};
   return map[Number(code)]||'🌦️ Weather';
@@ -3218,7 +3218,7 @@ function applyGlobalLocale(){
   let ui=localeUI(),lang=currentLearningLanguage(),info=LEARNING_LANGUAGES[lang];
   document.documentElement.lang=lang;
   let acc=document.getElementById('eqAccountButton');if(acc)acc.textContent='👤 '+(eqProfile?eqProfile.nickname:ui.account);
-  let install=document.getElementById('bhInstallButton');if(install)install.textContent='📲 '+ui.install;
+  let install=document.getElementById('bhInstallButton');if(install)install.innerHTML='📲 <span>Install</span>';
   renderCoreNav();renderAppTabs();bhRenderDate();bhLoadWeather();
   let live=document.querySelector('#heroHome .livepill');if(live)live.innerHTML='<i></i> '+ui.live;
   let title=document.querySelector('#heroHome h1'),lead=document.querySelector('#heroHome .lead');
