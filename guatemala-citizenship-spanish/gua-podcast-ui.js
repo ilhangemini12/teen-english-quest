@@ -25,6 +25,7 @@
    if(t)t.textContent=e.title+' · ~'+e.minutes+' dk'; if(s)s.textContent=e.summary;
    if(m)m.textContent=isNative()?'APK modu: gerçek arka plan oynatma aktif. Bildirimden kontrol edebilirsin.':'Web modu: cihaz/tarayıcı TTS kullanılır; ekran kapalıyken devam garantisi yok.';
    if(l)l.innerHTML=E.map((x,i)=>'<button class="podEpisode '+(i===idx?'on':'')+'" onclick="guaSelect('+i+')"><b>'+esc(x.title)+'</b><span>'+esc(x.level)+' · ~'+x.minutes+' dk · '+esc(x.summary)+'</span></button>').join('');
+   const g=document.getElementById('guaGptUrl');if(g&&!g.value)g.value=localStorage.getItem('guaGptProjectUrl')||'';
    localStorage.setItem('guaPodcastIdx',String(idx));
  }
  function rate(){return Number(document.getElementById('guaRate')?.value||1)}
@@ -40,6 +41,7 @@
  window.guaPrev=()=>{idx=(idx-1+E.length)%E.length;render();window.guaPlay()};
  window.guaSelect=i=>{idx=i;render()};
  window.guaRateChanged=()=>{};
+ window.guaSaveGptUrl=()=>{const v=document.getElementById('guaGptUrl')?.value.trim()||'';if(v)localStorage.setItem('guaGptProjectUrl',v);else localStorage.removeItem('guaGptProjectUrl')};
  window.guaOpenGPT=()=>{const url=localStorage.getItem('guaGptProjectUrl')||'https://chatgpt.com/';if(isNative()&&window.GuaNative.openExternal)window.GuaNative.openExternal(url);else window.open(url,'_blank','noopener')};
  document.addEventListener('DOMContentLoaded',add);if(document.readyState!=='loading')add();
 })();
