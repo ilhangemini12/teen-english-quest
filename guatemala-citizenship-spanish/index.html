@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guatemala Citizenship Spanish Lab</title>
+<meta name="description" content="Guatemala citizenship preparation: Spanish, civics, spaced repetition and interview practice.">
+<style>
+:root{--bg:#08131d;--card:#102231;--card2:#142b3b;--line:#25465a;--text:#eef8fb;--muted:#9fb6c1;--accent:#67d5b5;--accent2:#76bdf2;--warn:#f3cf73;--danger:#ff8a8a}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111a,#0b1c28);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1180px;margin:auto;padding:18px}.top{position:sticky;top:0;z-index:10;background:#08131deb;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:12px 18px;display:flex;gap:8px;align-items:center;overflow:auto}.brand{font-weight:900;margin-right:auto;white-space:nowrap}.nav button,.btn{border:1px solid var(--line);background:#132c3d;color:#fff;border-radius:11px;padding:8px 11px;cursor:pointer;text-decoration:none;white-space:nowrap}.nav button.on{background:#1d665a;border-color:#3e8d7d}
+.hero{display:grid;grid-template-columns:1.4fr .8fr;gap:14px;padding:24px 0}.card{background:linear-gradient(145deg,var(--card),#0d1e2b);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 10px 28px #0002}
+h1{font-size:clamp(30px,5vw,52px);line-height:1.02;margin:6px 0 10px}.lead{font-size:17px;color:#c3d5dc;max-width:760px}.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#13392f;border:1px solid #2f6f5d;color:#aef2dc;font-weight:800;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{background:#0c1b28;border:1px solid var(--line);border-radius:13px;padding:12px}.stat b{font-size:27px;display:block}.stat span{color:var(--muted);font-size:12px}
+.progress{height:9px;background:#1a3343;border-radius:999px;overflow:hidden;margin-top:8px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.section{display:none}.section.on{display:block}.section h2{font-size:27px;margin:8px 0 4px}.muted{color:var(--muted)}
+.task{border-left:3px solid var(--accent);background:#0b1a26;padding:11px;border-radius:10px;margin:10px 0}.task.done{opacity:.65;border-left-color:#5ca487}.task button{float:right}
+.week{position:relative}.week .wk{color:var(--warn);font-weight:900}.week ul{padding-left:19px;color:#c4d4db}.tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:999px;padding:4px 7px;margin:2px;background:#173044;color:#cce3ec}
+.flash{min-height:260px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px}.flash .word{font-size:42px;font-weight:900}.flash .hint{color:var(--muted);margin-top:10px}.answer{font-size:20px;margin:12px 0}.gradebar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.gradebar button{border:1px solid var(--line);background:#142c3c;color:#fff;border-radius:10px;padding:9px 13px;cursor:pointer}.gradebar button.good{background:#1b5d50}.gradebar button.hard{background:#5d5428}.gradebar button.fail{background:#5f3033}
+.qbox{background:#0b1b28;border:1px solid var(--line);border-radius:13px;padding:13px;margin:10px 0}.qbox label{display:block;padding:6px;border-radius:9px}.qbox label:hover{background:#142b3b}
+input,textarea,select{width:100%;background:#0b1b28;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit}textarea{min-height:120px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.external{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.ext{background:linear-gradient(145deg,#14283b,#0d1c29);border:1px solid var(--line);border-radius:17px;padding:15px}.ext h3{margin:0 0 5px}.ext a{color:#bfe5ff}
+.timeline{display:flex;gap:6px;flex-wrap:wrap}.dot{padding:6px 8px;border-radius:9px;background:#142a3a;border:1px solid var(--line);font-size:11px}.dot.on{background:#1d5d51}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);font-size:13px}th{color:#9fc0ce}
+.small{font-size:12px}.danger{color:var(--danger)}.right{float:right}
+@media(max-width:850px){.hero,.two{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.external{grid-template-columns:1fr}}@media(max-width:560px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="nav">
+  <div class="brand">🇬🇹 Guatemala Citizenship Spanish Lab</div>
+  <button class="tab on" data-tab="home">Dashboard</button>
+  <button class="tab" data-tab="curriculum">Müfredat</button>
+  <button class="tab" data-tab="vocab">SRS Kelimeler</button>
+  <button class="tab" data-tab="civics">Civics</button>
+  <button class="tab" data-tab="interview">Mülakat</button>
+  <button class="tab" data-tab="apps">Busuu + Drops</button>
+  <button class="tab" data-tab="data">Veri</button>
+</div></header>
+
+<main class="wrap">
+<section id="home" class="section on">
+  <div class="hero">
+    <div class="card">
+      <span class="pill">B1+ → B2 hedefi · 12 haftalık çekirdek plan</span>
+      <h1>İspanyolca + Guatemala Civics<br>tek çalışma sisteminde.</h1>
+      <p class="lead">Günde 35–55 dakikayı küçük bloklara böl. Sistem kelimeleri unutmaya yaklaştığın anda tekrar getirir, civics bilgisini ölçer ve vatandaşlık görüşmesi için konuşma provası yaptırır.</p>
+      <div class="actions"><button class="btn" onclick="go('vocab')">Bugünkü tekrarları başlat</button><button class="btn" onclick="go('civics')">5 civics sorusu</button><button class="btn" onclick="go('interview')">Mülakat provası</button></div>
+    </div>
+    <div class="card">
+      <div class="stats">
+        <div class="stat"><b id="streak">0</b><span>gün seri</span></div>
+        <div class="stat"><b id="dueCount">0</b><span>bugün tekrar</span></div>
+        <div class="stat"><b id="mastered">0</b><span>öğrenilen kelime</span></div>
+        <div class="stat"><b id="score">0%</b><span>civics doğruluk</span></div>
+      </div>
+      <p class="small muted">Haftalık hedef</p><div class="progress"><i id="weekBar" style="width:0%"></i></div>
+      <p class="small muted" id="weekText">0 / 5 çalışma günü</p>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>🧠 10 dk SRS</h3><p class="muted">Vatandaşlık ve günlük yaşam kelimeleri. Zorlandıkların daha sık gelir.</p><button class="btn" onclick="go('vocab')">Başla</button></div>
+    <div class="card"><h3>🏛️ 10 dk Civics</h3><p class="muted">Tarih, coğrafya, Anayasa ve devlet yapısı.</p><button class="btn" onclick="go('civics')">Quiz</button></div>
+    <div class="card"><h3>🎙️ 10 dk Mülakat</h3><p class="muted">Kendi hayat hikâyeni doğal İspanyolcayla anlatma provası.</p><button class="btn" onclick="go('interview')">Pratik</button></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h3>Bugünün çalışma zinciri</h3><div id="todayTasks"></div></div>
+</section>
+
+<section id="curriculum" class="section">
+  <h2>12 Haftalık Müfredat</h2><p class="muted">Her hafta üç eksen: dil, Guatemala bilgisi, uygulama. Tamamladığın maddeleri işaretle.</p>
+  <div id="weeks" class="grid"></div>
+</section>
+
+<section id="vocab" class="section">
+  <h2>Spaced Repetition Kelime Sistemi</h2>
+  <p class="muted">Basitleştirilmiş SM-2 mantığı: “Zor” dediğin kelime daha erken, “Kolay” dediğin kelime daha geç gelir.</p>
+  <div class="two">
+    <div class="card">
+      <div id="flash" class="flash"></div>
+      <div id="grades" class="gradebar"></div>
+    </div>
+    <div class="card">
+      <h3>Kendi kelimeni ekle</h3>
+      <input id="newEs" placeholder="İspanyolca kelime / ifade">
+      <input id="newTr" placeholder="Türkçe anlam" style="margin-top:8px">
+      <input id="newEx" placeholder="Örnek İspanyolca cümle" style="margin-top:8px">
+      <button class="btn" style="margin-top:8px" onclick="addWord()">Ekle</button>
+      <h3 style="margin-top:18px">Havuz</h3><div id="wordStats" class="muted small"></div>
+    </div>
+  </div>
+</section>
+
+<section id="civics" class="section">
+  <h2>Guatemala Civics Quiz</h2><p class="muted">Sabit bilgi odaklıdır; görevdeki güncel siyasetçilerin adlarını ezberletmez.</p>
+  <div class="two"><div class="card"><div id="quiz"></div><button class="btn" onclick="gradeQuiz()">Cevapları kontrol et</button><button class="btn" onclick="newQuiz()">Yeni 5 soru</button></div>
+  <div class="card"><h3>Çalışma konuları</h3><div id="topicStats"></div><p class="small muted">Hedef: her başlıkta en az %80 doğruluk.</p></div></div>
+</section>
+
+<section id="interview" class="section">
+  <h2>Vatandaşlık Mülakat Laboratuvarı</h2><p class="muted">Soruyu sesli cevapla, sonra kısa yazılı özet gir. Amaç ezber değil, doğal anlatım.</p>
+  <div class="two">
+    <div class="card"><div id="interviewCard"></div><div class="actions"><button class="btn" onclick="speakQuestion()">🔊 Soruyu dinle</button><button class="btn" onclick="nextInterview()">Sonraki soru</button></div></div>
+    <div class="card"><h3>Cevabım</h3><textarea id="interviewAnswer" placeholder="İspanyolca cevabının kısa özetini yaz..."></textarea><div class="actions"><button class="btn" onclick="saveInterview()">Kaydet</button><button class="btn" onclick="copyModel()">Örnek iskeleti kopyala</button></div><p id="interviewFeedback" class="small muted"></p></div>
+  </div>
+</section>
+
+<section id="apps" class="section">
+  <h2>Busuu + Drops Entegrasyon Merkezi</h2>
+  <p class="muted">Kişisel aboneliklerin ilerleme API’si açık olmadığı için güvenilir yöntem: görevleri buradan yönet, uygulamada yap, sonucu tek tıkla kaydet. Böylece vatandaşlık planı da ilerlemene göre ayarlanır.</p>
+  <div class="external">
+    <div class="ext"><h3>Busuu</h3><p>Gramer, diyalog, yazma ve konuşma için ana dış kaynak. Haftada 4 gün, 15–20 dk.</p><p><a href="https://www.busuu.com/" target="_blank" rel="noopener">Busuu’yu aç ↗</a></p>
+      <label>Bugünkü dakika</label><input id="busuuMin" type="number" min="0" value="15"><label>Ders/ünite notu</label><input id="busuuNote" placeholder="Örn. B1 Past tenses"><button class="btn" onclick="logApp('Busuu')">Çalışmayı kaydet</button></div>
+    <div class="ext"><h3>Drops</h3><p>Kelime hacmi ve hızlı tekrar için. Her gün 5–10 dk. Yeni kelimeleri SRS havuzuna ekle.</p><p><a href="https://languagedrops.com/" target="_blank" rel="noopener">Drops’u aç ↗</a></p>
+      <label>Bugünkü dakika</label><input id="dropsMin" type="number" min="0" value="10"><label>Öğrendiğin yeni kelimeler</label><input id="dropsNote" placeholder="virreinato, frontera, deber..."><button class="btn" onclick="logApp('Drops')">Çalışmayı kaydet</button></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h3>Son kayıtlar</h3><div id="appLogs"></div></div>
+</section>
+
+<section id="data" class="section">
+  <h2>İlerleme Verisi</h2><p class="muted">Şu an tüm ilerleme bu tarayıcıda saklanır. İş ve ev bilgisayarı arasında taşımak için JSON dışa/içe aktar.</p>
+  <div class="two">
+    <div class="card"><h3>Yedekle</h3><p class="muted">Kelime SRS durumu, quiz sonuçları, müfredat ve uygulama kayıtları.</p><button class="btn" onclick="exportData()">JSON indir</button></div>
+    <div class="card"><h3>Geri yükle</h3><input id="importFile" type="file" accept=".json,application/json"><button class="btn" onclick="importData()">İçe aktar</button><p class="small danger">İçe aktarma mevcut yerel verinin üzerine yazar.</p></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h3>Son 14 gün</h3><div id="historyTable"></div></div>
+</section>
+</main>
+
+<script>
+const KEY='gtCitizenLab.v1';
+const seedWords=[
+['solicitud','başvuru','Presenté mi solicitud ante la autoridad competente.','citizenship'],
+['requisito','gereklilik / şart','Quiero confirmar todos los requisitos del trámite.','citizenship'],
+['nacionalidad','vatandaşlık / milliyet','Deseo adquirir la nacionalidad guatemalteca.','citizenship'],
+['naturalización','vatandaşlığa alınma','Estoy preparando mi proceso de naturalización.','citizenship'],
+['residencia','ikamet','Tuve residencia en Guatemala durante varios años.','citizenship'],
+['domicilio','ikametgâh','Mi domicilio actual está fuera de Guatemala.','citizenship'],
+['cónyuge','eş','Mi cónyuge es ciudadana guatemalteca.','citizenship'],
+['vínculo','bağ','Mantengo vínculos familiares con Guatemala.','citizenship'],
+['certificado','belge / sertifika','Necesito obtener un certificado actualizado.','citizenship'],
+['antecedentes','geçmiş kayıtları','Me solicitaron antecedentes para el expediente.','citizenship'],
+['expediente','dosya','Quiero saber el estado de mi expediente.','citizenship'],
+['juramento','yemin','El procedimiento puede incluir un juramento.','citizenship'],
+['derecho','hak','La Constitución reconoce derechos fundamentales.','civics'],
+['deber','ödev / yükümlülük','Los ciudadanos también tienen deberes.','civics'],
+['Constitución','Anayasa','Estoy estudiando la Constitución de Guatemala.','civics'],
+['Congreso','Kongre','El Congreso ejerce la función legislativa.','civics'],
+['Organismo Ejecutivo','Yürütme organı','El Organismo Ejecutivo administra el gobierno.','civics'],
+['Organismo Judicial','Yargı organı','El Organismo Judicial imparte justicia.','civics'],
+['municipio','belediye / ilçe','Cada departamento se divide en municipios.','geography'],
+['departamento','departman / idari bölge','Guatemala está dividida en departamentos.','geography'],
+['frontera','sınır','Guatemala comparte frontera con varios países.','geography'],
+['altiplano','yüksek plato','El altiplano es una región importante del país.','geography'],
+['costa','sahil','Guatemala tiene costa en el Pacífico y el Caribe.','geography'],
+['independencia','bağımsızlık','La independencia de Centroamérica se proclamó en 1821.','history'],
+['colonia','sömürge dönemi','La época colonial forma parte de la historia de Guatemala.','history'],
+['pueblo maya','Maya halkı','La civilización maya tuvo gran importancia en la región.','history'],
+['acuerdo','anlaşma','Los Acuerdos de Paz marcaron una etapa histórica.','history'],
+['tramitar','işlem yapmak','Necesito tramitar varios documentos.','verbs'],
+['adjuntar','eklemek','Debo adjuntar los documentos requeridos.','verbs'],
+['acreditar','kanıtlamak','Puedo acreditar mi vínculo familiar.','verbs'],
+['comparecer','hazır bulunmak','Tal vez deba comparecer personalmente.','verbs'],
+['otorgar','vermek / tanımak','La autoridad puede otorgar la nacionalidad.','verbs'],
+['residir','ikamet etmek','Residí en Guatemala entre 2010 y 2014.','verbs'],
+['contraer matrimonio','evlenmek','Contraje matrimonio en 2011.','personal'],
+['desempeñarse como','... olarak çalışmak','Me desempeñé como gerente financiero.','personal'],
+['mantener','sürdürmek','Mantengo una relación cercana con Guatemala.','personal'],
+['mejorar','geliştirmek','Quiero mejorar mi español antes del trámite.','personal'],
+['comprender','anlamak','Puedo comprender conversaciones cotidianas.','language'],
+['expresarse','kendini ifade etmek','Quiero expresarme con claridad y naturalidad.','language'],
+['redactar','yazılı metin hazırlamak','Practico redactar respuestas breves en español.','language']
+];
+const civics=[
+{t:'geography',q:'¿Cuántos departamentos tiene Guatemala?',a:['22','18','24','16'],c:0,e:'Guatemala está dividida en 22 departamentos.'},
+{t:'geography',q:'¿Cuál es la capital de Guatemala?',a:['Quetzaltenango','Antigua Guatemala','Ciudad de Guatemala','Escuintla'],c:2,e:'La capital nacional es Ciudad de Guatemala.'},
+{t:'geography',q:'¿Con cuál de estos países NO comparte frontera terrestre Guatemala?',a:['México','Belice','Honduras','Costa Rica'],c:3,e:'Guatemala limita con México, Belice, Honduras y El Salvador.'},
+{t:'geography',q:'Guatemala tiene costas en...',a:['solo el Pacífico','Pacífico y Caribe','solo el Caribe','Atlántico Sur y Pacífico'],c:1,e:'Tiene costa del Pacífico y salida al Caribe.'},
+{t:'history',q:'¿En qué año se proclamó la independencia de Centroamérica de España?',a:['1776','1810','1821','1847'],c:2,e:'La fecha histórica es 1821.'},
+{t:'history',q:'¿Qué civilización precolombina tuvo una presencia central en el territorio guatemalteco?',a:['Inca','Maya','Mapuche','Taína'],c:1,e:'La civilización maya es fundamental en la historia guatemalteca.'},
+{t:'history',q:'¿Qué documento puso fin formalmente al conflicto armado interno en 1996?',a:['Acuerdos de Paz','Acta de Independencia','Tratado de Tordesillas','Carta de la OEA'],c:0,e:'Los Acuerdos de Paz de 1996 cerraron formalmente el conflicto armado interno.'},
+{t:'constitution',q:'¿Cuál es la norma jurídica fundamental del Estado de Guatemala?',a:['Código Civil','Constitución Política de la República','Ley Electoral','Código Municipal'],c:1,e:'La Constitución Política de la República es la norma fundamental.'},
+{t:'constitution',q:'¿Cuáles son los tres organismos clásicos del Estado de Guatemala?',a:['Ejecutivo, Legislativo y Judicial','Municipal, Electoral y Militar','Presidencial, Ministerial y Fiscal','Central, Departamental y Municipal'],c:0,e:'La organización estatal distingue Organismo Ejecutivo, Legislativo y Judicial.'},
+{t:'constitution',q:'¿Qué organismo ejerce principalmente la función legislativa?',a:['Organismo Judicial','Congreso de la República','Ministerio Público','Municipalidades'],c:1,e:'La potestad legislativa corresponde al Congreso de la República.'},
+{t:'constitution',q:'¿Qué organismo ejerce la función jurisdiccional?',a:['Organismo Judicial','Congreso','Ministerio de Gobernación','Contraloría'],c:0,e:'La administración de justicia corresponde al Organismo Judicial.'},
+{t:'constitution',q:'La Constitución protege...',a:['solo derechos patrimoniales','derechos fundamentales de las personas','solo derechos de funcionarios','únicamente derechos electorales'],c:1,e:'La Constitución reconoce y protege derechos fundamentales.'},
+{t:'state',q:'Un municipio es...',a:['una división administrativa local','un país vecino','un poder del Estado','una región internacional'],c:0,e:'Los municipios son unidades de gobierno local.'},
+{t:'state',q:'Los departamentos de Guatemala se dividen en...',a:['provincias','estados','municipios','cantones federales'],c:2,e:'Los departamentos se organizan territorialmente en municipios.'},
+{t:'citizenship',q:'En una entrevista de naturalización, lo más útil al explicar un vínculo familiar es...',a:['memorizar frases sin comprenderlas','dar datos claros y coherentes','evitar cualquier detalle','contestar solo sí/no'],c:1,e:'Las respuestas claras, coherentes y comprensibles demuestran dominio práctico del idioma.'}
+];
+const weeks=[
+['1','Diagnóstico + base','Busuu: test/seviye; ser/estar, presente','Guatemala haritası, 22 departamentos','20 temel kelime + 2 dk kendini tanıtma'],
+['2','Geçmişini anlat','Pretérito perfecto / indefinido','Komşular, kıyılar, ana bölgeler','2010–2014 Guatemala geçmişini anlat'],
+['3','Bağlantılar','Por/para, preposiciones','Maya uygarlığı ve sömürge dönemi','Aile bağlarını anlat'],
+['4','Başvuru dili','Resmî fiiller: solicitar, adjuntar, acreditar','1821 bağımsızlık ve Orta Amerika','Bir başvuru paragrafı yaz'],
+['5','B1 sağlamlaştırma','Imperfecto vs indefinido','Modern tarih ana dönemeçleri','Busuu B1 haftası + Drops vocab'],
+['6','Görüşme akıcılığı','Bağlaçlar, neden-sonuç','1996 Barış Anlaşmaları bağlamı','3 dakikalık sesli cevap'],
+['7','Anayasa I','Subjuntivo giriş','Temel anayasal ilkeler','10 civics sorusu'],
+['8','Anayasa II','Koşul ve rica kalıpları','Yasama-yürütme-yargı','Memurla işlem rol oyunu'],
+['9','Resmî yazışma','Formal e-mail ve dilekçe dili','Haklar ve yükümlülükler','120 kelimelik yazılı cevap'],
+['10','B2 akıcılık','Fikir açıklama + karşılaştırma','Yerel yönetim / belediye','5 dk kesintisiz konuşma'],
+['11','Mock week','Zayıf gramer başlıkları','Karışık civics tekrar','2 tam deneme'],
+['12','Final hazırlık','Hata düzeltme + spontane konuşma','%80+ doğruluk hedefi','Tam mülakat simülasyonu']
+];
+const interview=[
+{q:'¿Por qué desea adquirir la nacionalidad guatemalteca?',m:'Deseo adquirirla por mis vínculos familiares y por mi relación de muchos años con Guatemala. Quiero expresar claramente por qué Guatemala forma parte importante de mi historia personal y familiar.'},
+{q:'¿Cuándo vivió en Guatemala y a qué se dedicaba?',m:'Viví en Guatemala entre 2010 y 2014 y trabajé como gerente financiero. Durante esos años conocí de cerca la vida cotidiana del país.'},
+{q:'¿Cuándo contrajo matrimonio con su esposa?',m:'Contraje matrimonio en 2011. Mi esposa es ciudadana guatemalteca y seguimos casados.'},
+{q:'¿Qué vínculos mantiene actualmente con Guatemala?',m:'Mantengo vínculos familiares directos: mi esposa y mis hijas tienen nacionalidad guatemalteca. También conservo una relación personal importante con el país.'},
+{q:'¿Cómo describiría su nivel de español?',m:'Puedo comunicarme en español y comprender conversaciones cotidianas, pero estoy trabajando activamente para mejorar mi precisión, vocabulario y expresión formal.'},
+{q:'¿Qué sabe sobre la organización del Estado de Guatemala?',m:'El Estado se organiza en los organismos Ejecutivo, Legislativo y Judicial. Estoy estudiando sus funciones y los principios básicos de la Constitución.'},
+{q:'¿Qué conoce de la historia de Guatemala?',m:'Conozco la importancia de la civilización maya, el período colonial, la independencia de 1821 y algunos acontecimientos fundamentales de la historia moderna.'},
+{q:'¿Qué haría si no entiende una pregunta durante una entrevista?',m:'Pediría respetuosamente que la repitan o la reformulen: “¿Podría repetir la pregunta, por favor?” Es mejor aclarar que responder algo que no he entendido.'}
+];
+function today(){return new Date().toISOString().slice(0,10)}
+function freshState(){return {created:today(),words:seedWords.map((w,i)=>({id:'s'+i,es:w[0],tr:w[1],ex:w[2],cat:w[3],ef:2.5,interval:0,reps:0,due:today()})),civics:{correct:0,total:0,topics:{}},weeks:{},days:{},apps:[],interviews:[]}}
+let S=(()=>{try{return JSON.parse(localStorage.getItem(KEY))||freshState()}catch(e){return freshState()}})();
+if(!S.words||!S.words.length)S=freshState();
+function save(){localStorage.setItem(KEY,JSON.stringify(S));touch();renderAll()}
+function touch(){let d=today();S.days[d]=S.days[d]||{actions:0,minutes:0};S.days[d].actions++}
+function go(id){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('on',x.id===id));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='vocab')renderFlash();if(id==='civics')newQuiz();if(id==='interview')renderInterview()}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>go(b.dataset.tab));
+function streak(){let n=0,d=new Date();for(;;){let k=d.toISOString().slice(0,10);if(S.days[k]&&S.days[k].actions>0)n++;else break;d.setDate(d.getDate()-1)}return n}
+function activeDays7(){let n=0,d=new Date();for(let i=0;i<7;i++){let k=d.toISOString().slice(0,10);if(S.days[k]?.actions)n++;d.setDate(d.getDate()-1)}return n}
+function renderDash(){let due=S.words.filter(w=>w.due<=today()).length,master=S.words.filter(w=>w.reps>=3).length,acc=S.civics.total?Math.round(S.civics.correct/S.civics.total*100):0,ad=activeDays7();streakEl=document.getElementById('streak');if(streakEl)streakEl.textContent=streak();document.getElementById('dueCount').textContent=due;document.getElementById('mastered').textContent=master;document.getElementById('score').textContent=acc+'%';document.getElementById('weekBar').style.width=Math.min(100,ad/5*100)+'%';document.getElementById('weekText').textContent=ad+' / 5 çalışma günü';
+let tasks=[['10 SRS kelime tekrarı',due===0],['Busuu 15–20 dakika',!!S.apps.find(x=>x.date===today()&&x.app==='Busuu')],['Drops 5–10 dakika',!!S.apps.find(x=>x.date===today()&&x.app==='Drops')],['5 civics sorusu',!!S.days[today()]?.civics],['1 mülakat cevabı',!!S.days[today()]?.interview]];
+document.getElementById('todayTasks').innerHTML=tasks.map((x,i)=>'<div class="task '+(x[1]?'done':'')+'">'+(x[1]?'✓ ':'○ ')+x[0]+'</div>').join('')}
+function renderWeeks(){document.getElementById('weeks').innerHTML=weeks.map((w,i)=>'<div class="card week"><div class="wk">HAFTA '+w[0]+'</div><h3>'+w[1]+'</h3><ul><li>'+w[2]+'</li><li>'+w[3]+'</li><li>'+w[4]+'</li></ul><button class="btn" onclick="toggleWeek('+i+')">'+(S.weeks[i]?'✓ Tamamlandı':'Tamamla')+'</button></div>').join('')}
+function toggleWeek(i){S.weeks[i]=!S.weeks[i];save()}
+let currentWord=null,shown=false;
+function renderFlash(){let due=S.words.filter(w=>w.due<=today());if(!due.length){document.getElementById('flash').innerHTML='<div class="word">🎉</div><div class="answer">Bugünkü tekrarlar bitti.</div><div class="hint">Yeni kelime ekleyebilir veya yarın devam edebilirsin.</div>';document.getElementById('grades').innerHTML='';return}currentWord=due[Math.floor(Math.random()*due.length)];shown=false;document.getElementById('flash').innerHTML='<span class="tag">'+currentWord.cat+'</span><div class="word">'+currentWord.es+'</div><div class="hint">Anlamını ve örnek bir cümleyi söyle. Sonra cevabı aç.</div><button class="btn" onclick="showAnswer()">Cevabı göster</button>';document.getElementById('grades').innerHTML='';renderWordStats()}
+function showAnswer(){if(!currentWord)return;shown=true;document.getElementById('flash').innerHTML='<span class="tag">'+currentWord.cat+'</span><div class="word">'+currentWord.es+'</div><div class="answer">'+currentWord.tr+'</div><div class="hint"><i>'+currentWord.ex+'</i></div>';document.getElementById('grades').innerHTML='<button class="fail" onclick="gradeWord(0)">Tekrar</button><button class="hard" onclick="gradeWord(3)">Zor</button><button class="good" onclick="gradeWord(4)">İyi</button><button onclick="gradeWord(5)">Kolay</button>'}
+function addDays(n){let d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+function gradeWord(q){let w=currentWord;if(!w)return;if(q<3){w.reps=0;w.interval=1}else{w.reps++;if(w.reps===1)w.interval=1;else if(w.reps===2)w.interval=3;else w.interval=Math.max(1,Math.round(w.interval*w.ef));w.ef=Math.max(1.3,w.ef+(0.1-(5-q)*(0.08+(5-q)*0.02)))}w.due=addDays(w.interval);save();renderFlash()}
+function addWord(){let es=document.getElementById('newEs').value.trim(),tr=document.getElementById('newTr').value.trim(),ex=document.getElementById('newEx').value.trim();if(!es||!tr)return;S.words.push({id:'u'+Date.now(),es,tr,ex:ex||'',cat:'my words',ef:2.5,interval:0,reps:0,due:today()});document.getElementById('newEs').value='';document.getElementById('newTr').value='';document.getElementById('newEx').value='';save();renderFlash()}
+function renderWordStats(){let due=S.words.filter(w=>w.due<=today()).length,m=S.words.filter(w=>w.reps>=3).length;document.getElementById('wordStats').innerHTML='Toplam '+S.words.length+' kelime · bugün '+due+' tekrar · '+m+' kelime 3+ başarılı tekrar.'}
+let quizNow=[];
+function newQuiz(){quizNow=[...civics].sort(()=>Math.random()-.5).slice(0,5);document.getElementById('quiz').innerHTML=quizNow.map((q,i)=>'<div class="qbox"><b>'+(i+1)+'. '+q.q+'</b>'+q.a.map((a,j)=>'<label><input style="width:auto" type="radio" name="q'+i+'" value="'+j+'"> '+a+'</label>').join('')+'<div id="exp'+i+'" class="small muted"></div></div>').join('')}
+function gradeQuiz(){let got=0;quizNow.forEach((q,i)=>{let el=document.querySelector('input[name="q'+i+'"]:checked'),v=el?+el.value:-1,ok=v===q.c;if(ok)got++;S.civics.total++;if(ok)S.civics.correct++;S.civics.topics[q.t]=S.civics.topics[q.t]||{c:0,t:0};S.civics.topics[q.t].t++;if(ok)S.civics.topics[q.t].c++;document.getElementById('exp'+i).innerHTML=(ok?'✅ Doğru. ':'❌ Doğru cevap: <b>'+q.a[q.c]+'</b>. ')+q.e});S.days[today()]=S.days[today()]||{actions:0,minutes:0};S.days[today()].civics=(S.days[today()].civics||0)+5;S.days[today()].actions++;localStorage.setItem(KEY,JSON.stringify(S));renderAll()}
+function renderTopicStats(){let labels={geography:'Coğrafya',history:'Tarih',constitution:'Anayasa',state:'Devlet yapısı',citizenship:'Mülakat/dil'};document.getElementById('topicStats').innerHTML=Object.keys(labels).map(k=>{let x=S.civics.topics[k]||{c:0,t:0},p=x.t?Math.round(x.c/x.t*100):0;return '<p><b>'+labels[k]+'</b><span class="right">'+p+'%</span></p><div class="progress"><i style="width:'+p+'%"></i></div>'}).join('')}
+let intIdx=0;
+function renderInterview(){let x=interview[intIdx];document.getElementById('interviewCard').innerHTML='<span class="tag">Pregunta '+(intIdx+1)+'/'+interview.length+'</span><h3 style="font-size:25px">'+x.q+'</h3><p class="muted">Önce 60–120 saniye sesli cevapla. Ardından sağ tarafa 3–5 cümlelik özet yaz.</p><details><summary>Örnek cevap iskeleti</summary><p>'+x.m+'</p></details>';document.getElementById('interviewAnswer').value='';document.getElementById('interviewFeedback').textContent=''}
+function nextInterview(){intIdx=(intIdx+1)%interview.length;renderInterview()}
+function speakQuestion(){let u=new SpeechSynthesisUtterance(interview[intIdx].q);u.lang='es-GT';u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}
+function saveInterview(){let a=document.getElementById('interviewAnswer').value.trim();if(!a)return;S.interviews.unshift({date:today(),q:interview[intIdx].q,a});S.interviews=S.interviews.slice(0,100);S.days[today()]=S.days[today()]||{actions:0,minutes:0};S.days[today()].interview=(S.days[today()].interview||0)+1;S.days[today()].actions++;localStorage.setItem(KEY,JSON.stringify(S));document.getElementById('interviewFeedback').textContent=a.split(/\s+/).length>=35?'İyi: cevap yeterince gelişmiş. Şimdi aynı cevabı ekrana bakmadan sesli söyle.':'Cevap kısa. Hedef 35–80 kelime; porque, además, durante, por eso gibi bağlaçlarla geliştir.';renderDash()}
+function copyModel(){navigator.clipboard?.writeText(interview[intIdx].m)}
+function logApp(app){let min=+(document.getElementById(app==='Busuu'?'busuuMin':'dropsMin').value||0),note=document.getElementById(app==='Busuu'?'busuuNote':'dropsNote').value.trim();S.apps.unshift({date:today(),app,min,note});S.apps=S.apps.slice(0,200);S.days[today()]=S.days[today()]||{actions:0,minutes:0};S.days[today()].actions++;S.days[today()].minutes+=min;localStorage.setItem(KEY,JSON.stringify(S));renderAll();if(app==='Drops'&&note)document.getElementById('dropsNote').value=''}
+function renderApps(){let box=document.getElementById('appLogs');box.innerHTML=S.apps.slice(0,12).map(x=>'<p><span class="tag">'+x.app+'</span> <b>'+x.date+'</b> · '+x.min+' dk '+(x.note?'· '+x.note:'')+'</p>').join('')||'<p class="muted">Henüz kayıt yok.</p>'}
+function exportData(){let b=new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='guatemala-study-'+today()+'.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(){let f=document.getElementById('importFile').files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{S=JSON.parse(r.result);localStorage.setItem(KEY,JSON.stringify(S));renderAll();alert('Veri içe aktarıldı.')}catch(e){alert('Geçersiz JSON dosyası.')}};r.readAsText(f)}
+function renderHistory(){let rows=Object.entries(S.days).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,14);document.getElementById('historyTable').innerHTML='<table><tr><th>Tarih</th><th>Aktivite</th><th>Dakika</th><th>Civics</th><th>Mülakat</th></tr>'+rows.map(([d,x])=>'<tr><td>'+d+'</td><td>'+x.actions+'</td><td>'+x.minutes+'</td><td>'+(x.civics||0)+'</td><td>'+(x.interview||0)+'</td></tr>').join('')+'</table>'}
+function renderAll(){renderDash();renderWeeks();renderWordStats();renderTopicStats();renderApps();renderHistory()}
+renderAll();renderFlash();newQuiz();renderInterview();
+</script>
+</body>
+</html>
