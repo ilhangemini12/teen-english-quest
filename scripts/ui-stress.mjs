@@ -73,7 +73,7 @@ try{
     assert(saved===native,'Native-language state mismatch: '+native+' -> '+saved);
   }
   for(let i=0;i<10;i++){
-    await p.evaluate(()=>{toggleFocusPlayer(true);focusPlaySound(i%2?'brown':'rain');focusStopAudio();toggleFocusPlayer(false)});
+    await p.evaluate(n=>{toggleFocusPlayer(true);focusPlaySound(n%2?'brown':'rain');focusStopAudio();toggleFocusPlayer(false)},i);
   }
   const focusStress=await p.evaluate(()=>({
     spotify:document.body.innerText.includes('Spotify')||!!document.getElementById('focusPaneSpotify'),
