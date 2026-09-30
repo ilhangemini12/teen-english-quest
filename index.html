@@ -601,6 +601,29 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
   .mobileMenuSheet .mobileField select{min-height:46px;border-radius:13px}
 }
 
+/* ===== STUDY TOOLS ===== */
+function geminiNotebookSavedUrl(){
+  let u=localStorage.getItem('bh-gemini-notebook-url')||'';
+  try{let x=new URL(u);return /^https:\/\/(notebooklm\.google\.com|gemini\.google\.com)\//.test(x.href)?x.href:''}catch(e){return''}
+}
+function saveGeminiNotebookLink(){
+  let input=document.getElementById('geminiNotebookUrl');if(!input)return;
+  let raw=input.value.trim();if(!raw){localStorage.removeItem('bh-gemini-notebook-url');return}
+  try{
+    let u=new URL(raw);
+    if(!['notebooklm.google.com','gemini.google.com'].includes(u.hostname)){alert('Please paste a Gemini Notebook / NotebookLM link.');return}
+    localStorage.setItem('bh-gemini-notebook-url',u.href);
+  }catch(e){alert('That notebook link is not valid.')}
+}
+function openGeminiNotebook(){
+  let u=geminiNotebookSavedUrl()||'https://notebooklm.google.com/';
+  window.open(u,'_blank','noopener');
+}
+function renderStudyToolLinks(){
+  let input=document.getElementById('geminiNotebookUrl');if(input)input.value=geminiNotebookSavedUrl();
+}
+document.addEventListener('DOMContentLoaded',renderStudyToolLinks);
+
 /* ===== BATUMHUB FOCUS PLAYER ===== */
 .focusFab{position:fixed;z-index:89;right:18px;bottom:98px;display:flex;align-items:center;gap:7px;min-height:44px;padding:0 13px;border:1px solid #bfd7df;border-radius:999px;background:linear-gradient(135deg,#0d1d35,#17324f);color:#fff;font-weight:900;box-shadow:0 12px 30px rgba(8,20,40,.22);cursor:pointer}.focusFab:hover{transform:translateY(-1px)}.focusFab.playing{background:linear-gradient(135deg,#17634f,#2b6f91)}
 .focusPlayer{position:fixed;z-index:110;right:18px;bottom:154px;width:min(390px,calc(100vw - 28px));max-height:min(680px,calc(100dvh - 190px));overflow:auto;display:none;padding:14px;border:1px solid #d9d5e5;border-radius:22px;background:linear-gradient(165deg,#fff,#f7f5fb 58%,#eef9f7);color:#29263b;box-shadow:0 24px 70px rgba(24,20,45,.22);backdrop-filter:blur(18px)}.focusPlayer.open{display:block}
@@ -611,6 +634,8 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
 .focusLocal{margin-top:12px;padding:11px;border:1px dashed #cfc7dd;border-radius:15px;background:rgba(255,255,255,.62)}.focusLocal>button{border:1px solid #c7d7f1;background:#eef5ff;color:#315477;border-radius:11px;padding:8px 10px;font-weight:850;cursor:pointer}.focusLocal small{display:block;margin-top:6px;color:#797187;font-size:9.5px}.focusLocalList{display:grid;gap:5px;margin-top:8px}.focusTrack{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 8px;border-radius:10px;background:#fff;border:1px solid #e3deea;font-size:11px;cursor:pointer}.focusTrack.on{border-color:#6ecab9;background:#edfaf6}.focusTrack span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .focusSpotify{margin-top:12px;border-top:1px solid #e3ddea;padding-top:10px}.focusSpotify summary{cursor:pointer;font-weight:900;font-size:12px}.focusSpotify p{font-size:9.5px;color:#776f86}.focusSpotify>div{display:flex;gap:6px}.focusSpotify input{min-width:0;flex:1;height:36px;border:1px solid #ddd7e6;border-radius:10px;padding:0 9px}.focusSpotify button{border:1px solid #b9d7c8;background:#eaf8f0;border-radius:10px;padding:0 10px;font-weight:850;cursor:pointer}.focusSpotify iframe{width:100%;height:152px;border:0;border-radius:12px;margin-top:8px}
 @media(max-width:720px){.focusFab{right:12px;bottom:94px;width:46px;height:46px;padding:0;justify-content:center}.focusFab span{display:none}.focusPlayer{left:10px;right:10px;bottom:152px;width:auto;max-height:64dvh;border-radius:20px}.focusModes{grid-template-columns:1fr 1fr}.focusTransport{grid-template-columns:38px 50px 38px 1fr}}
+
+.elifStudyTools{display:grid;gap:7px}.elifStudyTools p{margin:0;color:var(--muted);font-size:10px;line-height:1.4}.elifStudyTools button{min-height:36px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font-weight:850;cursor:pointer}.elifStudyTools button:first-of-type{background:linear-gradient(135deg,#eaf9f4,#eef1ff)}.elifStudyTools input{width:100%;height:36px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);padding:0 9px;font-size:10px}.elifStudyTools small{color:var(--muted);font-size:9px;line-height:1.35}
 </style>
 </head><body><div class="modalShade" id="accountModal" onclick="if(event.target===this)closeAccount()">
 <div class="authmodal">
@@ -1160,6 +1185,15 @@ body[data-primary-nav="League"] #vnavLeague{background:#1b2942;color:#fff;box-sh
     <div class="elifAiQuota" id="elifAiQuota">Free allowance: up to 40 AI requests per day.</div>
     <div class="elifAiTip"><b>Best results</b><br>Try: “Correct this paragraph and explain my 3 biggest mistakes.”<br><br>Or: “Talk with me in B2 English about movies. Correct only important mistakes.”</div>
     <div class="elifAiTip"><b>Privacy</b><br>This first version keeps the conversation only for the current browser session. Do not share passwords, addresses, phone numbers or other sensitive personal information with AI.</div>
+    <div class="elifAiTip elifStudyTools">
+      <b>📚 Study tools</b>
+      <p>Keep BatumHub as the home base while using your favorite study tools.</p>
+      <button type="button" onclick="toggleFocusPlayer(true)">🎵 Open Focus Player</button>
+      <button type="button" onclick="openGeminiNotebook()">🧠 Open Gemini Notebook</button>
+      <input id="geminiNotebookUrl" placeholder="Optional: paste your notebook link" autocomplete="off">
+      <button type="button" onclick="saveGeminiNotebookLink()">Save notebook link</button>
+      <small>Gemini Notebook opens separately because Google does not provide a general embeddable Notebook web API for this page.</small>
+    </div>
   </aside>
 </div>
 </section>
