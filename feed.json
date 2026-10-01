@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-01T11:37:01.826408+00:00",
+  "updated_at": "2026-10-01T21:50:00.965044+00:00",
   "items": [
+    {
+      "key": "969752c4ced720",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "What to Wear to an Olivia Rodrigo Concert on the Unraveled Tour: Outfit Ideas, Styling Tips, & More",
+      "summary": "From a fellow Livie.",
+      "url": "https://www.teenvogue.com/story/what-to-wear-to-an-olivia-rodrigo-concert",
+      "published": "2026-10-01T18:45:10+00:00",
+      "image": "https://assets.teenvogue.com/photos/6abea938977bbf3c43a76670/master/pass/2297307220",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "4bd2c9189555cd",
       "source": "Science News Explores",
@@ -106,32 +119,6 @@
       "transcript_url": ""
     },
     {
-      "key": "01d1485203de97",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "How to Style Barrel Jeans for Fall and Winter",
-      "summary": "Inspired by Kendall Jenner, Margot Robbie, and more.",
-      "url": "https://www.teenvogue.com/story/how-to-style-barrel-jeans",
-      "published": "2026-09-28T19:02:38+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ab9341aefbb1881f68b4ee0/master/pass/2262087890",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d0f476bdb9dc41",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Manon Bannerman Wore the '00s Popstar Bra Top Uniform at the MTV VMAs 2026 After Parties",
-      "summary": "The bra top and jeans combo always hits.",
-      "url": "https://www.teenvogue.com/story/manon-bannerman-vmas-2026-after-party-look",
-      "published": "2026-09-28T15:00:02+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aba78990c9873b6a5a13c20/master/pass/BGUS_3698342_003.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "046611ef9906ee",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -180,6 +167,19 @@
       "url": "https://www.teenvogue.com/story/mtv-vmas-2026-winners-the-complete-list-live-updates",
       "published": "2026-09-28T03:58:59+00:00",
       "image": "https://assets.teenvogue.com/photos/673b446c144083da083c2724/master/pass/1419086500",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "96e4e0ed97b05c",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Taylor Swift ‘Patient Zero’ Music Video: All the Major Easter Eggs",
+      "summary": "The video premiered at the 2026 VMAs.",
+      "url": "https://www.teenvogue.com/story/taylor-swift-patient-zero-music-video-all-the-major-easter-eggs",
+      "published": "2026-09-28T01:54:58+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ab9c8752192b932ffd16fef/master/pass/2297466440",
       "audio_url": "",
       "transcript_url": ""
     },
