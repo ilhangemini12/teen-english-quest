@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01T21:50:00.965044+00:00",
+  "updated_at": "2026-10-02T11:06:17.766299+00:00",
   "items": [
     {
       "key": "969752c4ced720",
@@ -90,19 +90,6 @@
       "published": "2026-09-29T15:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abbd19706846f55a3d01b5d/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "3e40f287b107a7",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Cuddling helps apes keep the peace",
-      "summary": "Humans could learn from chimpanzees and bonobos. When things get tense, these apes turn to group members for hugs, touches and other physical comfort.",
-      "url": "https://www.snexplores.org/article/cuddling-apes-chimps-bonobos-peace",
-      "published": "2026-09-29T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/072126_MR_primate-cuddles_main.jpg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -206,6 +193,19 @@
       "url": "https://www.teenvogue.com/story/first-day-of-school-fashion-2026",
       "published": "2026-09-25T12:00:00+00:00",
       "image": "https://assets.teenvogue.com/photos/6ab5930a759fd93ef12262db/master/pass/Header%20(1).jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "f9fc2ec595c603",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Like an armadillo, a new soft robot rolls up to protect itself",
+      "summary": "Like the three-banded armadillo, this device can roll up to shield its innards, such as sensitive electronics and a small payload.",
+      "url": "https://www.snexplores.org/article/soft-robot-armadillo-rolls-up",
+      "published": "2026-09-25T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_robo_armadillo_robot_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
