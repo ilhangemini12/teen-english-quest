@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-03T10:24:50.238904+00:00",
+  "updated_at": "2026-10-03T19:50:22.705946+00:00",
   "items": [
+    {
+      "key": "ba8d2813de6d1d",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The joy of foraging your own food | Alexis Nikole Nelson",
+      "summary": "There's a whole world of food growing right outside our doors — in our backyards, on sidewalks, in the parks we walk through every day — and most of us pass by it without a second glance. Alexis Nikole…",
+      "url": "http://go.ted.com/alexisnikolenelson26",
+      "published": "2026-10-03T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abe754bce220947617cd459/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "7fb81ba0a640c6",
       "source": "Teen Vogue",
@@ -54,6 +67,19 @@
       "transcript_url": ""
     },
     {
+      "key": "3c6dcbd920013c",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Among naked mole-rats, a royal’s scent keeps the peace",
+      "summary": "The special scent made only by breeding queens keeps the commoners in her colony from fighting or reproducing.",
+      "url": "https://www.snexplores.org/article/naked-mole-rat-queen-smell",
+      "published": "2026-10-02T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/072826_LR_nakedmolerat_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "969752c4ced720",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -76,6 +102,19 @@
       "url": "https://www.snexplores.org/article/animal-farting-fish-manatee-gas",
       "published": "2026-10-01T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_animalfarts_manatee_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "41331aca5d1b5d",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Burps and farts: Why the body is such a gas",
+      "summary": "People make a lot of gas, and it’s got to come out one end or the other. Understanding those farts and burps could tell us a lot about our health.",
+      "url": "https://www.snexplores.org/article/burps-farts-body-gas",
+      "published": "2026-10-01T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_farts_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -119,19 +158,6 @@
       "transcript_url": ""
     },
     {
-      "key": "9f13ee0f12baa5",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Analyze This: Even as Earth’s oceans warm, one spot has gone cold",
-      "summary": "A cold blob of water in the North Atlantic suggests that an important ocean current is weakening.",
-      "url": "https://www.snexplores.org/article/cold-spot-atlantic-ocean-amoc",
-      "published": "2026-09-30T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_AT_atlantic_cold_blob_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "4440858cea8996",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -142,19 +168,6 @@
       "published": "2026-09-29T09:53:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pd008c.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "046611ef9906ee",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Why I’m building libraries inside prisons | Reginald Dwayne Betts",
-      "summary": "At age 16, Reginald Dwayne Betts was sentenced to nine years in prison. He turned to books to help hold onto his sanity — and developed a belief that we find what we look for, even in the toughest places.…",
-      "url": "http://go.ted.com/reginalddwaynebetts",
-      "published": "2026-09-28T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ab68e195410c8e94cb948d1/media.mp3",
       "transcript_url": ""
     },
     {
@@ -207,19 +220,6 @@
       "published": "2026-09-26T15:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ab68cb0079b46c81911b04a/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "f9fc2ec595c603",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Like an armadillo, a new soft robot rolls up to protect itself",
-      "summary": "Like the three-banded armadillo, this device can roll up to shield its innards, such as sensitive electronics and a small payload.",
-      "url": "https://www.snexplores.org/article/soft-robot-armadillo-rolls-up",
-      "published": "2026-09-25T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_robo_armadillo_robot_feat.jpg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
