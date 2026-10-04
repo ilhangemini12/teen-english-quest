@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-10-03T19:50:22.705946+00:00",
+  "updated_at": "2026-10-04T11:06:25.276852+00:00",
   "items": [
     {
-      "key": "ba8d2813de6d1d",
+      "key": "c92fa06c5245a6",
       "source": "TED Talks Daily",
       "category": "Podcast",
       "emoji": "🎧",
-      "title": "The joy of foraging your own food | Alexis Nikole Nelson",
-      "summary": "There's a whole world of food growing right outside our doors — in our backyards, on sidewalks, in the parks we walk through every day — and most of us pass by it without a second glance. Alexis Nikole…",
-      "url": "http://go.ted.com/alexisnikolenelson26",
-      "published": "2026-10-03T15:00:00+00:00",
+      "title": "Sunday Pick: All the lonely people | from Corner Piece",
+      "summary": "From group chats to video calls, technology should make social connection easier than ever. So, why is everyone so lonely? In this special featured episode from the new TED podcast, Corner Piece , host…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-10-04T04:00:00+00:00",
       "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abe754bce220947617cd459/media.mp3",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aa1dbbb156a52f880a51eb6/media.mp3",
       "transcript_url": ""
     },
     {
@@ -106,32 +106,6 @@
       "transcript_url": ""
     },
     {
-      "key": "41331aca5d1b5d",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Burps and farts: Why the body is such a gas",
-      "summary": "People make a lot of gas, and it’s got to come out one end or the other. Understanding those farts and burps could tell us a lot about our health.",
-      "url": "https://www.snexplores.org/article/burps-farts-body-gas",
-      "published": "2026-10-01T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_farts_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "669edac348fce6",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "Why does heartbreak hurt so much?",
-      "summary": "Anyone who has had their heart broken will know how horrible it feels. But did you know that the pain you feel is not just imaginary – it registers in the same part of the brain that processes physical…",
-      "url": "http://www.bbc.co.uk/programmes/p0pdc9cq",
-      "published": "2026-10-01T09:47:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pdc7mz.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "c7827d6c105e13",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -154,6 +128,19 @@
       "url": "https://www.teenvogue.com/story/the-love-hypothesis-sequel-the-two-body-problem-everything-you-need-to-know",
       "published": "2026-09-30T10:52:57+00:00",
       "image": "https://assets.teenvogue.com/photos/6a40c1465634459a024aa196/master/pass/LVHY_2026_UT_250718_WENJON_01894RC.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "9f13ee0f12baa5",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Analyze This: Even as Earth’s oceans warm, one spot has gone cold",
+      "summary": "A cold blob of water in the North Atlantic suggests that an important ocean current is weakening.",
+      "url": "https://www.snexplores.org/article/cold-spot-atlantic-ocean-amoc",
+      "published": "2026-09-30T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_AT_atlantic_cold_blob_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -402,6 +389,19 @@
       "published": "2026-09-08T09:30:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8j55f.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "b753e4e391da4b",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Weather words",
+      "summary": "The British love to talk about weather! Learn some useful vocabulary about it here. TRY THE LISTENING ROOM: ✔️ https://www.bbc.co.uk/learningenglish/english/features/the_listening_room (Hard: Upper…",
+      "url": "http://www.bbc.co.uk/programmes/p0p8cbdn",
+      "published": "2026-09-07T08:30:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8cb9p.mp3",
       "transcript_url": ""
     },
     {
