@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-05T12:16:16.426129+00:00",
+  "updated_at": "2026-10-05T23:10:08.263455+00:00",
   "items": [
+    {
+      "key": "8271ff3d4beec3",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The secret to lasting love | Eli J Finkel",
+      "summary": "Social psychologist Eli J. Finkel has spent decades studying what makes partnerships successful. In a practical talk drawing on lessons from pop culture, he explores why so many of us struggle to be true to…",
+      "url": "http://go.ted.com/elijfinkel",
+      "published": "2026-10-05T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abfc88f5dd8db805ee8e56b/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "423da09a606bc1",
       "source": "Science News Explores",
@@ -38,19 +51,6 @@
       "published": "2026-10-04T04:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aa1dbbb156a52f880a51eb6/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "ba8d2813de6d1d",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "The joy of foraging your own food | Alexis Nikole Nelson",
-      "summary": "There's a whole world of food growing right outside our doors — in our backyards, on sidewalks, in the parks we walk through every day — and most of us pass by it without a second glance. Alexis Nikole…",
-      "url": "http://go.ted.com/alexisnikolenelson26",
-      "published": "2026-10-03T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abe754bce220947617cd459/media.mp3",
       "transcript_url": ""
     },
     {
