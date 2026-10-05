@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-10-04T20:10:49.001180+00:00",
+  "updated_at": "2026-10-05T12:16:16.426129+00:00",
   "items": [
+    {
+      "key": "423da09a606bc1",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "2026’s El Niño is record-breaking — and it’s not done yet",
+      "summary": "Within the ocean region where El Niños form, daily sea-surface temperatures are already more extreme than at any point in recorded history.",
+      "url": "https://www.snexplores.org/article/record-breaking-2026-el-nino",
+      "published": "2026-10-05T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/092326_NO_ElNino_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "28e558ea1f8d1d",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Pyrolysis",
+      "summary": "This oxygen-free “burning” reaction explains why charcoal can burn, but typical campfire soot cannot.",
+      "url": "https://www.snexplores.org/article/scientists-say-pyrolysis-definition-pronunciation",
+      "published": "2026-10-05T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/GettyImages-1399397583.jpg?w=798",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "c92fa06c5245a6",
       "source": "TED Talks Daily",
@@ -80,19 +106,6 @@
       "transcript_url": ""
     },
     {
-      "key": "3c6dcbd920013c",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Among naked mole-rats, a royal’s scent keeps the peace",
-      "summary": "The special scent made only by breeding queens keeps the commoners in her colony from fighting or reproducing.",
-      "url": "https://www.snexplores.org/article/naked-mole-rat-queen-smell",
-      "published": "2026-10-02T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/072826_LR_nakedmolerat_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "4bd2c9189555cd",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -128,19 +141,6 @@
       "url": "https://www.teenvogue.com/story/the-love-hypothesis-sequel-the-two-body-problem-everything-you-need-to-know",
       "published": "2026-09-30T10:52:57+00:00",
       "image": "https://assets.teenvogue.com/photos/6a40c1465634459a024aa196/master/pass/LVHY_2026_UT_250718_WENJON_01894RC.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "9f13ee0f12baa5",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Analyze This: Even as Earth’s oceans warm, one spot has gone cold",
-      "summary": "A cold blob of water in the North Atlantic suggests that an important ocean current is weakening.",
-      "url": "https://www.snexplores.org/article/cold-spot-atlantic-ocean-amoc",
-      "published": "2026-09-30T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_AT_atlantic_cold_blob_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -431,6 +431,19 @@
       "transcript_url": ""
     },
     {
+      "key": "d7bcdba4be8696",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Perseverance Captures Another Phobos Transit",
+      "summary": "Description NASA’s Perseverance Mars rover used its Mastcam-Z camera to capture the silhouette of Phobos, one of the two Martian moons, as it crossed in front of the Sun on Aug. 12, 2026, the 1,948th…",
+      "url": "https://science.nasa.gov/photojournal/perseverance-captures-another-phobos-transit/",
+      "published": "2026-08-24T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "f1476e449b231d",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -439,19 +452,6 @@
       "summary": "Paint groups are popping up in parks. Art schools are seeing a surge in applications. The rise of A.I. has people turning to more traditional art forms",
       "url": "https://www.smithsonianmag.com/innovation/why-gen-z-is-learning-to-paint-like-19th-century-artists-180989359/",
       "published": "2026-08-18T18:14:03+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "3d60c116c9b333",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "This High Schooler Invented a Plant-Based Plastic That Removes Microplastics From the Environment as It Biodegrades",
-      "summary": "Eighteen-year-old Arya Satheesh created her award-winning Eco Purge to help address the global problem of plastic pollution",
-      "url": "https://www.smithsonianmag.com/innovation/this-high-schooler-invented-a-plant-based-plastic-that-removes-microplastics-from-the-environment-as-it-biodegrades-180989254/",
-      "published": "2026-08-06T11:06:54+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
