@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-10-05T23:10:08.263455+00:00",
+  "updated_at": "2026-10-06T12:01:36.265135+00:00",
   "items": [
+    {
+      "key": "2d0f5f1ba1355a",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Let’s learn about origami-inspired science",
+      "summary": "The Japanese art of paper folding has inspired new designs for lightweight and shapeshifting technology.",
+      "url": "https://www.snexplores.org/article/lets-learn-about-origami-inspired-science",
+      "published": "2026-10-06T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_LLA_origami_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "f6cdbb8492ccf4",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Sack something off",
+      "summary": "I’ve got too many plans. I’m going to sack them off and just chill out this week! Learn how to use 'sack something off' in this programme with Georgie and Feifei. Get a free transcript for this episode…",
+      "url": "http://www.bbc.co.uk/programmes/p0pf6vwm",
+      "published": "2026-10-06T09:48:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pf6tnh.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "8271ff3d4beec3",
       "source": "TED Talks Daily",
@@ -106,6 +132,19 @@
       "transcript_url": ""
     },
     {
+      "key": "969752c4ced720",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "What to Wear to an Olivia Rodrigo Concert on the Unraveled Tour: Outfit Ideas, Styling Tips, & More",
+      "summary": "From a fellow Livie.",
+      "url": "https://www.teenvogue.com/story/what-to-wear-to-an-olivia-rodrigo-concert",
+      "published": "2026-10-01T18:45:10+00:00",
+      "image": "https://assets.teenvogue.com/photos/6abea938977bbf3c43a76670/master/pass/2297307220",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "4bd2c9189555cd",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -158,6 +197,19 @@
       "transcript_url": ""
     },
     {
+      "key": "01d1485203de97",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "How to Style Barrel Jeans for Fall and Winter",
+      "summary": "Inspired by Kendall Jenner, Margot Robbie, and more.",
+      "url": "https://www.teenvogue.com/story/how-to-style-barrel-jeans",
+      "published": "2026-09-28T19:02:38+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ab9341aefbb1881f68b4ee0/master/pass/2262087890",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "da7422a5fd9a38",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -184,32 +236,6 @@
       "transcript_url": ""
     },
     {
-      "key": "9b1f64a30e0efe",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "MTV VMAs 2026 Winners: The Complete List of Wins, From Taylor Swift to BTS",
-      "summary": "Did your fave take home a Moon Person?",
-      "url": "https://www.teenvogue.com/story/mtv-vmas-2026-winners-the-complete-list-live-updates",
-      "published": "2026-09-28T03:58:59+00:00",
-      "image": "https://assets.teenvogue.com/photos/673b446c144083da083c2724/master/pass/1419086500",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "96e4e0ed97b05c",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Taylor Swift ‘Patient Zero’ Music Video: All the Major Easter Eggs",
-      "summary": "The video premiered at the 2026 VMAs.",
-      "url": "https://www.teenvogue.com/story/taylor-swift-patient-zero-music-video-all-the-major-easter-eggs",
-      "published": "2026-09-28T01:54:58+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ab9c8752192b932ffd16fef/master/pass/2297466440",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "c77425bbbfad23",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -219,19 +245,6 @@
       "url": "https://www.smithsonianmag.com/innovation/the-humble-history-of-the-bedpan-180989560/",
       "published": "2026-09-24T19:04:30+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "92261e3741d4e7",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Seals helped this oceanographer study the Southern Ocean",
-      "summary": "Oceanographer Lily Dove uses remote robots to study Antarctica’s perilous oceans.",
-      "url": "https://www.snexplores.org/article/oceanographer-seals-ocean-climate",
-      "published": "2026-09-23T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_Lily_Dove_profiled_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -389,19 +402,6 @@
       "published": "2026-09-08T09:30:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8j55f.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "b753e4e391da4b",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Weather words",
-      "summary": "The British love to talk about weather! Learn some useful vocabulary about it here. TRY THE LISTENING ROOM: ✔️ https://www.bbc.co.uk/learningenglish/english/features/the_listening_room (Hard: Upper…",
-      "url": "http://www.bbc.co.uk/programmes/p0p8cbdn",
-      "published": "2026-09-07T08:30:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8cb9p.mp3",
       "transcript_url": ""
     },
     {
