@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-06T21:37:33.577119+00:00",
+  "updated_at": "2026-10-07T11:47:05.665669+00:00",
   "items": [
+    {
+      "key": "8898e140008222",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Experiment: Discover the science behind afterimages",
+      "summary": "By observing afterimages, you can learn how different cone cells in the retina respond to various colors.",
+      "url": "https://www.snexplores.org/article/vision-eyes-see-color-afterimages",
+      "published": "2026-10-07T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_afterimages_experiment_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "22200bbbf60871",
       "source": "Smithsonian Innovation",
@@ -103,32 +116,6 @@
       "published": "2026-10-05T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/092326_NO_ElNino_main.jpg?w=800",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "28e558ea1f8d1d",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Pyrolysis",
-      "summary": "This oxygen-free “burning” reaction explains why charcoal can burn, but typical campfire soot cannot.",
-      "url": "https://www.snexplores.org/article/scientists-say-pyrolysis-definition-pronunciation",
-      "published": "2026-10-05T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/GettyImages-1399397583.jpg?w=798",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "c92fa06c5245a6",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Sunday Pick: All the lonely people | from Corner Piece",
-      "summary": "From group chats to video calls, technology should make social connection easier than ever. So, why is everyone so lonely? In this special featured episode from the new TED podcast, Corner Piece , host…",
-      "url": "https://audiocollective.ted.com/",
-      "published": "2026-10-04T04:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aa1dbbb156a52f880a51eb6/media.mp3",
       "transcript_url": ""
     },
     {
@@ -272,6 +259,19 @@
       "published": "2026-09-24T19:04:30+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d3f39eeee36a5a",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "What makes a good game? | Eric Zimmerman",
+      "summary": "What’s the best way to make a project more playful? Game designer Eric Zimmerman has a counterintuitive suggestion: a few good rules. Drawing on his experience making everything from video games and…",
+      "url": "https://go.ted.com/ericzimmerman",
+      "published": "2026-09-22T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ab2943d93749e4c0b45afec/media.mp3",
       "transcript_url": ""
     },
     {
