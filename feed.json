@@ -1,6 +1,58 @@
 {
-  "updated_at": "2026-10-07T11:47:05.665669+00:00",
+  "updated_at": "2026-10-07T21:58:42.994558+00:00",
   "items": [
+    {
+      "key": "e06bce7f8c5c40",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Five Discoveries That Changed Our Understanding of T. Rex Forever, From Warm Blood to Lips",
+      "summary": "Paleontologists are still unraveling the secrets of the world’s most famous dinosaur, such as its outward appearance or the way that it hunted. With each new finding, our view of the “tyrant lizard king”…",
+      "url": "https://www.smithsonianmag.com/science-nature/five-discoveries-that-changed-our-understanding-of-t-rex-forever-from-warm-blood-to-lips-180989634/",
+      "published": "2026-10-07T17:15:01+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "faa5a116d9ca6e",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Keri Russell and Daughter Willa Wore Mini Skirts and Statement Tops 2 Different Ways at Paris Fashion Week",
+      "summary": "The 13-year-old is the latest celebrity child to make an unexpected Fashion Week debut.",
+      "url": "https://www.teenvogue.com/story/keri-russell-daughter-willa-paris-fashion-week-10-07-2026",
+      "published": "2026-10-07T16:16:11+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ac663754b056b438976f3e4/master/pass/2298946625",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "c751cad52c8c2e",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Fashion Week's Response to AI Fatigue? A Distinctly Human Sloppiness",
+      "summary": "In this op-ed, writer Kelsey Steigman discusses how, in the age of AI, messy styling might be the point.",
+      "url": "https://www.teenvogue.com/story/fashion-weeks-response-to-ai-fatigue-a-distinctly-human-sloppiness",
+      "published": "2026-10-07T15:46:08+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ac668527dc1b785d2406b19/master/pass/AiSlopFashion_HEADEER.png",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d1b63aff90ee29",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Zendaya Is Onto the Next '90s Manicure Staple Trend",
+      "summary": "The star is on a retro-inspired mani kick, and we are here for it.",
+      "url": "https://www.teenvogue.com/story/zendaya-90s-red-manicure-pfw",
+      "published": "2026-10-07T15:29:59+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ac654b2909dc7bf7d1cddd0/master/pass/2298916757",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "8898e140008222",
       "source": "Science News Explores",
@@ -11,6 +63,45 @@
       "url": "https://www.snexplores.org/article/vision-eyes-see-color-afterimages",
       "published": "2026-10-07T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_afterimages_experiment_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "400c8f418ac443",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
+      "summary": "Description This artist’s concept depicts the proposed design for NASA’s PRobe far-Infrared Mission for Astrophysics (PRIMA), which was selected by the agency in September 2026. The PRIMA observatory is the…",
+      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "2e03a81a5471b2",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Curiosity Looks Back After Reaching Elevation Milestone",
+      "summary": "Description NASA’s Curiosity Mars rover captured this view looking back at the floor of Gale Crater, with the crater’s rim visible in the distance, on Sept. 5, 2026, the 5,006th Martian day, or sol, of the…",
+      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d80503404d6a11",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Curiosity Captures Dawn Breaking on Wind-Carved Cliffs",
+      "summary": "Description NASA’s Curiosity Mars rover captured this panorama of sunrise illuminating distant, wind-carved features called yardangs on Aug. 11, 2026, the 4,982nd Martian day, or sol, of the mission.…",
+      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-captures-dawn-breaking-on-wind-carved-cliffs/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -119,19 +210,6 @@
       "transcript_url": ""
     },
     {
-      "key": "7fb81ba0a640c6",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Slushy Noobz's Paris Fashion Week Style Secret? Washing Your Face",
-      "summary": "Martin Andrijasevic and Hamzah Al-Emad AKA Slushy Noobz took us with them as they got ready for the Acne Studios show during Paris Fashion Week.",
-      "url": "https://www.teenvogue.com/story/slushy-noobzs-paris-fashion-week-style-secret-washing-your-face",
-      "published": "2026-10-02T16:06:59+00:00",
-      "image": "https://assets.teenvogue.com/photos/6abfcd8ccc4668dc53a25435/master/pass/IMG_4960.jpeg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "9f6bc777f546ac",
       "source": "Smithsonian Science",
       "category": "Science & Tech",
@@ -158,19 +236,6 @@
       "transcript_url": ""
     },
     {
-      "key": "788cda25f02379",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The Unexpected Fall Hair Color Trending for 2026 Is Warm Blonde Thanks to Tate McRae, Crew Girl, & More",
-      "summary": "Stock up on purple shampoo.",
-      "url": "https://www.teenvogue.com/story/the-unexpected-fall-hair-color-trending-for-2026-is-warm-blonde",
-      "published": "2026-10-02T14:48:59+00:00",
-      "image": "https://assets.teenvogue.com/photos/6abfc32ecc4668dc53a2542c/master/pass/2298103245",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "4bd2c9189555cd",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -194,19 +259,6 @@
       "published": "2026-09-30T15:01:47+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abd245b56d8e12f09c351cf/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "88e26d5cef0072",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The Love Hypothesis Sequel Movie Officially in the Works, Here's Everything We Need So Far",
-      "summary": "Here's everything we know about it.",
-      "url": "https://www.teenvogue.com/story/the-love-hypothesis-sequel-the-two-body-problem-everything-you-need-to-know",
-      "published": "2026-09-30T10:52:57+00:00",
-      "image": "https://assets.teenvogue.com/photos/6a40c1465634459a024aa196/master/pass/LVHY_2026_UT_250718_WENJON_01894RC.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -301,19 +353,6 @@
       "transcript_url": ""
     },
     {
-      "key": "5da2954a2a3715",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Perseverance’s View of ‘Turquoise Bay’",
-      "summary": "Description NASA’s Perseverance Mars rover used its Mastcam-Z camera to capture this 360-degree panorama of “Turquoise Bay,” a geologic area of interest in the “Margin Unit.” The 818 images used to create…",
-      "url": "https://science.nasa.gov/photojournal/perseverances-view-of-turquoise-bay/",
-      "published": "2026-09-21T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "410e5f66ce0eca",
       "source": "Smithsonian Science",
       "category": "Science & Tech",
@@ -322,32 +361,6 @@
       "summary": "Earth has changed dramatically since the Age of Dinosaurs, from its climate to geography and animal life",
       "url": "https://www.smithsonianmag.com/science-nature/five-ways-the-world-of-the-dinosaurs-looked-different-from-ours-beyond-the-presence-of-the-terrible-lizards-180989521/",
       "published": "2026-09-18T14:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "40e6f8b1621889",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Some Fish in the Great Lakes Might Be More Than 400 Years Old, a Study Suggests, Outliving Around 15 Generations of Humans",
-      "summary": "Lake sturgeon may be among the longest-living vertebrates, second only to Greenland sharks, according to recent research. However, scientists note that follow-up work is necessary to clarify the species’…",
-      "url": "https://www.smithsonianmag.com/science-nature/some-fish-in-the-great-lakes-might-be-more-than-400-years-old-a-study-suggests-outliving-around-15-generations-of-humans-180989500/",
-      "published": "2026-09-16T13:43:20+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "13423b857182d1",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Curiosity Postcard Celebrates Rover’s 5,000th Day on Mars",
-      "summary": "Description While parked at a sand ridge nicknamed “Chocolatal,” NASA’s Curiosity Mars rover used its black-and-white navigation cameras to capture panoramas at two times of day. The first was taken on Aug.…",
-      "url": "https://science.nasa.gov/photojournal/curiosity-postcard-celebrates-rovers-5000th-day-on-mars/",
-      "published": "2026-09-16T00:00:00+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
@@ -376,19 +389,6 @@
       "published": "2026-09-14T08:43:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9j6n0.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "94110fbfffb0d0",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?",
-      "summary": "The tool may pick up subtle differences in the speech of people with the mental health condition better than human psychiatrists",
-      "url": "https://www.smithsonianmag.com/innovation/could-artificial-intelligence-help-with-early-diagnosis-of-schizophrenia-180989486/",
-      "published": "2026-09-11T13:31:01+00:00",
-      "image": "",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
