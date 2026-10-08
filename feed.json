@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-08T12:01:39.201527+00:00",
+  "updated_at": "2026-10-08T22:04:03.830921+00:00",
   "items": [
+    {
+      "key": "175cb1ca3b5cf7",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How imaginary worlds help kids learn | Anna Rainio",
+      "summary": "All children develop at different paces — so why do schools expect every student to learn the same way? Early education researcher Anna Rainio introduces \"playworlds,\" a learning activity where adults and…",
+      "url": "http://go.ted.com/annarainio",
+      "published": "2026-10-08T15:00:03+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac7ae48e2a72faefc1e8d0f/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "5c5a0f10a6bf51",
       "source": "Science News Explores",
@@ -77,6 +90,19 @@
       "published": "2026-10-07T15:29:59+00:00",
       "image": "https://assets.teenvogue.com/photos/6ac654b2909dc7bf7d1cddd0/master/pass/2298916757",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "95e444c05ef65c",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "What my politically divided family teaches me | Tami Pyfer",
+      "summary": "Tami Pyfer has five kids who belong to five different political parties, and sometimes family conversations get heated. Drawing on her work as a former policy advisor to the governor of Utah, she wanted to…",
+      "url": "http://go.ted.com/tamipyfer",
+      "published": "2026-10-07T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac50a9bfba456483104cf1e/media.mp3",
       "transcript_url": ""
     },
     {
@@ -262,19 +288,6 @@
       "transcript_url": ""
     },
     {
-      "key": "c7827d6c105e13",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "AI and the end of loneliness | Paul Bloom",
-      "summary": "AI companions may soon cure loneliness, says psychologist Paul Bloom: a gift for the isolated and the elderly, but a danger for the young, who need to experience the hard work of real relationships. So what…",
-      "url": "http://go.ted.com/paulbloom26",
-      "published": "2026-09-30T15:01:47+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abd245b56d8e12f09c351cf/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "4440858cea8996",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -311,19 +324,6 @@
       "published": "2026-09-24T19:04:30+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d3f39eeee36a5a",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "What makes a good game? | Eric Zimmerman",
-      "summary": "What’s the best way to make a project more playful? Game designer Eric Zimmerman has a counterintuitive suggestion: a few good rules. Drawing on his experience making everything from video games and…",
-      "url": "https://go.ted.com/ericzimmerman",
-      "published": "2026-09-22T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ab2943d93749e4c0b45afec/media.mp3",
       "transcript_url": ""
     },
     {
