@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-10-07T21:58:42.994558+00:00",
+  "updated_at": "2026-10-08T12:01:39.201527+00:00",
   "items": [
+    {
+      "key": "5c5a0f10a6bf51",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Some germs ride a superhighway at the edge of space",
+      "summary": "Some microbes common on Earth’s surface lead a secret double life. Soaring higher than jumbo jets, they carry clues about disease spread and alien life.",
+      "url": "https://www.snexplores.org/article/life-stratosphere-edge-of-space",
+      "published": "2026-10-08T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0726_stratosphere_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "bf114b0870793e",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "These clues might point to life on other worlds",
+      "summary": "Gases and color on distant planets may trace to activity by extraterrestrial life. If so, those E.T.s are likely tiny, one-celled beings.",
+      "url": "https://www.snexplores.org/article/clues-life-venus-mars",
+      "published": "2026-10-08T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_et_sidebar_mars_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "e06bce7f8c5c40",
       "source": "Smithsonian Science",
@@ -236,19 +262,6 @@
       "transcript_url": ""
     },
     {
-      "key": "4bd2c9189555cd",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Farting fish and tooting manatees — how some animals use gas",
-      "summary": "Humans think farts are funny — but some animals rely on farts for flotation, communication and more.",
-      "url": "https://www.snexplores.org/article/animal-farting-fish-manatee-gas",
-      "published": "2026-10-01T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/1440_animalfarts_manatee_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "c7827d6c105e13",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -272,19 +285,6 @@
       "published": "2026-09-29T09:53:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pd008c.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "da7422a5fd9a38",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "AI … in space!",
-      "summary": "In WALL-E , artificial intelligence runs an entire ship. Real-life AI, though, is too finicky and prone to mistakes to manage that.",
-      "url": "https://www.snexplores.org/article/ai-space-exploration",
-      "published": "2026-09-28T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0826_tech-fic.jpg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
