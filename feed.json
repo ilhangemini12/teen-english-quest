@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T22:04:03.830921+00:00",
+  "updated_at": "2026-10-09T11:53:51.075465+00:00",
   "items": [
     {
       "key": "175cb1ca3b5cf7",
@@ -405,19 +405,6 @@
       "transcript_url": ""
     },
     {
-      "key": "0f34b1acf8b535",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Try it on",
-      "summary": "Sometimes people lie to try and get away with things. They are just trying It on. Learn how to use 'try it on' with Feifei and Phil. As always, get your free transcript for this episode here:…",
-      "url": "http://www.bbc.co.uk/programmes/p0p8jckw",
-      "published": "2026-09-08T09:30:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8j55f.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "3bbc8ef5d12e6a",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -454,6 +441,19 @@
       "published": "2026-08-18T18:14:03+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "6d720c8ab933d7",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Share your life story",
+      "summary": "Think you sometimes over-share unnecessary details? Learn how to use 'share your life story' with Becca and Feifei. As always, find a free transcript here: ✔️…",
+      "url": "http://www.bbc.co.uk/programmes/p0p3v486",
+      "published": "2026-08-11T08:29:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
       "transcript_url": ""
     },
     {
