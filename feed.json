@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-10T11:10:37.849421+00:00",
+  "updated_at": "2026-10-10T20:34:08.891225+00:00",
   "items": [
+    {
+      "key": "05cb10e4220c49",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Why the future is human ... plus AI | Sal Khan and Esther Perel",
+      "summary": "As AI reshapes work, school and love, what part of being human can't a machine take over? In a wide-ranging conversation, psychotherapist Esther Perel and TED's vision steward Sal Khan provide their unique…",
+      "url": "http://go.ted.com/salandesther",
+      "published": "2026-10-10T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac518de854b00dcfdb99f09/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "70f4a921f07ae8",
       "source": "Smithsonian Innovation",
@@ -129,19 +142,6 @@
       "published": "2026-10-07T15:46:08+00:00",
       "image": "https://assets.teenvogue.com/photos/6ac668527dc1b785d2406b19/master/pass/AiSlopFashion_HEADEER.png",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "95e444c05ef65c",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "What my politically divided family teaches me | Tami Pyfer",
-      "summary": "Tami Pyfer has five kids who belong to five different political parties, and sometimes family conversations get heated. Drawing on her work as a former policy advisor to the governor of Utah, she wanted to…",
-      "url": "http://go.ted.com/tamipyfer",
-      "published": "2026-10-07T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac50a9bfba456483104cf1e/media.mp3",
       "transcript_url": ""
     },
     {
