@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-10T20:34:08.891225+00:00",
+  "updated_at": "2026-10-11T11:24:04.765532+00:00",
   "items": [
+    {
+      "key": "742bd4d0e65509",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Sunday Pick: Can AI really teach your kids? with Leah Belsky | from WorkLife with Molly Graham",
+      "summary": "Technology has been promising to revolutionize education for a long time. Online learning, smartphones, and even asynchronous classes during COVID seemed for a while like they might finally transform what…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-10-11T06:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac7b033e2a72faefc1e8d13/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "05cb10e4220c49",
       "source": "TED Talks Daily",
@@ -67,6 +80,19 @@
       "transcript_url": ""
     },
     {
+      "key": "d8f35d0c72c9e8",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Anger or fear? Dogs may be able to read it on your face",
+      "summary": "Brain scans offer the first evidence that dogs can read certain human facial expressions.",
+      "url": "https://www.snexplores.org/article/dogs-read-anger-fear-emotion-human-faces",
+      "published": "2026-10-09T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/080726_MR_dogemotions_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "175cb1ca3b5cf7",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -89,19 +115,6 @@
       "url": "https://www.snexplores.org/article/life-stratosphere-edge-of-space",
       "published": "2026-10-08T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0726_stratosphere_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "bf114b0870793e",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "These clues might point to life on other worlds",
-      "summary": "Gases and color on distant planets may trace to activity by extraterrestrial life. If so, those E.T.s are likely tiny, one-celled beings.",
-      "url": "https://www.snexplores.org/article/clues-life-venus-mars",
-      "published": "2026-10-08T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_et_sidebar_mars_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -288,19 +301,6 @@
       "transcript_url": ""
     },
     {
-      "key": "3f821e9f9022b1",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Why we should design cities like Disney | Zach DeBoer",
-      "summary": "Where you live shapes your relationships, your emotions and even how long you live, says community designer Zach DeBoer. After studying what a century of building cities around cars has done to downtowns in…",
-      "url": "http://go.ted.com/zachdeboer",
-      "published": "2026-10-02T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abe74dcce220947617cd458/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "4440858cea8996",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -405,19 +405,6 @@
       "transcript_url": ""
     },
     {
-      "key": "0f542aa8c40780",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "Can apps teach you a language?",
-      "summary": "Have you ever used Duolingo, Babbel, Busuu or perhaps another language-learning app? How did you get on? Some people love the convenience of these apps – you can learn on the go, like during your commute to…",
-      "url": "http://www.bbc.co.uk/programmes/p0p8w5sh",
-      "published": "2026-09-10T07:46:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p8w5by.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "3bbc8ef5d12e6a",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -480,6 +467,19 @@
       "published": "2026-07-30T14:14:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p1q8ns.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "ed460127be45d1",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Word stress",
+      "summary": "How to pronounce the words 'photographer' and 'photograph'? Learn about word stress. Want to boost your speaking skills? Try Beating Speaking Anxiety, our series to help fight your fears of speaking…",
+      "url": "http://www.bbc.co.uk/programmes/p0ny0vlm",
+      "published": "2026-07-20T07:00:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0ny0slt.mp3",
       "transcript_url": ""
     },
     {
