@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-11T20:58:10.801054+00:00",
+  "updated_at": "2026-10-12T13:09:50.889444+00:00",
   "items": [
+    {
+      "key": "be643035d9d1de",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "And the science Nobels for 2026 go to …",
+      "summary": "Top prizes went for an icy window into the cosmos, a light switch for the brain and solving the mystery of mirror image molecules.",
+      "url": "https://www.snexplores.org/article/science-nobel-prizes-2026",
+      "published": "2026-10-12T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/100826_NO_2026NobelRoundup_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "284cf8667caa84",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Theropod",
+      "summary": "This group of dinosaurs once included Tyrannosaurus rex . Today, they include birds.",
+      "url": "https://www.snexplores.org/article/scientists-say-theropod-definition-pronunciation",
+      "published": "2026-10-12T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_theropod_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "5b913ab39e09d3",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Onomatopoeia",
+      "summary": "Learn about words that sound like the thing they describe. Find more programmes for you level by choosing 'easy', 'medium' or 'hard' on our website: https://www.bbc.co.uk/learningenglish/english/ Get weekly…",
+      "url": "http://www.bbc.co.uk/programmes/p0pg8c17",
+      "published": "2026-10-12T09:00:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pg7yrl.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "742bd4d0e65509",
       "source": "TED Talks Daily",
@@ -80,19 +119,6 @@
       "transcript_url": ""
     },
     {
-      "key": "d8f35d0c72c9e8",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Anger or fear? Dogs may be able to read it on your face",
-      "summary": "Brain scans offer the first evidence that dogs can read certain human facial expressions.",
-      "url": "https://www.snexplores.org/article/dogs-read-anger-fear-emotion-human-faces",
-      "published": "2026-10-09T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/080726_MR_dogemotions_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "175cb1ca3b5cf7",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -103,19 +129,6 @@
       "published": "2026-10-08T15:00:03+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac7ae48e2a72faefc1e8d0f/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "5c5a0f10a6bf51",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Some germs ride a superhighway at the edge of space",
-      "summary": "Some microbes common on Earth’s surface lead a secret double life. Soaring higher than jumbo jets, they carry clues about disease spread and alien life.",
-      "url": "https://www.snexplores.org/article/life-stratosphere-edge-of-space",
-      "published": "2026-10-08T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0726_stratosphere_main.jpg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -167,45 +180,6 @@
       "url": "https://www.snexplores.org/article/vision-eyes-see-color-afterimages",
       "published": "2026-10-07T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_afterimages_experiment_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "400c8f418ac443",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
-      "summary": "Description This artist’s concept depicts the proposed design for NASA’s PRobe far-Infrared Mission for Astrophysics (PRIMA), which was selected by the agency in September 2026. The PRIMA observatory is the…",
-      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
-      "published": "2026-10-07T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "2e03a81a5471b2",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s Curiosity Looks Back After Reaching Elevation Milestone",
-      "summary": "Description NASA’s Curiosity Mars rover captured this view looking back at the floor of Gale Crater, with the crater’s rim visible in the distance, on Sept. 5, 2026, the 5,006th Martian day, or sol, of the…",
-      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
-      "published": "2026-10-07T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d80503404d6a11",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s Curiosity Captures Dawn Breaking on Wind-Carved Cliffs",
-      "summary": "Description NASA’s Curiosity Mars rover captured this panorama of sunrise illuminating distant, wind-carved features called yardangs on Aug. 11, 2026, the 4,982nd Martian day, or sol, of the mission.…",
-      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-captures-dawn-breaking-on-wind-carved-cliffs/",
-      "published": "2026-10-07T00:00:00+00:00",
-      "image": "",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -301,6 +275,19 @@
       "transcript_url": ""
     },
     {
+      "key": "9f6bc777f546ac",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "These 15 Adorable Photos of Pandas Will Make You Want to Visit the Zoo Immediately",
+      "summary": "Members of the fluffy and adorable but vulnerable species are often cared for in zoos and breeding centers around the world, and these snapshots may make you jealous of the caretakers’ jobs",
+      "url": "https://www.smithsonianmag.com/science-nature/these-15-adorable-photos-of-pandas-will-make-you-want-to-visit-the-zoo-immediately-180989606/",
+      "published": "2026-10-02T15:21:12+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "4440858cea8996",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -379,6 +366,19 @@
       "transcript_url": ""
     },
     {
+      "key": "40e6f8b1621889",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Some Fish in the Great Lakes Might Be More Than 400 Years Old, a Study Suggests, Outliving Around 15 Generations of Humans",
+      "summary": "Lake sturgeon may be among the longest-living vertebrates, second only to Greenland sharks, according to recent research. However, scientists note that follow-up work is necessary to clarify the species’…",
+      "url": "https://www.smithsonianmag.com/science-nature/some-fish-in-the-great-lakes-might-be-more-than-400-years-old-a-study-suggests-outliving-around-15-generations-of-humans-180989500/",
+      "published": "2026-09-16T13:43:20+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "90f9d7761706d5",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -402,6 +402,19 @@
       "published": "2026-09-14T08:43:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9j6n0.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "94110fbfffb0d0",
+      "source": "Smithsonian Innovation",
+      "category": "Science & Tech",
+      "emoji": "💡",
+      "title": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?",
+      "summary": "The tool may pick up subtle differences in the speech of people with the mental health condition better than human psychiatrists",
+      "url": "https://www.smithsonianmag.com/innovation/could-artificial-intelligence-help-with-early-diagnosis-of-schizophrenia-180989486/",
+      "published": "2026-09-11T13:31:01+00:00",
+      "image": "",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -467,19 +480,6 @@
       "published": "2026-07-30T14:14:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p1q8ns.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "ed460127be45d1",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Word stress",
-      "summary": "How to pronounce the words 'photographer' and 'photograph'? Learn about word stress. Want to boost your speaking skills? Try Beating Speaking Anxiety, our series to help fight your fears of speaking…",
-      "url": "http://www.bbc.co.uk/programmes/p0ny0vlm",
-      "published": "2026-07-20T07:00:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0ny0slt.mp3",
       "transcript_url": ""
     },
     {
