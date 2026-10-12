@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-12T13:09:50.889444+00:00",
+  "updated_at": "2026-10-12T23:37:28.383439+00:00",
   "items": [
+    {
+      "key": "418a29af538b86",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Jacob Tierney’s New Book 'I’ll Believe in Anything' Takes Fans Inside Heated Rivalry’s Breakout Success",
+      "summary": "Tierney goes inside the process of writing ‘Heated Rivalry’ scripts as he promotes his new book, I’ll Believe in Anything.",
+      "url": "https://www.teenvogue.com/story/heated-rivalry-jacob-tierney-new-book-ill-believe-in-anything-interview",
+      "published": "2026-10-12T14:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ac6a178653d022993677c41/master/pass/Photo%20Insert%206_cr%20Sabrina%20Lantos%20for%20Accent%20Aigu%20Entertainment.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "be643035d9d1de",
       "source": "Science News Explores",
@@ -64,19 +77,6 @@
       "published": "2026-10-10T15:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac518de854b00dcfdb99f09/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "70f4a921f07ae8",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "Could This Dutch Invention Help Tackle Plastic Pollution in America's Waterways?",
-      "summary": "The Netherlands has had success with the Bubble Barrier, which pumps air bubbles from the bottom of a canal or river to direct plastic to the surface. Now, Lansing, Michigan, is looking to be the first to…",
-      "url": "https://www.smithsonianmag.com/innovation/could-this-dutch-invention-help-tackle-plastic-pollution-in-americas-waterways-180989651/",
-      "published": "2026-10-09T17:49:27+00:00",
-      "image": "",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -145,19 +145,6 @@
       "transcript_url": ""
     },
     {
-      "key": "faa5a116d9ca6e",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Keri Russell and Daughter Willa Wore Mini Skirts and Statement Tops 2 Different Ways at Paris Fashion Week",
-      "summary": "The 13-year-old is the latest celebrity child to make an unexpected Fashion Week debut.",
-      "url": "https://www.teenvogue.com/story/keri-russell-daughter-willa-paris-fashion-week-10-07-2026",
-      "published": "2026-10-07T16:16:11+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac663754b056b438976f3e4/master/pass/2298946625",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "c751cad52c8c2e",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -180,6 +167,45 @@
       "url": "https://www.snexplores.org/article/vision-eyes-see-color-afterimages",
       "published": "2026-10-07T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_afterimages_experiment_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "400c8f418ac443",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
+      "summary": "Description This artist’s concept depicts the proposed design for NASA’s PRobe far-Infrared Mission for Astrophysics (PRIMA), which was selected by the agency in September 2026. The PRIMA observatory is the…",
+      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "2e03a81a5471b2",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Curiosity Looks Back After Reaching Elevation Milestone",
+      "summary": "Description NASA’s Curiosity Mars rover captured this view looking back at the floor of Gale Crater, with the crater’s rim visible in the distance, on Sept. 5, 2026, the 5,006th Martian day, or sol, of the…",
+      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d80503404d6a11",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Curiosity Captures Dawn Breaking on Wind-Carved Cliffs",
+      "summary": "Description NASA’s Curiosity Mars rover captured this panorama of sunrise illuminating distant, wind-carved features called yardangs on Aug. 11, 2026, the 4,982nd Martian day, or sol, of the mission.…",
+      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-captures-dawn-breaking-on-wind-carved-cliffs/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -271,19 +297,6 @@
       "url": "https://www.snexplores.org/article/record-breaking-2026-el-nino",
       "published": "2026-10-05T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/092326_NO_ElNino_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "9f6bc777f546ac",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "These 15 Adorable Photos of Pandas Will Make You Want to Visit the Zoo Immediately",
-      "summary": "Members of the fluffy and adorable but vulnerable species are often cared for in zoos and breeding centers around the world, and these snapshots may make you jealous of the caretakers’ jobs",
-      "url": "https://www.smithsonianmag.com/science-nature/these-15-adorable-photos-of-pandas-will-make-you-want-to-visit-the-zoo-immediately-180989606/",
-      "published": "2026-10-02T15:21:12+00:00",
-      "image": "",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -402,19 +415,6 @@
       "published": "2026-09-14T08:43:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9j6n0.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "94110fbfffb0d0",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?",
-      "summary": "The tool may pick up subtle differences in the speech of people with the mental health condition better than human psychiatrists",
-      "url": "https://www.smithsonianmag.com/innovation/could-artificial-intelligence-help-with-early-diagnosis-of-schizophrenia-180989486/",
-      "published": "2026-09-11T13:31:01+00:00",
-      "image": "",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
