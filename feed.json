@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-12T23:37:28.383439+00:00",
+  "updated_at": "2026-10-13T12:42:36.505294+00:00",
   "items": [
+    {
+      "key": "23a4f1f37d73c9",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Teen Vogue Teams Up With Wattpad Books to Launch Original Romance Fiction Series",
+      "summary": "The three-story partnership is called \"I Saw the Signs.\"",
+      "url": "https://www.teenvogue.com/story/teen-vogue-wattpad-books-i-saw-the-signs-faq",
+      "published": "2026-10-13T12:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6acd02868645f65d6e8965ad/master/pass/WattpadCovers-HEADER.png",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "3a0713934f385a",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Is AI making us dumber? Depends how it’s used",
+      "summary": "AI can weaken learning when it replaces effort. But tools that offer guidance rather than answers can help people hone their skills.",
+      "url": "https://www.snexplores.org/article/ai-making-us-dumber-learn-lose-skills",
+      "published": "2026-10-13T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/073126_MR_ailearning_main.jpeg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "369e0cece3fce9",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Try one's patience",
+      "summary": "Try your patience means 'test your patience'. Find out how to use it here with Phil and Feifei. Get a free transcript for this episode here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0pgdrwh",
+      "published": "2026-10-13T08:22:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pgdrn8.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "418a29af538b86",
       "source": "Teen Vogue",
@@ -102,19 +141,6 @@
       "url": "https://www.smithsonianmag.com/arts-culture/celebrate-indigenous-peoples-day-with-these-15-dramatic-images-of-the-rich-enduring-traditions-of-native-americans-180989662/",
       "published": "2026-10-09T15:00:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "e93757eb31c925",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Why Do We Talk About Fanfiction Like It’s an Addiction?",
-      "summary": "We treat reading books as a habit and reading fanfiction as a behavior.",
-      "url": "https://www.teenvogue.com/story/why-do-we-talk-about-fanfiction-like-its-an-addiction-op-ed",
-      "published": "2026-10-09T13:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac7aeabde9bd96d984963eb/master/pass/Fanfiction_webheader.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -288,19 +314,6 @@
       "transcript_url": ""
     },
     {
-      "key": "423da09a606bc1",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "2026’s El Niño is record-breaking — and it’s not done yet",
-      "summary": "Within the ocean region where El Niños form, daily sea-surface temperatures are already more extreme than at any point in recorded history.",
-      "url": "https://www.snexplores.org/article/record-breaking-2026-el-nino",
-      "published": "2026-10-05T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/092326_NO_ElNino_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "4440858cea8996",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -454,19 +467,6 @@
       "published": "2026-08-18T18:14:03+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "6d720c8ab933d7",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Share your life story",
-      "summary": "Think you sometimes over-share unnecessary details? Learn how to use 'share your life story' with Becca and Feifei. As always, find a free transcript here: ✔️…",
-      "url": "http://www.bbc.co.uk/programmes/p0p3v486",
-      "published": "2026-08-11T08:29:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
       "transcript_url": ""
     },
     {
