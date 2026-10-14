@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-14T10:11:40.837310+00:00",
+  "updated_at": "2026-10-14T20:41:21.964220+00:00",
   "items": [
+    {
+      "key": "5a6027889e2e08",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "'90s Feathered Eyebrow Gaps Are 2026's Most Effortless Makeup Trend",
+      "summary": "Here's how to get the look.",
+      "url": "https://www.teenvogue.com/story/90s-feathered-eyebrow-gaps-most-effortless-makeup-trend",
+      "published": "2026-10-14T20:33:06+00:00",
+      "image": "https://assets.teenvogue.com/photos/6acfe697f8ffd1b8f518eb1f/master/pass/eyebrows-v2%20(1).jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "76ac2d1b1a6451",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "AI brain fry is real. Here’s what’s causing it | Julie Bedard",
+      "summary": "Workers everywhere are quietly redesigning their jobs around AI, boosting productivity but also creating new kinds of problems. AI advisor Julie Bedard thinks she has a fix. She shares new research on three…",
+      "url": "http://go.ted.com/juliebedard",
+      "published": "2026-10-14T15:00:20+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acf9867b3381b9dbb7c315a/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "f31eb046970038",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Bees may survive a swim by heading for the dark [COMIC]",
+      "summary": "Researchers recently learned that bees can swim. New findings show that bees paddle toward shade and dark to reach shore.",
+      "url": "https://www.snexplores.org/article/bees-swim-toward-dark-comic",
+      "published": "2026-10-14T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_swimming_bee_comic_banner.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "23a4f1f37d73c9",
       "source": "Teen Vogue",
@@ -158,19 +197,6 @@
       "transcript_url": ""
     },
     {
-      "key": "0da121db5780b6",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Olivia Rodrigo, Taylor Swift & More Pop Star Halloween Costumes for Music Lovers",
-      "summary": "Bonus points if you carry a microphone.",
-      "url": "https://www.teenvogue.com/story/pop-star-halloween-costumes-for-music-lovers",
-      "published": "2026-10-09T16:54:04+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac7cc9b1f1b5d2ed1927e10/master/pass/2188665139",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "0a9fbcd7243ffe",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -219,19 +245,6 @@
       "url": "https://www.teenvogue.com/story/fashion-weeks-response-to-ai-fatigue-a-distinctly-human-sloppiness",
       "published": "2026-10-07T15:46:08+00:00",
       "image": "https://assets.teenvogue.com/photos/6ac668527dc1b785d2406b19/master/pass/AiSlopFashion_HEADEER.png",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "8898e140008222",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Experiment: Discover the science behind afterimages",
-      "summary": "By observing afterimages, you can learn how different cone cells in the retina respond to various colors.",
-      "url": "https://www.snexplores.org/article/vision-eyes-see-color-afterimages",
-      "published": "2026-10-07T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_afterimages_experiment_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -285,19 +298,6 @@
       "published": "2026-10-06T17:01:06+00:00",
       "image": "https://assets.teenvogue.com/photos/6ac4105f2ffe9f58ecef889d/master/pass/IMG_0879.JPG",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d610e4e7561375",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "The wonder of weightlifting | Jaime Seeman (re-release)",
-      "summary": "With humor and hard science, obstetrician and gynecologist Jaime Seeman reveals why building muscle is one of the best ways to combat women’s top health risks. Learn the truth behind three weightlifting…",
-      "url": "http://go.ted.com/jaimeseeman",
-      "published": "2026-10-06T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac3ba163b662ae0dba27e87/media.mp3",
       "transcript_url": ""
     },
     {
