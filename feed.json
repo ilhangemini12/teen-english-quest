@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-10-15T09:53:48.638564+00:00",
+  "updated_at": "2026-10-15T20:20:25.720219+00:00",
   "items": [
+    {
+      "key": "7680202cc1c6a8",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to stop homelessness before it starts | Jen Loving",
+      "summary": "Homelessness can feel like an issue that’s too big and complicated to fix, something we've learned to walk past. Jen Loving, who leads the nonprofit Destination: Home, has spent her entire life proving that…",
+      "url": "http://go.ted.com/jenloving",
+      "published": "2026-10-15T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acfa619b3381b9dbb7c315c/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "257ee4e2c41f7e",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Calls of the wild offer sound guidance for protecting animals",
+      "summary": "The wild world is full of roars, whoops and songs. Scientists are using such sounds to guide efforts to help save species at threat of extinction.",
+      "url": "https://www.snexplores.org/article/bioacoustic-animal-sounds-conservation",
+      "published": "2026-10-15T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_bioacoustics_conservation_lion_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "b8bdb12a5fd593",
       "source": "BBC 6 Minute English",
@@ -28,11 +54,11 @@
       "transcript_url": ""
     },
     {
-      "key": "76ac2d1b1a6451",
+      "key": "2895fb89de7c7b",
       "source": "TED Talks Daily",
       "category": "Podcast",
       "emoji": "🎧",
-      "title": "AI brain fry is real. Here’s what’s causing it | Julie Bedard",
+      "title": "AI brain fry is real. Here’s what leaders can do | Julie Bedard",
       "summary": "Workers everywhere are quietly redesigning their jobs around AI, boosting productivity but also creating new kinds of problems. AI advisor Julie Bedard thinks she has a fix. She shares new research on three…",
       "url": "http://go.ted.com/juliebedard",
       "published": "2026-10-14T15:00:20+00:00",
@@ -132,6 +158,19 @@
       "transcript_url": ""
     },
     {
+      "key": "c63215765e90e3",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Voyager Technologies’ Griffin-1 Completes Environmental Testing at NASA JPL",
+      "summary": "Description A lunar lander from Voyager Technologies completed nearly three months of environmental testing at NASA’s Jet Propulsion Laboratory in Southern California in late September 2026. The tests…",
+      "url": "https://science.nasa.gov/photojournal/voyager-technologies-griffin-1-completes-environmental-testing-at-nasa-jpl/",
+      "published": "2026-10-13T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "418a29af538b86",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -141,32 +180,6 @@
       "url": "https://www.teenvogue.com/story/heated-rivalry-jacob-tierney-new-book-ill-believe-in-anything-interview",
       "published": "2026-10-12T14:00:00+00:00",
       "image": "https://assets.teenvogue.com/photos/6ac6a178653d022993677c41/master/pass/Photo%20Insert%206_cr%20Sabrina%20Lantos%20for%20Accent%20Aigu%20Entertainment.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "be643035d9d1de",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "And the science Nobels for 2026 go to …",
-      "summary": "Top prizes went for an icy window into the cosmos, a light switch for the brain and solving the mystery of mirror image molecules.",
-      "url": "https://www.snexplores.org/article/science-nobel-prizes-2026",
-      "published": "2026-10-12T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/100826_NO_2026NobelRoundup_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "284cf8667caa84",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Theropod",
-      "summary": "This group of dinosaurs once included Tyrannosaurus rex . Today, they include birds.",
-      "url": "https://www.snexplores.org/article/scientists-say-theropod-definition-pronunciation",
-      "published": "2026-10-12T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_theropod_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -210,6 +223,19 @@
       "transcript_url": ""
     },
     {
+      "key": "0da121db5780b6",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Olivia Rodrigo, Taylor Swift & More Pop Star Halloween Costumes for Music Lovers",
+      "summary": "Bonus points if you carry a microphone.",
+      "url": "https://www.teenvogue.com/story/pop-star-halloween-costumes-for-music-lovers",
+      "published": "2026-10-09T16:54:04+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ac7cc9b1f1b5d2ed1927e10/master/pass/2188665139",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "0a9fbcd7243ffe",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -236,28 +262,15 @@
       "transcript_url": ""
     },
     {
-      "key": "e06bce7f8c5c40",
-      "source": "Smithsonian Science",
+      "key": "5c5a0f10a6bf51",
+      "source": "Science News Explores",
       "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Five Discoveries That Changed Our Understanding of T. Rex Forever, From Warm Blood to Lips",
-      "summary": "Paleontologists are still unraveling the secrets of the world’s most famous dinosaur, such as its outward appearance or the way that it hunted. With each new finding, our view of the “tyrant lizard king”…",
-      "url": "https://www.smithsonianmag.com/science-nature/five-discoveries-that-changed-our-understanding-of-t-rex-forever-from-warm-blood-to-lips-180989634/",
-      "published": "2026-10-07T17:15:01+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "c751cad52c8c2e",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Fashion Week's Response to AI Fatigue? A Distinctly Human Sloppiness",
-      "summary": "In this op-ed, writer Kelsey Steigman discusses how, in the age of AI, messy styling might be the point.",
-      "url": "https://www.teenvogue.com/story/fashion-weeks-response-to-ai-fatigue-a-distinctly-human-sloppiness",
-      "published": "2026-10-07T15:46:08+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac668527dc1b785d2406b19/master/pass/AiSlopFashion_HEADEER.png",
+      "emoji": "🧪",
+      "title": "Some germs ride a superhighway at the edge of space",
+      "summary": "Some microbes common on Earth’s surface lead a secret double life. Soaring higher than jumbo jets, they carry clues about disease spread and alien life.",
+      "url": "https://www.snexplores.org/article/life-stratosphere-edge-of-space",
+      "published": "2026-10-08T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0726_stratosphere_main.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -324,19 +337,6 @@
       "published": "2026-10-06T09:48:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pf6tnh.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "3f821e9f9022b1",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Why we should design cities like Disney | Zach DeBoer",
-      "summary": "Where you live shapes your relationships, your emotions and even how long you live, says community designer Zach DeBoer. After studying what a century of building cities around cars has done to downtowns in…",
-      "url": "http://go.ted.com/zachdeboer",
-      "published": "2026-10-02T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6abe74dcce220947617cd458/media.mp3",
       "transcript_url": ""
     },
     {
