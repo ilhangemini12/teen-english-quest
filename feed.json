@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-14T20:41:21.964220+00:00",
+  "updated_at": "2026-10-15T09:53:48.638564+00:00",
   "items": [
+    {
+      "key": "b8bdb12a5fd593",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "Why has gold got so expensive?",
+      "summary": "Many of us own jewellery or other items that are gold coloured, but do you own anything that is made from real gold? Gold is a precious metal, which means that there is a limited supply in the world. This…",
+      "url": "http://www.bbc.co.uk/programmes/p0pgs2w6",
+      "published": "2026-10-15T09:24:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pgs15w.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "5a6027889e2e08",
       "source": "Teen Vogue",
@@ -262,19 +275,6 @@
       "transcript_url": ""
     },
     {
-      "key": "2e03a81a5471b2",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s Curiosity Looks Back After Reaching Elevation Milestone",
-      "summary": "Description NASA’s Curiosity Mars rover captured this view looking back at the floor of Gale Crater, with the crater’s rim visible in the distance, on Sept. 5, 2026, the 5,006th Martian day, or sol, of the…",
-      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
-      "published": "2026-10-07T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "22200bbbf60871",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -431,19 +431,6 @@
       "transcript_url": ""
     },
     {
-      "key": "055bc7380e8e37",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Male and female job words",
-      "summary": "Policeman/policewoman, actor/actress - learn about job titles and gender. FIND BBC LEARNING ENGLISH HERE: Visit our website ✔️ https://www.bbc.co.uk/learningenglish Follow us ✔️…",
-      "url": "http://www.bbc.co.uk/programmes/p0p9j6qz",
-      "published": "2026-09-14T08:43:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9j6n0.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "3bbc8ef5d12e6a",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -465,6 +452,19 @@
       "summary": "After growing up in poverty, she became famous for her legendary songs, big heart and larger-than-life style. But the iconic musician insisted that \"the songs lead to everything else\"",
       "url": "https://www.smithsonianmag.com/arts-culture/dolly-parton-was-one-of-the-biggest-stars-in-the-history-of-country-music-she-wanted-to-be-remembered-as-a-songwriter-180989405/",
       "published": "2026-08-26T17:58:35+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "f1476e449b231d",
+      "source": "Smithsonian Innovation",
+      "category": "Science & Tech",
+      "emoji": "💡",
+      "title": "Why Gen Z Is Learning to Paint Like 19th-Century Artists",
+      "summary": "Paint groups are popping up in parks. Art schools are seeing a surge in applications. The rise of A.I. has people turning to more traditional art forms",
+      "url": "https://www.smithsonianmag.com/innovation/why-gen-z-is-learning-to-paint-like-19th-century-artists-180989359/",
+      "published": "2026-08-18T18:14:03+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
