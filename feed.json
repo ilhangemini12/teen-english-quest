@@ -1,17 +1,69 @@
 {
-  "updated_at": "2026-10-16T09:47:48.325017+00:00",
+  "updated_at": "2026-10-16T19:57:01.143498+00:00",
   "items": [
     {
-      "key": "7680202cc1c6a8",
+      "key": "f9f674bbcc0649",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Breakout High School Basketball Star Jazelle “GG” Banks on Her Next Big Move",
+      "summary": "The 17-year-old talks committing to South Carolina, how style helps her on the court, and dealing with negativity.",
+      "url": "https://www.teenvogue.com/story/breakout-high-school-basketball-star-jazelle-gg-banks-on-her-next-big-move",
+      "published": "2026-10-16T19:35:04+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ad27ba53c27162c64ff136d/master/pass/GG-2.JPG",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "abda4e6c49ddea",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "See the Victoria's Secret Fashion Show Fantasy Bras Through the Years",
+      "summary": "For the 30th anniversary of its debut, the Fantasy Bra is coming back.",
+      "url": "https://www.teenvogue.com/story/victorias-secret-fashion-show-fantasy-bras-through-the-years",
+      "published": "2026-10-16T15:28:41+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ad2417e0df1d33d0df76d01/master/pass/vs_bra-fix%20(1).jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "89b70f79603a5c",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Fourth Wing TV Show Cast, Release Date, and Everything to Know About the Prime Video Series",
+      "summary": "From casting updates to potential timelines.",
+      "url": "https://www.teenvogue.com/story/fourth-wing-tv-show-everything-you-need-to-know",
+      "published": "2026-10-16T15:15:05+00:00",
+      "image": "https://assets.teenvogue.com/photos/69a6fce0e4b6d3339be71fb7/master/pass/2263806341",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "1cd5bff8f914fa",
       "source": "TED Talks Daily",
       "category": "Podcast",
       "emoji": "🎧",
-      "title": "How to stop homelessness before it starts | Jen Loving",
-      "summary": "Homelessness can feel like an issue that’s too big and complicated to fix, something we've learned to walk past. Jen Loving, who leads the nonprofit Destination: Home, has spent her entire life proving that…",
-      "url": "http://go.ted.com/jenloving",
-      "published": "2026-10-15T15:00:00+00:00",
+      "title": "Is your body language working against you? | Cara Hale Alter",
+      "summary": "What does confidence look like? Public speaking expert Cara Hale Alter studies how to project confidence and credibility — and she's pinpointed two key behaviors that shape how others see you. In this…",
+      "url": "http://go.ted.com/carahalealter",
+      "published": "2026-10-16T15:00:00+00:00",
       "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acfa619b3381b9dbb7c315c/media.mp3",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acfa672b3381b9dbb7c315d/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "5b09251bda7863",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "In the heat, this Death Valley shrub air conditions its leaves",
+      "summary": "Leaves of the Arizona honeysweet can turn on evaporative cooling to keep the plant up to 13 degrees C (23 degrees F) cooler than the surrounding air.",
+      "url": "https://www.snexplores.org/article/extreme-heat-plant-cools-leaves",
+      "published": "2026-10-16T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_plant_cooling_hack_feat.jpg?w=800",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -38,19 +90,6 @@
       "published": "2026-10-15T09:24:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pgs15w.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "5a6027889e2e08",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "'90s Feathered Eyebrow Gaps Are 2026's Most Effortless Makeup Trend",
-      "summary": "Here's how to get the look.",
-      "url": "https://www.teenvogue.com/story/90s-feathered-eyebrow-gaps-most-effortless-makeup-trend",
-      "published": "2026-10-14T20:33:06+00:00",
-      "image": "https://assets.teenvogue.com/photos/6acfe697f8ffd1b8f518eb1f/master/pass/eyebrows-v2%20(1).jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -158,15 +197,15 @@
       "transcript_url": ""
     },
     {
-      "key": "418a29af538b86",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Jacob Tierney’s New Book 'I’ll Believe in Anything' Takes Fans Inside Heated Rivalry’s Breakout Success",
-      "summary": "Tierney goes inside the process of writing ‘Heated Rivalry’ scripts as he promotes his new book, I’ll Believe in Anything.",
-      "url": "https://www.teenvogue.com/story/heated-rivalry-jacob-tierney-new-book-ill-believe-in-anything-interview",
-      "published": "2026-10-12T14:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac6a178653d022993677c41/master/pass/Photo%20Insert%206_cr%20Sabrina%20Lantos%20for%20Accent%20Aigu%20Entertainment.jpg",
+      "key": "be643035d9d1de",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "And the science Nobels for 2026 go to …",
+      "summary": "Top prizes went for an icy window into the cosmos, a light switch for the brain and solving the mystery of mirror image molecules.",
+      "url": "https://www.snexplores.org/article/science-nobel-prizes-2026",
+      "published": "2026-10-12T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/100826_NO_2026NobelRoundup_main.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -210,19 +249,6 @@
       "transcript_url": ""
     },
     {
-      "key": "0da121db5780b6",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Olivia Rodrigo, Taylor Swift & More Pop Star Halloween Costumes for Music Lovers",
-      "summary": "Bonus points if you carry a microphone.",
-      "url": "https://www.teenvogue.com/story/pop-star-halloween-costumes-for-music-lovers",
-      "published": "2026-10-09T16:54:04+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac7cc9b1f1b5d2ed1927e10/master/pass/2188665139",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "0a9fbcd7243ffe",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -246,19 +272,6 @@
       "published": "2026-10-08T15:00:03+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac7ae48e2a72faefc1e8d0f/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "5c5a0f10a6bf51",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Some germs ride a superhighway at the edge of space",
-      "summary": "Some microbes common on Earth’s surface lead a secret double life. Soaring higher than jumbo jets, they carry clues about disease spread and alien life.",
-      "url": "https://www.snexplores.org/article/life-stratosphere-edge-of-space",
-      "published": "2026-10-08T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/09/0726_stratosphere_main.jpg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -297,19 +310,6 @@
       "url": "https://www.teenvogue.com/story/tablo-art-of-language-epik-high-rapper-interview",
       "published": "2026-10-06T17:01:06+00:00",
       "image": "https://assets.teenvogue.com/photos/6ac4105f2ffe9f58ecef889d/master/pass/IMG_0879.JPG",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "2d0f5f1ba1355a",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Let’s learn about origami-inspired science",
-      "summary": "The Japanese art of paper folding has inspired new designs for lightweight and shapeshifting technology.",
-      "url": "https://www.snexplores.org/article/lets-learn-about-origami-inspired-science",
-      "published": "2026-10-06T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_LLA_origami_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
