@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T20:20:25.720219+00:00",
+  "updated_at": "2026-10-16T09:47:48.325017+00:00",
   "items": [
     {
       "key": "7680202cc1c6a8",
@@ -152,19 +152,6 @@
       "title": "Perseverance Navcam Image Marks Record Drive",
       "summary": "Description Rover tracks and a rocky Martian landscape are shown in this image captured by one of the navigation cameras (navcams) aboard NASA’s Perseverance Mars rover on Oct. 11, 2026, the 2,006th Martian…",
       "url": "https://science.nasa.gov/photojournal/perseverance-navcam-image-marks-record-drive/",
-      "published": "2026-10-13T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "c63215765e90e3",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Voyager Technologies’ Griffin-1 Completes Environmental Testing at NASA JPL",
-      "summary": "Description A lunar lander from Voyager Technologies completed nearly three months of environmental testing at NASA’s Jet Propulsion Laboratory in Southern California in late September 2026. The tests…",
-      "url": "https://science.nasa.gov/photojournal/voyager-technologies-griffin-1-completes-environmental-testing-at-nasa-jpl/",
       "published": "2026-10-13T00:00:00+00:00",
       "image": "",
       "audio_url": "",
@@ -418,16 +405,16 @@
       "transcript_url": ""
     },
     {
-      "key": "90f9d7761706d5",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Hot take",
-      "summary": "Do you want to share a surprising opinion? Learn how to use 'hot take' with Feifei and Becca. Get a free transcript to read while you listen here:…",
-      "url": "http://www.bbc.co.uk/programmes/p0p9p685",
-      "published": "2026-09-15T08:35:00+00:00",
+      "key": "40e6f8b1621889",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Some Fish in the Great Lakes Might Be More Than 400 Years Old, a Study Suggests, Outliving Around 15 Generations of Humans",
+      "summary": "Lake sturgeon may be among the longest-living vertebrates, second only to Greenland sharks, according to recent research. However, scientists note that follow-up work is necessary to clarify the species’…",
+      "url": "https://www.smithsonianmag.com/science-nature/some-fish-in-the-great-lakes-might-be-more-than-400-years-old-a-study-suggests-outliving-around-15-generations-of-humans-180989500/",
+      "published": "2026-09-16T13:43:20+00:00",
       "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p9p4tv.mp3",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -467,6 +454,19 @@
       "published": "2026-08-18T18:14:03+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "6d720c8ab933d7",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Share your life story",
+      "summary": "Think you sometimes over-share unnecessary details? Learn how to use 'share your life story' with Becca and Feifei. As always, find a free transcript here: ✔️…",
+      "url": "http://www.bbc.co.uk/programmes/p0p3v486",
+      "published": "2026-08-11T08:29:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
       "transcript_url": ""
     },
     {
