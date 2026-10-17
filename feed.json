@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T09:20:00.339212+00:00",
+  "updated_at": "2026-10-17T19:23:46.411537+00:00",
   "items": [
     {
       "key": "e7dd76d36b3715",
@@ -275,6 +275,19 @@
       "transcript_url": ""
     },
     {
+      "key": "e06bce7f8c5c40",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Five Discoveries That Changed Our Understanding of T. Rex Forever, From Warm Blood to Lips",
+      "summary": "Paleontologists are still unraveling the secrets of the world’s most famous dinosaur, such as its outward appearance or the way that it hunted. With each new finding, our view of the “tyrant lizard king”…",
+      "url": "https://www.smithsonianmag.com/science-nature/five-discoveries-that-changed-our-understanding-of-t-rex-forever-from-warm-blood-to-lips-180989634/",
+      "published": "2026-10-07T17:15:01+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "400c8f418ac443",
       "source": "NASA Photojournal",
       "category": "Science & Tech",
@@ -282,6 +295,19 @@
       "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
       "summary": "Description This artist’s concept depicts the proposed design for NASA’s PRobe far-Infrared Mission for Astrophysics (PRIMA), which was selected by the agency in September 2026. The PRIMA observatory is the…",
       "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "2e03a81a5471b2",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Curiosity Looks Back After Reaching Elevation Milestone",
+      "summary": "Description NASA’s Curiosity Mars rover captured this view looking back at the floor of Gale Crater, with the crater’s rim visible in the distance, on Sept. 5, 2026, the 5,006th Martian day, or sol, of the…",
+      "url": "https://science.nasa.gov/photojournal/nasas-curiosity-looks-back-after-reaching-elevation-milestone/",
       "published": "2026-10-07T00:00:00+00:00",
       "image": "",
       "audio_url": "",
@@ -405,19 +431,6 @@
       "transcript_url": ""
     },
     {
-      "key": "40e6f8b1621889",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Some Fish in the Great Lakes Might Be More Than 400 Years Old, a Study Suggests, Outliving Around 15 Generations of Humans",
-      "summary": "Lake sturgeon may be among the longest-living vertebrates, second only to Greenland sharks, according to recent research. However, scientists note that follow-up work is necessary to clarify the species’…",
-      "url": "https://www.smithsonianmag.com/science-nature/some-fish-in-the-great-lakes-might-be-more-than-400-years-old-a-study-suggests-outliving-around-15-generations-of-humans-180989500/",
-      "published": "2026-09-16T13:43:20+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "3bbc8ef5d12e6a",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -439,19 +452,6 @@
       "summary": "After growing up in poverty, she became famous for her legendary songs, big heart and larger-than-life style. But the iconic musician insisted that \"the songs lead to everything else\"",
       "url": "https://www.smithsonianmag.com/arts-culture/dolly-parton-was-one-of-the-biggest-stars-in-the-history-of-country-music-she-wanted-to-be-remembered-as-a-songwriter-180989405/",
       "published": "2026-08-26T17:58:35+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "f1476e449b231d",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "Why Gen Z Is Learning to Paint Like 19th-Century Artists",
-      "summary": "Paint groups are popping up in parks. Art schools are seeing a surge in applications. The rise of A.I. has people turning to more traditional art forms",
-      "url": "https://www.smithsonianmag.com/innovation/why-gen-z-is-learning-to-paint-like-19th-century-artists-180989359/",
-      "published": "2026-08-18T18:14:03+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
