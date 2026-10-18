@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T19:23:46.411537+00:00",
+  "updated_at": "2026-10-18T09:36:26.757199+00:00",
   "items": [
     {
       "key": "e7dd76d36b3715",
@@ -77,19 +77,6 @@
       "published": "2026-10-15T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_bioacoustics_conservation_lion_feat.jpg?w=800",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "b8bdb12a5fd593",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "Why has gold got so expensive?",
-      "summary": "Many of us own jewellery or other items that are gold coloured, but do you own anything that is made from real gold? Gold is a precious metal, which means that there is a limited supply in the world. This…",
-      "url": "http://www.bbc.co.uk/programmes/p0pgs2w6",
-      "published": "2026-10-15T09:24:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pgs15w.mp3",
       "transcript_url": ""
     },
     {
@@ -441,6 +428,19 @@
       "published": "2026-08-31T11:00:00+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "087292ff8a2237",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "How do we describe smells?",
+      "summary": "What is the worst smell in the world? And what is the best smell? Are there any smells that you like, but that your friends or family hate? Smells are all around us all the time, but the English language is…",
+      "url": "http://www.bbc.co.uk/programmes/p0p6j3xx",
+      "published": "2026-08-27T09:16:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p6j2hz.mp3",
       "transcript_url": ""
     },
     {
