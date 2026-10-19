@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-19T10:45:27.838513+00:00",
+  "updated_at": "2026-10-19T21:31:57.395697+00:00",
   "items": [
+    {
+      "key": "3040d7568c7e82",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "How to Style the Funnel-Neck Jacket Trend to Elevate Your Favorite Fall Outfits in 2026",
+      "summary": "Buttoned all the way to the top!",
+      "url": "https://www.teenvogue.com/story/how-to-style-the-funnel-neck-jacket-trend",
+      "published": "2026-10-19T16:15:18+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ad64030073204104c21cd70/master/pass/2298060653",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "bd3dcb2f399833",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Mckenna Grace Is Kicking Off Her Hunger Games Press Tour Looks With a Bang",
+      "summary": "See all the looks the star has worn so far!",
+      "url": "https://www.teenvogue.com/story/mckenna-grace-sunrise-on-the-reaping-hunger-games-press-tour-outfits",
+      "published": "2026-10-19T15:13:59+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ad6293e7f86c1b87285a067/master/pass/2300360208",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "57be424d3a0834",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "What if you could read the DNA of your future child? | Noor Siddiqui",
+      "summary": "For all of human history, a baby's DNA was determined by chance at conception: the so-called genetic lottery. \"That era is over,\" says Noor Siddiqui, whose company builds screening tools to read the whole…",
+      "url": "http://go.ted.com/noorsiddiqui",
+      "published": "2026-10-19T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acfa742b3381b9dbb7c315f/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "83f467a2f30b92",
       "source": "Science News Explores",
@@ -38,19 +77,6 @@
       "published": "2026-10-19T08:17:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phfw80.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "a56c6812361058",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Trinity Rodman Makes Victoria's Secret Fashion Show Debut After Clinching Playoffs",
-      "summary": "All in the same weekend.",
-      "url": "https://www.teenvogue.com/story/trinity-rodman-victorias-secret-fashion-show-debut-after-clinching-playoffs-10-18-25",
-      "published": "2026-10-19T01:08:18+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ad563de117a664ee8d0256a/master/pass/2300876073",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -93,19 +119,6 @@
       "transcript_url": ""
     },
     {
-      "key": "1cd5bff8f914fa",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Is your body language working against you? | Cara Hale Alter",
-      "summary": "What does confidence look like? Public speaking expert Cara Hale Alter studies how to project confidence and credibility — and she's pinpointed two key behaviors that shape how others see you. In this…",
-      "url": "http://go.ted.com/carahalealter",
-      "published": "2026-10-16T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acfa672b3381b9dbb7c315d/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "257ee4e2c41f7e",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -141,19 +154,6 @@
       "url": "https://www.snexplores.org/article/bees-swim-toward-dark-comic",
       "published": "2026-10-14T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_swimming_bee_comic_banner.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "23a4f1f37d73c9",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Teen Vogue Teams Up With Wattpad Books to Launch Original Romance Fiction Series",
-      "summary": "The three-story partnership is called \"I Saw the Signs.\"",
-      "url": "https://www.teenvogue.com/story/teen-vogue-wattpad-books-i-saw-the-signs-faq",
-      "published": "2026-10-13T12:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6acd02868645f65d6e8965ad/master/pass/WattpadCovers-HEADER.png",
       "audio_url": "",
       "transcript_url": ""
     },
