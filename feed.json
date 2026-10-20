@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-19T21:31:57.395697+00:00",
+  "updated_at": "2026-10-20T10:03:03.997718+00:00",
   "items": [
+    {
+      "key": "aa7aac4e0dddb3",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Leave to one's own devices",
+      "summary": "Sometimes people leave you to do something on your own because they trust you. Sometimes people just don't want to help you. In both of these situations we can say that you are left to your own devices.…",
+      "url": "http://www.bbc.co.uk/programmes/p0phlwxc",
+      "published": "2026-10-20T08:52:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phlwk0.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "3040d7568c7e82",
       "source": "Teen Vogue",
@@ -454,19 +467,6 @@
       "published": "2026-08-26T17:58:35+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "6d720c8ab933d7",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Share your life story",
-      "summary": "Think you sometimes over-share unnecessary details? Learn how to use 'share your life story' with Becca and Feifei. As always, find a free transcript here: ✔️…",
-      "url": "http://www.bbc.co.uk/programmes/p0p3v486",
-      "published": "2026-08-11T08:29:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
       "transcript_url": ""
     },
     {
