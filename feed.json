@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-10-20T10:03:03.997718+00:00",
+  "updated_at": "2026-10-20T20:34:38.614203+00:00",
   "items": [
+    {
+      "key": "2e0b934261c7c0",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Let’s learn about hydrogels",
+      "summary": "These polymer-based materials can sop up a lot of water — making them useful for a wide array of tasks.",
+      "url": "https://www.snexplores.org/article/lets-learn-about-hydrogels",
+      "published": "2026-10-20T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_LLA_hydrogel_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "2d8b1d09b71510",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Sliding down surfaces can make rainwater corrosive",
+      "summary": "Water droplets can take on an electric charge when they slide across objects. Charged rain may start to eat through bridges, cars and more, new data show.",
+      "url": "https://www.snexplores.org/article/sliding-rainwater-charge-corrosive",
+      "published": "2026-10-20T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082826_LB_raindrops_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "aa7aac4e0dddb3",
       "source": "BBC Learning English Conversations",
@@ -132,19 +158,6 @@
       "transcript_url": ""
     },
     {
-      "key": "257ee4e2c41f7e",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Calls of the wild offer sound guidance for protecting animals",
-      "summary": "The wild world is full of roars, whoops and songs. Scientists are using such sounds to guide efforts to help save species at threat of extinction.",
-      "url": "https://www.snexplores.org/article/bioacoustic-animal-sounds-conservation",
-      "published": "2026-10-15T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_bioacoustics_conservation_lion_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "2895fb89de7c7b",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -155,19 +168,6 @@
       "published": "2026-10-14T15:00:20+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acf9867b3381b9dbb7c315a/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "f31eb046970038",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Bees may survive a swim by heading for the dark [COMIC]",
-      "summary": "Researchers recently learned that bees can swim. New findings show that bees paddle toward shade and dark to reach shore.",
-      "url": "https://www.snexplores.org/article/bees-swim-toward-dark-comic",
-      "published": "2026-10-14T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_swimming_bee_comic_banner.jpg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
