@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-21T10:07:29.883107+00:00",
+  "updated_at": "2026-10-21T20:37:46.375203+00:00",
   "items": [
+    {
+      "key": "e7b8c6c5e6698c",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Green Sea Turtles Are Making a Remarkable Comeback on the Remote Aldabra Atoll and Around the World. But Their Recovery Is Far From Complete",
+      "summary": "One year after the species was reclassified from “endangered” to “least concern,” green turtles in the western Indian Ocean exemplify that return—and the subtleties a global designation can miss",
+      "url": "https://www.smithsonianmag.com/science-nature/green-sea-turtles-are-making-a-remarkable-comeback-on-the-remote-aldabra-atoll-and-around-the-world-but-their-recovery-is-far-from-complete-180989710/",
+      "published": "2026-10-21T19:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "9ed097cdbea401",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How would you design your dream city? | James Rojas",
+      "summary": "Urban planner James Rojas has led hundreds of workshops where participants creatively design their ideal communities with small objects — and he's noticed that people of every age, income and background…",
+      "url": "http://go.ted.com/jamesrojas",
+      "published": "2026-10-21T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad8c44bc3737ccbbdc0fece/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "fd270ef9bc47a9",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Explainer: What is an equation?",
+      "summary": "A mathematical statement, it tells us two expressions are in balance, or equal. So it can help us calculate unknowns from what we already know.",
+      "url": "https://www.snexplores.org/article/what-is-math-equation",
+      "published": "2026-10-21T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_equation_explainer_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "2e0b934261c7c0",
       "source": "Science News Explores",
@@ -67,19 +106,6 @@
       "transcript_url": ""
     },
     {
-      "key": "57be424d3a0834",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "What if you could read the DNA of your future child? | Noor Siddiqui",
-      "summary": "For all of human history, a baby's DNA was determined by chance at conception: the so-called genetic lottery. \"That era is over,\" says Noor Siddiqui, whose company builds screening tools to read the whole…",
-      "url": "http://go.ted.com/noorsiddiqui",
-      "published": "2026-10-19T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acfa742b3381b9dbb7c315f/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "83f467a2f30b92",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -89,19 +115,6 @@
       "url": "https://www.snexplores.org/article/scientists-say-blood-falls-definition-pronunciation",
       "published": "2026-10-19T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_blood-falls_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "140cebc8ceb1df",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Newfound clouds of missing ‘ordinary’ matter sit outside galaxies",
-      "summary": "Dark matter isn’t the universe’s only “missing” matter. Distant bursts of radio waves have now turned up vast, faint gas clouds surrounding galaxies.",
-      "url": "https://www.snexplores.org/article/missing-matter-clouds-outside-galaxies",
-      "published": "2026-10-19T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_cosmos_missing_matter_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -415,19 +428,6 @@
       "published": "2026-09-21T08:09:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "410e5f66ce0eca",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Five Ways the World of the Dinosaurs Looked Different From Ours, Beyond the Presence of the 'Terrible Lizards'",
-      "summary": "Earth has changed dramatically since the Age of Dinosaurs, from its climate to geography and animal life",
-      "url": "https://www.smithsonianmag.com/science-nature/five-ways-the-world-of-the-dinosaurs-looked-different-from-ours-beyond-the-presence-of-the-terrible-lizards-180989521/",
-      "published": "2026-09-18T14:00:00+00:00",
-      "image": "",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
