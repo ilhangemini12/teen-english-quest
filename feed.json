@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T20:33:42.412580+00:00",
+  "updated_at": "2026-10-23T10:02:49.856462+00:00",
   "items": [
     {
       "key": "98553a3ac3376b",
@@ -418,19 +418,6 @@
       "transcript_url": ""
     },
     {
-      "key": "bcc9438d47fad2",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Same person, different font",
-      "summary": "Same hair, same style, same ways of waking and talking? They might be the 'same person, different font'. Learn how to use this expression with Becca and Feifei. Get a free transcript for this episode here:…",
-      "url": "http://www.bbc.co.uk/programmes/p0pbvx4y",
-      "published": "2026-09-22T09:33:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbvvvr.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "a5b47db97899c8",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -467,6 +454,19 @@
       "published": "2026-08-26T17:58:35+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "6d720c8ab933d7",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Share your life story",
+      "summary": "Think you sometimes over-share unnecessary details? Learn how to use 'share your life story' with Becca and Feifei. As always, find a free transcript here: ✔️…",
+      "url": "http://www.bbc.co.uk/programmes/p0p3v486",
+      "published": "2026-08-11T08:29:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
       "transcript_url": ""
     },
     {
