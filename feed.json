@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-23T10:02:49.856462+00:00",
+  "updated_at": "2026-10-23T20:27:03.670278+00:00",
   "items": [
+    {
+      "key": "a188fec91b9c32",
+      "source": "Smithsonian Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎨",
+      "title": "'Wildwood' Is the Longest Stop-Motion Animated Film Ever. Each Frame of the Movie Is a Marvel of Handcrafted World Building",
+      "summary": "Deborah Cook, costumer designer at stop-motion animation studio Laika, discusses creating tiny costumes for puppets in a fantastical world set in the forests of Portland, Oregon",
+      "url": "https://www.smithsonianmag.com/arts-culture/wildwood-is-the-longest-stop-motion-animated-film-ever-each-frame-of-the-movie-is-a-marvel-of-handcrafted-world-building-180989742/",
+      "published": "2026-10-23T16:45:28+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "c5b6ab7499c82d",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "How to Style White Boots: Jorts, Statement Jackets, and More",
+      "summary": "Labor Day who?",
+      "url": "https://www.teenvogue.com/story/how-to-style-white-boots",
+      "published": "2026-10-23T14:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ada34ff14f45944069f867b/master/pass/2287433461",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "e78f26309d94ca",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Your skin’s chemistry may affect which mosquitoes you attract",
+      "summary": "Three species picked their favorite human targets based on skin odor and bacteria. The findings could lead to the design of better repellents.",
+      "url": "https://www.snexplores.org/article/skin-chemistry-attract-mosquito-bites",
+      "published": "2026-10-23T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082026_SW_mosquito-bites_feat.jpeg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "98553a3ac3376b",
       "source": "Teen Vogue",
@@ -119,19 +158,6 @@
       "transcript_url": ""
     },
     {
-      "key": "2d8b1d09b71510",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Sliding down surfaces can make rainwater corrosive",
-      "summary": "Water droplets can take on an electric charge when they slide across objects. Charged rain may start to eat through bridges, cars and more, new data show.",
-      "url": "https://www.snexplores.org/article/sliding-rainwater-charge-corrosive",
-      "published": "2026-10-20T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082826_LB_raindrops_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "aa7aac4e0dddb3",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -180,19 +206,6 @@
       "url": "https://www.teenvogue.com/story/anok-yai-flower-look-at-victorias-secret-fashion-show-10-18-2026",
       "published": "2026-10-18T23:55:34+00:00",
       "image": "https://assets.teenvogue.com/photos/6ad55b6185eee1806ae0b22e/master/pass/2300874749",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "93e9aaa1ca64d3",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Romy Mars Did a Gen Z's Take on the Y2K Sheer Skirt Trend at Victoria's Secret Fashion Show",
-      "summary": "Chic, cute, and subtly colorful.",
-      "url": "https://www.teenvogue.com/story/romy-mars-gen-z-take-on-y2k-sheer-skirt-trend-at-victorias-secret-fashion-show-10-18-2026",
-      "published": "2026-10-18T23:46:29+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ad558926024897798494fe4/master/pass/2300391255",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -586,19 +599,6 @@
       "published": "2025-03-12T13:46:29+00:00",
       "image": "",
       "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/1088dc2a-d047-4ebb-0607-08dd5c8b1668.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "a6d81ce477028d",
-      "source": "VOA Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎬",
-      "title": "Harry Houdini: The Great Escape Artist",
-      "summary": "",
-      "url": "https://learningenglish.voanews.com/a/8006783.html",
-      "published": "2025-03-11T15:47:07+00:00",
-      "image": "",
-      "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/44604aaf-210f-46ea-0bdb-08dd5c8d307c.mp3",
       "transcript_url": ""
     },
     {
