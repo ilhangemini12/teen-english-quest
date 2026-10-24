@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T09:31:47.609672+00:00",
+  "updated_at": "2026-10-24T19:29:10.928792+00:00",
   "items": [
     {
       "key": "a188fec91b9c32",
@@ -132,19 +132,6 @@
       "transcript_url": ""
     },
     {
-      "key": "fd270ef9bc47a9",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Explainer: What is an equation?",
-      "summary": "A mathematical statement, it tells us two expressions are in balance, or equal. So it can help us calculate unknowns from what we already know.",
-      "url": "https://www.snexplores.org/article/what-is-math-equation",
-      "published": "2026-10-21T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1030_equation_explainer_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "2e0b934261c7c0",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -180,6 +167,19 @@
       "url": "https://www.teenvogue.com/story/mckenna-grace-sunrise-on-the-reaping-hunger-games-press-tour-outfits",
       "published": "2026-10-19T15:13:59+00:00",
       "image": "https://assets.teenvogue.com/photos/6ad6293e7f86c1b87285a067/master/pass/2300360208",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "83f467a2f30b92",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Blood Falls",
+      "summary": "This five-story-tall waterfall in Antarctica gets its blood-red color from the same reaction that creates rust.",
+      "url": "https://www.snexplores.org/article/scientists-say-blood-falls-definition-pronunciation",
+      "published": "2026-10-19T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_blood-falls_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
