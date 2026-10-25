@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T09:48:12.723858+00:00",
+  "updated_at": "2026-10-25T19:36:37.289213+00:00",
   "items": [
     {
       "key": "a188fec91b9c32",
@@ -54,58 +54,6 @@
       "transcript_url": ""
     },
     {
-      "key": "61ec180a38c7d5",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "I can't speak. Here's how I get people to listen | Jessica Irwin",
-      "summary": "Jessica Irwin is many things: a photographer, artist, author, performer. She also happens to be nonverbal, born with cerebral palsy that affects the muscles she needs to talk. Speaking through a device that…",
-      "url": "http://go.ted.com/jessicairwin",
-      "published": "2026-10-22T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ada23e044592625b9151811/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "5a9333d03bffb0",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The TikTok-Viral Anti-Blush Trend Spotted on Inde Navarrette, Sabrina Carpenter, & More",
-      "summary": "From the phone screen to red carpets.",
-      "url": "https://www.teenvogue.com/story/tiktok-viral-anti-blush-trend-on-inde-navarrette-sabrina-carpenter-more",
-      "published": "2026-10-22T13:30:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ad919b0f3b287abfab99582/master/pass/2300229470",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "f8f8fc0555896a",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Circular cities go ‘green’ by reusing things over and over again",
-      "summary": "To cut their wastes to nearly zero, circular cities are launching projects to repair, reuse and recycle virtually everything.",
-      "url": "https://www.snexplores.org/article/circular-cities-go-green-reuse-recycle",
-      "published": "2026-10-22T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_circular_cities_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "f823c1ff39fb3c",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "What should you eat for a better night’s sleep?",
-      "summary": "Have you ever had the feeling of lying awake at night, unable to get to sleep? Many of us know what it is like to struggle with sleep, especially if we have drunk too much tea or coffee before bed! But did…",
-      "url": "http://www.bbc.co.uk/programmes/p0phz9z7",
-      "published": "2026-10-22T09:56:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phyzz9.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "e7b8c6c5e6698c",
       "source": "Smithsonian Science",
       "category": "Science & Tech",
@@ -145,6 +93,19 @@
       "transcript_url": ""
     },
     {
+      "key": "2d8b1d09b71510",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Sliding down surfaces can make rainwater corrosive",
+      "summary": "Water droplets can take on an electric charge when they slide across objects. Charged rain may start to eat through bridges, cars and more, new data show.",
+      "url": "https://www.snexplores.org/article/sliding-rainwater-charge-corrosive",
+      "published": "2026-10-20T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082826_LB_raindrops_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "aa7aac4e0dddb3",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -155,6 +116,19 @@
       "published": "2026-10-20T08:52:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phlwk0.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "3040d7568c7e82",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "How to Style the Funnel-Neck Jacket Trend to Elevate Your Favorite Fall Outfits in 2026",
+      "summary": "Buttoned all the way to the top!",
+      "url": "https://www.teenvogue.com/story/how-to-style-the-funnel-neck-jacket-trend",
+      "published": "2026-10-19T16:15:18+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ad64030073204104c21cd70/master/pass/2298060653",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -207,6 +181,19 @@
       "published": "2026-10-18T23:55:34+00:00",
       "image": "https://assets.teenvogue.com/photos/6ad55b6185eee1806ae0b22e/master/pass/2300874749",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "2895fb89de7c7b",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "AI brain fry is real. Here’s what leaders can do | Julie Bedard",
+      "summary": "Workers everywhere are quietly redesigning their jobs around AI, boosting productivity but also creating new kinds of problems. AI advisor Julie Bedard thinks she has a fix. She shares new research on three…",
+      "url": "http://go.ted.com/juliebedard",
+      "published": "2026-10-14T15:00:20+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acf9867b3381b9dbb7c315a/media.mp3",
       "transcript_url": ""
     },
     {
@@ -457,16 +444,16 @@
       "transcript_url": ""
     },
     {
-      "key": "f83a1391965de6",
-      "source": "Smithsonian Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎨",
-      "title": "Dolly Parton Was One of the Biggest Stars in the History of Country Music. She Wanted to Be Remembered as a Songwriter",
-      "summary": "After growing up in poverty, she became famous for her legendary songs, big heart and larger-than-life style. But the iconic musician insisted that \"the songs lead to everything else\"",
-      "url": "https://www.smithsonianmag.com/arts-culture/dolly-parton-was-one-of-the-biggest-stars-in-the-history-of-country-music-she-wanted-to-be-remembered-as-a-songwriter-180989405/",
-      "published": "2026-08-26T17:58:35+00:00",
+      "key": "087292ff8a2237",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "How do we describe smells?",
+      "summary": "What is the worst smell in the world? And what is the best smell? Are there any smells that you like, but that your friends or family hate? Smells are all around us all the time, but the English language is…",
+      "url": "http://www.bbc.co.uk/programmes/p0p6j3xx",
+      "published": "2026-08-27T09:16:00+00:00",
       "image": "",
-      "audio_url": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p6j2hz.mp3",
       "transcript_url": ""
     },
     {
@@ -599,6 +586,19 @@
       "published": "2025-03-12T13:46:29+00:00",
       "image": "",
       "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/1088dc2a-d047-4ebb-0607-08dd5c8b1668.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "a6d81ce477028d",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "Harry Houdini: The Great Escape Artist",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8006783.html",
+      "published": "2025-03-11T15:47:07+00:00",
+      "image": "",
+      "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/44604aaf-210f-46ea-0bdb-08dd5c8d307c.mp3",
       "transcript_url": ""
     },
     {
