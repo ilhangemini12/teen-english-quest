@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-25T19:36:37.289213+00:00",
+  "updated_at": "2026-10-26T11:06:06.278960+00:00",
   "items": [
+    {
+      "key": "9c69be52437906",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Feeling nervous? Work that system to calm it down",
+      "summary": "Scientists are exploring new ways to regain control of stressed-out nervous systems, including humming, tapping on the skin and cooling the face.",
+      "url": "https://www.snexplores.org/article/regulate-nervous-system-calm-stress",
+      "published": "2026-10-26T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/090926_JD_nervoussystem_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "ede4867cd7f357",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Sanguivore",
+      "summary": "Blood-drinkers evolved tricks for making use of this widespread but tricky-to-digest food source.",
+      "url": "https://www.snexplores.org/article/scientists-say-sanguivore-definition-pronunciation",
+      "published": "2026-10-26T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_sanguivore.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "ca1a4de561f927",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Prefixes: re- pre- and pro-",
+      "summary": "Do you recycle your rubbish? We talk about words with the prefixes re, pre and pro. For more great language tips and programmes visit bbclearningenglish.com Find programmes to practise your reading,…",
+      "url": "http://www.bbc.co.uk/programmes/p0pjn13w",
+      "published": "2026-10-26T09:56:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjn0b3.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "a188fec91b9c32",
       "source": "Smithsonian Arts & Culture",
@@ -93,19 +132,6 @@
       "transcript_url": ""
     },
     {
-      "key": "2d8b1d09b71510",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Sliding down surfaces can make rainwater corrosive",
-      "summary": "Water droplets can take on an electric charge when they slide across objects. Charged rain may start to eat through bridges, cars and more, new data show.",
-      "url": "https://www.snexplores.org/article/sliding-rainwater-charge-corrosive",
-      "published": "2026-10-20T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082826_LB_raindrops_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "aa7aac4e0dddb3",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -194,19 +220,6 @@
       "published": "2026-10-14T15:00:20+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acf9867b3381b9dbb7c315a/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "3a0713934f385a",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Is AI making us dumber? Depends how it’s used",
-      "summary": "AI can weaken learning when it replaces effort. But tools that offer guidance rather than answers can help people hone their skills.",
-      "url": "https://www.snexplores.org/article/ai-making-us-dumber-learn-lose-skills",
-      "published": "2026-10-13T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/073126_MR_ailearning_main.jpeg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -441,19 +454,6 @@
       "published": "2026-08-31T11:00:00+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "087292ff8a2237",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "How do we describe smells?",
-      "summary": "What is the worst smell in the world? And what is the best smell? Are there any smells that you like, but that your friends or family hate? Smells are all around us all the time, but the English language is…",
-      "url": "http://www.bbc.co.uk/programmes/p0p6j3xx",
-      "published": "2026-08-27T09:16:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p6j2hz.mp3",
       "transcript_url": ""
     },
     {
