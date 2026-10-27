@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-27T10:32:15.642816+00:00",
+  "updated_at": "2026-10-27T21:18:39.492166+00:00",
   "items": [
+    {
+      "key": "9e5d1756487fb0",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "How to Get Your Makeup to Look Like You're on That French Talk Show with Good Lighting Quotidien",
+      "summary": "We asked experts.",
+      "url": "https://www.teenvogue.com/story/how-to-get-your-makeup-to-look-like-youre-on-that-french-talk-show-with-good-lighting-quotidien",
+      "published": "2026-10-27T16:19:12+00:00",
+      "image": "https://assets.teenvogue.com/photos/6adf1025dc68a1687eb85515/master/pass/2300750573",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d994821388156b",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How video games can power up your parenting | Hannah Boquet (re-release)",
+      "summary": "Parenting an eye-rolling teenager glued to a gaming system is not a simple feat, but what if you could turn screen time into an opportunity for connection? Hannah Boquet shares how she decided to play video…",
+      "url": "http://go.ted.com/hannahbouquet",
+      "published": "2026-10-27T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6adf721fa8783bd475575090/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "3692feee8ae592",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "30 Best Board Games for Teens in 2026 That Are Family-Friendly and Fun to Play",
+      "summary": "Time to gather up all your friends and family.",
+      "url": "https://www.teenvogue.com/gallery/best-board-games-for-teens",
+      "published": "2026-10-27T12:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ad4bfc16024897798494f8b/master/pass/2157369472",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "8a33ae86603281",
       "source": "Science News Explores",
@@ -63,19 +102,6 @@
       "url": "https://www.teenvogue.com/story/shark-beauty-glossi-review",
       "published": "2026-10-26T19:00:41+00:00",
       "image": "https://assets.teenvogue.com/photos/6adba8a38887c1820bf7711b/master/pass/HairDryer.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "6d89c61c8097b7",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Florida A&M University's Homecoming Fashion Show Brought Black Excellence to the Land of Oz",
-      "summary": "\"We really try to think about how to re-envision these characters, now, and at an HBCU.”",
-      "url": "https://www.teenvogue.com/story/florida-aandm-universitys-homecoming-fashion-show-2026",
-      "published": "2026-10-26T16:54:58+00:00",
-      "image": "https://assets.teenvogue.com/photos/6adba355a4270328c96df08c/master/pass/DSC04828%20(1).jpeg",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -210,19 +236,6 @@
       "transcript_url": ""
     },
     {
-      "key": "98553a3ac3376b",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "12 Thanksgiving Nails Ideas for 2026 That Aren't Corny",
-      "summary": "From festive designs to timeless colors.",
-      "url": "https://www.teenvogue.com/story/thanksgiving-nails-ideas",
-      "published": "2026-10-22T18:19:34+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ada4a4a822b9a6158cc457b/master/pass/2300238083",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "e7b8c6c5e6698c",
       "source": "Smithsonian Science",
       "category": "Science & Tech",
@@ -324,19 +337,6 @@
       "published": "2026-10-11T06:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac7b033e2a72faefc1e8d13/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "05cb10e4220c49",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Why the future is human ... plus AI | Sal Khan and Esther Perel",
-      "summary": "As AI reshapes work, school and love, what part of being human can't a machine take over? In a wide-ranging conversation, psychotherapist Esther Perel and TED's vision steward Sal Khan provide their unique…",
-      "url": "http://go.ted.com/salandesther",
-      "published": "2026-10-10T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac518de854b00dcfdb99f09/media.mp3",
       "transcript_url": ""
     },
     {
