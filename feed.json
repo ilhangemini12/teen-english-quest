@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-10-27T21:18:39.492166+00:00",
+  "updated_at": "2026-10-28T11:20:00.945624+00:00",
   "items": [
+    {
+      "key": "5dd81cebfe95c1",
+      "source": "Smithsonian Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎨",
+      "title": "How Astronomers and Art Historians Are Working Together to Identify the Inspiration Behind Famous Works of Art",
+      "summary": "Researchers study paintings and literature to uncover untold history of the works, sometimes finding themselves trying to discern celestial bodies from dust",
+      "url": "https://www.smithsonianmag.com/arts-culture/how-astronomers-art-historians-working-together-identify-inspiration-behind-famous-works-art-180989649/",
+      "published": "2026-10-28T11:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "c7287a1899cba3",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "An avalanche inspired this forecaster to keep others safe",
+      "summary": "Chris Dickson combines tech and field observations to make avalanche forecasts.",
+      "url": "https://www.snexplores.org/article/avalanche-forecaster-snow-science",
+      "published": "2026-10-28T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_Dickson_profile_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "9e5d1756487fb0",
       "source": "Teen Vogue",
@@ -223,19 +249,6 @@
       "transcript_url": ""
     },
     {
-      "key": "e78f26309d94ca",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Your skin’s chemistry may affect which mosquitoes you attract",
-      "summary": "Three species picked their favorite human targets based on skin odor and bacteria. The findings could lead to the design of better repellents.",
-      "url": "https://www.snexplores.org/article/skin-chemistry-attract-mosquito-bites",
-      "published": "2026-10-23T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082026_SW_mosquito-bites_feat.jpeg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "e7b8c6c5e6698c",
       "source": "Smithsonian Science",
       "category": "Science & Tech",
@@ -259,19 +272,6 @@
       "published": "2026-10-21T15:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad8c44bc3737ccbbdc0fece/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "aa7aac4e0dddb3",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Leave to one's own devices",
-      "summary": "Sometimes people leave you to do something on your own because they trust you. Sometimes people just don't want to help you. In both of these situations we can say that you are left to your own devices.…",
-      "url": "http://www.bbc.co.uk/programmes/p0phlwxc",
-      "published": "2026-10-20T08:52:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phlwk0.mp3",
       "transcript_url": ""
     },
     {
@@ -470,6 +470,19 @@
       "transcript_url": ""
     },
     {
+      "key": "6d720c8ab933d7",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Share your life story",
+      "summary": "Think you sometimes over-share unnecessary details? Learn how to use 'share your life story' with Becca and Feifei. As always, find a free transcript here: ✔️…",
+      "url": "http://www.bbc.co.uk/programmes/p0p3v486",
+      "published": "2026-08-11T08:29:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
+      "transcript_url": ""
+    },
+    {
       "key": "e01ee9f540c926",
       "source": "BBC 6 Minute English",
       "category": "British English",
@@ -586,19 +599,6 @@
       "published": "2025-03-12T13:46:29+00:00",
       "image": "",
       "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/1088dc2a-d047-4ebb-0607-08dd5c8b1668.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "a6d81ce477028d",
-      "source": "VOA Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎬",
-      "title": "Harry Houdini: The Great Escape Artist",
-      "summary": "",
-      "url": "https://learningenglish.voanews.com/a/8006783.html",
-      "published": "2025-03-11T15:47:07+00:00",
-      "image": "",
-      "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/44604aaf-210f-46ea-0bdb-08dd5c8d307c.mp3",
       "transcript_url": ""
     },
     {
