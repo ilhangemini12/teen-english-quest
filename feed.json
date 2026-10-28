@@ -1,6 +1,58 @@
 {
-  "updated_at": "2026-10-28T11:20:00.945624+00:00",
+  "updated_at": "2026-10-28T21:38:54.782691+00:00",
   "items": [
+    {
+      "key": "b14f39dcbc7a3d",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "HBO's Harry Potter Cast Guide: See How the New Actors Compare to the Original Cast",
+      "summary": "See all of the cast announcements so far and how they compare to the original movies here.",
+      "url": "https://www.teenvogue.com/story/hbo-harry-potter-series-cast-guide-10-28-2026",
+      "published": "2026-10-28T20:52:23+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae25ab46c5a1a1e38d498ab/master/pass/Harry%20Gilby%20-%20Credit%20Ruth%20Crafer.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "ec9d8291f05e00",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How people are using AI to grieve, love and connect | Jennifer Cearns",
+      "summary": "Many people fear AI is eroding our humanity, replacing real relationships with synthetic ones that leave us lonelier than ever. Digital anthropologist Jennifer Cearns believes the opposite may be true.…",
+      "url": "http://go.ted.com/jennifercearns",
+      "published": "2026-10-28T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6adb8f7a52428fc30bf6f9ca/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "9eab084f0df2b7",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "15 Makeup Trends to Experiment With in Winter 2026: Baby Pink, Barely-There Mascara, & More",
+      "summary": "Smoky eyes, barely-there mascara, and more.",
+      "url": "https://www.teenvogue.com/story/new-makeup-trends-to-try",
+      "published": "2026-10-28T14:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae0ead09177d40d3ddbee1c/master/pass/2298947575",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "7506939b2dee35",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "19 Entertaining Games to Play With 2 Players and No Equipment",
+      "summary": "You don't need fancy accessories to have fun.",
+      "url": "https://www.teenvogue.com/story/games-to-play-with-2-players-and-no-equipment",
+      "published": "2026-10-28T12:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6adf7f7a0d971baea8eb282f/master/pass/TCDGIAN_ZX075.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "5dd81cebfe95c1",
       "source": "Smithsonian Arts & Culture",
@@ -24,19 +76,6 @@
       "url": "https://www.snexplores.org/article/avalanche-forecaster-snow-science",
       "published": "2026-10-28T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_Dickson_profile_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "9e5d1756487fb0",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "How to Get Your Makeup to Look Like You're on That French Talk Show with Good Lighting Quotidien",
-      "summary": "We asked experts.",
-      "url": "https://www.teenvogue.com/story/how-to-get-your-makeup-to-look-like-youre-on-that-french-talk-show-with-good-lighting-quotidien",
-      "published": "2026-10-27T16:19:12+00:00",
-      "image": "https://assets.teenvogue.com/photos/6adf1025dc68a1687eb85515/master/pass/2300750573",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -103,32 +142,6 @@
       "published": "2026-10-27T09:45:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjsmsb.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "d880810d49f3f5",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "How to Style Tracksuit Pants for Fall and Winter 2026",
-      "summary": "Here are 10 easy and chic outfit combos to inspire your next look.",
-      "url": "https://www.teenvogue.com/story/how-to-style-tracksuit-pants",
-      "published": "2026-10-26T21:04:11+00:00",
-      "image": "https://assets.teenvogue.com/photos/6adf8ba2828a232bff00adcd/master/pass/GettyImages-2246342615.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "e9193fc014c7c5",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "I Wish the Shark Glossi Came Out Before I Got Other Hair Tools",
-      "summary": "It's the perfect starter tool.",
-      "url": "https://www.teenvogue.com/story/shark-beauty-glossi-review",
-      "published": "2026-10-26T19:00:41+00:00",
-      "image": "https://assets.teenvogue.com/photos/6adba8a38887c1820bf7711b/master/pass/HairDryer.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -324,19 +337,6 @@
       "published": "2026-10-12T09:00:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pg7yrl.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "742bd4d0e65509",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Sunday Pick: Can AI really teach your kids? with Leah Belsky | from WorkLife with Molly Graham",
-      "summary": "Technology has been promising to revolutionize education for a long time. Online learning, smartphones, and even asynchronous classes during COVID seemed for a while like they might finally transform what…",
-      "url": "https://audiocollective.ted.com/",
-      "published": "2026-10-11T06:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ac7b033e2a72faefc1e8d13/media.mp3",
       "transcript_url": ""
     },
     {
