@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-29T11:30:25.769059+00:00",
+  "updated_at": "2026-10-29T21:49:06.621453+00:00",
   "items": [
+    {
+      "key": "d26ee12857658a",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The Hunger Games Red Carpet Fashion Through the Years",
+      "summary": "14 years of looks upon looks.",
+      "url": "https://www.teenvogue.com/story/the-hunger-games-red-carpet-fashion-through-the-years",
+      "published": "2026-10-29T15:50:26+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae32d169795dd51cbf69323/master/pass/GettyImages-2302439176.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "466e1a66c33dfd",
+      "source": "Smithsonian Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎨",
+      "title": "A Cult Grew Around the First Emperor of Rome in 27 B.C. A New Book Argues His Followers Might Have Created the Template for Christianity",
+      "summary": "Augustus was seen as a descendant of the gods who would go on to redefine authority. New research posits that his rule paved the way for Jesus",
+      "url": "https://www.smithsonianmag.com/arts-culture/cult-grew-around-first-emperor-rome-27-bce-new-book-argues-followers-created-template-christ-180989647/",
+      "published": "2026-10-29T13:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "c55b3070349b43",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "80 Questions to Ask in Paranoia Game, and How to Play Paranoia",
+      "summary": "Prepare for friend group drama.",
+      "url": "https://www.teenvogue.com/story/questions-to-ask-in-paranoia-game",
+      "published": "2026-10-29T12:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/69944cc9b2f0e4f12229e976/master/pass/178138_0305_V1.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "4ce87108d5f13a",
       "source": "Smithsonian Innovation",
@@ -64,19 +103,6 @@
       "published": "2026-10-28T15:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6adb8f7a52428fc30bf6f9ca/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "9eab084f0df2b7",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "15 Makeup Trends to Experiment With in Winter 2026: Baby Pink, Barely-There Mascara, & More",
-      "summary": "Smoky eyes, barely-there mascara, and more.",
-      "url": "https://www.teenvogue.com/story/new-makeup-trends-to-try",
-      "published": "2026-10-28T14:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ae0ead09177d40d3ddbee1c/master/pass/2298947575",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -184,32 +210,6 @@
       "transcript_url": ""
     },
     {
-      "key": "bd3dcb2f399833",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Mckenna Grace Is Kicking Off Her Hunger Games Press Tour Looks With a Bang",
-      "summary": "See all the looks the star has worn so far!",
-      "url": "https://www.teenvogue.com/story/mckenna-grace-sunrise-on-the-reaping-hunger-games-press-tour-outfits",
-      "published": "2026-10-26T16:02:30+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ad6293e7f86c1b87285a067/master/pass/2300360208",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "ae4093a5c7dedb",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Unions for climate action! | Payton M. Wilkins (re-release)",
-      "summary": "In the long term, shutting down a coal mine means cleaner air and a healthier environment — but in the short term, it can devastate a community or family that relied on the mine's paychecks to make ends…",
-      "url": "https://shows.acast.com/ttd/episodes/tid118893tid",
-      "published": "2026-10-26T15:25:10+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6adf6cc9a8783bd47557508f/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "ca1a4de561f927",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -285,6 +285,19 @@
       "published": "2026-10-23T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082026_SW_mosquito-bites_feat.jpeg?w=800",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "61ec180a38c7d5",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "I can't speak. Here's how I get people to listen | Jessica Irwin",
+      "summary": "Jessica Irwin is many things: a photographer, artist, author, performer. She also happens to be nonverbal, born with cerebral palsy that affects the muscles she needs to talk. Speaking through a device that…",
+      "url": "http://go.ted.com/jessicairwin",
+      "published": "2026-10-22T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ada23e044592625b9151811/media.mp3",
       "transcript_url": ""
     },
     {
@@ -586,19 +599,6 @@
       "published": "2025-03-14T21:17:21+00:00",
       "image": "",
       "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/14/248e5f96-0793-49c1-35e2-08dd5c897904.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "bc25905d4eb725",
-      "source": "VOA Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎬",
-      "title": "The Most Famous Home in America: The White House",
-      "summary": "",
-      "url": "https://learningenglish.voanews.com/a/8007352.html",
-      "published": "2025-03-12T13:46:29+00:00",
-      "image": "",
-      "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/1088dc2a-d047-4ebb-0607-08dd5c8b1668.mp3",
       "transcript_url": ""
     },
     {
