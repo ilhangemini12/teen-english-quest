@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-28T21:38:54.782691+00:00",
+  "updated_at": "2026-10-29T11:30:25.769059+00:00",
   "items": [
+    {
+      "key": "4ce87108d5f13a",
+      "source": "Smithsonian Innovation",
+      "category": "Science & Tech",
+      "emoji": "💡",
+      "title": "Before Mountain Biking Became One of the Most Popular Recreational Sports, Adventurous Souls of the American West Had to Invent a Rugged Bike",
+      "summary": "The origin story has two settings: In Colorado, a gang of riders had the tenacity to conquer a treacherous terrain, and in California, others had the technology to design the ideal ride",
+      "url": "https://www.smithsonianmag.com/innovation/before-mountain-biking-became-popular-recreational-sports-adventurous-souls-american-west-invent-rugged-bike-180989645/",
+      "published": "2026-10-29T11:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "92be4b361d157a",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "These 5 quirks reveal how AI doesn’t think like we do",
+      "summary": "The differences between human and AI learning and reasoning lead to some strange bot behaviors.",
+      "url": "https://www.snexplores.org/article/5-quirks-how-ai-thinks",
+      "published": "2026-10-29T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_AI_alien_thinking_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "3e065ef6ff7289",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "Is aircon the answer to a heating world?",
+      "summary": "Do you ever feel it is too hot to sleep? With climate change gradually increasing world temperatures, people across the world are becoming increasingly affected by hot weather. In many locations, air…",
+      "url": "http://www.bbc.co.uk/programmes/p0pk7d0p",
+      "published": "2026-10-29T09:09:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pk7c8b.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "b14f39dcbc7a3d",
       "source": "Teen Vogue",
@@ -171,32 +210,6 @@
       "transcript_url": ""
     },
     {
-      "key": "9c69be52437906",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Feeling nervous? Work that system to calm it down",
-      "summary": "Scientists are exploring new ways to regain control of stressed-out nervous systems, including humming, tapping on the skin and cooling the face.",
-      "url": "https://www.snexplores.org/article/regulate-nervous-system-calm-stress",
-      "published": "2026-10-26T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/090926_JD_nervoussystem_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "ede4867cd7f357",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Sanguivore",
-      "summary": "Blood-drinkers evolved tricks for making use of this widespread but tricky-to-digest food source.",
-      "url": "https://www.snexplores.org/article/scientists-say-sanguivore-definition-pronunciation",
-      "published": "2026-10-26T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_sanguivore.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "ca1a4de561f927",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -258,6 +271,19 @@
       "url": "https://www.smithsonianmag.com/arts-culture/wildwood-is-the-longest-stop-motion-animated-film-ever-each-frame-of-the-movie-is-a-marvel-of-handcrafted-world-building-180989742/",
       "published": "2026-10-23T16:45:28+00:00",
       "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "e78f26309d94ca",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Your skin’s chemistry may affect which mosquitoes you attract",
+      "summary": "Three species picked their favorite human targets based on skin odor and bacteria. The findings could lead to the design of better repellents.",
+      "url": "https://www.snexplores.org/article/skin-chemistry-attract-mosquito-bites",
+      "published": "2026-10-23T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082026_SW_mosquito-bites_feat.jpeg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -431,19 +457,6 @@
       "transcript_url": ""
     },
     {
-      "key": "c77425bbbfad23",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "The Humble History of the Bedpan",
-      "summary": "Over the past few centuries, inventors have tweaked the design of the receptacles here and there, but overall, not much has changed about the dependable medical supply",
-      "url": "https://www.smithsonianmag.com/innovation/the-humble-history-of-the-bedpan-180989560/",
-      "published": "2026-09-24T19:04:30+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "a5b47db97899c8",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -480,19 +493,6 @@
       "published": "2026-08-11T08:29:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "e01ee9f540c926",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "The Enhanced Games",
-      "summary": "What would the world of athletics look like if athletes were allowed to take drugs? Pippa and Neil discuss the Enhanced Games. Learn English from authentic BBC programme clips. Get a free worksheet, quiz…",
-      "url": "http://www.bbc.co.uk/programmes/p0p1qc9j",
-      "published": "2026-07-30T14:14:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p1q8ns.mp3",
       "transcript_url": ""
     },
     {
