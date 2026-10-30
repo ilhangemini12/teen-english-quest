@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-30T11:23:23.318510+00:00",
+  "updated_at": "2026-10-30T21:29:29.803487+00:00",
   "items": [
+    {
+      "key": "1e11288a184a6d",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "26 Fashion Trends You'll See in Winter 2026: Funnel Necks, Retro '90s Styles, & More",
+      "summary": "Get ready for the new season.",
+      "url": "https://www.teenvogue.com/story/biggest-fashion-trends",
+      "published": "2026-10-30T15:01:53+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae49c069a9158ab798ebeab/master/pass/2198621716",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "52043543c64fc4",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to make friends (and keep them) | Sheridan Voysey",
+      "summary": "Who could you call at 2am when everything’s gone wrong? Friendship expert Sheridan Voysey believes we’re in a friendship recession, with many of us forgetting how to foster meaningful relationships. He…",
+      "url": "http://go.ted.com/sheridanvoysey",
+      "published": "2026-10-30T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ae36e30e9e95f232bb6df41/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "cb83dc6ec42b07",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "The Bloody Palette of the Animal Kingdom Goes Far Beyond Red. These Creatures Have Blood That Runs a Chilling Blue, Bright Green or Milky White",
+      "summary": "The hemoglobin in humans’ blood is not the standard for all critters—and one group of Antarctic fish are the only vertebrates to not have red blood cells at all",
+      "url": "https://www.smithsonianmag.com/science-nature/the-bloody-palette-of-the-animal-kingdom-goes-far-beyond-red-these-creatures-have-blood-that-runs-a-chilling-blue-bright-green-or-milky-white-180989752/",
+      "published": "2026-10-30T11:30:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "cebac957be3268",
       "source": "Science News Explores",
@@ -93,15 +132,15 @@
       "transcript_url": ""
     },
     {
-      "key": "b14f39dcbc7a3d",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "HBO's Harry Potter Cast Guide: See How the New Actors Compare to the Original Cast",
-      "summary": "See all of the cast announcements so far and how they compare to the original movies here.",
-      "url": "https://www.teenvogue.com/story/hbo-harry-potter-series-cast-guide-10-28-2026",
-      "published": "2026-10-28T20:52:23+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ae25ab46c5a1a1e38d498ab/master/pass/Harry%20Gilby%20-%20Credit%20Ruth%20Crafer.jpg",
+      "key": "cf298063282249",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Map Showing Potential Origins of Martian Meteorite Teghaza 001",
+      "summary": "Description This global map of Mars shows 13 locations that match the mineralogy and chemistry of Teghaza 001, one of the most ancient Martian meteorites ever found on Earth. While scientists can never know…",
+      "url": "https://science.nasa.gov/photojournal/map-showing-potential-origins-of-martian-meteorite-teghaza-001/",
+      "published": "2026-10-29T00:00:00+00:00",
+      "image": "",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -236,6 +275,45 @@
       "transcript_url": ""
     },
     {
+      "key": "6f2f0a8bca9251",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
+      "summary": "Description This 360-degree look at Neretva Vallis within Mars’ Jezero Crater was stitched together using 217 images acquired by the rover’s Mastcam-Z on May 20, 2024, the 1,155th Martian day, or sol, of…",
+      "url": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
+      "published": "2026-10-26T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "a178ebf463b642",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NEO Surveyor’s Sunshade Gets Inspected",
+      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor is mounted on an assembly ring during inspections in a clean room at BAE Systems Space & Mission Systems in Boulder, Colorado, in…",
+      "url": "https://science.nasa.gov/photojournal/neo-surveyors-sunshade-gets-inspected/",
+      "published": "2026-10-26T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "580f82cf462630",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Solar Cells Inspected on NASA’s NEO Surveyor",
+      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor mission is inspected by a technician at BAE Systems Space & Mission Systems in Boulder, Colorado, in late July. Built by Applied…",
+      "url": "https://science.nasa.gov/photojournal/solar-cells-inspected-on-nasas-neo-surveyor/",
+      "published": "2026-10-26T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "a188fec91b9c32",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -246,19 +324,6 @@
       "published": "2026-10-23T16:45:28+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "61ec180a38c7d5",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "I can't speak. Here's how I get people to listen | Jessica Irwin",
-      "summary": "Jessica Irwin is many things: a photographer, artist, author, performer. She also happens to be nonverbal, born with cerebral palsy that affects the muscles she needs to talk. Speaking through a device that…",
-      "url": "http://go.ted.com/jessicairwin",
-      "published": "2026-10-22T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ada23e044592625b9151811/media.mp3",
       "transcript_url": ""
     },
     {
@@ -314,6 +379,19 @@
       "transcript_url": ""
     },
     {
+      "key": "02fbfca169ac20",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Comparing Off-World Rover Driving Distances",
+      "summary": "Description This infographic illustrates the distances driven by various rovers on the surface of Earth’s Moon and Mars. Of the vehicles shown, the NASA Mars rovers Perseverance and Curiosity are still…",
+      "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
+      "published": "2026-10-13T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "5b913ab39e09d3",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -335,19 +413,6 @@
       "summary": "These photographs from the Smithsonian Magazine Photo Contest showcase Native Americans taking part in their respective tribal customs",
       "url": "https://www.smithsonianmag.com/arts-culture/celebrate-indigenous-peoples-day-with-these-15-dramatic-images-of-the-rich-enduring-traditions-of-native-americans-180989662/",
       "published": "2026-10-09T15:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "e06bce7f8c5c40",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Five Discoveries That Changed Our Understanding of T. Rex Forever, From Warm Blood to Lips",
-      "summary": "Paleontologists are still unraveling the secrets of the world’s most famous dinosaur, such as its outward appearance or the way that it hunted. With each new finding, our view of the “tyrant lizard king”…",
-      "url": "https://www.smithsonianmag.com/science-nature/five-discoveries-that-changed-our-understanding-of-t-rex-forever-from-warm-blood-to-lips-180989634/",
-      "published": "2026-10-07T17:15:01+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
@@ -379,19 +444,6 @@
       "transcript_url": ""
     },
     {
-      "key": "9f6bc777f546ac",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "These 15 Adorable Photos of Pandas Will Make You Want to Visit the Zoo Immediately",
-      "summary": "Members of the fluffy and adorable but vulnerable species are often cared for in zoos and breeding centers around the world, and these snapshots may make you jealous of the caretakers’ jobs",
-      "url": "https://www.smithsonianmag.com/science-nature/these-15-adorable-photos-of-pandas-will-make-you-want-to-visit-the-zoo-immediately-180989606/",
-      "published": "2026-10-02T15:21:12+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "b81b755dc0db73",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -405,19 +457,6 @@
       "transcript_url": ""
     },
     {
-      "key": "c77425bbbfad23",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "The Humble History of the Bedpan",
-      "summary": "Over the past few centuries, inventors have tweaked the design of the receptacles here and there, but overall, not much has changed about the dependable medical supply",
-      "url": "https://www.smithsonianmag.com/innovation/the-humble-history-of-the-bedpan-180989560/",
-      "published": "2026-09-24T19:04:30+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "a5b47db97899c8",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -428,45 +467,6 @@
       "published": "2026-09-21T08:09:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "410e5f66ce0eca",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Five Ways the World of the Dinosaurs Looked Different From Ours, Beyond the Presence of the 'Terrible Lizards'",
-      "summary": "Earth has changed dramatically since the Age of Dinosaurs, from its climate to geography and animal life",
-      "url": "https://www.smithsonianmag.com/science-nature/five-ways-the-world-of-the-dinosaurs-looked-different-from-ours-beyond-the-presence-of-the-terrible-lizards-180989521/",
-      "published": "2026-09-18T14:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "40e6f8b1621889",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Some Fish in the Great Lakes Might Be More Than 400 Years Old, a Study Suggests, Outliving Around 15 Generations of Humans",
-      "summary": "Lake sturgeon may be among the longest-living vertebrates, second only to Greenland sharks, according to recent research. However, scientists note that follow-up work is necessary to clarify the species’…",
-      "url": "https://www.smithsonianmag.com/science-nature/some-fish-in-the-great-lakes-might-be-more-than-400-years-old-a-study-suggests-outliving-around-15-generations-of-humans-180989500/",
-      "published": "2026-09-16T13:43:20+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "94110fbfffb0d0",
-      "source": "Smithsonian Innovation",
-      "category": "Science & Tech",
-      "emoji": "💡",
-      "title": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?",
-      "summary": "The tool may pick up subtle differences in the speech of people with the mental health condition better than human psychiatrists",
-      "url": "https://www.smithsonianmag.com/innovation/could-artificial-intelligence-help-with-early-diagnosis-of-schizophrenia-180989486/",
-      "published": "2026-09-11T13:31:01+00:00",
-      "image": "",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
