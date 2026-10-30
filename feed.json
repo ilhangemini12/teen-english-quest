@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-10-29T21:49:06.621453+00:00",
+  "updated_at": "2026-10-30T11:23:23.318510+00:00",
   "items": [
+    {
+      "key": "cebac957be3268",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Giant sea spiders emit eerie glow deep below the ocean waves",
+      "summary": "Scientists captured the lanky-legged specimens during an expedition to a deep trench near Australia.",
+      "url": "https://www.snexplores.org/article/giant-sea-spiders-emit-eerie-glow",
+      "published": "2026-10-30T10:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/090826_JRL_glowingspiders_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "d26ee12857658a",
       "source": "Teen Vogue",
@@ -223,45 +236,6 @@
       "transcript_url": ""
     },
     {
-      "key": "6f2f0a8bca9251",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
-      "summary": "Description This 360-degree look at Neretva Vallis within Mars’ Jezero Crater was stitched together using 217 images acquired by the rover’s Mastcam-Z on May 20, 2024, the 1,155th Martian day, or sol, of…",
-      "url": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "a178ebf463b642",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NEO Surveyor’s Sunshade Gets Inspected",
-      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor is mounted on an assembly ring during inspections in a clean room at BAE Systems Space & Mission Systems in Boulder, Colorado, in…",
-      "url": "https://science.nasa.gov/photojournal/neo-surveyors-sunshade-gets-inspected/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "580f82cf462630",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Solar Cells Inspected on NASA’s NEO Surveyor",
-      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor mission is inspected by a technician at BAE Systems Space & Mission Systems in Boulder, Colorado, in late July. Built by Applied…",
-      "url": "https://science.nasa.gov/photojournal/solar-cells-inspected-on-nasas-neo-surveyor/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "a188fec91b9c32",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -271,19 +245,6 @@
       "url": "https://www.smithsonianmag.com/arts-culture/wildwood-is-the-longest-stop-motion-animated-film-ever-each-frame-of-the-movie-is-a-marvel-of-handcrafted-world-building-180989742/",
       "published": "2026-10-23T16:45:28+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "e78f26309d94ca",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Your skin’s chemistry may affect which mosquitoes you attract",
-      "summary": "Three species picked their favorite human targets based on skin odor and bacteria. The findings could lead to the design of better repellents.",
-      "url": "https://www.snexplores.org/article/skin-chemistry-attract-mosquito-bites",
-      "published": "2026-10-23T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/082026_SW_mosquito-bites_feat.jpeg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -353,19 +314,6 @@
       "transcript_url": ""
     },
     {
-      "key": "02fbfca169ac20",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Comparing Off-World Rover Driving Distances",
-      "summary": "Description This infographic illustrates the distances driven by various rovers on the surface of Earth’s Moon and Mars. Of the vehicles shown, the NASA Mars rovers Perseverance and Curiosity are still…",
-      "url": "https://science.nasa.gov/photojournal/comparing-off-world-rover-driving-distances/",
-      "published": "2026-10-13T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "5b913ab39e09d3",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -405,19 +353,6 @@
       "transcript_url": ""
     },
     {
-      "key": "400c8f418ac443",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
-      "summary": "Description This artist’s concept depicts the proposed design for NASA’s PRobe far-Infrared Mission for Astrophysics (PRIMA), which was selected by the agency in September 2026. The PRIMA observatory is the…",
-      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
-      "published": "2026-10-07T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "22200bbbf60871",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -444,16 +379,16 @@
       "transcript_url": ""
     },
     {
-      "key": "4440858cea8996",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: In a tizzy",
-      "summary": "An expression to use when you feel stressed about something small and usually not worth the panic. Learn it here with Georgie and Feifei. Get a free transcript for this episode here:…",
-      "url": "http://www.bbc.co.uk/programmes/p0pd00xc",
-      "published": "2026-09-29T09:53:00+00:00",
+      "key": "9f6bc777f546ac",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "These 15 Adorable Photos of Pandas Will Make You Want to Visit the Zoo Immediately",
+      "summary": "Members of the fluffy and adorable but vulnerable species are often cared for in zoos and breeding centers around the world, and these snapshots may make you jealous of the caretakers’ jobs",
+      "url": "https://www.smithsonianmag.com/science-nature/these-15-adorable-photos-of-pandas-will-make-you-want-to-visit-the-zoo-immediately-180989606/",
+      "published": "2026-10-02T15:21:12+00:00",
       "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pd008c.mp3",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -470,6 +405,19 @@
       "transcript_url": ""
     },
     {
+      "key": "c77425bbbfad23",
+      "source": "Smithsonian Innovation",
+      "category": "Science & Tech",
+      "emoji": "💡",
+      "title": "The Humble History of the Bedpan",
+      "summary": "Over the past few centuries, inventors have tweaked the design of the receptacles here and there, but overall, not much has changed about the dependable medical supply",
+      "url": "https://www.smithsonianmag.com/innovation/the-humble-history-of-the-bedpan-180989560/",
+      "published": "2026-09-24T19:04:30+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "a5b47db97899c8",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -483,16 +431,55 @@
       "transcript_url": ""
     },
     {
-      "key": "3bbc8ef5d12e6a",
-      "source": "Smithsonian Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎨",
-      "title": "‘Rocky’ Is the Story of an Underdog, Created by an Underdog, That Has Spawned Box-Office Champions for Half a Century",
-      "summary": "Sylvester Stallone was a struggling actor when he was inspired by a real boxing match to write the film that became a legend. This year, the origin story of the franchise turns 50.",
-      "url": "https://www.smithsonianmag.com/arts-culture/rocky-story-underdog-created-underdog-spawned-box-office-champions-half-century-180989274/",
-      "published": "2026-08-31T11:00:00+00:00",
+      "key": "410e5f66ce0eca",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Five Ways the World of the Dinosaurs Looked Different From Ours, Beyond the Presence of the 'Terrible Lizards'",
+      "summary": "Earth has changed dramatically since the Age of Dinosaurs, from its climate to geography and animal life",
+      "url": "https://www.smithsonianmag.com/science-nature/five-ways-the-world-of-the-dinosaurs-looked-different-from-ours-beyond-the-presence-of-the-terrible-lizards-180989521/",
+      "published": "2026-09-18T14:00:00+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "40e6f8b1621889",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Some Fish in the Great Lakes Might Be More Than 400 Years Old, a Study Suggests, Outliving Around 15 Generations of Humans",
+      "summary": "Lake sturgeon may be among the longest-living vertebrates, second only to Greenland sharks, according to recent research. However, scientists note that follow-up work is necessary to clarify the species’…",
+      "url": "https://www.smithsonianmag.com/science-nature/some-fish-in-the-great-lakes-might-be-more-than-400-years-old-a-study-suggests-outliving-around-15-generations-of-humans-180989500/",
+      "published": "2026-09-16T13:43:20+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "94110fbfffb0d0",
+      "source": "Smithsonian Innovation",
+      "category": "Science & Tech",
+      "emoji": "💡",
+      "title": "Could Artificial Intelligence Help With Early Diagnosis of Schizophrenia?",
+      "summary": "The tool may pick up subtle differences in the speech of people with the mental health condition better than human psychiatrists",
+      "url": "https://www.smithsonianmag.com/innovation/could-artificial-intelligence-help-with-early-diagnosis-of-schizophrenia-180989486/",
+      "published": "2026-09-11T13:31:01+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "087292ff8a2237",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "How do we describe smells?",
+      "summary": "What is the worst smell in the world? And what is the best smell? Are there any smells that you like, but that your friends or family hate? Smells are all around us all the time, but the English language is…",
+      "url": "http://www.bbc.co.uk/programmes/p0p6j3xx",
+      "published": "2026-08-27T09:16:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p6j2hz.mp3",
       "transcript_url": ""
     },
     {
@@ -599,6 +586,19 @@
       "published": "2025-03-14T21:17:21+00:00",
       "image": "",
       "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/14/248e5f96-0793-49c1-35e2-08dd5c897904.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "bc25905d4eb725",
+      "source": "VOA Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎬",
+      "title": "The Most Famous Home in America: The White House",
+      "summary": "",
+      "url": "https://learningenglish.voanews.com/a/8007352.html",
+      "published": "2025-03-12T13:46:29+00:00",
+      "image": "",
+      "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/1088dc2a-d047-4ebb-0607-08dd5c8b1668.mp3",
       "transcript_url": ""
     },
     {
