@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-10-31T10:55:19.897113+00:00",
+  "updated_at": "2026-10-31T20:27:14.426115+00:00",
   "items": [
+    {
+      "key": "ed8664a546ae18",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "What crows teach us about death | Kaeli Swift (re-release)",
+      "summary": "Rituals for the dead span much of the natural world, seen in practices from humans and elephants to bees, dolphins and beyond. With charm and playful insight, animal behaviorist Kaeli Swift delves into the…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-10-31T15:03:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad66b9898b58b8b524628ef/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "806d6b9f73427b",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
+      "summary": "After a mysterious wave of tics and twitches swept through a small-town high school in New York, documentary podcaster Dan Taberski set out to investigate what was really happening. Drawing on extensive…",
+      "url": "http://go.ted.com/dantaberski",
+      "published": "2026-10-31T15:02:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad66ac598b58b8b524628ee/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "d4c293fdea7fb4",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Zombie roaches and other parasite tales | Ed Yong",
+      "summary": "In this fascinating, hilarious and ever-so-slightly creepy talk, science writer Ed Yong tells the story of his favorite parasites -- animals and organisms that live on the bodies (and brains!) of other…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-10-31T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad667bb98b58b8b524628ec/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "1e11288a184a6d",
       "source": "Teen Vogue",
@@ -12,19 +51,6 @@
       "published": "2026-10-30T15:01:53+00:00",
       "image": "https://assets.teenvogue.com/photos/6ae49c069a9158ab798ebeab/master/pass/2198621716",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "52043543c64fc4",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How to make friends (and keep them) | Sheridan Voysey",
-      "summary": "Who could you call at 2am when everything’s gone wrong? Friendship expert Sheridan Voysey believes we’re in a friendship recession, with many of us forgetting how to foster meaningful relationships. He…",
-      "url": "http://go.ted.com/sheridanvoysey",
-      "published": "2026-10-30T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ae36e30e9e95f232bb6df41/media.mp3",
       "transcript_url": ""
     },
     {
@@ -340,19 +366,6 @@
       "transcript_url": ""
     },
     {
-      "key": "9ed097cdbea401",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How would you design your dream city? | James Rojas",
-      "summary": "Urban planner James Rojas has led hundreds of workshops where participants creatively design their ideal communities with small objects — and he's noticed that people of every age, income and background…",
-      "url": "http://go.ted.com/jamesrojas",
-      "published": "2026-10-21T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad8c44bc3737ccbbdc0fece/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "3974c7a46c616c",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -363,19 +376,6 @@
       "published": "2026-10-19T08:17:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phfw80.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "2895fb89de7c7b",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "AI brain fry is real. Here’s what leaders can do | Julie Bedard",
-      "summary": "Workers everywhere are quietly redesigning their jobs around AI, boosting productivity but also creating new kinds of problems. AI advisor Julie Bedard thinks she has a fix. She shares new research on three…",
-      "url": "http://go.ted.com/juliebedard",
-      "published": "2026-10-14T15:00:20+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6acf9867b3381b9dbb7c315a/media.mp3",
       "transcript_url": ""
     },
     {
