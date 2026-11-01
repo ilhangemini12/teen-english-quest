@@ -7,13 +7,20 @@ on:
       - "feed.json"
       - "scripts/ui-smoke.mjs"
       - ".github/workflows/ui-smoke.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'feed.json'
+      - 'scripts/**'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: batumhub-ui-smoke
+  group: batumhub-ui-smoke-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

@@ -1,5 +1,12 @@
 name: UI Stress Test
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'feed.json'
+      - 'scripts/**'
+      - '.github/workflows/**'
   workflow_dispatch:
   push:
     branches: [main, vnext-v5.4-refactor, vnext-v5.5-desktop, vnext-v5.6-voice, vnext-v5.7-focus, vnext-v5.8-focus-moods, vnext-v5.9-mobile-minimal]
@@ -13,7 +20,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: batumhub-ui-stress
+  group: batumhub-ui-stress-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
