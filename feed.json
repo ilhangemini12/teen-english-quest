@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-02T13:28:49.382928+00:00",
+  "updated_at": "2026-11-02T23:53:11.797565+00:00",
   "items": [
+    {
+      "key": "c81ec4a790c4d0",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "27 Best TikTok Gifts of 2026, From Viral Beauty Products to Trendy Tech Gadgets",
+      "summary": "Here are the buzzy items that actually make great gifts.",
+      "url": "https://www.teenvogue.com/gallery/best-tiktok-gifts",
+      "published": "2026-11-02T17:59:16+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae8bc9b539dc74a5ad67df9/master/pass/TikTokGifts%20(1).jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "9e2259fe3aa872",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The Alysa Liu Bratz Doll Comes Complete With Halo Hair and Mini Ice Skates: Exclusive",
+      "summary": "We have an exclusive look at the new Olympic-gold-winning Bratz doll.",
+      "url": "https://www.teenvogue.com/story/alysa-liu-bratz-doll-halo-hair-mini-ice-skates-exclusive",
+      "published": "2026-11-02T17:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae8af34044a1a9830e66b62/master/pass/Frame%2051.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "c65e66e85523bd",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The couples therapists who nearly got divorced | Harville Hendrix",
+      "summary": "Couples therapists Harville Hendrix and Helen LaKelly Hunt spent decades teaching the world how to love well … even as their own marriage was falling apart. In this candid, funny talk, Hendrix recounts the…",
+      "url": "http://go.ted.com/harvillehendrix",
+      "published": "2026-11-02T16:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ae258f70a9b7b8b95b17566/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "4c805ec3314b0a",
       "source": "Science News Explores",
@@ -67,29 +106,16 @@
       "transcript_url": ""
     },
     {
-      "key": "d4c293fdea7fb4",
+      "key": "eba8cd185ea5aa",
       "source": "TED Talks Daily",
       "category": "Podcast",
       "emoji": "🎧",
-      "title": "Zombie roaches and other parasite tales | Ed Yong",
+      "title": "Zombie roaches and other parasite tales | Ed Yong (re-release)",
       "summary": "In this fascinating, hilarious and ever-so-slightly creepy talk, science writer Ed Yong tells the story of his favorite parasites -- animals and organisms that live on the bodies (and brains!) of other…",
       "url": "https://audiocollective.ted.com/",
       "published": "2026-10-31T15:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad667bb98b58b8b524628ec/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "1e11288a184a6d",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "26 Fashion Trends You'll See in Winter 2026: Funnel Necks, Retro '90s Styles, & More",
-      "summary": "Get ready for the new season.",
-      "url": "https://www.teenvogue.com/story/biggest-fashion-trends",
-      "published": "2026-10-30T15:01:53+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ae49c069a9158ab798ebeab/master/pass/2198621716",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -197,19 +223,6 @@
       "transcript_url": ""
     },
     {
-      "key": "ec9d8291f05e00",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How people are using AI to grieve, love and connect | Jennifer Cearns",
-      "summary": "Many people fear AI is eroding our humanity, replacing real relationships with synthetic ones that leave us lonelier than ever. Digital anthropologist Jennifer Cearns believes the opposite may be true.…",
-      "url": "http://go.ted.com/jennifercearns",
-      "published": "2026-10-28T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6adb8f7a52428fc30bf6f9ca/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "7506939b2dee35",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -246,19 +259,6 @@
       "published": "2026-10-27T15:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6adf721fa8783bd475575090/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "3692feee8ae592",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "30 Best Board Games for Teens in 2026 That Are Family-Friendly and Fun to Play",
-      "summary": "Time to gather up all your friends and family.",
-      "url": "https://www.teenvogue.com/gallery/best-board-games-for-teens",
-      "published": "2026-10-27T12:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ad4bfc16024897798494f8b/master/pass/2157369472",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
