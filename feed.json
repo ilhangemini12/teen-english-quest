@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-01T21:11:29.070414+00:00",
+  "updated_at": "2026-11-02T13:28:49.382928+00:00",
   "items": [
+    {
+      "key": "4c805ec3314b0a",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Toys inspired this moon rover’s unique design",
+      "summary": "After transforming from a ball into a wheeled robot, this small rover crawled along the lunar surface, taking photos.",
+      "url": "https://www.snexplores.org/article/toy-inspired-mini-moon-rover",
+      "published": "2026-11-02T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_toy_inspired_rover_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "6dbe09f72a29ae",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Fibonacci sequence",
+      "summary": "This elegant mathematical pattern appears in sunflower petals, pine cones and more.",
+      "url": "https://www.snexplores.org/article/scientists-say-fibonacci-sequence-definition-pronunciation",
+      "published": "2026-11-02T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_fibonacci_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "f82879909c2c9f",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Phrasal verbs and context",
+      "summary": "Learn phrasal verbs in sentences to help understand their meanings. FIND BBC LEARNING ENGLISH HERE: Visit our website ✔️ https://www.bbc.co.uk/learningenglish Follow us ✔️…",
+      "url": "http://www.bbc.co.uk/programmes/p0pktlyz",
+      "published": "2026-11-02T09:35:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pktlvh.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "ed8664a546ae18",
       "source": "TED Talks Daily",
@@ -63,19 +102,6 @@
       "url": "https://www.smithsonianmag.com/science-nature/the-bloody-palette-of-the-animal-kingdom-goes-far-beyond-red-these-creatures-have-blood-that-runs-a-chilling-blue-bright-green-or-milky-white-180989752/",
       "published": "2026-10-30T11:30:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "cebac957be3268",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Giant sea spiders emit eerie glow deep below the ocean waves",
-      "summary": "Scientists captured the lanky-legged specimens during an expedition to a deep trench near Australia.",
-      "url": "https://www.snexplores.org/article/giant-sea-spiders-emit-eerie-glow",
-      "published": "2026-10-30T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/090826_JRL_glowingspiders_main.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -206,19 +232,6 @@
       "url": "https://www.smithsonianmag.com/arts-culture/how-astronomers-art-historians-working-together-identify-inspiration-behind-famous-works-art-180989649/",
       "published": "2026-10-28T11:00:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "c7287a1899cba3",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "An avalanche inspired this forecaster to keep others safe",
-      "summary": "Chris Dickson combines tech and field observations to make avalanche forecasts.",
-      "url": "https://www.snexplores.org/article/avalanche-forecaster-snow-science",
-      "published": "2026-10-28T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_Dickson_profile_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -389,19 +402,6 @@
       "published": "2026-10-13T00:00:00+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "5b913ab39e09d3",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Onomatopoeia",
-      "summary": "Learn about words that sound like the thing they describe. Find more programmes for you level by choosing 'easy', 'medium' or 'hard' on our website: https://www.bbc.co.uk/learningenglish/english/ Get weekly…",
-      "url": "http://www.bbc.co.uk/programmes/p0pg8c17",
-      "published": "2026-10-12T09:00:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pg7yrl.mp3",
       "transcript_url": ""
     },
     {
