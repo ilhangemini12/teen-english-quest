@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-02T23:53:11.797565+00:00",
+  "updated_at": "2026-11-03T12:46:32.690200+00:00",
   "items": [
+    {
+      "key": "9924950c3bf954",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Let’s learn about how particles act like waves",
+      "summary": "So-called “wave-particle duality” is one of the strangest parts of quantum physics.",
+      "url": "https://www.snexplores.org/article/lets-learn-about-how-particles-act-like-waves",
+      "published": "2026-11-03T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_LLA_wave_particle_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "f7467d170188f2",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Would growing a big heart make the Grinch strong?",
+      "summary": "In the classic Dr. Seuss tale, the Grinch’s heart grows in an instant. That probably wouldn’t have been good for him — unless he was a snake.",
+      "url": "https://www.snexplores.org/article/grinch-heart-size-grow-strong",
+      "published": "2026-11-03T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_TF_grinch_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "714ac9d7f5983d",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Here for it",
+      "summary": "Here for what exactly? Learn how to show your support for something with this expression Get a free transcript for this episode:…",
+      "url": "http://www.bbc.co.uk/programmes/p0pl0nm4",
+      "published": "2026-11-03T10:27:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pl0lbt.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "c81ec4a790c4d0",
       "source": "Teen Vogue",
@@ -50,19 +89,6 @@
       "url": "https://www.snexplores.org/article/toy-inspired-mini-moon-rover",
       "published": "2026-11-02T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_toy_inspired_rover_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "6dbe09f72a29ae",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Fibonacci sequence",
-      "summary": "This elegant mathematical pattern appears in sunflower petals, pine cones and more.",
-      "url": "https://www.snexplores.org/article/scientists-say-fibonacci-sequence-definition-pronunciation",
-      "published": "2026-11-02T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_SS_fibonacci_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -275,19 +301,6 @@
       "transcript_url": ""
     },
     {
-      "key": "5f7bcc195ef2f8",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "This ‘anti-vampiric’ grave was double guarded against the undead",
-      "summary": "A sickle across the throat and a padlock on her toe were meant to keep a 17th-century teen girl from resurrecting from the grave.",
-      "url": "https://www.snexplores.org/article/anti-vampire-grave-undead-burial",
-      "published": "2026-10-27T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/091026_MT_grave_main_rev.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "ea435dd41896a0",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -334,19 +347,6 @@
       "title": "NEO Surveyor’s Sunshade Gets Inspected",
       "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor is mounted on an assembly ring during inspections in a clean room at BAE Systems Space & Mission Systems in Boulder, Colorado, in…",
       "url": "https://science.nasa.gov/photojournal/neo-surveyors-sunshade-gets-inspected/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "580f82cf462630",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Solar Cells Inspected on NASA’s NEO Surveyor",
-      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor mission is inspected by a technician at BAE Systems Space & Mission Systems in Boulder, Colorado, in late July. Built by Applied…",
-      "url": "https://science.nasa.gov/photojournal/solar-cells-inspected-on-nasas-neo-surveyor/",
       "published": "2026-10-26T00:00:00+00:00",
       "image": "",
       "audio_url": "",
@@ -418,6 +418,19 @@
       "transcript_url": ""
     },
     {
+      "key": "400c8f418ac443",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
+      "summary": "Description This artist’s concept depicts the proposed design for NASA’s PRobe far-Infrared Mission for Astrophysics (PRIMA), which was selected by the agency in September 2026. The PRIMA observatory is the…",
+      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
+      "published": "2026-10-07T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "22200bbbf60871",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -480,19 +493,6 @@
       "published": "2026-08-27T09:16:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p6j2hz.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "6d720c8ab933d7",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Share your life story",
-      "summary": "Think you sometimes over-share unnecessary details? Learn how to use 'share your life story' with Becca and Feifei. As always, find a free transcript here: ✔️…",
-      "url": "http://www.bbc.co.uk/programmes/p0p3v486",
-      "published": "2026-08-11T08:29:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p3v3m8.mp3",
       "transcript_url": ""
     },
     {
