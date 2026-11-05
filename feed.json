@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-11-05T13:11:18.936962+00:00",
+  "updated_at": "2026-11-05T22:40:38.732183+00:00",
   "items": [
+    {
+      "key": "6cea6ff3d5bb1d",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Rat Boi Founder Alexa Coughlin Wants You to Help You Switch from Fast Fashion",
+      "summary": "The viral clothing brand is showing why sustainability and inclusivity aren't mutually exclusive.",
+      "url": "https://www.teenvogue.com/story/rat-boi-founder-alexa-coughlin-wants-you-to-help-you-switch-from-fast-fashion",
+      "published": "2026-11-05T20:32:22+00:00",
+      "image": "https://assets.teenvogue.com/photos/6aecd1458b3c2db0c26b5d81/master/pass/final%20proto%20of%20our%20dream%20dress%20on%20alexa.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "596b059279d515",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Why great art requires risk | Alex Van Halen, David Lee Roth, Robert Vargas",
+      "summary": "Alex Van Halen and David Lee Roth — two of the rock stars behind the legendary band Van Halen — sit down with visual artist Robert Vargas to reveal the two-step recipe for great art: do your homework, then…",
+      "url": "http://go.ted.com/alexdavidrobert",
+      "published": "2026-11-05T16:13:59+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aeb94a69f528791af8c1bc2/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "72914519d789ad",
       "source": "Science News Explores",
@@ -90,32 +116,6 @@
       "published": "2026-11-03T10:27:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pl0lbt.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "c81ec4a790c4d0",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "27 Best TikTok Gifts of 2026, From Viral Beauty Products to Trendy Tech Gadgets",
-      "summary": "Here are the buzzy items that actually make great gifts.",
-      "url": "https://www.teenvogue.com/gallery/best-tiktok-gifts",
-      "published": "2026-11-02T17:59:16+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ae8bc9b539dc74a5ad67df9/master/pass/TikTokGifts%20(1).jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "c65e66e85523bd",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "The couples therapists who nearly got divorced | Harville Hendrix",
-      "summary": "Couples therapists Harville Hendrix and Helen LaKelly Hunt spent decades teaching the world how to love well … even as their own marriage was falling apart. In this candid, funny talk, Hendrix recounts the…",
-      "url": "http://go.ted.com/harvillehendrix",
-      "published": "2026-11-02T16:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ae258f70a9b7b8b95b17566/media.mp3",
       "transcript_url": ""
     },
     {
