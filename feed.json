@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-11-04T22:37:32.539602+00:00",
+  "updated_at": "2026-11-05T13:11:18.936962+00:00",
   "items": [
+    {
+      "key": "72914519d789ad",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Static electricity remains shockingly mysterious",
+      "summary": "Despite studying static charge for centuries, scientists still aren’t clear on precisely how it works.",
+      "url": "https://www.snexplores.org/article/static-electricity-shock-mysterious",
+      "published": "2026-11-05T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/0926_EC_static_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "49b42f938095c3",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "Could vaccines cure cancer?",
+      "summary": "When was the last time you had a vaccination, and what was it for? Many of us get vaccinations when we are children or when we go travelling, but did you know that scientists have been developing vaccines…",
+      "url": "http://www.bbc.co.uk/programmes/p0pldm3h",
+      "published": "2026-11-05T09:36:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pldlfg.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "70869ba09d766f",
       "source": "Teen Vogue",
@@ -50,19 +76,6 @@
       "url": "https://www.snexplores.org/article/lets-learn-about-how-particles-act-like-waves",
       "published": "2026-11-03T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_LLA_wave_particle_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "f7467d170188f2",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Would growing a big heart make the Grinch strong?",
-      "summary": "In the classic Dr. Seuss tale, the Grinch’s heart grows in an instant. That probably wouldn’t have been good for him — unless he was a snake.",
-      "url": "https://www.snexplores.org/article/grinch-heart-size-grow-strong",
-      "published": "2026-11-03T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_TF_grinch_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -298,19 +311,6 @@
       "published": "2026-10-27T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_Locklyn_feat.png?w=800",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "ea435dd41896a0",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: In the same breath",
-      "summary": "If you express two ideas using 'in the same breath', you contrast them both and add weight to one. It's used to introduce a contradiction. Though the ideas are different, both could be true, but the latter…",
-      "url": "http://www.bbc.co.uk/programmes/p0pjsn8m",
-      "published": "2026-10-27T09:45:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjsmsb.mp3",
       "transcript_url": ""
     },
     {
