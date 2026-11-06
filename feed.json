@@ -1,12 +1,51 @@
 {
-  "updated_at": "2026-11-05T22:40:38.732183+00:00",
+  "updated_at": "2026-11-06T12:56:09.932529+00:00",
   "items": [
     {
-      "key": "6cea6ff3d5bb1d",
+      "key": "c0732f9a8b35e5",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Fossil Footprints in Brazil Hint at a Cougar-Size Mammal That Walked Among Dinosaurs. It's Another Sign That Some Early Beasts Grew to Impressive Sizes After All",
+      "summary": "Don’t think of all Mesozoic mammals as meek and tiny—alongside the terrible lizards, some were giants in their own right",
+      "url": "https://www.smithsonianmag.com/science-nature/fossil-footprints-in-brazil-hint-at-a-cougar-size-mammal-that-walked-among-dinosaurs-its-another-sign-that-some-early-beasts-grew-to-impressive-sizes-after-all-180989815/",
+      "published": "2026-11-06T12:30:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d6e9fee99d294f",
+      "source": "Smithsonian Science",
+      "category": "Science & Tech",
+      "emoji": "🔭",
+      "title": "Hear, Hear to Long Ears: These 15 Furry Photos of Adorable Rabbits and Hares Will Have You Leaping for Leporidae",
+      "summary": "The images from Smithsonian Magazine Photo Contest show the mammalian species and their twitching noses at their cutest",
+      "url": "https://www.smithsonianmag.com/science-nature/hear-hear-to-long-ears-these-15-furry-photos-of-adorable-rabbits-and-hares-will-have-you-leaping-for-leporidae-180989824/",
+      "published": "2026-11-06T12:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "26dc20ee0e5b36",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Mystery solved? Why ‘sleeping’ ants suddenly explode with activity",
+      "summary": "For decades, scientists have puzzled over what triggers some colonies of ants to burst from rest into community-wide action. Math may now explain this.",
+      "url": "https://www.snexplores.org/article/ants-sudden-activity-bursts",
+      "published": "2026-11-06T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1030_leaderless_ants_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "94706f71db3441",
       "source": "Teen Vogue",
       "category": "Style & Trends",
       "emoji": "✨",
-      "title": "Rat Boi Founder Alexa Coughlin Wants You to Help You Switch from Fast Fashion",
+      "title": "Rat Boi Founder Alexa Coughlin Wants to Help You Switch from Fast Fashion",
       "summary": "The viral clothing brand is showing why sustainability and inclusivity aren't mutually exclusive.",
       "url": "https://www.teenvogue.com/story/rat-boi-founder-alexa-coughlin-wants-you-to-help-you-switch-from-fast-fashion",
       "published": "2026-11-05T20:32:22+00:00",
@@ -93,19 +132,6 @@
       "transcript_url": ""
     },
     {
-      "key": "9924950c3bf954",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Let’s learn about how particles act like waves",
-      "summary": "So-called “wave-particle duality” is one of the strangest parts of quantum physics.",
-      "url": "https://www.snexplores.org/article/lets-learn-about-how-particles-act-like-waves",
-      "published": "2026-11-03T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_LLA_wave_particle_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "714ac9d7f5983d",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -171,6 +197,19 @@
       "transcript_url": ""
     },
     {
+      "key": "1e11288a184a6d",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "26 Fashion Trends You'll See in Winter 2026: Funnel Necks, Retro '90s Styles, & More",
+      "summary": "Get ready for the new season.",
+      "url": "https://www.teenvogue.com/story/biggest-fashion-trends",
+      "published": "2026-10-30T15:01:53+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae49c069a9158ab798ebeab/master/pass/2198621716",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "cb83dc6ec42b07",
       "source": "Smithsonian Science",
       "category": "Science & Tech",
@@ -210,19 +249,6 @@
       "transcript_url": ""
     },
     {
-      "key": "c55b3070349b43",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "80 Questions to Ask in Paranoia Game, and How to Play Paranoia",
-      "summary": "Prepare for friend group drama.",
-      "url": "https://www.teenvogue.com/story/questions-to-ask-in-paranoia-game",
-      "published": "2026-10-29T12:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/69944cc9b2f0e4f12229e976/master/pass/178138_0305_V1.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "4ce87108d5f13a",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -246,19 +272,6 @@
       "published": "2026-10-29T10:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_AI_alien_thinking_feat.png?w=800",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "3e065ef6ff7289",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "Is aircon the answer to a heating world?",
-      "summary": "Do you ever feel it is too hot to sleep? With climate change gradually increasing world temperatures, people across the world are becoming increasingly affected by hot weather. In many locations, air…",
-      "url": "http://www.bbc.co.uk/programmes/p0pk7d0p",
-      "published": "2026-10-29T09:09:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pk7c8b.mp3",
       "transcript_url": ""
     },
     {
@@ -314,6 +327,19 @@
       "transcript_url": ""
     },
     {
+      "key": "ea435dd41896a0",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: In the same breath",
+      "summary": "If you express two ideas using 'in the same breath', you contrast them both and add weight to one. It's used to introduce a contradiction. Though the ideas are different, both could be true, but the latter…",
+      "url": "http://www.bbc.co.uk/programmes/p0pjsn8m",
+      "published": "2026-10-27T09:45:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjsmsb.mp3",
+      "transcript_url": ""
+    },
+    {
       "key": "ca1a4de561f927",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -324,32 +350,6 @@
       "published": "2026-10-26T09:56:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjn0b3.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "6f2f0a8bca9251",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
-      "summary": "Description This 360-degree look at Neretva Vallis within Mars’ Jezero Crater was stitched together using 217 images acquired by the rover’s Mastcam-Z on May 20, 2024, the 1,155th Martian day, or sol, of…",
-      "url": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "a178ebf463b642",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NEO Surveyor’s Sunshade Gets Inspected",
-      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor is mounted on an assembly ring during inspections in a clean room at BAE Systems Space & Mission Systems in Boulder, Colorado, in…",
-      "url": "https://science.nasa.gov/photojournal/neo-surveyors-sunshade-gets-inspected/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -376,6 +376,19 @@
       "published": "2026-10-21T19:00:00+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "aa7aac4e0dddb3",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: Leave to one's own devices",
+      "summary": "Sometimes people leave you to do something on your own because they trust you. Sometimes people just don't want to help you. In both of these situations we can say that you are left to your own devices.…",
+      "url": "http://www.bbc.co.uk/programmes/p0phlwxc",
+      "published": "2026-10-20T08:52:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phlwk0.mp3",
       "transcript_url": ""
     },
     {
@@ -441,19 +454,6 @@
       "published": "2026-10-06T18:14:23+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "f6cdbb8492ccf4",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Sack something off",
-      "summary": "I’ve got too many plans. I’m going to sack them off and just chill out this week! Learn how to use 'sack something off' in this programme with Georgie and Feifei. Get a free transcript for this episode…",
-      "url": "http://www.bbc.co.uk/programmes/p0pf6vwm",
-      "published": "2026-10-06T09:48:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pf6tnh.mp3",
       "transcript_url": ""
     },
     {
