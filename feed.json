@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-06T12:56:09.932529+00:00",
+  "updated_at": "2026-11-06T22:06:32.497040+00:00",
   "items": [
+    {
+      "key": "2302c3792eabbe",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The 25 Best Beauty Gifts You Can Find at Target",
+      "summary": "Cute and convenient!",
+      "url": "https://www.teenvogue.com/gallery/best-beauty-gifts-you-can-find-at-target",
+      "published": "2026-11-06T20:12:32+00:00",
+      "image": "https://assets.teenvogue.com/photos/6aee33d8b9f1782322ed3ee7/master/pass/Target.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "6c1d225ae684fd",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The 41 Best Gifts for Teen Boys That They'll Actually Use",
+      "summary": "From outfit staples to fan-favorite games.",
+      "url": "https://www.teenvogue.com/gallery/best-gifts-for-teen-boys",
+      "published": "2026-11-06T17:27:34+00:00",
+      "image": "https://assets.teenvogue.com/photos/6aedf8a652fdcc8c6fedb345/master/pass/giftguide-teenboys.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "20e2cdd63e6f74",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The surprising beauty of mosquitos | Felix Hol",
+      "summary": "Most people hate mosquitoes, but biotechnologist and TED Fellow Felix Hol thinks they're beautiful. He takes us inside his lab, where his team developed some unusual ways to study how these blood-sucking…",
+      "url": "http://go.ted.com/felixhol",
+      "published": "2026-11-06T16:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aedf666225208a74da728d2/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "c0732f9a8b35e5",
       "source": "Smithsonian Science",
@@ -119,19 +158,6 @@
       "transcript_url": ""
     },
     {
-      "key": "13bd2e7068c76b",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "What kids wish their parents knew about fun | Mila Rojas",
-      "summary": "When was the last time you played, just for fun? Eleven-year-old Mila Rojas has noticed that adults — buried under schedules, expectations and the pressure to be serious — often see play as unproductive. In…",
-      "url": "http://go.ted.com/milarojas",
-      "published": "2026-11-03T16:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ae8b9cd008b613dfe44544a/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "714ac9d7f5983d",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -197,19 +223,6 @@
       "transcript_url": ""
     },
     {
-      "key": "1e11288a184a6d",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "26 Fashion Trends You'll See in Winter 2026: Funnel Necks, Retro '90s Styles, & More",
-      "summary": "Get ready for the new season.",
-      "url": "https://www.teenvogue.com/story/biggest-fashion-trends",
-      "published": "2026-10-30T15:01:53+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ae49c069a9158ab798ebeab/master/pass/2198621716",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "cb83dc6ec42b07",
       "source": "Smithsonian Science",
       "category": "Science & Tech",
@@ -219,19 +232,6 @@
       "url": "https://www.smithsonianmag.com/science-nature/the-bloody-palette-of-the-animal-kingdom-goes-far-beyond-red-these-creatures-have-blood-that-runs-a-chilling-blue-bright-green-or-milky-white-180989752/",
       "published": "2026-10-30T11:30:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d26ee12857658a",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The Hunger Games Red Carpet Fashion Through the Years",
-      "summary": "14 years of looks upon looks.",
-      "url": "https://www.teenvogue.com/story/the-hunger-games-red-carpet-fashion-through-the-years",
-      "published": "2026-10-29T15:50:26+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ae32d169795dd51cbf69323/master/pass/GettyImages-2302439176.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
