@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T22:06:32.497040+00:00",
+  "updated_at": "2026-11-07T11:42:53.129073+00:00",
   "items": [
     {
       "key": "2302c3792eabbe",
@@ -353,6 +353,19 @@
       "transcript_url": ""
     },
     {
+      "key": "6f2f0a8bca9251",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
+      "summary": "Description This 360-degree look at Neretva Vallis within Mars’ Jezero Crater was stitched together using 217 images acquired by the rover’s Mastcam-Z on May 20, 2024, the 1,155th Martian day, or sol, of…",
+      "url": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
+      "published": "2026-10-26T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "a188fec91b9c32",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -426,19 +439,6 @@
       "summary": "These photographs from the Smithsonian Magazine Photo Contest showcase Native Americans taking part in their respective tribal customs",
       "url": "https://www.smithsonianmag.com/arts-culture/celebrate-indigenous-peoples-day-with-these-15-dramatic-images-of-the-rich-enduring-traditions-of-native-americans-180989662/",
       "published": "2026-10-09T15:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "400c8f418ac443",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s PRIMA Spacecraft (Artist’s Concept)",
-      "summary": "Description This artist’s concept depicts the proposed design for NASA’s PRobe far-Infrared Mission for Astrophysics (PRIMA), which was selected by the agency in September 2026. The PRIMA observatory is the…",
-      "url": "https://science.nasa.gov/photojournal/nasas-prima-spacecraft-artists-concept/",
-      "published": "2026-10-07T00:00:00+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
