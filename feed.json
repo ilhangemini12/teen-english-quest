@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-07T11:42:53.129073+00:00",
+  "updated_at": "2026-11-07T20:52:05.360358+00:00",
   "items": [
+    {
+      "key": "d2cb19d44f95dd",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to build the next wave of clean energy | Jennifer Granholm, Ryan Panchadsaram",
+      "summary": "Jennifer Granholm steered Michigan through the auto industry's near-collapse and later ran the US Department of Energy during the largest clean energy investment in the country's history. In conversation…",
+      "url": "http://go.ted.com/jennifergranholm",
+      "published": "2026-11-07T16:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aece3957cfe82faa47eb757/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "2302c3792eabbe",
       "source": "Teen Vogue",
@@ -145,19 +158,6 @@
       "transcript_url": ""
     },
     {
-      "key": "aa74d3f195d845",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "25 Best Beauty Advent Calendars to Gift and Keep in 2026",
-      "summary": "’Tis (almost) the season to open a little surprise every day.",
-      "url": "https://www.teenvogue.com/gallery/best-beauty-advent-calendars",
-      "published": "2026-11-04T16:01:37+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aeb562b474fb85be6607a1a/master/pass/AdventCalendar%20_Giftguide%20(1).jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "714ac9d7f5983d",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -197,19 +197,6 @@
       "transcript_url": ""
     },
     {
-      "key": "806d6b9f73427b",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
-      "summary": "After a mysterious wave of tics and twitches swept through a small-town high school in New York, documentary podcaster Dan Taberski set out to investigate what was really happening. Drawing on extensive…",
-      "url": "http://go.ted.com/dantaberski",
-      "published": "2026-10-31T15:02:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad66ac598b58b8b524628ee/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "eba8cd185ea5aa",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -232,6 +219,19 @@
       "url": "https://www.smithsonianmag.com/science-nature/the-bloody-palette-of-the-animal-kingdom-goes-far-beyond-red-these-creatures-have-blood-that-runs-a-chilling-blue-bright-green-or-milky-white-180989752/",
       "published": "2026-10-30T11:30:00+00:00",
       "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d26ee12857658a",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The Hunger Games Red Carpet Fashion Through the Years",
+      "summary": "14 years of looks upon looks.",
+      "url": "https://www.teenvogue.com/story/the-hunger-games-red-carpet-fashion-through-the-years",
+      "published": "2026-10-29T15:50:26+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ae32d169795dd51cbf69323/master/pass/GettyImages-2302439176.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
