@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-08T11:55:32.315678+00:00",
+  "updated_at": "2026-11-08T21:09:46.726818+00:00",
   "items": [
     {
       "key": "23c0b57c698ffd",
@@ -119,19 +119,6 @@
       "transcript_url": ""
     },
     {
-      "key": "596b059279d515",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Why great art requires risk | Alex Van Halen, David Lee Roth, Robert Vargas",
-      "summary": "Alex Van Halen and David Lee Roth — two of the rock stars behind the legendary band Van Halen — sit down with visual artist Robert Vargas to reveal the two-step recipe for great art: do your homework, then…",
-      "url": "http://go.ted.com/alexdavidrobert",
-      "published": "2026-11-05T16:13:59+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aeb94a69f528791af8c1bc2/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "72914519d789ad",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -168,6 +155,19 @@
       "published": "2026-11-04T16:50:38+00:00",
       "image": "https://assets.teenvogue.com/photos/6aeb5f65210f5d6e4be1bb9c/master/pass/Boyfriend_Giftguide.jpg",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "13bd2e7068c76b",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "What kids wish their parents knew about fun | Mila Rojas",
+      "summary": "When was the last time you played, just for fun? Eleven-year-old Mila Rojas has noticed that adults — buried under schedules, expectations and the pressure to be serious — often see play as unproductive. In…",
+      "url": "http://go.ted.com/milarojas",
+      "published": "2026-11-03T16:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ae8b9cd008b613dfe44544a/media.mp3",
       "transcript_url": ""
     },
     {
