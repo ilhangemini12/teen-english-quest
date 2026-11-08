@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-07T20:52:05.360358+00:00",
+  "updated_at": "2026-11-08T11:55:32.315678+00:00",
   "items": [
+    {
+      "key": "23c0b57c698ffd",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Sunday Pick: The science on improving your brain health with Dr. Ayesha and Dean Sherzai",
+      "summary": "When does normal aging end and something more concerning begins? In this episode Shoshana invites neurologist Drs. Ayesha and Dean Sherzai to discuss their studies on Alzheimer’s and Dementia. They debunk…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-11-08T07:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee46b760a59de70fef4385/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "d2cb19d44f95dd",
       "source": "TED Talks Daily",
@@ -298,19 +311,6 @@
       "published": "2026-10-28T11:00:00+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d994821388156b",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How video games can power up your parenting | Hannah Boquet (re-release)",
-      "summary": "Parenting an eye-rolling teenager glued to a gaming system is not a simple feat, but what if you could turn screen time into an opportunity for connection? Hannah Boquet shares how she decided to play video…",
-      "url": "http://go.ted.com/hannahbouquet",
-      "published": "2026-10-27T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6adf721fa8783bd475575090/media.mp3",
       "transcript_url": ""
     },
     {
