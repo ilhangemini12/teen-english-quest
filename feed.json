@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-11-08T21:09:46.726818+00:00",
+  "updated_at": "2026-11-09T13:52:56.772776+00:00",
   "items": [
+    {
+      "key": "87934cf4b6990a",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Seals long ago evolved to hear above the water — and below",
+      "summary": "Spongy tissue that fills with blood makes this possible, show X-ray scans of hundreds of ears from seals and other animals.",
+      "url": "https://www.snexplores.org/article/seal-ears-hearing-air-underwater",
+      "published": "2026-11-09T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/071726_MH_pinniped-hearing_main.jpeg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "e5af84996f7a45",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Occultation",
+      "summary": "Thanks to one of these events in 1977, astronomers discovered Uranus's rings.",
+      "url": "https://www.snexplores.org/article/scientists-say-occultation-definition-pronunciation",
+      "published": "2026-11-09T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_SS_occultation_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "23c0b57c698ffd",
       "source": "TED Talks Daily",
@@ -89,19 +115,6 @@
       "url": "https://www.smithsonianmag.com/science-nature/hear-hear-to-long-ears-these-15-furry-photos-of-adorable-rabbits-and-hares-will-have-you-leaping-for-leporidae-180989824/",
       "published": "2026-11-06T12:00:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "26dc20ee0e5b36",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Mystery solved? Why ‘sleeping’ ants suddenly explode with activity",
-      "summary": "For decades, scientists have puzzled over what triggers some colonies of ants to burst from rest into community-wide action. Math may now explain this.",
-      "url": "https://www.snexplores.org/article/ants-sudden-activity-bursts",
-      "published": "2026-11-06T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1030_leaderless_ants_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -310,19 +323,6 @@
       "url": "https://www.smithsonianmag.com/arts-culture/how-astronomers-art-historians-working-together-identify-inspiration-behind-famous-works-art-180989649/",
       "published": "2026-10-28T11:00:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "8a33ae86603281",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Farm plants may help fight infections, teen finds",
-      "summary": "This middle-school student’s homegrown solutions may point to new ways to take down bacteria.",
-      "url": "https://www.snexplores.org/article/farm-plants-fight-bacteria-jic",
-      "published": "2026-10-27T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_Locklyn_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
