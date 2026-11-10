@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-10T00:41:12.296392+00:00",
+  "updated_at": "2026-11-10T13:27:43.849854+00:00",
   "items": [
+    {
+      "key": "4a1f1e7f4106eb",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "This teen piloted an underwater robot to study kelp forests",
+      "summary": "His observations offer new insight into why some kelp beds are thriving as others are declining.",
+      "url": "https://www.snexplores.org/article/underwater-robot-kelp-forests-jic",
+      "published": "2026-11-10T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_Linden_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "313d856318f442",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Four T. rex footprints hint at how fast it traveled",
+      "summary": "Though poorly preserved, the prints suggest the dino ambled at 1.6 meters per second, roughly the speed of a human walking briskly.",
+      "url": "https://www.snexplores.org/article/footprints-how-fast-t-rex-walked",
+      "published": "2026-11-10T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/091726_EG_trex_main.jpeg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "19c4bd4893af97",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: You had me at...",
+      "summary": "Learn a fun expression to say that nothing more needs to be said because you are already convinced. Get a free transcript for this episode:…",
+      "url": "http://www.bbc.co.uk/programmes/p0pm8fdr",
+      "published": "2026-11-10T11:14:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pm8f16.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "e93757eb31c925",
       "source": "Teen Vogue",
@@ -50,19 +89,6 @@
       "url": "https://www.snexplores.org/article/seal-ears-hearing-air-underwater",
       "published": "2026-11-09T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/071726_MH_pinniped-hearing_main.jpeg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "e5af84996f7a45",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Occultation",
-      "summary": "Thanks to one of these events in 1977, astronomers discovered Uranus's rings.",
-      "url": "https://www.snexplores.org/article/scientists-say-occultation-definition-pronunciation",
-      "published": "2026-11-09T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_SS_occultation_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -288,19 +314,6 @@
       "transcript_url": ""
     },
     {
-      "key": "92be4b361d157a",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "These 5 quirks reveal how AI doesn’t think like we do",
-      "summary": "The differences between human and AI learning and reasoning lead to some strange bot behaviors.",
-      "url": "https://www.snexplores.org/article/5-quirks-how-ai-thinks",
-      "published": "2026-10-29T10:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/10/1440_AI_alien_thinking_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "cf298063282249",
       "source": "NASA Photojournal",
       "category": "Science & Tech",
@@ -389,19 +402,6 @@
       "published": "2026-10-21T19:00:00+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "aa7aac4e0dddb3",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: Leave to one's own devices",
-      "summary": "Sometimes people leave you to do something on your own because they trust you. Sometimes people just don't want to help you. In both of these situations we can say that you are left to your own devices.…",
-      "url": "http://www.bbc.co.uk/programmes/p0phlwxc",
-      "published": "2026-10-20T08:52:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0phlwk0.mp3",
       "transcript_url": ""
     },
     {
