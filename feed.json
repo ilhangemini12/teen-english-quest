@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-09T13:52:56.772776+00:00",
+  "updated_at": "2026-11-10T00:41:12.296392+00:00",
   "items": [
+    {
+      "key": "e93757eb31c925",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Why Do We Talk About Fanfiction Like It’s an Addiction?",
+      "summary": "We treat reading books as a habit and reading fanfiction as a behavior.",
+      "url": "https://www.teenvogue.com/story/why-do-we-talk-about-fanfiction-like-its-an-addiction-op-ed",
+      "published": "2026-11-09T20:45:04+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ac7aeabde9bd96d984963eb/master/pass/Fanfiction_webheader.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "e712b31346c9a5",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Malia and Sasha Obama Style Trench Coats Two Very Different Ways",
+      "summary": "Both have great outfit formulas.",
+      "url": "https://www.teenvogue.com/story/malia-sasha-obama-style-trench-coats-two-very-different-ways",
+      "published": "2026-11-09T17:04:34+00:00",
+      "image": "https://assets.teenvogue.com/photos/6af1eeecb06f4f06fc5e1e03/master/pass/sasha_malia.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d854ed440f3313",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to rewire your brain — and find your flow | Heather Berlin",
+      "summary": "When life gets uncertain, do you grip a little tighter? Neuroscientist Heather Berlin explores a surprising paradox: the harder you try to control everything, the more likely you are to get in your own way.…",
+      "url": "http://go.ted.com/heatherberlin",
+      "published": "2026-11-09T16:07:29+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af1eb82e0d89bd85412a56b/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "87934cf4b6990a",
       "source": "Science News Explores",
@@ -158,32 +197,6 @@
       "transcript_url": ""
     },
     {
-      "key": "70869ba09d766f",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "65 Best Gifts for Your Boyfriend That Will Earn You a Best Partner Award",
-      "summary": "From tech to fashion and beyond.",
-      "url": "https://www.teenvogue.com/gallery/best-gifts-for-boyfriends",
-      "published": "2026-11-04T16:50:38+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aeb5f65210f5d6e4be1bb9c/master/pass/Boyfriend_Giftguide.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "13bd2e7068c76b",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "What kids wish their parents knew about fun | Mila Rojas",
-      "summary": "When was the last time you played, just for fun? Eleven-year-old Mila Rojas has noticed that adults — buried under schedules, expectations and the pressure to be serious — often see play as unproductive. In…",
-      "url": "http://go.ted.com/milarojas",
-      "published": "2026-11-03T16:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ae8b9cd008b613dfe44544a/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "714ac9d7f5983d",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -245,19 +258,6 @@
       "url": "https://www.smithsonianmag.com/science-nature/the-bloody-palette-of-the-animal-kingdom-goes-far-beyond-red-these-creatures-have-blood-that-runs-a-chilling-blue-bright-green-or-milky-white-180989752/",
       "published": "2026-10-30T11:30:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d26ee12857658a",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The Hunger Games Red Carpet Fashion Through the Years",
-      "summary": "14 years of looks upon looks.",
-      "url": "https://www.teenvogue.com/story/the-hunger-games-red-carpet-fashion-through-the-years",
-      "published": "2026-10-29T15:50:26+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ae32d169795dd51cbf69323/master/pass/GettyImages-2302439176.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
