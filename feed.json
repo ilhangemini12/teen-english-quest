@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-11-10T22:22:22.519806+00:00",
+  "updated_at": "2026-11-11T12:42:45.678830+00:00",
   "items": [
+    {
+      "key": "a37c63f32da339",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Some video games offer mental-health benefits",
+      "summary": "The PlaySmart video game lowered teens’ symptoms of depression. This benefit was still there a year after they stopped playing the game.",
+      "url": "https://www.snexplores.org/article/video-games-help-mental-health",
+      "published": "2026-11-11T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1030_mantal_health_gaming_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "2302c3792eabbe",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The 25 Best Beauty Gifts You Can Find at Target",
+      "summary": "Cute and convenient!",
+      "url": "https://www.teenvogue.com/gallery/best-beauty-gifts-you-can-find-at-target",
+      "published": "2026-11-10T22:32:34+00:00",
+      "image": "https://assets.teenvogue.com/photos/6aee33d8b9f1782322ed3ee7/master/pass/Target.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "4a1f1e7f4106eb",
       "source": "Science News Explores",
@@ -11,19 +37,6 @@
       "url": "https://www.snexplores.org/article/underwater-robot-kelp-forests-jic",
       "published": "2026-11-10T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_Linden_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "313d856318f442",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Four T. rex footprints hint at how fast it traveled",
-      "summary": "Though poorly preserved, the prints suggest the dino ambled at 1.6 meters per second, roughly the speed of a human walking briskly.",
-      "url": "https://www.snexplores.org/article/footprints-how-fast-t-rex-walked",
-      "published": "2026-11-10T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/091726_EG_trex_main.jpeg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -116,19 +129,6 @@
       "published": "2026-11-07T16:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aece3957cfe82faa47eb757/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "2302c3792eabbe",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The 25 Best Beauty Gifts You Can Find at Target",
-      "summary": "Cute and convenient!",
-      "url": "https://www.teenvogue.com/gallery/best-beauty-gifts-you-can-find-at-target",
-      "published": "2026-11-06T20:12:32+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aee33d8b9f1782322ed3ee7/master/pass/Target.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
