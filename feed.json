@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-11T12:42:45.678830+00:00",
+  "updated_at": "2026-11-11T23:27:48.773488+00:00",
   "items": [
+    {
+      "key": "55c173376521e4",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to repair harm — in relationships and nations | Aria Florant",
+      "summary": "Aria Florant cofounded a nonprofit to help accelerate the reparations movement in the US … but less than a year in, her partnership with her own cofounder fell apart. Drawing on what brought the two of them…",
+      "url": "http://go.ted.com/ariaflorant",
+      "published": "2026-11-11T16:29:36+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af38974ac84158342c9ed3d/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "a37c63f32da339",
       "source": "Science News Explores",
@@ -116,19 +129,6 @@
       "published": "2026-11-08T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee46b760a59de70fef4385/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "d2cb19d44f95dd",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How to build the next wave of clean energy | Jennifer Granholm, Ryan Panchadsaram",
-      "summary": "Jennifer Granholm steered Michigan through the auto industry's near-collapse and later ran the US Department of Energy during the largest clean energy investment in the country's history. In conversation…",
-      "url": "http://go.ted.com/jennifergranholm",
-      "published": "2026-11-07T16:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aece3957cfe82faa47eb757/media.mp3",
       "transcript_url": ""
     },
     {
