@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-11-12T13:44:54.165062+00:00",
+  "updated_at": "2026-11-12T22:43:41.980814+00:00",
   "items": [
+    {
+      "key": "76ec74e81a66e2",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "14 Best Perfume Trends You'll Smell in Winter 2026, According to Experts: Cashmere, Vanilla Twists, & More",
+      "summary": "From milky bases to sparkling perfumes.",
+      "url": "https://www.teenvogue.com/story/best-perfume-trends-according-to-experts",
+      "published": "2026-11-12T16:00:02+00:00",
+      "image": "https://assets.teenvogue.com/photos/6792a306fa60e79f3ca49fc5/master/pass/Style_IPerfumeTrends_Jan2024_PROMO.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "179baa8e917321",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Amelia Dimoldenberg Wants You to Wear Her 'Chicken Shop Date' Outfits on Your Next One",
+      "summary": "The host is selling her closet on Depop today.",
+      "url": "https://www.teenvogue.com/story/amelia-dimoldenberg-wants-you-to-wear-her-chicken-shop-date-outfits-on-your-next-one",
+      "published": "2026-11-12T15:48:22+00:00",
+      "image": "https://assets.teenvogue.com/photos/6af5d9001b017ac6788eebe8/master/pass/Amelia_banner.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "6d6e4cb53534ee",
       "source": "Science News Explores",
@@ -119,32 +145,6 @@
       "transcript_url": ""
     },
     {
-      "key": "e712b31346c9a5",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Malia and Sasha Obama Style Trench Coats Two Very Different Ways",
-      "summary": "Both have great outfit formulas.",
-      "url": "https://www.teenvogue.com/story/malia-sasha-obama-style-trench-coats-two-very-different-ways",
-      "published": "2026-11-09T17:04:34+00:00",
-      "image": "https://assets.teenvogue.com/photos/6af1eeecb06f4f06fc5e1e03/master/pass/sasha_malia.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d854ed440f3313",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How to rewire your brain — and find your flow | Heather Berlin",
-      "summary": "When life gets uncertain, do you grip a little tighter? Neuroscientist Heather Berlin explores a surprising paradox: the harder you try to control everything, the more likely you are to get in your own way.…",
-      "url": "http://go.ted.com/heatherberlin",
-      "published": "2026-11-09T16:07:29+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af1eb82e0d89bd85412a56b/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "23c0b57c698ffd",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -155,6 +155,19 @@
       "published": "2026-11-08T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee46b760a59de70fef4385/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "d2cb19d44f95dd",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to build the next wave of clean energy | Jennifer Granholm, Ryan Panchadsaram",
+      "summary": "Jennifer Granholm steered Michigan through the auto industry's near-collapse and later ran the US Department of Energy during the largest clean energy investment in the country's history. In conversation…",
+      "url": "http://go.ted.com/jennifergranholm",
+      "published": "2026-11-07T16:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aece3957cfe82faa47eb757/media.mp3",
       "transcript_url": ""
     },
     {
@@ -206,19 +219,6 @@
       "url": "https://www.smithsonianmag.com/science-nature/hear-hear-to-long-ears-these-15-furry-photos-of-adorable-rabbits-and-hares-will-have-you-leaping-for-leporidae-180989824/",
       "published": "2026-11-06T12:00:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "94706f71db3441",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Rat Boi Founder Alexa Coughlin Wants to Help You Switch from Fast Fashion",
-      "summary": "The viral clothing brand is showing why sustainability and inclusivity aren't mutually exclusive.",
-      "url": "https://www.teenvogue.com/story/rat-boi-founder-alexa-coughlin-wants-you-to-help-you-switch-from-fast-fashion",
-      "published": "2026-11-05T20:32:22+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aecd1458b3c2db0c26b5d81/master/pass/final%20proto%20of%20our%20dream%20dress%20on%20alexa.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
