@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-13T13:05:48.212023+00:00",
+  "updated_at": "2026-11-13T22:36:16.582114+00:00",
   "items": [
+    {
+      "key": "06a3e08ac53eb9",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "65 Best Secret Santa Gifts Under $10 to $100 That Are Trendy, Cool, and Useful",
+      "summary": "We got everything from beauty to accessories, tech, and games starting at just $7.",
+      "url": "https://www.teenvogue.com/gallery/secret-santa-gift-ideas",
+      "published": "2026-11-13T20:01:09+00:00",
+      "image": "https://assets.teenvogue.com/photos/6af75a5b2628910fdb6f6c0a/master/pass/SecretSanta%20_gift%20guide%20(2).jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "3278ec49c2c0cd",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Could this ancient Greek idea make us better citizens? | Scott Reich",
+      "summary": "More than 2,000 years ago in ancient Athens, young citizens were required to complete “ephebeia,” a two-year civic service program that taught them the laws of the city and how to defend their democracy.…",
+      "url": "http://go.ted.com/ScottReich",
+      "published": "2026-11-13T15:59:51+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af5f82c43d8776fbbb21b35/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "29c8f716df6956",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "‘Yellowjackets’ Series Finale Soundtrack Will Feature ‘Surprising’ Needle Drops",
+      "summary": "The show's music supervisors unpack the most iconic musical moments of the buzziest teen cannibal drama.",
+      "url": "https://www.teenvogue.com/story/how-yellowjackets-created-its-killer-90s-music-moments",
+      "published": "2026-11-13T14:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/68ece153f17b811941736353/master/pass/Yellowjackets_310_DS_1017_0290_RT.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "35478cb778fa89",
       "source": "Science News Explores",
@@ -93,19 +132,6 @@
       "transcript_url": ""
     },
     {
-      "key": "2302c3792eabbe",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The 25 Best Beauty Gifts You Can Find at Target",
-      "summary": "Cute and convenient!",
-      "url": "https://www.teenvogue.com/gallery/best-beauty-gifts-you-can-find-at-target",
-      "published": "2026-11-10T22:32:34+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aee33d8b9f1782322ed3ee7/master/pass/Target.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "4a1f1e7f4106eb",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -129,19 +155,6 @@
       "published": "2026-11-10T11:14:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pm8f16.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "e93757eb31c925",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Why Do We Talk About Fanfiction Like It’s an Addiction?",
-      "summary": "We treat reading books as a habit and reading fanfiction as a behavior.",
-      "url": "https://www.teenvogue.com/story/why-do-we-talk-about-fanfiction-like-its-an-addiction-op-ed",
-      "published": "2026-11-09T20:45:04+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac7aeabde9bd96d984963eb/master/pass/Fanfiction_webheader.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -259,19 +272,6 @@
       "published": "2026-11-02T09:35:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pktlvh.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "eba8cd185ea5aa",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Zombie roaches and other parasite tales | Ed Yong (re-release)",
-      "summary": "In this fascinating, hilarious and ever-so-slightly creepy talk, science writer Ed Yong tells the story of his favorite parasites -- animals and organisms that live on the bodies (and brains!) of other…",
-      "url": "https://audiocollective.ted.com/",
-      "published": "2026-10-31T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad667bb98b58b8b524628ec/media.mp3",
       "transcript_url": ""
     },
     {
