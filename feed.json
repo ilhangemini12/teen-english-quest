@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T12:10:10.598784+00:00",
+  "updated_at": "2026-11-14T21:28:36.364912+00:00",
   "items": [
     {
       "key": "06a3e08ac53eb9",
@@ -103,19 +103,6 @@
       "published": "2026-11-12T09:59:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pmkqml.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "55c173376521e4",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How to repair harm — in relationships and nations | Aria Florant",
-      "summary": "Aria Florant cofounded a nonprofit to help accelerate the reparations movement in the US … but less than a year in, her partnership with her own cofounder fell apart. Drawing on what brought the two of them…",
-      "url": "http://go.ted.com/ariaflorant",
-      "published": "2026-11-11T16:29:36+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af38974ac84158342c9ed3d/media.mp3",
       "transcript_url": ""
     },
     {
@@ -259,6 +246,19 @@
       "published": "2026-11-02T09:35:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pktlvh.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "806d6b9f73427b",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
+      "summary": "After a mysterious wave of tics and twitches swept through a small-town high school in New York, documentary podcaster Dan Taberski set out to investigate what was really happening. Drawing on extensive…",
+      "url": "http://go.ted.com/dantaberski",
+      "published": "2026-10-31T15:02:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad66ac598b58b8b524628ee/media.mp3",
       "transcript_url": ""
     },
     {
