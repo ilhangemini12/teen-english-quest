@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T22:36:16.582114+00:00",
+  "updated_at": "2026-11-14T12:10:10.598784+00:00",
   "items": [
     {
       "key": "06a3e08ac53eb9",
@@ -236,19 +236,6 @@
       "transcript_url": ""
     },
     {
-      "key": "d6e9fee99d294f",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Hear, Hear to Long Ears: These 15 Furry Photos of Adorable Rabbits and Hares Will Have You Leaping for Leporidae",
-      "summary": "The images from Smithsonian Magazine Photo Contest show the mammalian species and their twitching noses at their cutest",
-      "url": "https://www.smithsonianmag.com/science-nature/hear-hear-to-long-ears-these-15-furry-photos-of-adorable-rabbits-and-hares-will-have-you-leaping-for-leporidae-180989824/",
-      "published": "2026-11-06T12:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "714ac9d7f5983d",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -386,6 +373,19 @@
       "title": "NEO Surveyor’s Sunshade Gets Inspected",
       "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor is mounted on an assembly ring during inspections in a clean room at BAE Systems Space & Mission Systems in Boulder, Colorado, in…",
       "url": "https://science.nasa.gov/photojournal/neo-surveyors-sunshade-gets-inspected/",
+      "published": "2026-10-26T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "580f82cf462630",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Solar Cells Inspected on NASA’s NEO Surveyor",
+      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor mission is inspected by a technician at BAE Systems Space & Mission Systems in Boulder, Colorado, in late July. Built by Applied…",
+      "url": "https://science.nasa.gov/photojournal/solar-cells-inspected-on-nasas-neo-surveyor/",
       "published": "2026-10-26T00:00:00+00:00",
       "image": "",
       "audio_url": "",
