@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-14T21:28:36.364912+00:00",
+  "updated_at": "2026-11-15T12:43:14.288189+00:00",
   "items": [
+    {
+      "key": "82c73dad9dbdde",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Sunday Pick: How to challenge your self-limiting beliefs with Shawn Achor | from ReThinking with Adam Grant",
+      "summary": "Your beliefs about yourself and the world have a big impact on your mental health, relationships, and success. As a positive psychology evangelist, Shawn Achor has spent his career studying how to challenge…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-11-15T07:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee1ada1ad1a30ae5d0bb39/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "06a3e08ac53eb9",
       "source": "Teen Vogue",
@@ -246,19 +259,6 @@
       "published": "2026-11-02T09:35:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pktlvh.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "806d6b9f73427b",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
-      "summary": "After a mysterious wave of tics and twitches swept through a small-town high school in New York, documentary podcaster Dan Taberski set out to investigate what was really happening. Drawing on extensive…",
-      "url": "http://go.ted.com/dantaberski",
-      "published": "2026-10-31T15:02:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6ad66ac598b58b8b524628ee/media.mp3",
       "transcript_url": ""
     },
     {
