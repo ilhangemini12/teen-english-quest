@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T12:43:14.288189+00:00",
+  "updated_at": "2026-11-15T21:47:50.694702+00:00",
   "items": [
     {
       "key": "82c73dad9dbdde",
@@ -80,19 +80,6 @@
       "transcript_url": ""
     },
     {
-      "key": "179baa8e917321",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Amelia Dimoldenberg Wants You to Wear Her 'Chicken Shop Date' Outfits on Your Next One",
-      "summary": "The host is selling her closet on Depop today.",
-      "url": "https://www.teenvogue.com/story/amelia-dimoldenberg-wants-you-to-wear-her-chicken-shop-date-outfits-on-your-next-one",
-      "published": "2026-11-12T15:48:22+00:00",
-      "image": "https://assets.teenvogue.com/photos/6af5d9001b017ac6788eebe8/master/pass/Amelia_banner.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "6d6e4cb53534ee",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -116,6 +103,19 @@
       "published": "2026-11-12T09:59:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pmkqml.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "55c173376521e4",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to repair harm — in relationships and nations | Aria Florant",
+      "summary": "Aria Florant cofounded a nonprofit to help accelerate the reparations movement in the US … but less than a year in, her partnership with her own cofounder fell apart. Drawing on what brought the two of them…",
+      "url": "http://go.ted.com/ariaflorant",
+      "published": "2026-11-11T16:29:36+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af38974ac84158342c9ed3d/media.mp3",
       "transcript_url": ""
     },
     {
@@ -158,6 +158,19 @@
       "transcript_url": ""
     },
     {
+      "key": "e93757eb31c925",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Why Do We Talk About Fanfiction Like It’s an Addiction?",
+      "summary": "We treat reading books as a habit and reading fanfiction as a behavior.",
+      "url": "https://www.teenvogue.com/story/why-do-we-talk-about-fanfiction-like-its-an-addiction-op-ed",
+      "published": "2026-11-09T20:45:04+00:00",
+      "image": "https://assets.teenvogue.com/photos/6ac7aeabde9bd96d984963eb/master/pass/Fanfiction_webheader.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "87934cf4b6990a",
       "source": "Science News Explores",
       "category": "Science & Tech",
@@ -181,19 +194,6 @@
       "published": "2026-11-08T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee46b760a59de70fef4385/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "d2cb19d44f95dd",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How to build the next wave of clean energy | Jennifer Granholm, Ryan Panchadsaram",
-      "summary": "Jennifer Granholm steered Michigan through the auto industry's near-collapse and later ran the US Department of Energy during the largest clean energy investment in the country's history. In conversation…",
-      "url": "http://go.ted.com/jennifergranholm",
-      "published": "2026-11-07T16:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aece3957cfe82faa47eb757/media.mp3",
       "transcript_url": ""
     },
     {
