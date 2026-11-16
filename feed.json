@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-15T21:47:50.694702+00:00",
+  "updated_at": "2026-11-16T13:37:35.054425+00:00",
   "items": [
+    {
+      "key": "5ff205f79ae728",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Grammys 2027 Nominations Live Updates: See the Full List of Nominees for Music's Biggest Night",
+      "summary": "Did your fave make the cut?",
+      "url": "https://www.teenvogue.com/story/grammys-2027-nominations-see-the-full-list",
+      "published": "2026-11-16T13:35:38+00:00",
+      "image": "https://assets.teenvogue.com/photos/6af76ad66fe3d0808dfe324a/master/pass/2247565898",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "80ab89cf063f43",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Several types of black holes exist. Here’s how they differ",
+      "summary": "These mysterious objects, which scientists have sorted into four different varieties, continue to challenge our understanding of the universe.",
+      "url": "https://www.snexplores.org/article/types-of-black-holes",
+      "published": "2026-11-16T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/072126_LG_black-holes_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "e950c6cfff9ddd",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Pronouncing words that start with ‘c’",
+      "summary": "Listen out for words that begin with the /s/ sound but start with the letter 'c'. Visit our website ✔️ https://www.bbc.co.uk/learningenglish Follow us ✔️ https://www.bbc.co.uk/learningenglish/followus WATCH…",
+      "url": "http://www.bbc.co.uk/programmes/p0pn744v",
+      "published": "2026-11-16T09:31:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pn7426.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "82c73dad9dbdde",
       "source": "TED Talks Daily",
@@ -63,19 +102,6 @@
       "url": "https://www.snexplores.org/article/how-brain-eating-amoebas-infect",
       "published": "2026-11-13T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_amoeba_main_rev.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "76ec74e81a66e2",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "14 Best Perfume Trends You'll Smell in Winter 2026, According to Experts: Cashmere, Vanilla Twists, & More",
-      "summary": "From milky bases to sparkling perfumes.",
-      "url": "https://www.teenvogue.com/story/best-perfume-trends-according-to-experts",
-      "published": "2026-11-12T16:00:02+00:00",
-      "image": "https://assets.teenvogue.com/photos/6792a306fa60e79f3ca49fc5/master/pass/Style_IPerfumeTrends_Jan2024_PROMO.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -171,19 +197,6 @@
       "transcript_url": ""
     },
     {
-      "key": "87934cf4b6990a",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Seals long ago evolved to hear above the water — and below",
-      "summary": "Spongy tissue that fills with blood makes this possible, show X-ray scans of hundreds of ears from seals and other animals.",
-      "url": "https://www.snexplores.org/article/seal-ears-hearing-air-underwater",
-      "published": "2026-11-09T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/071726_MH_pinniped-hearing_main.jpeg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "23c0b57c698ffd",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -246,19 +259,6 @@
       "published": "2026-11-03T10:27:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pl0lbt.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "f82879909c2c9f",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Phrasal verbs and context",
-      "summary": "Learn phrasal verbs in sentences to help understand their meanings. FIND BBC LEARNING ENGLISH HERE: Visit our website ✔️ https://www.bbc.co.uk/learningenglish Follow us ✔️…",
-      "url": "http://www.bbc.co.uk/programmes/p0pktlyz",
-      "published": "2026-11-02T09:35:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pktlvh.mp3",
       "transcript_url": ""
     },
     {
