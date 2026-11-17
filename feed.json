@@ -1,15 +1,67 @@
 {
-  "updated_at": "2026-11-16T13:37:35.054425+00:00",
+  "updated_at": "2026-11-17T00:47:57.511255+00:00",
   "items": [
     {
-      "key": "5ff205f79ae728",
+      "key": "0b4fbe58d11a58",
       "source": "Teen Vogue",
       "category": "Style & Trends",
       "emoji": "✨",
-      "title": "Grammys 2027 Nominations Live Updates: See the Full List of Nominees for Music's Biggest Night",
+      "title": "13 Shoe Trends to Step Up Your Style in Winter 2026: Slouchy Boots, Wedge Sneakers, & More",
+      "summary": "Slouchy Boots, wedge sneakers, and more.",
+      "url": "https://www.teenvogue.com/story/shoe-trends-to-elevate-style",
+      "published": "2026-11-16T21:09:52+00:00",
+      "image": "https://assets.teenvogue.com/photos/6a7f85ec47888470ab51807b/master/pass/2203438897",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "036b57ed9a7b2f",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "What you hear when you stop talking | John Lloyd",
+      "summary": "Scientists have estimated how many colors we can see and how many scents we can smell … but director John Lloyd can’t find anyone who has counted how many sounds we can hear. Drawing on a legendary career…",
+      "url": "http://go.ted.com/JohnLloyd",
+      "published": "2026-11-16T15:47:13+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af7358772c084b0516a29b5/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "3e84b6d925fba6",
+      "source": "Smithsonian Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎨",
+      "title": "The Intricate Textile Designs of William Morris Bring Into Conflict the Concepts of Art and Accessibility",
+      "summary": "The 19th-century craftsman extolled the universal right to beauty. The problem was that his handmade items were necessarily expensive",
+      "url": "https://www.smithsonianmag.com/arts-culture/intricate-textile-designs-william-morris-bring-conflict-concepts-art-accessibility-180989837/",
+      "published": "2026-11-16T15:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "3684ea7cfddd88",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Abyssal Zone",
+      "summary": "This layer of the ocean lies far out of reach of sunlight. Yet, life still thrives.",
+      "url": "https://www.snexplores.org/article/scientists-say-abyssal-zone-definition-pronunciation",
+      "published": "2026-11-16T14:04:15+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_SS_abyssal_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "b204a20a7b94b3",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Grammys 2027 Nominations: See the Full List of Nominees for Music's Biggest Night",
       "summary": "Did your fave make the cut?",
       "url": "https://www.teenvogue.com/story/grammys-2027-nominations-see-the-full-list",
-      "published": "2026-11-16T13:35:38+00:00",
+      "published": "2026-11-16T13:55:32+00:00",
       "image": "https://assets.teenvogue.com/photos/6af76ad66fe3d0808dfe324a/master/pass/2247565898",
       "audio_url": "",
       "transcript_url": ""
@@ -38,6 +90,32 @@
       "published": "2026-11-16T09:31:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pn7426.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "cf15e8cbac60f9",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "A Collage Showing 49 Drill Holes Made by NASA’s Curiosity Mars Rover",
+      "summary": "Description This collage shows 49 drill holes captured by NASA’s Curiosity Mars rover as of November 2026. Each hole represents a sample collected from rocks on the Martian surface; Curiosity’s drill,…",
+      "url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/",
+      "published": "2026-11-16T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "a1191657e50c6b",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Sentinel-6B in Orbit Around Earth",
+      "summary": "Description This artist’s concept shows the Sentinel-6B satellite, which will become the reference satellite for other missions studying sea surface height.",
+      "url": "https://science.nasa.gov/photojournal/sentinel-6b-in-orbit-around-earth/",
+      "published": "2026-11-16T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -106,19 +184,6 @@
       "transcript_url": ""
     },
     {
-      "key": "6d6e4cb53534ee",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Ocean cold snaps can imperil sea turtles. Rescuers can help",
-      "summary": "Climate-driven ocean changes are stranding thousands of sea turtles on beaches, too cold to swim or eat. Special hospitals give some a fighting chance.",
-      "url": "https://www.snexplores.org/article/cold-sea-turtles-rescue",
-      "published": "2026-11-12T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_cold_stunned_sea_turtles_Franklin_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "782b9768c2e48e",
       "source": "BBC 6 Minute English",
       "category": "British English",
@@ -129,19 +194,6 @@
       "published": "2026-11-12T09:59:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pmkqml.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "55c173376521e4",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "How to repair harm — in relationships and nations | Aria Florant",
-      "summary": "Aria Florant cofounded a nonprofit to help accelerate the reparations movement in the US … but less than a year in, her partnership with her own cofounder fell apart. Drawing on what brought the two of them…",
-      "url": "http://go.ted.com/ariaflorant",
-      "published": "2026-11-11T16:29:36+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af38974ac84158342c9ed3d/media.mp3",
       "transcript_url": ""
     },
     {
@@ -181,19 +233,6 @@
       "published": "2026-11-10T11:14:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pm8f16.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "e93757eb31c925",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Why Do We Talk About Fanfiction Like It’s an Addiction?",
-      "summary": "We treat reading books as a habit and reading fanfiction as a behavior.",
-      "url": "https://www.teenvogue.com/story/why-do-we-talk-about-fanfiction-like-its-an-addiction-op-ed",
-      "published": "2026-11-09T20:45:04+00:00",
-      "image": "https://assets.teenvogue.com/photos/6ac7aeabde9bd96d984963eb/master/pass/Fanfiction_webheader.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -360,32 +399,6 @@
       "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
       "summary": "Description This 360-degree look at Neretva Vallis within Mars’ Jezero Crater was stitched together using 217 images acquired by the rover’s Mastcam-Z on May 20, 2024, the 1,155th Martian day, or sol, of…",
       "url": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "a178ebf463b642",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NEO Surveyor’s Sunshade Gets Inspected",
-      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor is mounted on an assembly ring during inspections in a clean room at BAE Systems Space & Mission Systems in Boulder, Colorado, in…",
-      "url": "https://science.nasa.gov/photojournal/neo-surveyors-sunshade-gets-inspected/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "580f82cf462630",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Solar Cells Inspected on NASA’s NEO Surveyor",
-      "summary": "Description The large sunshade of NASA’s Near-Earth Object (NEO) Surveyor mission is inspected by a technician at BAE Systems Space & Mission Systems in Boulder, Colorado, in late July. Built by Applied…",
-      "url": "https://science.nasa.gov/photojournal/solar-cells-inspected-on-nasas-neo-surveyor/",
       "published": "2026-10-26T00:00:00+00:00",
       "image": "",
       "audio_url": "",
@@ -586,19 +599,6 @@
       "published": "2025-03-14T21:17:21+00:00",
       "image": "",
       "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/14/248e5f96-0793-49c1-35e2-08dd5c897904.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "bc25905d4eb725",
-      "source": "VOA Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎬",
-      "title": "The Most Famous Home in America: The White House",
-      "summary": "",
-      "url": "https://learningenglish.voanews.com/a/8007352.html",
-      "published": "2025-03-12T13:46:29+00:00",
-      "image": "",
-      "audio_url": "https://voa-audio.voanews.eu/vle/2025/03/11/1088dc2a-d047-4ebb-0607-08dd5c8b1668.mp3",
       "transcript_url": ""
     },
     {
