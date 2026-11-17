@@ -1,16 +1,42 @@
 {
-  "updated_at": "2026-11-17T00:47:57.511255+00:00",
+  "updated_at": "2026-11-17T14:22:16.857145+00:00",
   "items": [
     {
-      "key": "0b4fbe58d11a58",
+      "key": "9ae50d73e3d549",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "The English We Speak: In for a treat",
+      "summary": "This expression is about experiencing something enjoyable. Get your free transcript of this episode so you can read along here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0pndtpr",
+      "published": "2026-11-17T12:21:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pndt26.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "8d94cc8cdccd31",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Experiment: Construct and test paper rockets",
+      "summary": "Ready for take-off? Build your own rockets with paper, tape and straws. Then, take a deep breath and launch them with your lungs!",
+      "url": "https://www.snexplores.org/article/paper-rocket-experiment-build-test",
+      "published": "2026-11-17T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_paper_rocket_experiment_feat.gif?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "f92095bcd6111c",
       "source": "Teen Vogue",
       "category": "Style & Trends",
       "emoji": "✨",
-      "title": "13 Shoe Trends to Step Up Your Style in Winter 2026: Slouchy Boots, Wedge Sneakers, & More",
-      "summary": "Slouchy Boots, wedge sneakers, and more.",
-      "url": "https://www.teenvogue.com/story/shoe-trends-to-elevate-style",
-      "published": "2026-11-16T21:09:52+00:00",
-      "image": "https://assets.teenvogue.com/photos/6a7f85ec47888470ab51807b/master/pass/2203438897",
+      "title": "Hunger Games Red Carpet Fashion: From 2012 to 2026",
+      "summary": "14 years of looks upon looks.",
+      "url": "https://www.teenvogue.com/story/the-hunger-games-red-carpet-fashion-through-the-years",
+      "published": "2026-11-17T00:56:24+00:00",
+      "image": "https://assets.teenvogue.com/photos/6afba34cec8ce6ca99c9d880/master/pass/2305445988",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -63,19 +89,6 @@
       "url": "https://www.teenvogue.com/story/grammys-2027-nominations-see-the-full-list",
       "published": "2026-11-16T13:55:32+00:00",
       "image": "https://assets.teenvogue.com/photos/6af76ad66fe3d0808dfe324a/master/pass/2247565898",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "80ab89cf063f43",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Several types of black holes exist. Here’s how they differ",
-      "summary": "These mysterious objects, which scientists have sorted into four different varieties, continue to challenge our understanding of the universe.",
-      "url": "https://www.snexplores.org/article/types-of-black-holes",
-      "published": "2026-11-16T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/072126_LG_black-holes_main.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -363,19 +376,6 @@
       "published": "2026-10-28T11:00:00+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "ea435dd41896a0",
-      "source": "BBC Learning English Conversations",
-      "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: In the same breath",
-      "summary": "If you express two ideas using 'in the same breath', you contrast them both and add weight to one. It's used to introduce a contradiction. Though the ideas are different, both could be true, but the latter…",
-      "url": "http://www.bbc.co.uk/programmes/p0pjsn8m",
-      "published": "2026-10-27T09:45:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjsmsb.mp3",
       "transcript_url": ""
     },
     {
