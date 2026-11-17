@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-11-17T14:22:16.857145+00:00",
+  "updated_at": "2026-11-17T23:51:12.986651+00:00",
   "items": [
+    {
+      "key": "dcc63a4b85722a",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Carter Faith’s ‘Sunrise on the Reaping’ Premiere Look Is an Homage to the Mockingjay",
+      "summary": "The country star breaks down the details of her Hunger Games premiere fit.",
+      "url": "https://www.teenvogue.com/story/carter-faith-sunrise-on-the-reaping-premiere-look-grwm",
+      "published": "2026-11-17T20:12:16+00:00",
+      "image": "https://assets.teenvogue.com/photos/6afca1d924fe3d6c4e47678d/master/pass/5.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "288d901df4d41c",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "My search for proof aliens exist | Avi Loeb (re-release)",
+      "summary": "Why have we not yet found proof of alien life? According to astrophysicist Avi Loeb, we simply haven't dedicated the proper resources. Diving into unidentified phenomena such as the Oumuamua asteroid, he…",
+      "url": "http://go.ted.com/AviLoeb",
+      "published": "2026-11-17T15:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6afb5767f1fb73f380bc6633/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "9ae50d73e3d549",
       "source": "BBC Learning English Conversations",
@@ -158,19 +184,6 @@
       "transcript_url": ""
     },
     {
-      "key": "3278ec49c2c0cd",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Could this ancient Greek idea make us better citizens? | Scott Reich",
-      "summary": "More than 2,000 years ago in ancient Athens, young citizens were required to complete “ephebeia,” a two-year civic service program that taught them the laws of the city and how to defend their democracy.…",
-      "url": "http://go.ted.com/ScottReich",
-      "published": "2026-11-13T15:59:51+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af5f82c43d8776fbbb21b35/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "29c8f716df6956",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -259,19 +272,6 @@
       "published": "2026-11-08T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee46b760a59de70fef4385/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "6c1d225ae684fd",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "The 41 Best Gifts for Teen Boys That They'll Actually Use",
-      "summary": "From outfit staples to fan-favorite games.",
-      "url": "https://www.teenvogue.com/gallery/best-gifts-for-teen-boys",
-      "published": "2026-11-06T17:27:34+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aedf8a652fdcc8c6fedb345/master/pass/giftguide-teenboys.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
