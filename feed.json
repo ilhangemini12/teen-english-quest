@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-18T13:56:38.776142+00:00",
+  "updated_at": "2026-11-18T23:23:06.282682+00:00",
   "items": [
+    {
+      "key": "e94ff2cadaa869",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "The “godfather of AI” on the risks that worry him most | Geoffrey Hinton",
+      "summary": "Geoffrey Hinton helped create the neural networks behind today’s AI, won a Nobel Prize for it — and has spent the years since warning about where it’s headed. In conversation with journalist Nicholas…",
+      "url": "http://go.ted.com/GeoffreyHinton",
+      "published": "2026-11-18T21:46:01+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6afc7f5d22c8b5ded545df81/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "09a6434adb3813",
       "source": "Science News Explores",
@@ -272,19 +285,6 @@
       "published": "2026-11-08T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee46b760a59de70fef4385/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "20e2cdd63e6f74",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "The surprising beauty of mosquitos | Felix Hol",
-      "summary": "Most people hate mosquitoes, but biotechnologist and TED Fellow Felix Hol thinks they're beautiful. He takes us inside his lab, where his team developed some unusual ways to study how these blood-sucking…",
-      "url": "http://go.ted.com/felixhol",
-      "published": "2026-11-06T16:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aedf666225208a74da728d2/media.mp3",
       "transcript_url": ""
     },
     {
