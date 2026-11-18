@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-17T23:51:12.986651+00:00",
+  "updated_at": "2026-11-18T13:56:38.776142+00:00",
   "items": [
+    {
+      "key": "09a6434adb3813",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "A new flying drone uses touch to perch like a bird",
+      "summary": "The drone's human-inspired fingers use touch to get a grip. This avoids some obstacles that come with relying on vision to perch.",
+      "url": "https://www.snexplores.org/article/flying-drone-perch-like-bird",
+      "published": "2026-11-18T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_soft_drone_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "dcc63a4b85722a",
       "source": "Teen Vogue",
@@ -38,19 +51,6 @@
       "published": "2026-11-17T12:21:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pndt26.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "8d94cc8cdccd31",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Experiment: Construct and test paper rockets",
-      "summary": "Ready for take-off? Build your own rockets with paper, tape and straws. Then, take a deep breath and launch them with your lungs!",
-      "url": "https://www.snexplores.org/article/paper-rocket-experiment-build-test",
-      "published": "2026-11-17T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_paper_rocket_experiment_feat.gif?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
