@@ -1,6 +1,45 @@
 {
-  "updated_at": "2026-11-19T14:24:56.456914+00:00",
+  "updated_at": "2026-11-19T23:35:00.102300+00:00",
   "items": [
+    {
+      "key": "d2da450a36d590",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "How Mckenna Grace Hid Braids in Her Hair for Hunger Games Fans to Find",
+      "summary": "Hairstylist Glen Coco shared all the deets.",
+      "url": "https://www.teenvogue.com/story/mckenna-grace-hid-braids-in-hair-for-hunger-games-fans-to-find",
+      "published": "2026-11-19T21:51:52+00:00",
+      "image": "https://assets.teenvogue.com/photos/6aff6e5806e4f08c23b01c4a/master/pass/2305471563",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "55137df594d9df",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "37 Trendy Picks to Shop at the Nordstrom Black Friday Sale 2026: $100 Birkenstocks, $70 Uggs, & Fleece Under $50",
+      "summary": "Starting today!",
+      "url": "https://www.teenvogue.com/story/nordstrom-sale-best-trendy-fashion-picks",
+      "published": "2026-11-19T21:02:49+00:00",
+      "image": "https://assets.teenvogue.com/photos/6aece55d08f109d4ca225d47/master/pass/puma_ballet-blackfriday.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "0d7e8fe192ce1f",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "A letter to the end of time | Lau Noah",
+      "summary": "You’ve likely never met composer Lau Noah, but she has a wish for you: that someday you’ll look back on your life and feel at peace. In a soulful performance that’s part concert, part story hour, she weaves…",
+      "url": "http://go.ted.com/launoah",
+      "published": "2026-11-19T16:56:31+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aff1debc1a867006b449928/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "2666ad003c2441",
       "source": "Science News Explores",
@@ -25,19 +64,6 @@
       "published": "2026-11-19T10:07:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pnsz8p.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "1595e9e271edd6",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Exclusive: F1 Academy Is Coming to Apple TV in 2027",
-      "summary": "F1 Academy’s managing director Susie Wolff and Emma Felbermayr explain how the partnership could shift the sport for women drivers.",
-      "url": "https://www.teenvogue.com/story/exclusive-f1-academy-is-coming-to-apple-tv-in-2027",
-      "published": "2026-11-19T04:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6afe61c3ae9c681c5b1d4133/master/pass/GettyImages-2301845510.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -119,19 +145,6 @@
       "transcript_url": ""
     },
     {
-      "key": "036b57ed9a7b2f",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "What you hear when you stop talking | John Lloyd",
-      "summary": "Scientists have estimated how many colors we can see and how many scents we can smell … but director John Lloyd can’t find anyone who has counted how many sounds we can hear. Drawing on a legendary career…",
-      "url": "http://go.ted.com/JohnLloyd",
-      "published": "2026-11-16T15:47:13+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6af7358772c084b0516a29b5/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "3e84b6d925fba6",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -206,19 +219,6 @@
       "url": "https://www.teenvogue.com/gallery/secret-santa-gift-ideas",
       "published": "2026-11-13T20:01:09+00:00",
       "image": "https://assets.teenvogue.com/photos/6af75a5b2628910fdb6f6c0a/master/pass/SecretSanta%20_gift%20guide%20(2).jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "29c8f716df6956",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "‘Yellowjackets’ Series Finale Soundtrack Will Feature ‘Surprising’ Needle Drops",
-      "summary": "The show's music supervisors unpack the most iconic musical moments of the buzziest teen cannibal drama.",
-      "url": "https://www.teenvogue.com/story/how-yellowjackets-created-its-killer-90s-music-moments",
-      "published": "2026-11-13T14:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/68ece153f17b811941736353/master/pass/Yellowjackets_310_DS_1017_0290_RT.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
