@@ -1,6 +1,32 @@
 {
-  "updated_at": "2026-11-19T23:35:00.102300+00:00",
+  "updated_at": "2026-11-20T13:59:54.049857+00:00",
   "items": [
+    {
+      "key": "ed6dcdb7e3fd06",
+      "source": "Smithsonian Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎨",
+      "title": "These 15 Shots From the Smithsonian Magazine Photo Contest Capture Radiant Roses From All Angles and Colors",
+      "summary": "Respect the beauty of the stunning flower, which, as Shakespeare wrote, by any other name would smell as sweet",
+      "url": "https://www.smithsonianmag.com/arts-culture/these-15-shots-from-the-smithsonian-magazine-photo-contest-capture-radiant-roses-from-all-angles-and-colors-180989908/",
+      "published": "2026-11-20T12:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "1b103c73484780",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Meet Swiftiephylus, a group of insects named after Taylor Swift",
+      "summary": "Four newly described species of Australian plant bug have been named in honor of world-famous pop star Taylor Swift.",
+      "url": "https://www.snexplores.org/article/new-taylor-swift-insects",
+      "published": "2026-11-20T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/091126_JB_tswift-bug_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "d2da450a36d590",
       "source": "Teen Vogue",
@@ -77,19 +103,6 @@
       "published": "2026-11-18T21:46:01+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6afc7f5d22c8b5ded545df81/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "09a6434adb3813",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "A new flying drone uses touch to perch like a bird",
-      "summary": "The drone's human-inspired fingers use touch to get a grip. This avoids some obstacles that come with relying on vision to perch.",
-      "url": "https://www.snexplores.org/article/flying-drone-perch-like-bird",
-      "published": "2026-11-18T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_soft_drone_feat.jpg?w=800",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -233,19 +246,6 @@
       "published": "2026-11-13T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_amoeba_main_rev.jpg?w=800",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "782b9768c2e48e",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "Learning from different generations",
-      "summary": "When you were younger, did you have a special bond with your grandparents? Many of us develop particularly close attachments with older family members, but did you know that this ability for the oldest and…",
-      "url": "http://www.bbc.co.uk/programmes/p0pmkr5c",
-      "published": "2026-11-12T09:59:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pmkqml.mp3",
       "transcript_url": ""
     },
     {
@@ -457,19 +457,6 @@
       "transcript_url": ""
     },
     {
-      "key": "0a9fbcd7243ffe",
-      "source": "Smithsonian Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎨",
-      "title": "Celebrate Indigenous Peoples’ Day With These 15 Dramatic Images of the Rich, Enduring Traditions of Native Americans",
-      "summary": "These photographs from the Smithsonian Magazine Photo Contest showcase Native Americans taking part in their respective tribal customs",
-      "url": "https://www.smithsonianmag.com/arts-culture/celebrate-indigenous-peoples-day-with-these-15-dramatic-images-of-the-rich-enduring-traditions-of-native-americans-180989662/",
-      "published": "2026-10-09T15:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "22200bbbf60871",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -506,6 +493,19 @@
       "published": "2026-09-21T08:09:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "087292ff8a2237",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "How do we describe smells?",
+      "summary": "What is the worst smell in the world? And what is the best smell? Are there any smells that you like, but that your friends or family hate? Smells are all around us all the time, but the English language is…",
+      "url": "http://www.bbc.co.uk/programmes/p0p6j3xx",
+      "published": "2026-08-27T09:16:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p6j2hz.mp3",
       "transcript_url": ""
     },
     {
