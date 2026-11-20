@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-20T13:59:54.049857+00:00",
+  "updated_at": "2026-11-20T23:04:55.819824+00:00",
   "items": [
+    {
+      "key": "481b4c5cce0f7c",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Who should profit when AI comes to town? | Brian Janous",
+      "summary": "AI data centers are popping up across the US — and the people living next to them are increasingly upset. Brian Janous, whose company finds land for some of the biggest data centers, hears those objections…",
+      "url": "http://go.ted.com/BrianJanous",
+      "published": "2026-11-20T16:22:04+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6afdeb0309ab149ef043dc8e/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "ed6dcdb7e3fd06",
       "source": "Smithsonian Arts & Culture",
@@ -24,6 +37,19 @@
       "url": "https://www.snexplores.org/article/new-taylor-swift-insects",
       "published": "2026-11-20T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/091126_JB_tswift-bug_feat.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "a20223533ccd7b",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "Curiosity Spots Drifting Twilight Clouds",
+      "summary": "Description NASA’s Curiosity Mars rover captured these drifting clouds on Oct. 31, 2026, the 5,061st Martian day, or sol, of the mission. The rover uses its navigation cameras to capture post-sunset clouds,…",
+      "url": "https://science.nasa.gov/photojournal/curiosity-spots-drifting-twilight-clouds/",
+      "published": "2026-11-20T00:00:00+00:00",
+      "image": "",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -116,19 +142,6 @@
       "published": "2026-11-17T20:12:16+00:00",
       "image": "https://assets.teenvogue.com/photos/6afca1d924fe3d6c4e47678d/master/pass/5.jpg",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "288d901df4d41c",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "My search for proof aliens exist | Avi Loeb (re-release)",
-      "summary": "Why have we not yet found proof of alien life? According to astrophysicist Avi Loeb, we simply haven't dedicated the proper resources. Diving into unidentified phenomena such as the Oumuamua asteroid, he…",
-      "url": "http://go.ted.com/AviLoeb",
-      "published": "2026-11-17T15:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6afb5767f1fb73f380bc6633/media.mp3",
       "transcript_url": ""
     },
     {
@@ -402,19 +415,6 @@
       "published": "2026-10-26T09:56:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjn0b3.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "6f2f0a8bca9251",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
-      "summary": "Description This 360-degree look at Neretva Vallis within Mars’ Jezero Crater was stitched together using 217 images acquired by the rover’s Mastcam-Z on May 20, 2024, the 1,155th Martian day, or sol, of…",
-      "url": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
-      "published": "2026-10-26T00:00:00+00:00",
-      "image": "",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
