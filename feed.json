@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T13:27:39.072317+00:00",
+  "updated_at": "2026-11-21T22:10:59.338380+00:00",
   "items": [
     {
       "key": "62337e69d88bc4",
@@ -132,6 +132,19 @@
       "transcript_url": ""
     },
     {
+      "key": "1595e9e271edd6",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Exclusive: F1 Academy Is Coming to Apple TV in 2027",
+      "summary": "F1 Academy’s managing director Susie Wolff and Emma Felbermayr explain how the partnership could shift the sport for women drivers.",
+      "url": "https://www.teenvogue.com/story/exclusive-f1-academy-is-coming-to-apple-tv-in-2027",
+      "published": "2026-11-19T04:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6afe61c3ae9c681c5b1d4133/master/pass/GettyImages-2301845510.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "dcc63a4b85722a",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -246,19 +259,6 @@
       "published": "2026-11-15T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee1ada1ad1a30ae5d0bb39/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "06a3e08ac53eb9",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "65 Best Secret Santa Gifts Under $10 to $100 That Are Trendy, Cool, and Useful",
-      "summary": "We got everything from beauty to accessories, tech, and games starting at just $7.",
-      "url": "https://www.teenvogue.com/gallery/secret-santa-gift-ideas",
-      "published": "2026-11-13T20:01:09+00:00",
-      "image": "https://assets.teenvogue.com/photos/6af75a5b2628910fdb6f6c0a/master/pass/SecretSanta%20_gift%20guide%20(2).jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -418,6 +418,19 @@
       "transcript_url": ""
     },
     {
+      "key": "6f2f0a8bca9251",
+      "source": "NASA Photojournal",
+      "category": "Science & Tech",
+      "emoji": "🌌",
+      "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
+      "summary": "Description This 360-degree look at Neretva Vallis within Mars’ Jezero Crater was stitched together using 217 images acquired by the rover’s Mastcam-Z on May 20, 2024, the 1,155th Martian day, or sol, of…",
+      "url": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
+      "published": "2026-10-26T00:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "a188fec91b9c32",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -426,19 +439,6 @@
       "summary": "Deborah Cook, costumer designer at stop-motion animation studio Laika, discusses creating tiny costumes for puppets in a fantastical world set in the forests of Portland, Oregon",
       "url": "https://www.smithsonianmag.com/arts-culture/wildwood-is-the-longest-stop-motion-animated-film-ever-each-frame-of-the-movie-is-a-marvel-of-handcrafted-world-building-180989742/",
       "published": "2026-10-23T16:45:28+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "e7b8c6c5e6698c",
-      "source": "Smithsonian Science",
-      "category": "Science & Tech",
-      "emoji": "🔭",
-      "title": "Green Sea Turtles Are Making a Remarkable Comeback on the Remote Aldabra Atoll and Around the World. But Their Recovery Is Far From Complete",
-      "summary": "One year after the species was reclassified from “endangered” to “least concern,” green turtles in the western Indian Ocean exemplify that return—and the subtleties a global designation can miss",
-      "url": "https://www.smithsonianmag.com/science-nature/green-sea-turtles-are-making-a-remarkable-comeback-on-the-remote-aldabra-atoll-and-around-the-world-but-their-recovery-is-far-from-complete-180989710/",
-      "published": "2026-10-21T19:00:00+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
