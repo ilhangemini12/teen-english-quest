@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-20T23:04:55.819824+00:00",
+  "updated_at": "2026-11-21T13:27:39.072317+00:00",
   "items": [
+    {
+      "key": "62337e69d88bc4",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Why intuition is the heart of music | Fabiola Reyna",
+      "summary": "For guitarist and TED Fellow Fabiola Reyna, music is first and foremost a way of connecting — to ourselves, our ancestors and each other. They take us inside their creative process, discussing why great…",
+      "url": "http://go.ted.com/FabiolaReyna",
+      "published": "2026-11-21T11:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6b00794904470b737a38a15a/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "481b4c5cce0f7c",
       "source": "TED Talks Daily",
@@ -119,19 +132,6 @@
       "transcript_url": ""
     },
     {
-      "key": "e94ff2cadaa869",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "The “godfather of AI” on the risks that worry him most | Geoffrey Hinton",
-      "summary": "Geoffrey Hinton helped create the neural networks behind today’s AI, won a Nobel Prize for it — and has spent the years since warning about where it’s headed. In conversation with journalist Nicholas…",
-      "url": "http://go.ted.com/GeoffreyHinton",
-      "published": "2026-11-18T21:46:01+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6afc7f5d22c8b5ded545df81/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "dcc63a4b85722a",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -180,6 +180,19 @@
       "url": "https://www.smithsonianmag.com/arts-culture/intricate-textile-designs-william-morris-bring-conflict-concepts-art-accessibility-180989837/",
       "published": "2026-11-16T15:00:00+00:00",
       "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "3684ea7cfddd88",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Abyssal Zone",
+      "summary": "This layer of the ocean lies far out of reach of sunlight. Yet, life still thrives.",
+      "url": "https://www.snexplores.org/article/scientists-say-abyssal-zone-definition-pronunciation",
+      "published": "2026-11-16T14:04:15+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_SS_abyssal_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -245,19 +258,6 @@
       "url": "https://www.teenvogue.com/gallery/secret-santa-gift-ideas",
       "published": "2026-11-13T20:01:09+00:00",
       "image": "https://assets.teenvogue.com/photos/6af75a5b2628910fdb6f6c0a/master/pass/SecretSanta%20_gift%20guide%20(2).jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "35478cb778fa89",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "How brain-eating amoebas may wriggle into someone’s brain",
-      "summary": "Naegleria amoebas are dogged explorers, especially in tight spaces. These behaviors might help these brain-eating microbes crawl into our heads.",
-      "url": "https://www.snexplores.org/article/how-brain-eating-amoebas-infect",
-      "published": "2026-11-13T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_amoeba_main_rev.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
