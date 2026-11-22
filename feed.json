@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T22:10:59.338380+00:00",
+  "updated_at": "2026-11-22T13:19:45.099099+00:00",
   "items": [
     {
       "key": "62337e69d88bc4",
@@ -106,19 +106,6 @@
       "transcript_url": ""
     },
     {
-      "key": "2666ad003c2441",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Peru’s penguins are in trouble. A super El Niño could worsen things",
-      "summary": "Bird flu, overfishing and warming seas have crashed the world’s largest colony of Humboldt penguins. Scientists are working to help them bounce back.",
-      "url": "https://www.snexplores.org/article/peru-penguins-el-nino-trouble",
-      "published": "2026-11-19T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/0926_as_penguins_main.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "af51618fc8da4d",
       "source": "BBC 6 Minute English",
       "category": "British English",
@@ -129,19 +116,6 @@
       "published": "2026-11-19T10:07:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pnsz8p.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "1595e9e271edd6",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Exclusive: F1 Academy Is Coming to Apple TV in 2027",
-      "summary": "F1 Academy’s managing director Susie Wolff and Emma Felbermayr explain how the partnership could shift the sport for women drivers.",
-      "url": "https://www.teenvogue.com/story/exclusive-f1-academy-is-coming-to-apple-tv-in-2027",
-      "published": "2026-11-19T04:00:00+00:00",
-      "image": "https://assets.teenvogue.com/photos/6afe61c3ae9c681c5b1d4133/master/pass/GettyImages-2301845510.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
@@ -210,6 +184,19 @@
       "transcript_url": ""
     },
     {
+      "key": "b204a20a7b94b3",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Grammys 2027 Nominations: See the Full List of Nominees for Music's Biggest Night",
+      "summary": "Did your fave make the cut?",
+      "url": "https://www.teenvogue.com/story/grammys-2027-nominations-see-the-full-list",
+      "published": "2026-11-16T13:55:32+00:00",
+      "image": "https://assets.teenvogue.com/photos/6af76ad66fe3d0808dfe324a/master/pass/2247565898",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "e950c6cfff9ddd",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -259,6 +246,19 @@
       "published": "2026-11-15T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee1ada1ad1a30ae5d0bb39/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "35478cb778fa89",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "How brain-eating amoebas may wriggle into someone’s brain",
+      "summary": "Naegleria amoebas are dogged explorers, especially in tight spaces. These behaviors might help these brain-eating microbes crawl into our heads.",
+      "url": "https://www.snexplores.org/article/how-brain-eating-amoebas-infect",
+      "published": "2026-11-13T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_amoeba_main_rev.jpg?w=800",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
