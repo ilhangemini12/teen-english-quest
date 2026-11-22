@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22T13:19:45.099099+00:00",
+  "updated_at": "2026-11-22T22:28:25.455383+00:00",
   "items": [
     {
       "key": "62337e69d88bc4",
@@ -76,19 +76,6 @@
       "url": "https://www.teenvogue.com/story/mckenna-grace-hid-braids-in-hair-for-hunger-games-fans-to-find",
       "published": "2026-11-19T21:51:52+00:00",
       "image": "https://assets.teenvogue.com/photos/6aff6e5806e4f08c23b01c4a/master/pass/2305471563",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "55137df594d9df",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "37 Trendy Picks to Shop at the Nordstrom Black Friday Sale 2026: $100 Birkenstocks, $70 Uggs, & Fleece Under $50",
-      "summary": "Starting today!",
-      "url": "https://www.teenvogue.com/story/nordstrom-sale-best-trendy-fashion-picks",
-      "published": "2026-11-19T21:02:49+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aece55d08f109d4ca225d47/master/pass/puma_ballet-blackfriday.jpg",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -246,6 +233,19 @@
       "published": "2026-11-15T07:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee1ada1ad1a30ae5d0bb39/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "06a3e08ac53eb9",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "65 Best Secret Santa Gifts Under $10 to $100 That Are Trendy, Cool, and Useful",
+      "summary": "We got everything from beauty to accessories, tech, and games starting at just $7.",
+      "url": "https://www.teenvogue.com/gallery/secret-santa-gift-ideas",
+      "published": "2026-11-13T20:01:09+00:00",
+      "image": "https://assets.teenvogue.com/photos/6af75a5b2628910fdb6f6c0a/master/pass/SecretSanta%20_gift%20guide%20(2).jpg",
+      "audio_url": "",
       "transcript_url": ""
     },
     {
