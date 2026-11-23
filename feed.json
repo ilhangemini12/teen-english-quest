@@ -1,6 +1,58 @@
 {
-  "updated_at": "2026-11-22T22:28:25.455383+00:00",
+  "updated_at": "2026-11-23T15:57:02.903699+00:00",
   "items": [
+    {
+      "key": "d89720b7fde55d",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Why government is slow — and how to fix it | Li Hongyi",
+      "summary": "Government is slow at solving problems — and technologist Li Hongyi wants to fix that. In a quick talk, he introduces his experimental team in the Singaporean government, which visits schools, hospitals,…",
+      "url": "http://go.ted.com/LiHongyi",
+      "published": "2026-11-23T15:47:30+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6b045e0af068e148d201778b/media.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "f7cdaf48ed2dcc",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Analyze This: Color might explain baboon’s link to Egyptian god",
+      "summary": "Ancient Egyptians might have linked hamadryas baboons with the moon god Thoth due to their silvery fur.",
+      "url": "https://www.snexplores.org/article/baboon-color-egyptian-moon-god",
+      "published": "2026-11-23T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1030_AT_Moon_baboon.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "518e9ffe24d754",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Scientists Say: Noise",
+      "summary": "To analyze a messy set of data, scientists must distinguish real information from background “noise.”",
+      "url": "https://www.snexplores.org/article/scientists-say-noise-definition-pronunciation",
+      "published": "2026-11-23T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_SS_noise_feat.png?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "cab5e09a4092a0",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Business jargon",
+      "summary": "Can you think out of the box or take the helicopter view at work? Learn business jargon. Visit our website ✔️ https://www.bbc.co.uk/learningenglish Follow us ✔️…",
+      "url": "http://www.bbc.co.uk/programmes/p0ppf6kj",
+      "published": "2026-11-23T09:08:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0ppf4l3.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "62337e69d88bc4",
       "source": "TED Talks Daily",
@@ -37,19 +89,6 @@
       "url": "https://www.smithsonianmag.com/arts-culture/these-15-shots-from-the-smithsonian-magazine-photo-contest-capture-radiant-roses-from-all-angles-and-colors-180989908/",
       "published": "2026-11-20T12:00:00+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "1b103c73484780",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Meet Swiftiephylus, a group of insects named after Taylor Swift",
-      "summary": "Four newly described species of Australian plant bug have been named in honor of world-famous pop star Taylor Swift.",
-      "url": "https://www.snexplores.org/article/new-taylor-swift-insects",
-      "published": "2026-11-20T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/091126_JB_tswift-bug_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -223,19 +262,6 @@
       "transcript_url": ""
     },
     {
-      "key": "82c73dad9dbdde",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Sunday Pick: How to challenge your self-limiting beliefs with Shawn Achor | from ReThinking with Adam Grant",
-      "summary": "Your beliefs about yourself and the world have a big impact on your mental health, relationships, and success. As a positive psychology evangelist, Shawn Achor has spent his career studying how to challenge…",
-      "url": "https://audiocollective.ted.com/",
-      "published": "2026-11-15T07:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee1ada1ad1a30ae5d0bb39/media.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "06a3e08ac53eb9",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -271,19 +297,6 @@
       "url": "https://www.snexplores.org/article/video-games-help-mental-health",
       "published": "2026-11-11T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1030_mantal_health_gaming_feat.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "4a1f1e7f4106eb",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "This teen piloted an underwater robot to study kelp forests",
-      "summary": "His observations offer new insight into why some kelp beds are thriving as others are declining.",
-      "url": "https://www.snexplores.org/article/underwater-robot-kelp-forests-jic",
-      "published": "2026-11-10T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_Linden_feat.png?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -480,19 +493,6 @@
       "published": "2026-09-28T08:14:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pctl9z.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "a5b47db97899c8",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Strong adjectives",
-      "summary": "Terrified', 'fantastic', 'amazing' - learn how to use strong adjectives. Find Learning English Grammar: ✔️ https://www.bbc.co.uk/learningenglish/english/features/learning-english-grammar FIND BBC LEARNING…",
-      "url": "http://www.bbc.co.uk/programmes/p0pbpc7j",
-      "published": "2026-09-21T08:09:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3",
       "transcript_url": ""
     },
     {
