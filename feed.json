@@ -1,6 +1,58 @@
 {
-  "updated_at": "2026-11-24T03:20:08.268666+00:00",
+  "updated_at": "2026-11-24T15:52:17.846296+00:00",
   "items": [
+    {
+      "key": "199230092903fd",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "Anania’s New Talk Show Is An Ode To Queer Internet Culture",
+      "summary": "Actor, creator, and host Anania debuts new talk show, exclusively on Tubi.",
+      "url": "https://www.teenvogue.com/story/ananias-new-talk-show-is-an-ode-to-queer-internet-culture",
+      "published": "2026-11-24T15:27:55+00:00",
+      "image": "https://assets.teenvogue.com/photos/6afe208f6eb14b78ffc5d19c/master/pass/Poster1.JPEG",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "98190b3a671806",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Meet the first new living cat species described in more than a century",
+      "summary": "Genetic tests on two of these teeny tiger cats, found in Bolivia, show they constitute a new species. They add a new branch to the feline family tree.",
+      "url": "https://www.snexplores.org/article/new-living-cat-species",
+      "published": "2026-11-24T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_newcat_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "d88697cf90f361",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Hydrogels could help stop wildfires from reigniting, teens find",
+      "summary": "The brothers custom built a nozzle to spray their fire-retardant hydrogels up to 60 feet.",
+      "url": "https://www.snexplores.org/article/hydrogels-stop-wildfire-reigniting-jic",
+      "published": "2026-11-24T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_Jack-and-Henry_feat.png?w=780",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "b03a4cee1935a3",
+      "source": "BBC Learning English Conversations",
+      "category": "British English",
+      "emoji": "💬",
+      "title": "A regular fixture",
+      "summary": "This is an expression about often being in the same place or context. Learn how to use it in this programme. Get your free transcript of this episode so you can read along here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0ppljhw",
+      "published": "2026-11-24T09:56:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pplj4v.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "ea8b8d81afe3be",
       "source": "Teen Vogue",
@@ -11,19 +63,6 @@
       "url": "https://www.teenvogue.com/story/winter-nail-designs-ideas-2026",
       "published": "2026-11-23T20:21:02+00:00",
       "image": "https://assets.teenvogue.com/photos/6b03693919aebb7260149bc2/master/pass/2300759526",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "5390d3ef804547",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Olive Young Black Friday Deals 2026: K-Beauty Approved by Hudson Williams, ATEEZ's Yeosang, & More",
-      "summary": "Here's how to get the deal.",
-      "url": "https://www.teenvogue.com/story/olive-young-black-friday-deals-2026-k-beauty-approved-by-hudson-williams-ateezs-yeosang-and-more",
-      "published": "2026-11-23T18:09:55+00:00",
-      "image": "https://assets.teenvogue.com/photos/6b047c2017a92c423944d051/master/pass/Olive_Young%20(1).jpg",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -158,19 +197,6 @@
       "transcript_url": ""
     },
     {
-      "key": "af51618fc8da4d",
-      "source": "BBC 6 Minute English",
-      "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "Are microplastics harming us?",
-      "summary": "How much plastic do you use on a daily basis? And how much of it is used to package or prepare food? Recently, scientists are becoming increasingly concerned that microplastics, tiny bits of plastic…",
-      "url": "http://www.bbc.co.uk/programmes/p0pnt62q",
-      "published": "2026-11-19T10:07:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pnsz8p.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "dcc63a4b85722a",
       "source": "Teen Vogue",
       "category": "Style & Trends",
@@ -223,19 +249,6 @@
       "transcript_url": ""
     },
     {
-      "key": "3684ea7cfddd88",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Abyssal Zone",
-      "summary": "This layer of the ocean lies far out of reach of sunlight. Yet, life still thrives.",
-      "url": "https://www.snexplores.org/article/scientists-say-abyssal-zone-definition-pronunciation",
-      "published": "2026-11-16T14:04:15+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_SS_abyssal_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "e950c6cfff9ddd",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -284,19 +297,6 @@
       "url": "https://www.snexplores.org/article/how-brain-eating-amoebas-infect",
       "published": "2026-11-13T11:30:00+00:00",
       "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_amoeba_main_rev.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "a37c63f32da339",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Some video games offer mental-health benefits",
-      "summary": "The PlaySmart video game lowered teens’ symptoms of depression. This benefit was still there a year after they stopped playing the game.",
-      "url": "https://www.snexplores.org/article/video-games-help-mental-health",
-      "published": "2026-11-11T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1030_mantal_health_gaming_feat.jpg?w=800",
       "audio_url": "",
       "transcript_url": ""
     },
