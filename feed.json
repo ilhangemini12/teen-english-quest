@@ -1,6 +1,84 @@
 {
-  "updated_at": "2026-11-25T01:25:30.913725+00:00",
+  "updated_at": "2026-11-25T15:35:13.934265+00:00",
   "items": [
+    {
+      "key": "fa611b3e732271",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "All the Details Behind Lara Raj's 21st Birthday Makeup",
+      "summary": "Straight from her makeup artist Andrew Park!",
+      "url": "https://www.teenvogue.com/story/all-the-details-behind-lara-rajs-21st-birthday-makeup",
+      "published": "2026-11-25T14:54:12+00:00",
+      "image": "https://assets.teenvogue.com/photos/6b06ef516a434fb2f29ab965/master/pass/Photo%20Nov%2023%202026,%2000%2024%2005.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "02ba2737b666cb",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "English in a Minute: Four meanings of 'note'",
+      "summary": "You might already know one meaning of 'note' – a short piece of writing, often used to help remember something. But do you know these four other meanings? Get to know the word 'note' with Georgie!",
+      "url": "http://www.bbc.co.uk/programmes/p0pplqrr",
+      "published": "2026-11-25T14:00:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pplq5h.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "a1a4975305ee6f",
+      "source": "Smithsonian Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎨",
+      "title": "The Ten Best Books About Food of 2026",
+      "summary": "Food can provide comfort, and so can cookbooks and food-related memoirs—especially this batch, many of which explore how food can be a salve for mental health",
+      "url": "https://www.smithsonianmag.com/arts-culture/the-ten-best-books-about-food-of-2026-180989914/",
+      "published": "2026-11-25T13:45:33+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "5db5b8d8c6786b",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "24 Native American Movies & TV Shows to Watch During Native American History Month and Beyond",
+      "summary": "Check out these movies, documentaries and shows that bring us more authentic, honest depictions of Indigenous communities, all year round.",
+      "url": "https://www.teenvogue.com/story/native-american-movies-tv-shows-indigenous-history-culture-thanksgiving",
+      "published": "2026-11-25T12:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/68014b888c4137ed55044f49/master/pass/North_of_North_n_S1_E6_00_00_19_02R.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "adb66737ab0874",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "Insects once had 24 legs",
+      "summary": "A many-legged creature from long ago helps fill a major gap in the fossil record — and hints at how today’s insects ended up with just six legs.",
+      "url": "https://www.snexplores.org/article/insects-had-24-legs",
+      "published": "2026-11-25T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/082526_ED_insectfossil_main.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "10f6541e7939ec",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Can AI show us how language works? | Jennifer Hu",
+      "summary": "Language is central to nearly every moment of our lives, yet researchers know surprisingly little about how it works. Using AI models as a new kind of lab for studying how humans learn language,…",
+      "url": "http://go.ted.com/JenniferHu",
+      "published": "2026-11-25T09:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6b04888bf5587e011de1fed1/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "e536f1cb0900bb",
       "source": "Teen Vogue",
@@ -24,19 +102,6 @@
       "url": "https://www.smithsonianmag.com/science-nature/the-six-biggest-takeaways-from-cop31-which-ended-without-an-agreement-after-talks-broke-down-180989933/",
       "published": "2026-11-24T17:35:08+00:00",
       "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "199230092903fd",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Anania’s New Talk Show Is An Ode To Queer Internet Culture",
-      "summary": "Actor, creator, and host Anania debuts new talk show, exclusively on Tubi.",
-      "url": "https://www.teenvogue.com/story/ananias-new-talk-show-is-an-ode-to-queer-internet-culture",
-      "published": "2026-11-24T15:27:55+00:00",
-      "image": "https://assets.teenvogue.com/photos/6afe208f6eb14b78ffc5d19c/master/pass/Poster1.JPEG",
       "audio_url": "",
       "transcript_url": ""
     },
@@ -223,29 +288,16 @@
       "transcript_url": ""
     },
     {
-      "key": "dcc63a4b85722a",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "Carter Faith’s ‘Sunrise on the Reaping’ Premiere Look Is an Homage to the Mockingjay",
-      "summary": "The country star breaks down the details of her Hunger Games premiere fit.",
-      "url": "https://www.teenvogue.com/story/carter-faith-sunrise-on-the-reaping-premiere-look-grwm",
-      "published": "2026-11-17T20:12:16+00:00",
-      "image": "https://assets.teenvogue.com/photos/6afca1d924fe3d6c4e47678d/master/pass/5.jpg",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "9ae50d73e3d549",
-      "source": "BBC Learning English Conversations",
+      "key": "af51618fc8da4d",
+      "source": "BBC 6 Minute English",
       "category": "British English",
-      "emoji": "💬",
-      "title": "The English We Speak: In for a treat",
-      "summary": "This expression is about experiencing something enjoyable. Get your free transcript of this episode so you can read along here:…",
-      "url": "http://www.bbc.co.uk/programmes/p0pndtpr",
-      "published": "2026-11-17T12:21:00+00:00",
+      "emoji": "🇬🇧",
+      "title": "Are microplastics harming us?",
+      "summary": "How much plastic do you use on a daily basis? And how much of it is used to package or prepare food? Recently, scientists are becoming increasingly concerned that microplastics, tiny bits of plastic…",
+      "url": "http://www.bbc.co.uk/programmes/p0pnt62q",
+      "published": "2026-11-19T10:07:00+00:00",
       "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pndt26.mp3",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pnsz8p.mp3",
       "transcript_url": ""
     },
     {
@@ -301,19 +353,6 @@
       "transcript_url": ""
     },
     {
-      "key": "35478cb778fa89",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "How brain-eating amoebas may wriggle into someone’s brain",
-      "summary": "Naegleria amoebas are dogged explorers, especially in tight spaces. These behaviors might help these brain-eating microbes crawl into our heads.",
-      "url": "https://www.snexplores.org/article/how-brain-eating-amoebas-infect",
-      "published": "2026-11-13T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_amoeba_main_rev.jpg?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "19c4bd4893af97",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -324,19 +363,6 @@
       "published": "2026-11-10T11:14:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pm8f16.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "23c0b57c698ffd",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Sunday Pick: The science on improving your brain health with Dr. Ayesha and Dean Sherzai",
-      "summary": "When does normal aging end and something more concerning begins? In this episode Shoshana invites neurologist Drs. Ayesha and Dean Sherzai to discuss their studies on Alzheimer’s and Dementia. They debunk…",
-      "url": "https://audiocollective.ted.com/",
-      "published": "2026-11-08T07:00:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aee46b760a59de70fef4385/media.mp3",
       "transcript_url": ""
     },
     {
@@ -374,19 +400,6 @@
       "summary": "The hemoglobin in humans’ blood is not the standard for all critters—and one group of Antarctic fish are the only vertebrates to not have red blood cells at all",
       "url": "https://www.smithsonianmag.com/science-nature/the-bloody-palette-of-the-animal-kingdom-goes-far-beyond-red-these-creatures-have-blood-that-runs-a-chilling-blue-bright-green-or-milky-white-180989752/",
       "published": "2026-10-30T11:30:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "466e1a66c33dfd",
-      "source": "Smithsonian Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎨",
-      "title": "A Cult Grew Around the First Emperor of Rome in 27 B.C. A New Book Argues His Followers Might Have Created the Template for Christianity",
-      "summary": "Augustus was seen as a descendant of the gods who would go on to redefine authority. New research posits that his rule paved the way for Jesus",
-      "url": "https://www.smithsonianmag.com/arts-culture/cult-grew-around-first-emperor-rome-27-bce-new-book-argues-followers-created-template-christ-180989647/",
-      "published": "2026-10-29T13:00:00+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
@@ -480,19 +493,6 @@
       "published": "2026-10-06T18:14:23+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "b81b755dc0db73",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Adjectives ending with -ic and -ical",
-      "summary": "'Classic' or 'classical'? Learn about adjectives ending in -ic and -ical. Find Learning English Grammar: ✔️ https://www.bbc.co.uk/learningenglish/english/features/learning-english-grammar FIND BBC LEARNING…",
-      "url": "http://www.bbc.co.uk/programmes/p0pctlbw",
-      "published": "2026-09-28T08:14:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pctl9z.mp3",
       "transcript_url": ""
     },
     {
