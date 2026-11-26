@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-25T15:35:13.934265+00:00",
+  "updated_at": "2026-11-26T00:59:39.317878+00:00",
   "items": [
+    {
+      "key": "5fece54cb5d8c4",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "29 Best Gifts for Gamers, According to Video Game Enthusiasts",
+      "summary": "From accessories to budget picks and splurges, these are the best gifts for the gamers in your life.",
+      "url": "https://www.teenvogue.com/story/best-gifts-for-gamers-according-to-video-game-enthusiasts",
+      "published": "2026-11-25T16:35:14+00:00",
+      "image": "https://assets.teenvogue.com/photos/6b06fbb0894c3df8f27b8e0f/master/pass/Gamer_Back%20Friday%20Gift%20guide.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "fa611b3e732271",
       "source": "Teen Vogue",
@@ -77,19 +90,6 @@
       "published": "2026-11-25T09:00:00+00:00",
       "image": "",
       "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6b04888bf5587e011de1fed1/media.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "e536f1cb0900bb",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "How to Do The Body's Elise Zakaria Claw Clip Hairstyle",
-      "summary": "Here's how to get the look, from the source.",
-      "url": "https://www.teenvogue.com/story/how-to-do-the-bodys-elise-zakaria-claw-clip-hairstyle",
-      "published": "2026-11-24T18:03:22+00:00",
-      "image": "https://assets.teenvogue.com/photos/6b0581f61bd0e60d1679da1d/master/pass/The_Body_n_S1_E6_00_22_28_20RC.jpg",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
