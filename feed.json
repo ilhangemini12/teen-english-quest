@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-26T00:59:39.317878+00:00",
+  "updated_at": "2026-11-26T15:12:25.719422+00:00",
   "items": [
+    {
+      "key": "73420e7a723b28",
+      "source": "BBC 6 Minute English",
+      "category": "British English",
+      "emoji": "🇬🇧",
+      "title": "Is Gen Z getting less intelligent?",
+      "summary": "When was the last time you read a physical book? For older generations, school was full of textbooks and workbooks, but for younger generations these have been replaced with laptops and tablets. But is this…",
+      "url": "http://www.bbc.co.uk/programmes/p0ppzy2r",
+      "published": "2026-11-26T09:31:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0ppzxv4.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "5fece54cb5d8c4",
       "source": "Teen Vogue",
@@ -184,19 +197,6 @@
       "transcript_url": ""
     },
     {
-      "key": "518e9ffe24d754",
-      "source": "Science News Explores",
-      "category": "Science & Tech",
-      "emoji": "🧪",
-      "title": "Scientists Say: Noise",
-      "summary": "To analyze a messy set of data, scientists must distinguish real information from background “noise.”",
-      "url": "https://www.snexplores.org/article/scientists-say-noise-definition-pronunciation",
-      "published": "2026-11-23T11:30:00+00:00",
-      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/1440_SS_noise_feat.png?w=800",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "cab5e09a4092a0",
       "source": "BBC Learning English Vocabulary",
       "category": "British English",
@@ -353,6 +353,19 @@
       "transcript_url": ""
     },
     {
+      "key": "35478cb778fa89",
+      "source": "Science News Explores",
+      "category": "Science & Tech",
+      "emoji": "🧪",
+      "title": "How brain-eating amoebas may wriggle into someone’s brain",
+      "summary": "Naegleria amoebas are dogged explorers, especially in tight spaces. These behaviors might help these brain-eating microbes crawl into our heads.",
+      "url": "https://www.snexplores.org/article/how-brain-eating-amoebas-infect",
+      "published": "2026-11-13T11:30:00+00:00",
+      "image": "https://www.snexplores.org/wp-content/uploads/sites/3/2026/11/092326_MR_amoeba_main_rev.jpg?w=800",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "19c4bd4893af97",
       "source": "BBC Learning English Conversations",
       "category": "British English",
@@ -444,19 +457,6 @@
       "transcript_url": ""
     },
     {
-      "key": "ca1a4de561f927",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "Prefixes: re- pre- and pro-",
-      "summary": "Do you recycle your rubbish? We talk about words with the prefixes re, pre and pro. For more great language tips and programmes visit bbclearningenglish.com Find programmes to practise your reading,…",
-      "url": "http://www.bbc.co.uk/programmes/p0pjn13w",
-      "published": "2026-10-26T09:56:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pjn0b3.mp3",
-      "transcript_url": ""
-    },
-    {
       "key": "a188fec91b9c32",
       "source": "Smithsonian Arts & Culture",
       "category": "Culture",
@@ -496,16 +496,16 @@
       "transcript_url": ""
     },
     {
-      "key": "087292ff8a2237",
-      "source": "BBC 6 Minute English",
+      "key": "b81b755dc0db73",
+      "source": "BBC Learning English Vocabulary",
       "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "How do we describe smells?",
-      "summary": "What is the worst smell in the world? And what is the best smell? Are there any smells that you like, but that your friends or family hate? Smells are all around us all the time, but the English language is…",
-      "url": "http://www.bbc.co.uk/programmes/p0p6j3xx",
-      "published": "2026-08-27T09:16:00+00:00",
+      "emoji": "🧠",
+      "title": "Adjectives ending with -ic and -ical",
+      "summary": "'Classic' or 'classical'? Learn about adjectives ending in -ic and -ical. Find Learning English Grammar: ✔️ https://www.bbc.co.uk/learningenglish/english/features/learning-english-grammar FIND BBC LEARNING…",
+      "url": "http://www.bbc.co.uk/programmes/p0pctlbw",
+      "published": "2026-09-28T08:14:00+00:00",
       "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0p6j2hz.mp3",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pctl9z.mp3",
       "transcript_url": ""
     },
     {
