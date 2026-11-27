@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-26T15:12:25.719422+00:00",
+  "updated_at": "2026-11-27T01:00:26.613892+00:00",
   "items": [
+    {
+      "key": "844be74a5a46f0",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "The Best Black Friday Beauty Tool Deals: Shark FlexStyle, Wavytalk Thermal Brush, Therabody Wand, and More",
+      "summary": "Shark FlexStyle, Wavytalk Thermal Brush, Therabody Wand, and More.",
+      "url": "https://www.teenvogue.com/story/the-best-black-friday-beauty-tool-deals-shark-flexstyle-wavytalk-thermal-brush-therabody-wand-and-more",
+      "published": "2026-11-26T17:00:00+00:00",
+      "image": "https://assets.teenvogue.com/photos/6b0719efbf7d06a8e637a703/master/pass/Beauty_Gift%20Guides.jpg",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "73420e7a723b28",
       "source": "BBC 6 Minute English",
@@ -155,19 +168,6 @@
       "published": "2026-11-24T09:56:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pplj4v.mp3",
-      "transcript_url": ""
-    },
-    {
-      "key": "ea8b8d81afe3be",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "17 Trendy Winter Nail Designs for 2026: Chrome Blue, Almond, Cranberry, & More",
-      "summary": "Chrome blue, cranberry, black velvet, almond, and more.",
-      "url": "https://www.teenvogue.com/story/winter-nail-designs-ideas-2026",
-      "published": "2026-11-23T20:21:02+00:00",
-      "image": "https://assets.teenvogue.com/photos/6b03693919aebb7260149bc2/master/pass/2300759526",
-      "audio_url": "",
       "transcript_url": ""
     },
     {
