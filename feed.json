@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-27T01:00:26.613892+00:00",
+  "updated_at": "2026-11-27T15:03:31.905190+00:00",
   "items": [
+    {
+      "key": "b12a96c24c26b9",
+      "source": "Smithsonian Innovation",
+      "category": "Science & Tech",
+      "emoji": "💡",
+      "title": "Looking for a Gift for a Curious Kid? These Ten STEM Toys Make Engineering Fun",
+      "summary": "A team of students and faculty at Purdue University released their annual gift guide, featuring a range of toys and books that foster creativity and provide hands-on education",
+      "url": "https://www.smithsonianmag.com/innovation/looking-for-a-gift-for-a-curious-kid-these-ten-stem-toys-make-engineering-fun-180989948/",
+      "published": "2026-11-27T12:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
     {
       "key": "844be74a5a46f0",
       "source": "Teen Vogue",
@@ -288,16 +301,16 @@
       "transcript_url": ""
     },
     {
-      "key": "af51618fc8da4d",
-      "source": "BBC 6 Minute English",
+      "key": "9ae50d73e3d549",
+      "source": "BBC Learning English Conversations",
       "category": "British English",
-      "emoji": "🇬🇧",
-      "title": "Are microplastics harming us?",
-      "summary": "How much plastic do you use on a daily basis? And how much of it is used to package or prepare food? Recently, scientists are becoming increasingly concerned that microplastics, tiny bits of plastic…",
-      "url": "http://www.bbc.co.uk/programmes/p0pnt62q",
-      "published": "2026-11-19T10:07:00+00:00",
+      "emoji": "💬",
+      "title": "The English We Speak: In for a treat",
+      "summary": "This expression is about experiencing something enjoyable. Get your free transcript of this episode so you can read along here:…",
+      "url": "http://www.bbc.co.uk/programmes/p0pndtpr",
+      "published": "2026-11-17T12:21:00+00:00",
       "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pnsz8p.mp3",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pndt26.mp3",
       "transcript_url": ""
     },
     {
@@ -426,19 +439,6 @@
       "summary": "The origin story has two settings: In Colorado, a gang of riders had the tenacity to conquer a treacherous terrain, and in California, others had the technology to design the ideal ride",
       "url": "https://www.smithsonianmag.com/innovation/before-mountain-biking-became-popular-recreational-sports-adventurous-souls-american-west-invent-rugged-bike-180989645/",
       "published": "2026-10-29T11:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "cf298063282249",
-      "source": "NASA Photojournal",
-      "category": "Science & Tech",
-      "emoji": "🌌",
-      "title": "Map Showing Potential Origins of Martian Meteorite Teghaza 001",
-      "summary": "Description This global map of Mars shows 13 locations that match the mineralogy and chemistry of Teghaza 001, one of the most ancient Martian meteorites ever found on Earth. While scientists can never know…",
-      "url": "https://science.nasa.gov/photojournal/map-showing-potential-origins-of-martian-meteorite-teghaza-001/",
-      "published": "2026-10-29T00:00:00+00:00",
       "image": "",
       "audio_url": "",
       "transcript_url": ""
