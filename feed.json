@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T15:03:31.905190+00:00",
+  "updated_at": "2026-11-28T00:32:40.761621+00:00",
   "items": [
     {
       "key": "b12a96c24c26b9",
@@ -12,6 +12,19 @@
       "published": "2026-11-27T12:00:00+00:00",
       "image": "",
       "audio_url": "",
+      "transcript_url": ""
+    },
+    {
+      "key": "03155d87c1509d",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "Why thinking about death helps you live a better life | Alua Arthur (re-release)",
+      "summary": "As a death doula, or someone who supports dying people and their loved ones, Alua Arthur spends a lot of time thinking about the end of life. In a profound talk that examines our brief, perfectly human time…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-11-27T09:06:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6b05d6f557045eccfdcd6ecd/media.mp3",
       "transcript_url": ""
     },
     {
@@ -184,6 +197,19 @@
       "transcript_url": ""
     },
     {
+      "key": "ea8b8d81afe3be",
+      "source": "Teen Vogue",
+      "category": "Style & Trends",
+      "emoji": "✨",
+      "title": "17 Trendy Winter Nail Designs for 2026: Chrome Blue, Almond, Cranberry, & More",
+      "summary": "Chrome blue, cranberry, black velvet, almond, and more.",
+      "url": "https://www.teenvogue.com/story/winter-nail-designs-ideas-2026",
+      "published": "2026-11-23T20:21:02+00:00",
+      "image": "https://assets.teenvogue.com/photos/6b03693919aebb7260149bc2/master/pass/2300759526",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "d89720b7fde55d",
       "source": "TED Talks Daily",
       "category": "Podcast",
@@ -272,32 +298,6 @@
       "published": "2026-11-20T00:00:00+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "d2da450a36d590",
-      "source": "Teen Vogue",
-      "category": "Style & Trends",
-      "emoji": "✨",
-      "title": "How Mckenna Grace Hid Braids in Her Hair for Hunger Games Fans to Find",
-      "summary": "Hairstylist Glen Coco shared all the deets.",
-      "url": "https://www.teenvogue.com/story/mckenna-grace-hid-braids-in-hair-for-hunger-games-fans-to-find",
-      "published": "2026-11-19T21:51:52+00:00",
-      "image": "https://assets.teenvogue.com/photos/6aff6e5806e4f08c23b01c4a/master/pass/2305471563",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "0d7e8fe192ce1f",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "A letter to the end of time | Lau Noah",
-      "summary": "You’ve likely never met composer Lau Noah, but she has a wish for you: that someday you’ll look back on your life and feel at peace. In a soulful performance that’s part concert, part story hour, she weaves…",
-      "url": "http://go.ted.com/launoah",
-      "published": "2026-11-19T16:56:31+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6aff1debc1a867006b449928/media.mp3",
       "transcript_url": ""
     },
     {
