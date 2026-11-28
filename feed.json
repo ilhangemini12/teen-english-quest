@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-28T00:32:40.761621+00:00",
+  "updated_at": "2026-11-28T14:11:18.788200+00:00",
   "items": [
+    {
+      "key": "1fea3e68277476",
+      "source": "TED Talks Daily",
+      "category": "Podcast",
+      "emoji": "🎧",
+      "title": "How to weave a cultural legacy through storytelling | Cohen Bradley (re-release)",
+      "summary": "\"I think of legacy as the weaving together of our stories passed on as a whole,\" says Haida storyteller Cohen Bradley. Highlighting the significance of potlatch ceremonies (or gift-giving feasts) and other…",
+      "url": "https://audiocollective.ted.com/",
+      "published": "2026-11-28T09:00:00+00:00",
+      "image": "",
+      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6b0714d75f5f2316633ac0c8/media.mp3",
+      "transcript_url": ""
+    },
     {
       "key": "b12a96c24c26b9",
       "source": "Smithsonian Innovation",
@@ -12,19 +25,6 @@
       "published": "2026-11-27T12:00:00+00:00",
       "image": "",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "03155d87c1509d",
-      "source": "TED Talks Daily",
-      "category": "Podcast",
-      "emoji": "🎧",
-      "title": "Why thinking about death helps you live a better life | Alua Arthur (re-release)",
-      "summary": "As a death doula, or someone who supports dying people and their loved ones, Alua Arthur spends a lot of time thinking about the end of life. In a profound talk that examines our brief, perfectly human time…",
-      "url": "https://audiocollective.ted.com/",
-      "published": "2026-11-27T09:06:00+00:00",
-      "image": "",
-      "audio_url": "https://sphinx.acast.com/p/open/s/67587e77c705e441797aff96/e/6b05d6f557045eccfdcd6ecd/media.mp3",
       "transcript_url": ""
     },
     {
@@ -77,19 +77,6 @@
       "published": "2026-11-25T14:54:12+00:00",
       "image": "https://assets.teenvogue.com/photos/6b06ef516a434fb2f29ab965/master/pass/Photo%20Nov%2023%202026,%2000%2024%2005.jpg",
       "audio_url": "",
-      "transcript_url": ""
-    },
-    {
-      "key": "02ba2737b666cb",
-      "source": "BBC Learning English Vocabulary",
-      "category": "British English",
-      "emoji": "🧠",
-      "title": "English in a Minute: Four meanings of 'note'",
-      "summary": "You might already know one meaning of 'note' – a short piece of writing, often used to help remember something. But do you know these four other meanings? Get to know the word 'note' with Georgie!",
-      "url": "http://www.bbc.co.uk/programmes/p0pplqrr",
-      "published": "2026-11-25T14:00:00+00:00",
-      "image": "",
-      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pplq5h.mp3",
       "transcript_url": ""
     },
     {
@@ -275,19 +262,6 @@
       "transcript_url": ""
     },
     {
-      "key": "ed6dcdb7e3fd06",
-      "source": "Smithsonian Arts & Culture",
-      "category": "Culture",
-      "emoji": "🎨",
-      "title": "These 15 Shots From the Smithsonian Magazine Photo Contest Capture Radiant Roses From All Angles and Colors",
-      "summary": "Respect the beauty of the stunning flower, which, as Shakespeare wrote, by any other name would smell as sweet",
-      "url": "https://www.smithsonianmag.com/arts-culture/these-15-shots-from-the-smithsonian-magazine-photo-contest-capture-radiant-roses-from-all-angles-and-colors-180989908/",
-      "published": "2026-11-20T12:00:00+00:00",
-      "image": "",
-      "audio_url": "",
-      "transcript_url": ""
-    },
-    {
       "key": "a20223533ccd7b",
       "source": "NASA Photojournal",
       "category": "Science & Tech",
@@ -431,6 +405,19 @@
       "transcript_url": ""
     },
     {
+      "key": "466e1a66c33dfd",
+      "source": "Smithsonian Arts & Culture",
+      "category": "Culture",
+      "emoji": "🎨",
+      "title": "A Cult Grew Around the First Emperor of Rome in 27 B.C. A New Book Argues His Followers Might Have Created the Template for Christianity",
+      "summary": "Augustus was seen as a descendant of the gods who would go on to redefine authority. New research posits that his rule paved the way for Jesus",
+      "url": "https://www.smithsonianmag.com/arts-culture/cult-grew-around-first-emperor-rome-27-bce-new-book-argues-followers-created-template-christ-180989647/",
+      "published": "2026-10-29T13:00:00+00:00",
+      "image": "",
+      "audio_url": "",
+      "transcript_url": ""
+    },
+    {
       "key": "4ce87108d5f13a",
       "source": "Smithsonian Innovation",
       "category": "Science & Tech",
@@ -506,6 +493,19 @@
       "published": "2026-09-28T08:14:00+00:00",
       "image": "",
       "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pctl9z.mp3",
+      "transcript_url": ""
+    },
+    {
+      "key": "a5b47db97899c8",
+      "source": "BBC Learning English Vocabulary",
+      "category": "British English",
+      "emoji": "🧠",
+      "title": "Strong adjectives",
+      "summary": "Terrified', 'fantastic', 'amazing' - learn how to use strong adjectives. Find Learning English Grammar: ✔️ https://www.bbc.co.uk/learningenglish/english/features/learning-english-grammar FIND BBC LEARNING…",
+      "url": "http://www.bbc.co.uk/programmes/p0pbpc7j",
+      "published": "2026-09-21T08:09:00+00:00",
+      "image": "",
+      "audio_url": "https://open.live.bbc.co.uk/mediaselector/6/redir/version/2.0/mediaset/audio-nondrm-download-rss-low/proto/http/vpid/p0pbpc4m.mp3",
       "transcript_url": ""
     },
     {
